@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>École AUDACE — Découvre la méthode en jouant</title>
+<meta name="description" content="Roule à travers la méthode de l'École AUDACE : crée ton produit, optimise ton profil, poste des vidéos virales, transforme tes vues en argent.">
+<meta property="og:title" content="École AUDACE — Découvre la méthode en jouant">
+<meta property="og:image" content="https://audaceschool.com/img/og.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:#F4E4DF;color:#2A0A10;font-family:'Inter','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior:none}
+#scene{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none}
+.disp{font-family:'Instrument Sans','Inter',sans-serif;font-weight:600;letter-spacing:-.02em}
+.ui{position:fixed;z-index:5;pointer-events:none}
+#top{top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:max(16px,env(safe-area-inset-top)) 20px 0}
+#logo{display:flex;align-items:center;gap:10px;pointer-events:auto;text-decoration:none;color:#2A0A10}
+#logo i{width:26px;height:26px;border-radius:50%;background:#8B0A26;display:block}
+#logo b{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:19px;letter-spacing:.14em}
+#hud{display:flex;gap:8px;opacity:0;transition:opacity .5s}
+.play #hud{opacity:1}
+.chip{display:flex;align-items:baseline;gap:8px;padding:9px 16px;border-radius:999px;background:#FFFFFF;box-shadow:0 6px 20px rgba(42,10,16,.08);font-size:13px;font-weight:600;color:#8A6D72}
+.chip b{font-family:'Instrument Sans',sans-serif;font-size:19px;color:#2A0A10;font-variant-numeric:tabular-nums}
+.chip.e{background:#8B0A26;color:#F6CCD5}.chip.e b{color:#FFFFFF}
+.chip.pop{animation:pop .35s ease}
+@keyframes pop{40%{transform:scale(1.12)}}
+#skip{pointer-events:auto;font-size:13px;font-weight:600;color:#8A6D72;text-decoration:none;padding:9px 4px}
+#skip:hover{color:#8B0A26}
+#panel{left:24px;bottom:max(24px,env(safe-area-inset-bottom));width:min(430px,calc(100vw - 48px));padding:26px 28px 28px;border-radius:22px;background:#FFFFFF;box-shadow:0 24px 60px rgba(42,10,16,.16);opacity:0;transform:translateY(24px) scale(.98);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+#panel.on{opacity:1;transform:none}
+#p-k{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#8B0A26}
+#p-t{margin-top:10px;font-size:34px;line-height:1.05}
+#p-d{margin:12px 0 0;font-size:16px;line-height:1.6;color:#5C4A4E}
+#p-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:50px;padding:0 26px;border-radius:999px;background:#8B0A26;color:#FFFFFF;font-weight:600;font-size:16px;text-decoration:none;pointer-events:auto;transition:transform .2s ease,background .2s ease}
+#p-cta:hover{background:#6E0820;transform:translateY(-2px)}
+#p-cta.go{animation:go 1s ease 2}
+@keyframes go{50%{transform:scale(1.07)}}
+#dots{right:24px;bottom:max(30px,env(safe-area-inset-bottom));display:flex;gap:8px;opacity:0;transition:opacity .5s}
+.play #dots{opacity:1}
+#dots i{width:34px;height:6px;border-radius:3px;background:rgba(139,10,38,.16);transition:background .4s}
+#dots i.on{background:#8B0A26}
+#stick{position:fixed;z-index:4;width:124px;height:124px;margin:-62px 0 0 -62px;border-radius:50%;background:rgba(139,10,38,.10);box-shadow:inset 0 0 0 2px rgba(139,10,38,.22);opacity:0;pointer-events:none;transition:opacity .15s}
+#stick.on{opacity:1}
+#knob{position:absolute;left:50%;top:50%;width:52px;height:52px;border-radius:50%;background:#8B0A26;transform:translate(-50%,-50%)}
+#intro{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(61,4,16,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#FFFFFF;text-align:center;transition:opacity .6s ease,visibility .6s}
+#intro.off{opacity:0;visibility:hidden}
+#intro .in{max-width:640px}
+#intro .k{font-size:12px;font-weight:700;letter-spacing:.24em;color:#F2A7B6}
+#intro h1{margin:18px 0 0;font-size:clamp(40px,7vw,76px);line-height:1.02}
+#intro h1 em{font-style:italic}
+#intro p{margin:20px auto 0;max-width:480px;font-size:18px;line-height:1.6;color:#F3DCD8}
+#start{margin-top:30px;min-height:56px;padding:0 38px;border:0;border-radius:999px;background:#F6CCD5;color:#3D0410;font:600 17px 'Inter',sans-serif;cursor:pointer;transition:transform .2s ease,background .2s ease}
+#start:hover:not(:disabled){background:#FFFFFF;transform:translateY(-2px)}
+#start:disabled{opacity:.6;cursor:default}
+#intro a{display:block;margin-top:18px;color:#F3DCD8;font-size:14px}
+#fallback{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;background:#3D0410;color:#FFFFFF;text-align:center}
+#fallback[hidden],#intro[hidden],#p-cta[hidden],.chip[hidden]{display:none}
+#fallback a{color:#F6CCD5}
+@media (max-width:700px){
+#panel{left:12px;right:12px;width:auto;bottom:max(12px,env(safe-area-inset-bottom));padding:18px 20px 20px;border-radius:18px}
+#p-t{font-size:26px}#p-d{font-size:15px;line-height:1.5}
+#dots{left:0;right:0;justify-content:center;bottom:auto;top:calc(max(16px,env(safe-area-inset-top)) + 52px)}
+#dots i{width:26px;height:5px}
+#skip{display:none}
+.chip{padding:7px 12px;font-size:11px}.chip b{font-size:16px}
+#logo b{font-size:16px}
+}
+@media (prefers-reduced-motion: reduce){#panel,#intro{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="scene" tabindex="0" aria-label="Monde 3D de l'École AUDACE"></canvas>
+
+<div id="top" class="ui">
+<a id="logo" href="./" aria-label="École AUDACE, retour au site"><i></i><b>AUDACE</b></a>
+<div id="hud">
+<div class="chip"><b id="hud-v">0</b> vues</div>
+<div class="chip e" id="hud-ew" hidden><b id="hud-e">0 €</b></div>
+</div>
+<a id="skip" href="./">Voir le site classique →</a>
+</div>
+
+<div id="panel" class="ui" aria-live="polite">
+<div id="p-k"></div>
+<div id="p-t" class="disp"></div>
+<p id="p-d"></p>
+<div id="p-cta" hidden><a id="p-cta-a" href="immersion.html" style="color:inherit;text-decoration:none">Je réserve mon Immersion →</a></div>
+</div>
+<div id="dots" class="ui" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div id="stick"><div id="knob"></div></div>
+
+<div id="intro">
+<div class="in">
+<div class="k">ÉCOLE AUDACE · LA MÉTHODE</div>
+<h1 class="disp">Roule. Casse tout.<br><em>Découvre comment on vit d'internet.</em></h1>
+<p>Tu es le point rouge. Avance sur la route : chaque étape te montre comment nos élèves passent de zéro à leur première vente.</p>
+<button id="start" disabled>Chargement…</button>
+<a href="./">Je préfère le site classique</a>
+</div>
+</div>
+
+<div id="fallback" hidden>
+<div class="disp" style="font-size:32px">Ton navigateur ne peut pas afficher la 3D.</div>
+<a href="./">Découvrir l'École AUDACE sur le site classique →</a>
+</div>
+
+<script type="module" src="jeu.js"></script>
+</body>
+</html>
