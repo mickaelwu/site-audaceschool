@@ -161,6 +161,10 @@ h2{font-size:clamp(28px,3.4vw,40px)}
 <a href="./">Voir le site de l'École AUDACE</a>
 </div>
 <noscript><p style="position:fixed;inset:0;z-index:30;display:grid;place-items:center;background:#3D0410;margin:0;padding:24px;text-align:center">Cette page a besoin de JavaScript. <a href="./" style="color:#F6CCD5">Voir le site de l'École AUDACE</a></p></noscript>
-<script type="module" src="jeu.js"></script>
+<script>
+window.addEventListener('error',function(e){if(e.target&&e.target.tagName&&e.target.tagName!=='SCRIPT')return;var b=document.getElementById('start');if(b&&b.disabled){document.getElementById('fallback').hidden=false;document.getElementById('intro').hidden=true;}},true);
+setTimeout(function(){var b=document.getElementById('start');if(b&&b.disabled){document.getElementById('fallback').hidden=false;document.getElementById('intro').hidden=true;}},15000);
+</script>
+<script type="module" src="qg-8fd94ffa.js"></script>
 </body>
 </html>
