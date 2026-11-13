@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<title>École AUDACE — Visite le QG</title>
-<meta name="description" content="Entre dans le QG de l'École AUDACE. Chaque salle t'apprend une étape pour vivre d'internet. À la fin, tu repars avec ton plan.">
-<meta property="og:title" content="École AUDACE — Visite le QG">
-<meta property="og:description" content="Entre dans le QG de l'École AUDACE. Chaque salle t'apprend une étape pour vivre d'internet. À la fin, tu repars avec ton plan.">
+<title>École AUDACE — Le parcours</title>
+<meta name="description" content="Cours, saute, casse des blocs. Chaque île t'apprend une étape pour vivre d'internet. À la fin, tu repars avec ton plan.">
+<meta property="og:title" content="École AUDACE — Le parcours">
+<meta property="og:description" content="Cours, saute, casse des blocs. Chaque île t'apprend une étape pour vivre d'internet. À la fin, tu repars avec ton plan.">
 <meta property="og:image" content="https://audaceschool.com/img/og.jpg">
 <link rel="canonical" href="https://audaceschool.com/jeu.html">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -99,10 +99,16 @@ h2{font-size:clamp(28px,3.4vw,40px)}
 #final.on{transform:none}
 .sub{font-size:16px}
 }
+.chip.c i{width:14px;height:14px;border-radius:50%;background:#F5C24E;display:block;align-self:center}
+#jump{position:fixed;z-index:5;right:22px;bottom:max(196px,calc(env(safe-area-inset-bottom) + 196px));width:86px;height:86px;border:0;border-radius:50%;background:rgba(139,10,38,.88);color:#fff;font:700 16px 'Instrument Sans',sans-serif;letter-spacing:.04em;display:none;touch-action:none;box-shadow:0 8px 0 #5A0718;transition:transform .08s,box-shadow .08s}
+#jump.dn{transform:translateY(6px);box-shadow:0 2px 0 #5A0718}
+@media (pointer:coarse){.play #jump{display:block}}
+#vig{background:radial-gradient(120% 95% at 50% 45%,rgba(61,4,16,0) 60%,rgba(61,4,16,.28) 100%)}
+html,body{background:#F6B9C6}
 </style>
 </head>
 <body>
-<canvas id="scene" tabindex="0" aria-label="Le QG de l'École AUDACE en 3D"></canvas>
+<canvas id="scene" tabindex="0" aria-label="Le parcours AUDACE en 3D"></canvas>
 <div id="vig"></div>
 <canvas id="fx"></canvas>
 
@@ -110,6 +116,7 @@ h2{font-size:clamp(28px,3.4vw,40px)}
 <a id="logo" href="./" aria-label="École AUDACE, retour au site"><i></i><b>AUDACE</b></a>
 <div id="hud">
 <div class="chip" id="c-f"><b id="hud-f">0</b> abonnés</div>
+<div class="chip c" id="c-c"><i></i><b id="hud-c">0</b></div>
 <div class="chip e" id="c-e" hidden><b id="hud-e">0 €</b></div>
 </div>
 </header>
@@ -121,12 +128,13 @@ h2{font-size:clamp(28px,3.4vw,40px)}
 <div id="cc" hidden><div id="cav"></div><p><b id="cn"></b><span id="cp"></span></p></div>
 </div>
 <div id="stick"><div id="knob"></div></div>
+<button id="jump" aria-label="Sauter">Saut</button>
 
 <aside id="final" class="ui">
 <button id="f-close" aria-label="Fermer">×</button>
-<div class="k">La scène est à toi</div>
+<div class="k">Drapeau attrapé</div>
 <h2 id="f-t">Ton plan est prêt.</h2>
-<p class="p">Tu viens de traverser la méthode. Maintenant, fais-le en vrai, avec un coach à côté de toi.</p>
+<p class="p">Tu viens de traverser la méthode en jouant. Maintenant, fais-le en vrai, avec un coach à côté de toi.</p>
 <a class="btn big pulse" href="immersion.html">Je réserve mon cours d'essai gratuit →</a>
 <p class="p">Ça se passe au QG, à Paris. Tu es loin ? On le fait en visio.</p>
 <div id="f-sim"></div>
@@ -147,10 +155,10 @@ h2{font-size:clamp(28px,3.4vw,40px)}
 <div id="intro" class="ov">
 <div class="in">
 <div class="k">École AUDACE</div>
-<h1>Bienvenue au QG.</h1>
-<p class="sub">Visite l'école. Chaque salle t'apprend une étape pour vivre d'internet. À la fin, tu repars avec ton plan.</p>
+<h1>Le parcours AUDACE.</h1>
+<p class="sub">Cours, saute, casse des blocs. Chaque île t'apprend une étape pour vivre d'internet. À la fin, tu repars avec ton plan.</p>
 <button id="start" class="btn" disabled>Chargement…</button>
-<p class="how">Sur ordinateur : les flèches ou ZQSD. Sur téléphone : glisse ton doigt.</p>
+<p class="how">Ordinateur : flèches ou ZQSD pour courir, Espace pour sauter. Téléphone : glisse ton doigt, et le bouton pour sauter.</p>
 <a class="l" href="./">Je préfère le site classique</a>
 </div>
 </div>
@@ -165,6 +173,6 @@ h2{font-size:clamp(28px,3.4vw,40px)}
 window.addEventListener('error',function(e){if(e.target&&e.target.tagName&&e.target.tagName!=='SCRIPT')return;var b=document.getElementById('start');if(b&&b.disabled){document.getElementById('fallback').hidden=false;document.getElementById('intro').hidden=true;}},true);
 setTimeout(function(){var b=document.getElementById('start');if(b&&b.disabled){document.getElementById('fallback').hidden=false;document.getElementById('intro').hidden=true;}},15000);
 </script>
-<script type="module" src="qg-d15127fb.js"></script>
+<script type="module" src="pf-54585834.js"></script>
 </body>
 </html>
