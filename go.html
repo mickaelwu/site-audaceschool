@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>École AUDACE — Ton premier cours est offert</title>
+<meta name="description" content="Apprends à vivre d'internet. Ton premier cours à l'École AUDACE est offert : une heure en tête à tête avec un coach, au QG à Paris ou en visio.">
+<meta property="og:title" content="École AUDACE — Ton premier cours est offert">
+<meta property="og:description" content="Trouve l'élève qui te ressemble, puis réserve ton cours offert avec un coach.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://audaceschool.com/img/og.jpg">
+<link rel="canonical" href="https://audaceschool.com/go.html">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:root{--b:#67061B;--bd:#4A0414;--ink:#1E1012;--cream:#FBF7F2;--sand:#F3EBE4;--rose:#F6CCD5;--mut:#6B5558}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.d{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;letter-spacing:-.025em;line-height:1.02;margin:0}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.w{max-width:1120px;margin:0 auto;padding:0 22px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+section{padding:84px 0}
+@media(max-width:720px){section{padding:64px 0}}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:60px;padding:0 30px;border-radius:16px;font-weight:800;font-size:16px;text-decoration:none;transition:transform .15s ease,background .2s ease,box-shadow .2s ease}
+.btn:active{transform:scale(.96)}
+.btn-main{background:var(--b);color:var(--cream);box-shadow:0 10px 30px rgba(103,6,27,.35)}
+.btn-main:hover{background:var(--bd)}
+.btn-light{background:var(--cream);color:var(--b);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.btn-ghost{background:rgba(251,247,242,.14);color:var(--cream)}
+.btn-soft{background:var(--sand);color:var(--ink)}
+.btn .arr{transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.25),0 0 0 0 rgba(246,204,213,.55)}50%{box-shadow:0 10px 30px rgba(0,0,0,.25),0 0 0 12px rgba(246,204,213,0)}}
+
+/* barre du haut */
+.top{position:fixed;top:0;left:0;right:0;z-index:30;transition:background .3s,box-shadow .3s}
+.top .w{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;color:var(--cream);transition:color .3s}
+.logo b{font-family:'Instrument Sans',sans-serif;font-size:26px;letter-spacing:.03em}
+.logo small{font-size:8px;font-weight:800;letter-spacing:.36em;margin-top:3px}
+.top .btn{min-height:44px;padding:0 18px;font-size:14px;border-radius:12px}
+.top.on{background:var(--cream);box-shadow:0 6px 24px rgba(30,16,18,.08)}
+.top.on .logo{color:var(--b)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);background:var(--bd);overflow:hidden;padding:0}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,3,12,.35) 0%,rgba(40,3,12,.55) 45%,rgba(40,3,12,.96) 100%)}
+.hero .w{position:relative;z-index:2;padding-top:120px;padding-bottom:56px;width:100%}
+.hero h1{font-size:clamp(52px,11vw,124px);margin:18px 0 22px}
+.hero p.lead{font-size:clamp(18px,2.4vw,22px);max-width:620px;color:#F3E2E5;font-weight:500}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:rgba(251,247,242,.14);font-size:13px;font-weight:700}
+.chip b{font-family:'Instrument Sans',sans-serif;font-size:16px}
+.rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.rise.r2{animation-delay:.12s}.rise.r3{animation-delay:.24s}.rise.r4{animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* match */
+.match{background:var(--cream)}
+.match h2{font-size:clamp(38px,6vw,64px);margin:14px 0 14px}
+.match .sub{color:var(--mut);font-size:18px;max-width:560px}
+.picks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+@media(max-width:720px){.picks{grid-template-columns:1fr}}
+.pick{display:flex;align-items:center;gap:16px;padding:20px;border-radius:20px;background:#fff;box-shadow:0 2px 0 rgba(30,16,18,.04),0 12px 30px rgba(30,16,18,.06);text-align:left;transition:transform .15s,background .2s,color .2s,box-shadow .2s}
+.pick:hover{transform:translateY(-3px)}
+.pick:active{transform:scale(.97)}
+.pick .ic{flex:none;width:52px;height:52px;border-radius:14px;background:var(--sand);display:grid;place-items:center;font-size:26px}
+.pick b{display:block;font-family:'Instrument Sans',sans-serif;font-size:21px;letter-spacing:-.01em}
+.pick .tx span{display:block;font-size:14px;color:var(--mut);font-weight:500}
+.pick.sel{background:var(--b);color:var(--cream);box-shadow:0 14px 34px rgba(103,6,27,.35)}
+.pick.sel .ic{background:rgba(251,247,242,.16)}
+.pick.sel .tx span{color:#F3D9DE}
+.scan{margin-top:26px;height:0;overflow:hidden;transition:height .3s}
+.scan.on{height:58px}
+.scan .t{font-weight:700;font-size:15px;margin-bottom:10px}
+.bar{height:10px;border-radius:99px;background:var(--sand);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--b);border-radius:99px}
+.scan.on .bar i{animation:fill .9s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes fill{to{width:100%}}
+.found{margin-top:8px}
+.found-h{display:flex;align-items:center;gap:12px;margin:22px 0 18px;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:24px}
+.found-h .ok{width:40px;height:40px;border-radius:50%;background:var(--b);color:var(--cream);display:grid;place-items:center;font-size:20px;animation:popin .45s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes popin{from{transform:scale(0)}to{transform:scale(1)}}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.cards{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 14px 36px rgba(30,16,18,.08);animation:cardin .6s cubic-bezier(.2,.8,.2,1) both}
+.card:nth-child(2){animation-delay:.12s}
+@keyframes cardin{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
+.thumb{position:relative;display:block;width:100%;aspect-ratio:16/9;background:#2A0A10 center/cover no-repeat}
+.thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55))}
+.play{position:absolute;z-index:2;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:var(--cream);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .2s}
+.play:before{content:"";margin-left:6px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent var(--b)}
+.thumb:hover .play{transform:scale(1.08)}
+.dur{position:absolute;z-index:2;right:12px;bottom:12px;padding:5px 10px;border-radius:8px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;font-weight:700}
+.card .in{padding:18px 20px 22px}
+.tag{display:inline-block;padding:6px 11px;border-radius:999px;background:var(--sand);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.card h3{font-size:26px;margin:12px 0 4px}
+.card .res{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:20px;color:var(--b)}
+.after{margin-top:26px;padding:26px;border-radius:22px;background:var(--b);color:var(--cream);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;animation:cardin .6s .25s cubic-bezier(.2,.8,.2,1) both}
+.after .d{font-size:26px}
+.after p{color:#F3D9DE;margin-top:6px}
+.disc{margin-top:14px;font-size:12px;color:var(--mut)}
+
+/* preuves */
+.proof{background:var(--bd);color:var(--cream)}
+.proof h2{font-size:clamp(36px,5.6vw,60px);margin:14px 0 36px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:720px){.stats{grid-template-columns:1fr}}
+.stat{padding:28px;border-radius:22px;background:rgba(251,247,242,.08)}
+.stat .n{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:64px;letter-spacing:-.04em;line-height:1}
+.stat .l{margin-top:10px;font-weight:600;color:#F3D9DE}
+.stat img{height:26px;margin-top:16px;display:block}
+.stat a{text-decoration:none}
+.gal{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:30px;padding-bottom:8px;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal button{flex:none;width:260px;scroll-snap-align:start;text-align:left;color:var(--cream)}
+.gal .thumb{border-radius:16px;overflow:hidden}
+.gal .play{width:52px;height:52px;margin:-26px 0 0 -26px}
+.gal .play:before{border-width:10px 0 10px 16px;margin-left:4px}
+.gal b{display:block;margin-top:10px;font-family:'Instrument Sans',sans-serif;font-size:18px}
+.gal span{font-size:14px;color:#F3D9DE}
+.more{display:inline-block;margin-top:22px;font-weight:700;color:var(--cream)}
+
+/* méthode */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{padding:28px;border-radius:22px;background:#fff;box-shadow:0 12px 30px rgba(30,16,18,.06)}
+.step .num{width:48px;height:48px;border-radius:14px;background:var(--b);color:var(--cream);display:grid;place-items:center;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:22px}
+.step h3{font-size:26px;margin:18px 0 8px}
+.step p{color:var(--mut)}
+.h2{font-size:clamp(36px,5.6vw,60px);margin-top:14px}
+
+/* cours offert */
+.gift{background:var(--sand)}
+.gift .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center}
+@media(max-width:860px){.gift .grid{grid-template-columns:1fr}}
+.gift img{width:100%;border-radius:22px;display:block;aspect-ratio:4/3;object-fit:cover}
+.list{margin:26px 0 30px;display:grid;gap:12px}
+.li{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:18px;background:#fff}
+.li .ck{flex:none;width:30px;height:30px;border-radius:50%;background:var(--b);color:var(--cream);display:grid;place-items:center;font-weight:800;font-size:15px}
+.li b{display:block}
+.li span{color:var(--mut);font-size:15px}
+
+/* FAQ */
+.faq{max-width:820px}
+.q{margin-top:12px;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(30,16,18,.05);overflow:hidden}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 22px;text-align:left;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:20px}
+.q .pm{flex:none;width:34px;height:34px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-size:20px;font-weight:700;transition:transform .25s,background .2s,color .2s}
+.q.open .pm{transform:rotate(45deg);background:var(--b);color:var(--cream)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.q.open .a{grid-template-rows:1fr}
+.q .a>div{overflow:hidden}
+.q .a p{padding:0 22px 22px;color:var(--mut)}
+
+/* parents */
+.parents{background:#fff}
+.parents .box{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+@media(max-width:860px){.parents .box{grid-template-columns:1fr}}
+.parents img{width:100%;border-radius:22px;display:block}
+.parents p{color:var(--mut);margin:16px 0 26px}
+
+/* final */
+.final{background:var(--b);color:var(--cream);text-align:center}
+.final h2{font-size:clamp(44px,8vw,92px)}
+.final p{max-width:560px;margin:18px auto 30px;color:#F3D9DE;font-size:19px}
+.final .ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.game{display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding:12px 18px;border-radius:14px;background:rgba(251,247,242,.12);text-decoration:none;font-weight:700;font-size:15px}
+footer{background:#14030A;color:#C9AEB3;font-size:13px;padding:28px 0 110px}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
+footer a{text-decoration:none}
+
+/* barre collante mobile */
+.sticky{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:40;transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.sticky.on{transform:none}
+.sticky .btn{width:100%;min-height:58px}
+@media(min-width:861px){.sticky{display:none}}
+
+/* lecteur vidéo */
+.modal{position:fixed;inset:0;z-index:60;background:rgba(10,2,5,.92);display:none;align-items:center;justify-content:center;padding:18px;flex-direction:column}
+.modal.on{display:flex;animation:fade .25s ease}
+@keyframes fade{from{opacity:0}}
+.modal video{width:100%;max-width:980px;max-height:72vh;border-radius:18px;background:#000}
+.modal .mb{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.modal .x{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:48px;height:48px;border-radius:50%;background:rgba(251,247,242,.14);color:#fff;font-size:24px;font-weight:700}
+.modal .who{color:var(--cream);font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:20px;margin-bottom:12px;text-align:center}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="w">
+    <a class="logo" href="./"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></a>
+    <a class="btn btn-main cta" href="#">Cours offert</a>
+  </div>
+</header>
+
+<section class="hero">
+  <video autoplay muted loop playsinline poster="img/og.jpg" src="img/hero-loop.mp4"></video>
+  <div class="w">
+    <div class="eyebrow rise">École d'entrepreneuriat en ligne</div>
+    <h1 class="rise r2">Apprends à vivre d'internet.</h1>
+    <p class="lead rise r3">Ton premier cours est offert : une heure en tête à tête avec un coach qui en vit déjà. Au QG à Paris, ou en visio.</p>
+    <div class="ctas rise r4">
+      <a class="btn btn-light pulse cta" href="#">Réserver mon cours offert <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#match">Trouve l'élève qui te ressemble</a>
+    </div>
+    <div class="chips rise r4">
+      <span class="chip"><b>1 400+</b> élèves</span>
+      <span class="chip"><b>N°1</b> sur TrustWho · 96/100</span>
+      <span class="chip"><b>4,9/5</b> sur Itreust</span>
+    </div>
+  </div>
+</section>
+
+<section class="match" id="match">
+  <div class="w">
+    <div class="eyebrow rv">20 secondes</div>
+    <h2 class="rv">Trouve l'élève qui te ressemble.</h2>
+    <p class="sub rv">Dis-nous qui tu es. On te montre des élèves qui avaient ton profil, et ce qu'ils font aujourd'hui.</p>
+    <div class="picks rv">
+      <button class="pick" data-p="lyc"><span class="ic">🎒</span><span class="tx"><b>Je suis lycéen</b><span>Ou pas dans le système classique</span></span></button>
+      <button class="pick" data-p="etu"><span class="ic">🎓</span><span class="tx"><b>Je suis étudiant</b><span>Fac, école, alternance</span></span></button>
+      <button class="pick" data-p="sal"><span class="ic">💼</span><span class="tx"><b>Je suis salarié</b><span>Ou parent, en reconversion</span></span></button>
+    </div>
+    <div class="scan" id="scan"><div class="t" id="scant">On cherche les élèves qui te ressemblent…</div><div class="bar"><i></i></div></div>
+    <div class="found" id="found"></div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="w">
+    <div class="eyebrow rv">Les preuves</div>
+    <h2 class="rv">Pas de promesses. Des résultats.</h2>
+    <div class="stats">
+      <div class="stat rv"><div class="n" data-c="1400" data-s="+">0</div><div class="l">élèves accompagnés, partout dans le monde</div></div>
+      <div class="stat rv"><div class="n" data-c="96" data-s="/100">0</div><div class="l">N°1 sur TrustWho, l'audit indépendant des écoles en ligne</div><img src="img/logo-trustwho.png" alt="TrustWho" loading="lazy" style="background:#FBF7F2;padding:6px 10px;border-radius:8px;height:38px"></div>
+      <a class="stat rv" href="https://itreust.me/@mickawu" target="_blank" rel="noopener"><div class="n" data-c="4.9" data-s="/5">0</div><div class="l">la note de nos élèves sur Itreust →</div><img src="img/logo-itreust-blanc.png" alt="Itreust" loading="lazy"></a>
+    </div>
+    <div class="gal rv" id="gal"></div>
+    <a class="more" href="parcours.html">Voir tous les parcours →</a>
+  </div>
+</section>
+
+<section>
+  <div class="w">
+    <div class="eyebrow rv">La méthode AUDACE</div>
+    <h2 class="h2 rv">Trois étapes. C'est tout.</h2>
+    <div class="steps">
+      <div class="step rv"><div class="num">1</div><h3>Ta compétence devient ton business</h3><p>Ce que tu sais faire, ce que tu aimes, ce que tu as vécu. On en fait une offre qui se vend. Pas besoin d'avoir déjà un produit.</p></div>
+      <div class="step rv"><div class="num">2</div><h3>Du contenu viral</h3><p>Ton coach repère les vidéos qui marchent déjà dans ta niche. Tu tournes, il corrige. Les vues arrivent.</p></div>
+      <div class="step rv"><div class="num">3</div><h3>Tes vues deviennent des clients</h3><p>Les gens t'écrivent. Tu apprends à les transformer en clients, par message puis par appel.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gift">
+  <div class="w grid">
+    <div class="rv">
+      <div class="eyebrow">Ton cours offert</div>
+      <h2 class="h2">Tu repars avec ton plan.</h2>
+      <div class="list">
+        <div class="li"><span class="ck">✓</span><span><b>Ton idée de business</b><span>Ce que tu vas vendre, et à qui.</span></span></div>
+        <div class="li"><span class="ck">✓</span><span><b>Ta première offre</b><span>Dite en une phrase, prête à être postée.</span></span></div>
+        <div class="li"><span class="ck">✓</span><span><b>Tes 3 premières vidéos</b><span>À tourner dès cette semaine.</span></span></div>
+      </div>
+      <a class="btn btn-main cta" href="#">Réserver mon cours offert <span class="arr">→</span></a>
+    </div>
+    <img class="rv" src="img/q-ws-coach.jpg" alt="Un coach AUDACE avec ses élèves au QG" loading="lazy">
+  </div>
+</section>
+
+<section>
+  <div class="w faq">
+    <div class="eyebrow rv">Tes questions</div>
+    <h2 class="h2 rv">Ce qu'on nous demande le plus.</h2>
+    <div id="faq" style="margin-top:28px"></div>
+  </div>
+</section>
+
+<section class="parents">
+  <div class="w box">
+    <img class="rv" src="img/q-ws-groupe.jpg" alt="Les élèves au QG de l'École AUDACE" loading="lazy">
+    <div class="rv">
+      <div class="eyebrow">Pour les parents</div>
+      <h2 class="h2">Vous êtes parent ? Venez voir.</h2>
+      <p>Si votre enfant a moins de 18 ans, vous venez avec lui à son cours offert. C'est l'occasion de rencontrer son coach, de poser toutes vos questions, et de voir par vous-même qui nous sommes.</p>
+      <a class="btn btn-soft" href="https://wa.me/message/WLSOOX77HVD7O1" target="_blank" rel="noopener">Poser une question sur WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="w">
+    <h2 class="rv">Le prochain parcours, c'est le tien.</h2>
+    <p class="rv">Tous nos élèves ont commencé par un cours offert. Il y a des créneaux tous les jours.</p>
+    <div class="ctas rv">
+      <a class="btn btn-light pulse cta" href="#">Réserver mon cours offert <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://wa.me/message/WLSOOX77HVD7O1" target="_blank" rel="noopener">Une question ? WhatsApp</a>
+    </div>
+    <a class="game rv" href="jeu.html">🎮 Envie de jouer ? Visite le QG en jeu →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <span>© 2026 École AUDACE · L'école d'entrepreneuriat en ligne, basée à Paris.</span>
+    <span><a href="./">Le site de l'école</a> · <a href="https://www.instagram.com/ecoleaudace/" target="_blank" rel="noopener">Instagram</a></span>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a class="btn btn-main cta" href="#">Réserver mon cours offert <span class="arr">→</span></a></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <button class="x" id="mx" aria-label="Fermer">✕</button>
+  <div class="who" id="mwho"></div>
+  <video id="mv" controls playsinline preload="none"></video>
+  <div class="mb">
+    <a class="btn btn-light cta" href="#">Je réserve mon cours offert <span class="arr">→</span></a>
+  </div>
+</div>
+
+<script>
+var BOOK='https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-en-ligne';
+document.querySelectorAll('.cta').forEach(function(a){a.href=BOOK;a.target='_blank';a.rel='noopener'});
+
+var E={
+ adrien:{n:'Adrien',t:'Lycéen',r:'10 000 € par mois à 17 ans',img:'img/t-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4',d:'9 min'},
+ antonin:{n:'Antonin',t:'Déscolarisé',r:'30 000 € par mois aujourd’hui',img:'img/t-honnete.jpg',v:'media/74963c4ee4e6f24219fb2e65a4c892e0.mp4',d:'6 min'},
+ mayline:{n:'Mayline',t:'Étudiante en médecine',r:'2 500 € par semaine à 24 ans',img:'img/t-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4',d:'6 min'},
+ paulmath:{n:'Paul et Math',t:'Deux étudiants',r:'4 500 € en un mois',img:'img/t-paulmath.jpg',v:'media/4d82ff03ed77c7b7b257784e893103ae.mp4',d:'5 min'},
+ bobby:{n:'Bobby',t:'Ancien banquier',r:'200 000 abonnés TikTok en 40 jours',img:'img/t-bobby.jpg',v:'media/603671b422d2eceb4eecbcd2a31f8309.mp4',d:'11 min'},
+ fan:{n:'Fan',t:'Maman, coach de langue',r:'4 000 € par mois',img:'img/t-fanwu.jpg',v:'media/7814e5b2c5f88d7403104668fb856c18.mp4',d:'4 min'}
+};
+var P={lyc:['adrien','antonin'],etu:['mayline','paulmath'],sal:['bobby','fan']};
+var LAB={lyc:'lycéen',etu:'étudiant',sal:'salarié'};
+
+function card(k){var e=E[k];return '<div class="card"><button class="thumb" data-v="'+k+'" style="background-image:url('+e.img+')" aria-label="Voir le parcours de '+e.n+'"><span class="play"></span><span class="dur">'+e.d+'</span></button><div class="in"><span class="tag">'+e.t+'</span><h3>'+e.n+'</h3><div class="res">'+e.r+'</div></div></div>'}
+
+var busy=false;
+document.querySelectorAll('.pick').forEach(function(b){b.addEventListener('click',function(){
+  if(busy)return;busy=true;
+  document.querySelectorAll('.pick').forEach(function(x){x.classList.toggle('sel',x===b)});
+  if(navigator.vibrate)navigator.vibrate(15);
+  var p=b.dataset.p,scan=document.getElementById('scan'),found=document.getElementById('found');
+  found.innerHTML='';scan.classList.remove('on');void scan.offsetWidth;scan.classList.add('on');
+  document.getElementById('scant').textContent='On cherche les élèves qui te ressemblent…';
+  setTimeout(function(){
+    scan.classList.remove('on');
+    if(navigator.vibrate)navigator.vibrate([20,40,20]);
+    found.innerHTML='<div class="found-h"><span class="ok">✓</span>2 élèves avaient ton profil</div><div class="cards">'+P[p].map(card).join('')+'</div>'+
+    '<div class="after"><div><div class="d">Ils ont commencé par un cours offert.</div><p>Comme toi, ils étaient '+(p==='etu'?'étudiants':p==='lyc'?'au lycée ou en dehors du système':'salariés ou parents')+'. Ton tour.</p></div><a class="btn btn-light cta" href="'+BOOK+'" target="_blank" rel="noopener">Réserver mon cours offert <span class="arr">→</span></a></div>'+
+    '<p class="disc">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>';
+    var y=found.getBoundingClientRect().top+scrollY-84;scrollTo({top:y,behavior:'smooth'});
+    busy=false;
+  },1000);
+})});
+
+// galerie de tous les parcours
+document.getElementById('gal').innerHTML=Object.keys(E).map(function(k){var e=E[k];return '<button data-v="'+k+'"><span class="thumb" style="background-image:url('+e.img+')"><span class="play"></span><span class="dur">'+e.d+'</span></span><b>'+e.n+'</b><span>'+e.r+'</span></button>'}).join('');
+
+// lecteur
+var M=document.getElementById('modal'),V=document.getElementById('mv');
+document.addEventListener('click',function(ev){var t=ev.target.closest('[data-v]');if(!t)return;var e=E[t.dataset.v];
+  document.getElementById('mwho').textContent=e.n+' · '+e.r;V.poster=e.img;V.src=e.v;M.classList.add('on');document.body.style.overflow='hidden';V.play().catch(function(){});});
+function closeV(){V.pause();V.removeAttribute('src');V.load();M.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('mx').onclick=closeV;M.addEventListener('click',function(e){if(e.target===M)closeV()});
+addEventListener('keydown',function(e){if(e.key==='Escape')closeV()});
+
+// FAQ
+var F=[
+ ['Je ne sais pas quoi vendre.','C’est le cas de la plupart des gens qui arrivent. À l’École AUDACE, on part de ce que tu sais déjà faire ou de ce qui te passionne, et on en fait un coaching. C’est exactement ce qu’on fait pendant ton cours offert.'],
+ ['Je n’ai pas le temps, entre les cours ou le boulot.','Nos élèves avancent à côté de leur vie. Mayline est étudiante en médecine. Fan est maman. Bobby était banquier. Ton coach t’aide à caler un rythme qui tient.'],
+ ['Je n’ai jamais fait de vidéo.','Pas de souci. Ton coach te montre les vidéos qui marchent déjà dans ta niche, tu les tournes à ta façon, et il corrige avec toi.'],
+ ['C’est sérieux ?','96/100 à l’audit indépendant TrustWho, N°1 des écoles en ligne. 4,9/5 de note par nos élèves sur Itreust. Et le premier cours est offert : viens voir par toi-même.'],
+ ['Combien ça coûte ?','Le premier cours est offert. Si tu veux continuer, ton coach te présente l’école et les tarifs à la fin. Le paiement en plusieurs fois est possible.'],
+ ['Et si ça ne marche pas pour moi ?','On te coache jusqu’à ce que tu fasses 5 000 € de chiffre d’affaires, deux mois de suite.'],
+ ['J’ai moins de 18 ans.','Tu es le bienvenu. Tu viens simplement avec un de tes parents à ton cours offert : c’est obligatoire.']
+];
+document.getElementById('faq').innerHTML=F.map(function(q){return '<div class="q rv"><button><span>'+q[0]+'</span><span class="pm">+</span></button><div class="a"><div><p>'+q[1]+'</p></div></div></div>'}).join('');
+document.querySelectorAll('.q button').forEach(function(b){b.onclick=function(){b.parentNode.classList.toggle('open')}});
+
+// apparitions + compteurs
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
+  var n=e.target.querySelector('[data-c]');if(n){var to=parseFloat(n.dataset.c),s=n.dataset.s,dec=to%1?1:0,t0=performance.now();
+   (function f(t){var k=Math.min(1,(t-t0)/1400);k=1-Math.pow(1-k,3);var v=(to*k).toFixed(dec);n.textContent=(dec?v.replace('.',','):Number(v).toLocaleString('fr-FR'))+s;if(k<1)requestAnimationFrame(f)})(t0)}
+})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+// barre du haut + bouton collant
+var tb=document.getElementById('top'),st=document.getElementById('sticky');
+function sc(){var y=scrollY,h=innerHeight;tb.classList.toggle('on',y>h*.6);st.classList.toggle('on',y>h*.8&&(innerHeight+y)<document.body.scrollHeight-260)}
+addEventListener('scroll',sc,{passive:true});sc();
+</script>
+</body>
+</html>
