@@ -333,8 +333,8 @@ footer a{text-decoration:none}
 </div>
 
 <script>
-var BOOK='https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-en-ligne';
-document.querySelectorAll('.cta').forEach(function(a){a.href=BOOK;a.target='_blank';a.rel='noopener'});
+var BOOK='cours-offert.html';
+document.querySelectorAll('.cta').forEach(function(a){a.href=BOOK});
 
 var E={
  adrien:{n:'Adrien',t:'Lycéen',r:'10 000 € par mois à 17 ans',img:'img/t-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4',d:'9 min'},
@@ -361,7 +361,7 @@ document.querySelectorAll('.pick').forEach(function(b){b.addEventListener('click
     scan.classList.remove('on');
     if(navigator.vibrate)navigator.vibrate([20,40,20]);
     found.innerHTML='<div class="found-h"><span class="ok">✓</span>2 élèves avaient ton profil</div><div class="cards">'+P[p].map(card).join('')+'</div>'+
-    '<div class="after"><div><div class="d">Ils ont commencé par un cours offert.</div><p>Comme toi, ils étaient '+(p==='etu'?'étudiants':p==='lyc'?'au lycée ou en dehors du système':'salariés ou parents')+'. Ton tour.</p></div><a class="btn btn-light cta" href="'+BOOK+'" target="_blank" rel="noopener">Réserver mon cours offert <span class="arr">→</span></a></div>'+
+    '<div class="after"><div><div class="d">Ils ont commencé par un cours offert.</div><p>Comme toi, ils étaient '+(p==='etu'?'étudiants':p==='lyc'?'au lycée ou en dehors du système':'salariés ou parents')+'. Ton tour.</p></div><a class="btn btn-light cta" href="'+BOOK+'">Réserver mon cours offert <span class="arr">→</span></a></div>'+
     '<p class="disc">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>';
     var y=found.getBoundingClientRect().top+scrollY-84;scrollTo({top:y,behavior:'smooth'});
     busy=false;
