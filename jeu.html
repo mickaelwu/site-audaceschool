@@ -58,7 +58,7 @@ button,input{font:inherit;color:inherit}
 .game #steps{opacity:1}
 #steps i{width:26px;height:8px;border-radius:999px;background:rgba(255,255,255,.22);display:block;transition:background .3s}
 #steps i.on{background:var(--rose)}
-#toasts{top:calc(max(14px,env(safe-area-inset-top)) + 176px);right:12px;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+#toasts{bottom:max(118px,calc(env(safe-area-inset-bottom) + 118px));right:12px;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
 .toast{display:flex;align-items:center;gap:9px;padding:9px 14px;border-radius:14px;background:#fff;color:#2A0A10;font-size:13px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.28);animation:tin .35s cubic-bezier(.2,1.4,.4,1);transition:opacity .35s,transform .35s}
 .toast i{width:18px;height:18px;border-radius:50%;background:#2FB36B;display:block;flex:none}
 .toast b{font-family:'Instrument Sans',sans-serif;font-size:15px}
@@ -69,7 +69,7 @@ button,input{font:inherit;color:inherit}
 @keyframes tpunch{from{opacity:0;transform:scale(1.5)}}
 #t1{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:clamp(30px,6.4vw,60px);line-height:1.02;letter-spacing:-.03em;color:#fff;text-shadow:0 4px 30px rgba(20,3,8,.75),0 2px 4px rgba(20,3,8,.6)}
 #t2{margin:14px auto 0;max-width:min(560px,100%);font-size:clamp(16px,2.6vw,22px);font-weight:600;line-height:1.35;color:#fff;text-shadow:0 2px 14px rgba(20,3,8,.85)}
-#stage{left:50%;top:31%;transform:translate(-50%,0) scale(.8);padding:14px 26px 16px;border-radius:22px;background:var(--rose);color:var(--dark);text-align:center;opacity:0;white-space:nowrap}
+#stage{left:50%;top:44%;transform:translate(-50%,0) scale(.8);padding:14px 26px 16px;border-radius:22px;background:var(--rose);color:var(--dark);text-align:center;opacity:0;white-space:nowrap}
 #stage.on{animation:stg 3s cubic-bezier(.2,1.3,.3,1) forwards}
 @keyframes stg{0%{opacity:0;transform:translate(-50%,0) scale(1.6) rotate(-4deg)}14%{opacity:1;transform:translate(-50%,0) scale(1) rotate(-4deg)}80%{opacity:1;transform:translate(-50%,0) scale(1) rotate(-4deg)}100%{opacity:0;transform:translate(-50%,-40%) scale(.96) rotate(-4deg)}}
 #st-n{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
@@ -77,6 +77,10 @@ button,input{font:inherit;color:inherit}
 #stick{width:112px;height:112px;margin:-56px 0 0 -56px;border-radius:50%;background:rgba(255,255,255,.14);opacity:0;transition:opacity .15s}
 #stick.on{opacity:1}
 #knob{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:rgba(246,204,213,.92)}
+#q{left:50%;top:calc(max(14px,env(safe-area-inset-top)) + 178px);transform:translate(-50%,-10px);width:min(520px,calc(100% - 28px));padding:14px 18px 15px;border-radius:20px;background:rgba(20,3,8,.82);text-align:center;opacity:0;transition:opacity .3s,transform .3s}
+#q.on{opacity:1;transform:translate(-50%,0)}
+#q1{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:clamp(22px,5.6vw,32px);line-height:1.1;color:#fff}
+#q2{margin-top:6px;font-size:13px;font-weight:600;color:var(--mut)}
 #hint{left:50%;bottom:max(64px,calc(env(safe-area-inset-bottom) + 64px));transform:translateX(-50%);padding:11px 20px;border-radius:999px;background:rgba(20,3,8,.78);font-size:14px;font-weight:600;opacity:0;transition:opacity .4s;white-space:nowrap}
 #hint.on{opacity:1}
 #legal{left:0;right:0;bottom:max(8px,env(safe-area-inset-bottom));text-align:center;padding:0 14px;font-size:10.5px;line-height:1.35;color:#E9CCD1;opacity:0;text-shadow:0 1px 6px rgba(20,3,8,.9);transition:opacity .5s}
@@ -151,6 +155,7 @@ h2{font-size:clamp(26px,5.4vw,40px)}
 <div id="toasts" class="ui"></div>
 <div id="title" class="ui"><div id="t1"></div><div id="t2"></div></div>
 <div id="stage" class="ui"><div id="st-n"></div><div id="st-t"></div></div>
+<div id="q" class="ui"><div id="q1"></div><div id="q2">Marche sur ta réponse</div></div>
 <div id="hint" class="ui">Glisse ton doigt pour te déplacer</div>
 <div id="stick" class="ui"><div id="knob"></div></div>
 <div id="legal" class="ui">Simulation. Les résultats dépendent du travail de chacun et ne sont pas garantis.</div>
@@ -175,7 +180,7 @@ h2{font-size:clamp(26px,5.4vw,40px)}
 <h1>Fais 5 000 € de plus par mois.</h1>
 <p class="sub">Visite notre QG. 2 minutes. Tu vas voir comment.</p>
 <button id="start" class="btn pulse" disabled>Chargement…</button>
-<p class="how">Glisse ton doigt pour diriger ton personnage.</p>
+<p class="how">Gauche de l’écran : tu bouges. Droite : tu regardes autour.</p>
 <a class="l" href="./">Je préfère le site classique</a>
 </div>
 </div>
