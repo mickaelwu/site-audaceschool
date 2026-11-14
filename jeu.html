@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <title>École AUDACE — Le jeu</title>
-<meta name="description" content="Fais 5 000 € de plus par mois dans le jeu. Joue 90 secondes dans notre QG à Paris et regarde comment y arriver en vrai.">
+<meta name="description" content="Fais 5 000 € de plus par mois dans le jeu. Visite notre QG à Paris en 2 minutes et regarde comment y arriver en vrai.">
 <meta property="og:title" content="École AUDACE — Fais 5 000 € de plus par mois. Regarde comment.">
 <meta property="og:description" content="Joue 90 secondes dans notre QG à Paris et regarde comment y arriver.">
 <meta property="og:image" content="https://audaceschool.com/img/og.jpg">
@@ -64,10 +64,10 @@ button,input{font:inherit;color:inherit}
 .toast b{font-family:'Instrument Sans',sans-serif;font-size:15px}
 .toast.out{opacity:0;transform:translateX(30px)}
 @keyframes tin{from{opacity:0;transform:translateX(40px) scale(.9)}}
-#title{left:0;right:0;top:27%;padding:0 22px;text-align:center;opacity:0;transform:scale(.92);transition:opacity .3s ease,transform .3s ease}
+#title{left:0;right:0;bottom:17%;padding:0 22px;text-align:center;opacity:0;transform:scale(.92);transition:opacity .3s ease,transform .3s ease}
 #title.on{opacity:1;transform:none;animation:tpunch .5s cubic-bezier(.2,1.5,.4,1)}
 @keyframes tpunch{from{opacity:0;transform:scale(1.5)}}
-#t1{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:clamp(38px,8.6vw,84px);line-height:1.02;letter-spacing:-.03em;color:#fff;text-shadow:0 4px 30px rgba(20,3,8,.75),0 2px 4px rgba(20,3,8,.6)}
+#t1{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:clamp(30px,6.4vw,60px);line-height:1.02;letter-spacing:-.03em;color:#fff;text-shadow:0 4px 30px rgba(20,3,8,.75),0 2px 4px rgba(20,3,8,.6)}
 #t2{margin:14px auto 0;max-width:min(560px,100%);font-size:clamp(16px,2.6vw,22px);font-weight:600;line-height:1.35;color:#fff;text-shadow:0 2px 14px rgba(20,3,8,.85)}
 #stage{left:50%;top:31%;transform:translate(-50%,0) scale(.8);padding:14px 26px 16px;border-radius:22px;background:var(--rose);color:var(--dark);text-align:center;opacity:0;white-space:nowrap}
 #stage.on{animation:stg 3s cubic-bezier(.2,1.3,.3,1) forwards}
@@ -89,7 +89,7 @@ button,input{font:inherit;color:inherit}
 .btn.pulse{animation:pulse 1.4s ease-in-out infinite}
 @keyframes pulse{50%{transform:scale(1.04)}}
 .ov{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;transition:opacity .5s ease,visibility .5s}
-#intro{background:linear-gradient(180deg,rgba(28,4,12,.35) 0%,rgba(28,4,12,.82) 70%)}
+#intro{background:linear-gradient(180deg,rgba(18,3,9,.5) 0%,rgba(18,3,9,.86) 70%)}
 #intro.off{opacity:0;visibility:hidden}
 #intro .in{max-width:660px}
 .k{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--pink)}
@@ -129,7 +129,7 @@ h2{font-size:clamp(26px,5.4vw,40px)}
 .toast{font-size:12px;padding:8px 12px}
 .sub{font-size:16px}
 }
-@media (max-height:520px){#title{top:34%}#stage{top:36%}}
+@media (max-height:520px){#title{bottom:12%}#stage{top:36%}}
 </style>
 </head>
 <body>
@@ -143,12 +143,12 @@ h2{font-size:clamp(26px,5.4vw,40px)}
 <button id="mute" aria-label="Couper le son"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.500 8.500a5 5 0 0 1 0 7"/></svg></button>
 </div>
 <div id="bar"><div id="bar-h"><b id="eu">+0 €</b><span>en plus par mois</span><em>Objectif +5 000 €</em></div><div id="bar-t"><i id="bar-f"></i></div></div>
-<div id="sub"><div id="chips"><div id="fol" class="chip"><b id="fol-n">0</b> abonnés</div><div id="vue" class="chip" hidden><b id="vue-n">0</b> vues</div><div id="pro" class="chip" hidden><b id="pro-n">0</b> intéressés</div></div><div id="steps"><i></i><i></i><i></i></div></div>
+<div id="sub"><div id="chips"><div id="fol" class="chip" hidden><b id="fol-n">0</b> abonnés</div><div id="vue" class="chip" hidden><b id="vue-n">0</b> vues</div><div id="pro" class="chip" hidden><b id="pro-n">0</b> intéressés</div></div><div id="steps"><i></i><i></i><i></i></div></div>
 </header>
 <div id="toasts" class="ui"></div>
 <div id="title" class="ui"><div id="t1"></div><div id="t2"></div></div>
 <div id="stage" class="ui"><div id="st-n"></div><div id="st-t"></div></div>
-<div id="hint" class="ui">Glisse à gauche et à droite</div>
+<div id="hint" class="ui">Maintiens appuyé pour avancer</div>
 <div id="legal" class="ui">Simulation. Les résultats dépendent du travail de chacun et ne sont pas garantis.</div>
 
 <div id="proof" class="ov">
@@ -169,9 +169,9 @@ h2{font-size:clamp(26px,5.4vw,40px)}
 <div class="in">
 <div class="k">École AUDACE · Le jeu</div>
 <h1>Fais 5 000 € de plus par mois.</h1>
-<p class="sub">Joue 90 secondes. Tu vas voir comment.</p>
+<p class="sub">Visite notre QG. 2 minutes. Tu vas voir comment.</p>
 <button id="start" class="btn pulse" disabled>Chargement…</button>
-<p class="how">Téléphone : glisse ton doigt. Ordinateur : bouge la souris.</p>
+<p class="how">Maintiens appuyé pour avancer. Glisse pour regarder autour.</p>
 <a class="l" href="./">Je préfère le site classique</a>
 </div>
 </div>
