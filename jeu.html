@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <title>École AUDACE — Le jeu</title>
-<meta name="description" content="Fais 5 000 € par mois dans le jeu. Joue 90 secondes dans notre QG à Paris et regarde comment y arriver en vrai.">
-<meta property="og:title" content="École AUDACE — Fais 5 000 € par mois. Regarde comment.">
+<meta name="description" content="Fais 5 000 € de plus par mois dans le jeu. Joue 90 secondes dans notre QG à Paris et regarde comment y arriver en vrai.">
+<meta property="og:title" content="École AUDACE — Fais 5 000 € de plus par mois. Regarde comment.">
 <meta property="og:description" content="Joue 90 secondes dans notre QG à Paris et regarde comment y arriver.">
 <meta property="og:image" content="https://audaceschool.com/img/og.jpg">
 <link rel="canonical" href="https://audaceschool.com/jeu.html">
@@ -50,6 +50,7 @@ button,input{font:inherit;color:inherit}
 #bar-f{position:absolute;inset:0;border-radius:999px;background:linear-gradient(90deg,#F2A7B6,#FFE3A6);transform-origin:left center;transform:scaleX(0)}
 #sub{display:flex;align-items:center;justify-content:space-between;margin:8px auto 0;width:min(560px,100%)}
 #chips{display:flex;gap:6px}
+#chips .chip{white-space:nowrap}
 .chip{padding:7px 13px;border-radius:999px;background:rgba(20,3,8,.74);font-size:12px;font-weight:600;color:var(--mut)}
 #chips .chip b{font-family:'Instrument Sans',sans-serif;font-size:15px;color:#fff;font-variant-numeric:tabular-nums}
 #chips .chip.pop{animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
@@ -141,8 +142,8 @@ h2{font-size:clamp(26px,5.4vw,40px)}
 <a id="logo" href="./" aria-label="École AUDACE, retour au site"><i></i><b>AUDACE</b></a>
 <button id="mute" aria-label="Couper le son"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.500 8.500a5 5 0 0 1 0 7"/></svg></button>
 </div>
-<div id="bar"><div id="bar-h"><b id="eu">0 €</b><span>par mois</span><em>Objectif 5 000 €</em></div><div id="bar-t"><i id="bar-f"></i></div></div>
-<div id="sub"><div id="chips"><div id="fol" class="chip"><b id="fol-n">0</b> abonnés</div><div id="pro" class="chip" hidden><b id="pro-n">0</b> intéressés</div></div><div id="steps"><i></i><i></i><i></i></div></div>
+<div id="bar"><div id="bar-h"><b id="eu">+0 €</b><span>en plus par mois</span><em>Objectif +5 000 €</em></div><div id="bar-t"><i id="bar-f"></i></div></div>
+<div id="sub"><div id="chips"><div id="fol" class="chip"><b id="fol-n">0</b> abonnés</div><div id="vue" class="chip" hidden><b id="vue-n">0</b> vues</div><div id="pro" class="chip" hidden><b id="pro-n">0</b> intéressés</div></div><div id="steps"><i></i><i></i><i></i></div></div>
 </header>
 <div id="toasts" class="ui"></div>
 <div id="title" class="ui"><div id="t1"></div><div id="t2"></div></div>
@@ -167,7 +168,7 @@ h2{font-size:clamp(26px,5.4vw,40px)}
 <div id="intro" class="ov">
 <div class="in">
 <div class="k">École AUDACE · Le jeu</div>
-<h1>Fais 5 000 € par mois.</h1>
+<h1>Fais 5 000 € de plus par mois.</h1>
 <p class="sub">Joue 90 secondes. Tu vas voir comment.</p>
 <button id="start" class="btn pulse" disabled>Chargement…</button>
 <p class="how">Téléphone : glisse ton doigt. Ordinateur : bouge la souris.</p>
