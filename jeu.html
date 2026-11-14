@@ -16,7 +16,7 @@
 :root{--dark:#3D0410;--bord:#8B0A26;--rose:#F6CCD5;--pink:#F2A7B6;--cream:#FBF1EE;--mut:#E3B9C0;--gold:#F5C24E}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
-html,body{margin:0;height:100%;overflow:hidden;background:#1C040C;color:var(--cream);font-family:'Inter','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior:none;user-select:none;-webkit-user-select:none;touch-action:none}
+html,body{margin:0;height:100%;overflow:hidden;background:#12030A;color:var(--cream);font-family:'Inter','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior:none;user-select:none;-webkit-user-select:none;touch-action:none}
 button,input{font:inherit;color:inherit}
 #scene{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none;transition:filter .35s ease}
 .frz #scene{filter:saturate(.35) contrast(1.08)}
@@ -27,6 +27,7 @@ button,input{font:inherit;color:inherit}
 @keyframes scan{to{background-position:0 18px}}
 #white{position:fixed;inset:0;z-index:9;pointer-events:none;background:#FFF4E6;opacity:0;transition:opacity .6s ease}
 .white #white{opacity:1}
+.flash #white{opacity:.6;transition:none}
 #fx{position:fixed;inset:0;width:100%;height:100%;z-index:12;pointer-events:none}
 .ui{position:fixed;z-index:5;pointer-events:none}
 #top{top:0;left:0;right:0;padding:max(14px,env(safe-area-inset-top)) 16px 0;opacity:0;transition:opacity .5s}
