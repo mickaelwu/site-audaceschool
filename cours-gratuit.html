@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#0B0406">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&amp;display=swap">
 <style>
 :root{--b:#67061B;--b2:#9E1236;--ink:#FBF7F2;--bg:#0B0406;--card:#160A0D;--rose:#F6CCD5;--mut:rgba(251,247,242,.72)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -34,8 +34,20 @@ p{margin:0}
 @keyframes shine{0%,55%{transform:translateX(-60%)}80%,100%{transform:translateX(60%)}}
 .qg-t{position:relative;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:25px;letter-spacing:-.01em;color:#fff}
 .qg-s{position:relative;font-size:7px;font-weight:800;letter-spacing:.3em;margin:3px 0 0 .3em;color:var(--rose)}
-.head{text-align:center;padding:64px 0 0}
-h1{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:.98;margin:0;font-size:clamp(40px,10vw,76px);color:#fff;text-shadow:0 0 34px rgba(158,18,54,.85),0 0 80px rgba(158,18,54,.45)}
+.head{text-align:center;padding:56px 0 0}
+h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:1.08}
+h1 .pre{display:block;font-weight:900;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.01em;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.18)}
+h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.015em}
+h1 .rot span{position:absolute;left:0;right:0;top:0;color:#F2365F;text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45)}
+h1 .rot i{display:inline-block;font-style:inherit;opacity:0;transform:translateY(.45em);filter:blur(8px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1),filter .45s ease;transition-delay:calc(var(--k)*70ms)}
+h1 .rot span.on i{opacity:1;transform:none;filter:none}
+h1 .rot span.out i{opacity:0;transform:translateY(-.4em);filter:blur(8px);transition-delay:calc(var(--k)*35ms)}
+.son{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.35);cursor:pointer;z-index:3}
+.son[hidden]{display:none}
+.son .pill{display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;border:0;background:linear-gradient(90deg,#C21A47,#E8476E);color:#fff;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(16px,4.6vw,24px);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 0 0 10px rgba(103,6,27,.55),0 0 40px rgba(224,32,79,.6);animation:pp 1.8s ease-in-out infinite;cursor:pointer}
+.son .pill svg{width:28px;height:28px}
+.son small{color:#fff;font-size:clamp(12px,3.6vw,16px);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+@keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .wrap{position:relative;margin:52px auto 0;border-radius:24px;padding:2px;background:conic-gradient(from var(--a,0deg),rgba(246,204,213,.15),#9E1236 20%,#F6CCD5 28%,#9E1236 36%,rgba(246,204,213,.15) 55%,rgba(246,204,213,.15));animation:spin 6s linear infinite;box-shadow:0 0 60px rgba(158,18,54,.55),0 30px 80px rgba(0,0,0,.6)}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
 @keyframes spin{to{--a:360deg}}
@@ -44,6 +56,7 @@ h1{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;text-transfo
 .big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s}
 .big svg{width:30px;height:30px;margin-left:5px}
 .player.playing .big{opacity:0;pointer-events:none}
+.player.muted .big{display:none}
 @keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(246,204,213,.5),0 0 40px rgba(158,18,54,.8)}50%{box-shadow:0 0 0 18px rgba(246,204,213,0),0 0 40px rgba(158,18,54,.8)}}
 .bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.15)}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#9E1236,#F6CCD5)}
@@ -53,8 +66,8 @@ h1{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;text-transfo
 .gate{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:30px 6px 0;color:var(--mut)}
 .gate .up{width:26px;height:26px;color:var(--rose);animation:up 1.6s ease-in-out infinite}
 @keyframes up{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.gate .row{display:flex;gap:14px;align-items:center;max-width:520px;font-size:19px;line-height:1.45;color:var(--mut)}
-.gate .row svg{flex:none;width:26px;height:26px;color:var(--rose)}
+.gate .row{display:flex;gap:14px;align-items:center;max-width:520px;font-size:16px;line-height:1.45;color:var(--mut)}
+.gate .row svg{flex:none;width:22px;height:22px;color:var(--rose)}
 .gate b{color:#fff;font-weight:800}
 .gate .left{font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rose);min-height:20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:62px;padding:0 32px;border-radius:16px;font-weight:800;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,filter .2s ease}
@@ -82,6 +95,7 @@ h1{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;text-transfo
 .iclosed-widget{width:100%;height:720px;background:#fff}
 .callnote{color:var(--mut);font-size:15px;margin:14px 18px 0;text-align:center}
 .foot{text-align:center;color:rgba(251,247,242,.4);font-size:12px;padding:44px 0 30px}
+@media(max-width:380px){h1 .rot{min-height:3.3em}}
 @media(max-width:600px){.top{padding-top:40px}.head{padding-top:48px}.wrap{margin-top:40px}}
 </style>
 </head>
@@ -89,11 +103,12 @@ h1{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;text-transfo
 <div class="w">
   <header class="top"><a class="brand" href="./" aria-label="École AUDACE, QG Paris"><span class="qg"><span class="qg-t">QG</span><span class="qg-s">PARIS</span></span><span class="logo"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></span></a></header>
   <div class="head">
-    <h1>Apprends enfin à vivre d’internet.</h1>
+    <h1><span class="pre">Apprends enfin à vivre d’internet,</span><span class="rot" id="rot" aria-live="polite"></span></h1>
   </div>
 
   <div class="wrap"><div class="player" id="pl">
     <video id="v" playsinline webkit-playsinline preload="metadata" poster="img/vsl-poster.jpg" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noplaybackrate" src="media/vsl.mp4"></video>
+    <div class="son" id="son" hidden><button class="pill" type="button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Activez le son</button><small>La vidéo a démarré — clique pour l’entendre</small></div>
     <button class="big" id="big" aria-label="Lancer la vidéo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></button>
     <button class="snd" id="snd" aria-label="Couper le son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path id="wave" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
     <div class="bar"><i id="pg"></i></div>
@@ -128,6 +143,13 @@ var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambas
 // lecteur sans avance rapide : on ne peut pas sauter plus loin que ce qu'on a déjà regardé
 // la réservation apparaît après la première minute
 (function(){
+// promesse : les phrases qui défilent sous le titre
+(function(){var L=['même si tu ne sais pas quoi vendre','même si tu n’as jamais fait de vidéo','même à côté de tes cours ou de ton taf','même si tu pars de zéro abonné'],R=document.getElementById('rot'),n=0;
+function mk(t){var sp=document.createElement('span');sp.innerHTML=t.split(' ').map(function(w,k){return '<i style="--k:'+k+'">'+w+'</i>'}).join(' ');R.appendChild(sp);return sp}
+function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},700)}
+ var sp=mk(L[n%L.length]);n++;requestAnimationFrame(function(){requestAnimationFrame(function(){sp.classList.add('on')})})}
+show();setInterval(show,3200)})();
+
 var NEED=60,V=document.getElementById('v'),P=document.getElementById('pl'),B=document.getElementById('big'),SN=document.getElementById('snd'),PG=document.getElementById('pg'),max=0,open=false;
 function unlock(save){if(open)return;open=true;if(save){try{localStorage.setItem('vsl1','1')}catch(x){}}
   document.querySelector('.gate .row svg').innerHTML='<path d="M20 6 9 17l-5-5"/>';document.querySelector('.gate .up').style.display='none';document.getElementById('gtx').innerHTML='<b>C’est débloqué.</b> Ton cours gratuit t’attend juste en dessous.';
@@ -135,12 +157,17 @@ function unlock(save){if(open)return;open=true;if(save){try{localStorage.setItem
   document.getElementById('agenda').classList.add('on');if(navigator.vibrate)navigator.vibrate([20,40,20])}
 try{if(localStorage.getItem('vsl1')==='1')unlock(false)}catch(x){}
 function toggle(){if(V.paused){V.play().catch(function(){})}else{V.pause()}}
-P.addEventListener('click',function(e){if(e.target.closest('#snd'))return;toggle()});
+var SO=document.getElementById('son'),waitSound=false;
+P.addEventListener('click',function(e){if(e.target.closest('#snd'))return;
+  if(waitSound){waitSound=false;SO.hidden=true;V.muted=false;document.getElementById('wave').style.display='';V.currentTime=0;max=0;V.play().catch(function(){});return}
+  toggle()});
+// la vidéo démarre toute seule sans le son, comme chez Ultra
+V.muted=true;V.play().then(function(){waitSound=true;SO.hidden=false;document.getElementById('wave').style.display='none'}).catch(function(){V.muted=false});
 V.addEventListener('play',function(){P.classList.add('playing')});
 V.addEventListener('pause',function(){P.classList.remove('playing')});
 SN.addEventListener('click',function(){V.muted=!V.muted;document.getElementById('wave').style.display=V.muted?'none':''});
 V.addEventListener('timeupdate',function(){
-  if(!V.seeking&&V.currentTime>max&&V.currentTime-max<2)max=V.currentTime;
+  if(!waitSound&&!V.seeking&&V.currentTime>max&&V.currentTime-max<2)max=V.currentTime;
   if(V.duration)PG.style.width=(V.currentTime/V.duration*100)+'%';
   if(!open){var need=Math.min(NEED,(V.duration||NEED)-1),r=Math.ceil(need-max);
     document.getElementById('left').textContent=max>0.5&&r>0?'Encore '+r+' seconde'+(r>1?'s':''):'';
