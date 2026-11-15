@@ -363,6 +363,8 @@ addEventListener('scroll',sc,{passive:true});sc();
 var vs=document.querySelector('#vsl source');
 fetch(vs.getAttribute('src'),{method:'HEAD',cache:'no-store'}).then(function(r){if(!r.ok)document.getElementById('vsl').style.display='none'}).catch(function(){document.getElementById('vsl').style.display='none'});
 
+// code ambassadeur (?a=prenom), gardé pendant la visite
+try{var _a=new URLSearchParams(location.search).get('a');if(_a)sessionStorage.setItem('amb',_a)}catch(x){}
 // réservation : une question à la fois (prénom, e-mail, WhatsApp), enregistrées, puis WhatsApp
 (function(){var f=document.getElementById('wf'),er=document.getElementById('wferr'),lb=document.getElementById('wfb'),st=f.querySelectorAll('.st'),k=0,WA='https://wa.me/message/WLSOOX77HVD7O1',FORM='https://docs.google.com/forms/d/e/1FAIpQLScJGKOEpti00sG3MRyJMunAgKA7s5gBW2WykMdaqStR12M1kA/formResponse';
 var ok=[function(v){return v.length>0},function(v){return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)},function(v){return v.replace(/\D/g,'').length>=8}],msg=['Écris ton prénom.','Cet e-mail ne marche pas.','Écris ton numéro WhatsApp.'];
@@ -371,7 +373,7 @@ if(!ok[k](v)){inp.classList.add('bad');er.textContent=msg[k];inp.focus();return}
 inp.classList.remove('bad');er.textContent='';
 if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[k].querySelector('input').focus();if(k===st.length-1)lb.textContent='Je réserve sur WhatsApp';return}
 var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
-var d=new URLSearchParams();d.append('entry.1608116188',f.p.value.trim());d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
+var d=new URLSearchParams();var am='';try{am=(new URLSearchParams(location.search).get('a')||sessionStorage.getItem('amb')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,30)}catch(x){}d.append('entry.1608116188',f.p.value.trim()+(am?' · via '+am:''));d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
 var go=function(){location.href=WA};var t=setTimeout(go,2500);
 fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(function(){clearTimeout(t);go()}).catch(function(){clearTimeout(t);go()});});})();
 
