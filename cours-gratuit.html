@@ -95,6 +95,13 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .btn-main{background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.25) inset,0 12px 40px rgba(158,18,54,.6)}
 .btn-main:hover{filter:brightness(1.12)}
 .btn.go{display:none;margin:22px auto 0}
+.offer{text-align:center;margin:24px auto 0;max-width:440px}
+.lockbtn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:16px;font-weight:800;font-size:17px;color:rgba(255,255,255,.45);background:rgba(255,255,255,.06);border:1.5px dashed rgba(246,204,213,.3);cursor:not-allowed}
+.lockbtn svg{width:20px;height:20px}
+.offer-s{margin-top:12px;font-size:15px;color:var(--mut)}
+.offer-s b{color:#fff}
+.offer .btn.go{margin:0;width:100%}
+
 .agenda{display:none;max-width:900px;margin:40px auto 60px;border-radius:24px;background:var(--card);border:1px solid rgba(246,204,213,.14);box-shadow:0 0 60px rgba(158,18,54,.25);overflow:hidden;scroll-margin-top:14px;animation:in .5s ease}
 .agenda.on{display:block}
 .agenda.wa{padding:38px 20px;text-align:center}
@@ -136,10 +143,10 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 
   <div class="gate" id="gate">
     <svg class="up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
-    <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><p id="gtx">Regarde cette vidéo de <b>5 minutes</b> pour débloquer l’étape suivante</p></div>
+    <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><p id="gtx">Regarde cette vidéo de <b>5 minutes</b> pour débloquer ton <b>cours gratuit</b></p></div>
     <div class="left" id="left"></div>
   </div>
-  <div style="text-align:center"><a class="btn btn-main go" id="go" href="#agenda">Je réserve mon cours gratuit <span>↓</span></a></div>
+  <div class="offer"><div class="lockbtn" id="lockbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Réserver mon cours gratuit</div><a class="btn btn-main go" id="go" href="#agenda">Je réserve mon cours gratuit <span>↓</span></a><p class="offer-s">1 h en tête à tête avec un coach · <b>offert</b></p></div>
 
   <div class="agenda wa" id="agenda">
     <p class="wa-t">Réserve ton cours gratuit.</p>
@@ -172,7 +179,7 @@ show();setInterval(show,4300)})();
 var NEED=1e9,V=document.getElementById('v'),P=document.getElementById('pl'),B=document.getElementById('big'),SN=document.getElementById('snd'),PG=document.getElementById('pg'),max=0,open=false;
 function unlock(save){if(open)return;open=true;if(save){try{localStorage.setItem('vslfull','1')}catch(x){}}
   document.querySelector('.gate .row svg').innerHTML='<path d="M20 6 9 17l-5-5"/>';document.querySelector('.gate .up').style.display='none';document.getElementById('gtx').innerHTML='<b>C’est débloqué.</b> Ton cours gratuit t’attend juste en dessous.';
-  document.getElementById('left').textContent='';document.getElementById('go').style.display='inline-flex';
+  document.getElementById('left').textContent='';document.getElementById('go').style.display='inline-flex';document.getElementById('lockbtn').style.display='none';
   document.getElementById('agenda').classList.add('on');if(navigator.vibrate)navigator.vibrate([20,40,20])}
 try{if(localStorage.getItem('vslfull')==='1')unlock(false)}catch(x){}
 function toggle(){if(V.paused){V.play().catch(function(){})}else{V.pause()}}
@@ -211,6 +218,7 @@ V.addEventListener('seeking',function(){if(V.currentTime>max+1)V.currentTime=max
 V.addEventListener('ratechange',function(){if(V.playbackRate>1)V.playbackRate=1});
 V.addEventListener('ended',function(){P.classList.remove('playing');unlock(true)});
 V.addEventListener('contextmenu',function(e){e.preventDefault()});
+document.getElementById('lockbtn').addEventListener('click',function(){var w=P.parentNode;scrollTo({top:w.getBoundingClientRect().top+scrollY-20,behavior:'smooth'});if(navigator.vibrate)navigator.vibrate(30)});
 // vidéo absente : on n'empêche pas de réserver
 V.addEventListener('error',function(){P.parentNode.style.display='none';document.getElementById('gate').style.display='none';unlock(false)});
 })();
