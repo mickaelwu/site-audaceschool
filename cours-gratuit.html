@@ -213,6 +213,10 @@ footer a{text-decoration:none}
 .wf input:focus{border-color:var(--b);background:#fff}
 .wf input.bad{border-color:#C0392B}
 .wf .btn{width:100%;margin-top:4px;border:0;cursor:pointer}
+.wf .st{display:none;text-align:left}
+.wf .st.on{display:block;animation:stIn .35s ease}
+.wf label{display:block;font-weight:800;font-size:18px;margin:0 0 10px 4px}
+@keyframes stIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
 .wf-err{margin:0;min-height:0;color:#C0392B;font-weight:700;font-size:14px}
 .fb{display:none;padding:34px 20px;text-align:center}
 .top1{padding-bottom:20px}
@@ -232,13 +236,13 @@ footer a{text-decoration:none}
     <div class="vslbox" id="vsl"><video controls playsinline preload="metadata" poster="img/vsl-poster.jpg"><source src="media/vsl.mp4" type="video/mp4"></video></div>
     <div class="agenda wa" id="agenda">
       <p class="wa-t">Réserve ton cours.</p>
-      <p class="wa-s">Laisse tes infos, puis on se parle sur WhatsApp pour fixer ton créneau.</p>
+      <p class="wa-s">On se parle ensuite sur WhatsApp pour fixer ton créneau.</p>
       <form id="wf" class="wf" novalidate>
-        <input name="p" type="text" placeholder="Ton prénom" autocomplete="given-name" required>
-        <input name="e" type="email" placeholder="Ton e-mail" autocomplete="email" inputmode="email" required>
-        <input name="w" type="tel" placeholder="Ton numéro WhatsApp" autocomplete="tel" inputmode="tel" required>
+        <div class="st on"><label for="f1">Ton prénom ?</label><input id="f1" name="p" type="text" placeholder="Ton prénom" autocomplete="given-name" enterkeyhint="next"></div>
+        <div class="st"><label for="f2">Ton e-mail ?</label><input id="f2" name="e" type="email" placeholder="ton@email.com" autocomplete="email" inputmode="email" enterkeyhint="next"></div>
+        <div class="st"><label for="f3">Ton numéro WhatsApp ?</label><input id="f3" name="w" type="tel" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" enterkeyhint="go"></div>
         <p class="wf-err" id="wferr"></p>
-        <button class="btn btn-main" type="submit">Je réserve sur WhatsApp <span class="arr">→</span></button>
+        <button class="btn btn-main" type="submit"><span id="wfb">Suivant</span> <span class="arr">→</span></button>
       </form>
     </div>
   </div>
@@ -359,14 +363,15 @@ addEventListener('scroll',sc,{passive:true});sc();
 var vs=document.querySelector('#vsl source');
 fetch(vs.getAttribute('src'),{method:'HEAD',cache:'no-store'}).then(function(r){if(!r.ok)document.getElementById('vsl').style.display='none'}).catch(function(){document.getElementById('vsl').style.display='none'});
 
-// réservation : prénom, e-mail, WhatsApp enregistrés, puis WhatsApp
-(function(){var f=document.getElementById('wf'),er=document.getElementById('wferr'),WA='https://wa.me/message/WLSOOX77HVD7O1',FORM='https://docs.google.com/forms/d/e/1FAIpQLScJGKOEpti00sG3MRyJMunAgKA7s5gBW2WykMdaqStR12M1kA/formResponse';
-f.addEventListener('submit',function(ev){ev.preventDefault();var p=f.p.value.trim(),e=f.e.value.trim(),w=f.w.value.trim(),bad=[];
-[f.p,f.e,f.w].forEach(function(i){i.classList.remove('bad')});
-if(!p)bad.push(f.p);if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e))bad.push(f.e);if(w.replace(/\D/g,'').length<8)bad.push(f.w);
-if(bad.length){bad.forEach(function(i){i.classList.add('bad')});bad[0].focus();er.textContent='Remplis ton prénom, ton e-mail et ton numéro WhatsApp.';return}
-er.textContent='';var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
-var d=new URLSearchParams();d.append('entry.1608116188',p);d.append('entry.1696167199',e);d.append('entry.128016296',w);
+// réservation : une question à la fois (prénom, e-mail, WhatsApp), enregistrées, puis WhatsApp
+(function(){var f=document.getElementById('wf'),er=document.getElementById('wferr'),lb=document.getElementById('wfb'),st=f.querySelectorAll('.st'),k=0,WA='https://wa.me/message/WLSOOX77HVD7O1',FORM='https://docs.google.com/forms/d/e/1FAIpQLScJGKOEpti00sG3MRyJMunAgKA7s5gBW2WykMdaqStR12M1kA/formResponse';
+var ok=[function(v){return v.length>0},function(v){return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)},function(v){return v.replace(/\D/g,'').length>=8}],msg=['Écris ton prénom.','Cet e-mail ne marche pas.','Écris ton numéro WhatsApp.'];
+f.addEventListener('submit',function(ev){ev.preventDefault();var inp=st[k].querySelector('input'),v=inp.value.trim();
+if(!ok[k](v)){inp.classList.add('bad');er.textContent=msg[k];inp.focus();return}
+inp.classList.remove('bad');er.textContent='';
+if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[k].querySelector('input').focus();if(k===st.length-1)lb.textContent='Je réserve sur WhatsApp';return}
+var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
+var d=new URLSearchParams();d.append('entry.1608116188',f.p.value.trim());d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
 var go=function(){location.href=WA};var t=setTimeout(go,2500);
 fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(function(){clearTimeout(t);go()}).catch(function(){clearTimeout(t);go()});});})();
 
