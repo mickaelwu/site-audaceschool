@@ -83,32 +83,40 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:62px;padding:0 30px;border-radius:16px;font-weight:900;font-size:16px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,filter .2s ease;background:linear-gradient(145deg,#C21A47,#67061B);color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.25) inset,0 12px 40px rgba(158,18,54,.6)}
 .btn:active{transform:scale(.96)}
 .btn:hover{filter:brightness(1.12)}
-.sec{padding:84px 0 0}
-.k2{text-align:center;font-size:12px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--red)}
-.h2{text-align:center;margin:10px 0 0;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(28px,8vw,52px);line-height:1.02;letter-spacing:-.015em;color:#fff}
+.sec{padding:96px 0 0}
+.k2{text-align:center;font-size:12px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
+.h2{text-align:center;margin:12px 0 0;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(30px,8.4vw,56px);line-height:1;letter-spacing:-.02em;color:#fff}
 .h2 em{color:var(--red);text-shadow:0 0 22px rgba(242,54,95,.55)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
-@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
-.tc{position:relative;display:block;border:0;padding:0;border-radius:18px;overflow:hidden;aspect-ratio:9/14;background:#000 center/cover no-repeat;cursor:pointer;text-align:left;color:#fff;box-shadow:0 14px 34px rgba(0,0,0,.5)}
-.tc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,4,6,.92))}
-.tc .pl{position:absolute;top:12px;right:12px;z-index:1;width:36px;height:36px;border-radius:50%;background:rgba(194,26,71,.9);display:flex;align-items:center;justify-content:center}
-.tc .pl svg{width:14px;height:14px;margin-left:2px}
-.tc .in{position:absolute;left:12px;right:12px;bottom:12px;z-index:1}
-.tc .in b{display:block;font-size:17px;font-weight:900}
-.tc .in i{display:block;font-style:normal;font-size:12px;opacity:.75}
-.tc .in span{display:block;margin-top:6px;font-size:14px;font-weight:800;color:var(--rose);line-height:1.25}
-.disc{text-align:center;color:rgba(251,247,242,.45);font-size:12px;margin-top:14px}
-.who{margin-top:30px;border-radius:24px;overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,.6)}
-.who img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 25%}
-@media(min-width:700px){.who img{aspect-ratio:16/10}}
-.bio{margin-top:26px}
-.bio h3{margin:0;font-family:'Inter',sans-serif;font-weight:900;font-size:24px;text-transform:uppercase;color:#fff}
-.bio p{margin-top:14px;color:var(--mut);font-size:16px;line-height:1.6}
+.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:34px -18px 0;padding:8px 18px 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.tc{flex:0 0 84%;max-width:560px;scroll-snap-align:center;position:relative;display:block;border:0;padding:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#000 center/cover no-repeat;cursor:pointer;text-align:left;color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.16),0 22px 50px rgba(0,0,0,.6);transition:transform .2s}
+.tc:active{transform:scale(.98)}
+@media(min-width:760px){.tc{flex-basis:calc(50% - 7px)}}
+.tc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,4,6,0) 35%,rgba(11,4,6,.55) 60%,rgba(11,4,6,.96))}
+.tc .pl{position:absolute;top:14px;right:14px;z-index:1;width:48px;height:48px;border-radius:50%;background:linear-gradient(145deg,#C21A47,#67061B);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(194,26,71,.25),0 0 30px rgba(224,32,79,.7)}
+.tc .pl svg{width:18px;height:18px;margin-left:3px}
+.tc .in{position:absolute;left:18px;right:18px;bottom:16px;z-index:1}
+.tc .in span{display:block;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(19px,5.4vw,26px);line-height:1.05;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.tc .in b{display:inline-block;margin-top:10px;font-size:14px;font-weight:800}
+.tc .in i{font-style:normal;font-size:13px;color:rgba(251,247,242,.7)}
+.tc .in i::before{content:" · "}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:2px}
+.dots i{width:7px;height:7px;border-radius:9px;background:rgba(246,204,213,.25);transition:all .25s}
+.dots i.on{width:22px;background:var(--red)}
+.disc{text-align:center;color:rgba(251,247,242,.45);font-size:12px;margin-top:16px}
+.who{margin-top:34px}
+.who .wrap{margin:0}
+.who .ph{border-radius:22px;overflow:hidden;background:#000}
+.who .ph img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 40%}
+.bio{margin-top:30px;text-align:center}
+.bio h3{margin:0;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;font-size:clamp(28px,8vw,44px);text-transform:uppercase;letter-spacing:-.02em;line-height:1;color:#fff}
+.bio .role{margin-top:8px;font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
+.bio p{margin:18px auto 0;max-width:600px;color:var(--mut);font-size:17px;line-height:1.65}
 .bio p b{color:#fff}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
-.stat{border-radius:16px;background:var(--card);border:1px solid rgba(246,204,213,.12);padding:16px 10px;text-align:center}
-.stat b{display:block;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(20px,6vw,30px);color:#fff}
-.stat span{display:block;font-size:12px;color:var(--mut);margin-top:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:30px auto 0;max-width:640px}
+.stat{border-radius:18px;background:linear-gradient(180deg,rgba(194,26,71,.16),rgba(22,10,13,.9));border:1px solid rgba(246,204,213,.16);padding:18px 8px;text-align:center}
+.stat b{display:block;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;font-size:clamp(22px,6.6vw,34px);color:#fff;text-shadow:0 0 20px rgba(242,54,95,.5)}
+.stat span{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:4px}
 .end{text-align:center;padding:60px 0 0}
 .end .btn{width:100%;max-width:440px}
 .foot{text-align:center;color:rgba(251,247,242,.4);font-size:12px;padding:44px 0 30px}
@@ -138,16 +146,18 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
   <section class="sec">
     <div class="k2">Ils l’ont fait</div>
     <h2 class="h2">Des élèves <em>comme toi.</em></h2>
-    <div class="cards" id="cards"></div>
+    <div class="rail" id="cards"></div>
+    <div class="dots" id="dots"></div>
     <p class="disc">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>
   </section>
 
   <section class="sec">
     <div class="k2">Qui est Mickaël</div>
     <h2 class="h2">L’homme derrière <em>AUDACE.</em></h2>
-    <div class="who"><img src="img/e-iv-micka.jpg" alt="Mickaël Wu sur scène" loading="lazy"></div>
+    <div class="who"><div class="wrap"><div class="ph"><img src="img/micka-coaching.jpg" alt="Mickaël Wu en plein coaching" loading="lazy"></div></div></div>
     <div class="bio">
       <h3>Mickaël Wu</h3>
+      <div class="role">Fondateur de l’École AUDACE</div>
       <p>Mickaël lance son <b>premier business à 9 ans</b>.</p>
       <p>Étudiant à Paris-Dauphine, dans le top 20 de sa promo, il fait ses vidéos à côté des cours. Puis il <b>quitte tout</b> pour son business.</p>
       <p>En 3 ans, il réunit près de <b>300 000 abonnés</b> sur TikTok, YouTube et Instagram, et accompagne <b>plus de 1 400 élèves</b> qui se lancent sur internet.</p>
@@ -184,18 +194,20 @@ setTimeout(function(){if(!w.querySelector('iframe')){w.style.display='none';docu
 // témoignages
 (function(){
 var E=[
- {n:'Adrien',t:'Lycéen',r:'10 000 € par mois à 17 ans',img:'img/r-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4'},
- {n:'Antonin',t:'Déscolarisé',r:'30 000 € par mois aujourd’hui',img:'img/r-antonin.jpg',v:'media/74963c4ee4e6f24219fb2e65a4c892e0.mp4'},
- {n:'Mayline',t:'Étudiante en médecine',r:'2 500 € par semaine à 24 ans',img:'img/r-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'},
- {n:'Paul et Math',t:'Deux étudiants',r:'4 500 € en un mois',img:'img/r-paulmath.jpg',v:'media/4d82ff03ed77c7b7b257784e893103ae.mp4'},
- {n:'Bobby',t:'Ancien banquier',r:'200 000 abonnés TikTok en 40 jours',img:'img/r-bobby.jpg',v:'media/603671b422d2eceb4eecbcd2a31f8309.mp4'},
- {n:'Fan',t:'Maman, coach de langue',r:'4 000 € par mois',img:'img/r-fan.jpg',v:'media/7814e5b2c5f88d7403104668fb856c18.mp4'}];
-var C=document.getElementById('cards');
-C.innerHTML=E.map(function(e,i){return '<button class="tc" data-i="'+i+'" style="background-image:url('+e.img+')" aria-label="Voir le témoignage de '+e.n+'"><span class="pl"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span><span class="in"><b>'+e.n+'</b><i>'+e.t+'</i><span>'+e.r+'</span></span></button>'}).join('');
-var M=document.getElementById('modal'),MV=document.getElementById('mv');
+ {n:'Adrien',t:'Lycéen',r:'10 000 € par mois à 17 ans',img:'img/tm-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4'},
+ {n:'Antonin',t:'Déscolarisé',r:'30 000 € par mois aujourd’hui',img:'img/tm-antonin.jpg',v:'media/74963c4ee4e6f24219fb2e65a4c892e0.mp4'},
+ {n:'Mayline',t:'Étudiante en médecine',r:'2 500 € par semaine à 24 ans',img:'img/tm-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'},
+ {n:'Paul et Math',t:'Deux étudiants',r:'4 500 € en un mois',img:'img/tm-paulmath.jpg',v:'media/4d82ff03ed77c7b7b257784e893103ae.mp4'},
+ {n:'Bobby',t:'Ancien banquier',r:'200 000 abonnés TikTok en 40 jours',img:'img/tm-bobby.jpg',v:'media/603671b422d2eceb4eecbcd2a31f8309.mp4'},
+ {n:'Fan',t:'Maman, coach de langue',r:'4 000 € par mois',img:'img/tm-fan.jpg',v:'media/7814e5b2c5f88d7403104668fb856c18.mp4'}];
+var C=document.getElementById('cards'),D=document.getElementById('dots');
+C.innerHTML=E.map(function(e,i){return '<button class="tc" data-i="'+i+'" style="background-image:url('+e.img+')" aria-label="Voir le témoignage de '+e.n+'"><span class="pl"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span><span class="in"><span>'+e.r+'</span><b>'+e.n+'</b><i>'+e.t+'</i></span></button>'}).join('');
+D.innerHTML=E.map(function(_,i){return '<i'+(i?'':' class="on"')+'></i>'}).join('');
+C.addEventListener('scroll',function(){var w=C.querySelector('.tc').offsetWidth+14,k=Math.round(C.scrollLeft/w);[].forEach.call(D.children,function(d,i){d.classList.toggle('on',i===k)})},{passive:true});
+var M=document.getElementById('modal'),MV=document.getElementById('mv'),mainV=document.getElementById('v');
 C.addEventListener('click',function(ev){var b=ev.target.closest('.tc');if(!b)return;var e=E[+b.dataset.i];
   document.getElementById('mwho').textContent=e.n+' · '+e.r;MV.poster=e.img;MV.src=e.v;M.classList.add('on');document.body.style.overflow='hidden';
-  MV.play().catch(function(){})});
+  if(mainV&&!mainV.paused)mainV.pause();MV.play().catch(function(){})});
 function close(){MV.pause();MV.removeAttribute('src');MV.load();M.classList.remove('on');document.body.style.overflow=''}
 document.getElementById('mx').onclick=close;M.addEventListener('click',function(e){if(e.target===M)close()});
 document.getElementById('mcta').addEventListener('click',close);
