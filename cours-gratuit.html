@@ -39,9 +39,11 @@ h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:
 h1 .pre{display:block;font-weight:900;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.01em;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.18)}
 h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.015em}
 h1 .rot span{position:absolute;left:0;right:0;top:0;color:#F2365F;text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45)}
-h1 .rot i{display:inline-block;font-style:inherit;opacity:0;transform:translateY(.45em);filter:blur(8px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1),filter .45s ease;transition-delay:calc(var(--k)*70ms)}
-h1 .rot span.on i{opacity:1;transform:none;filter:none}
-h1 .rot span.out i{opacity:0;transform:translateY(-.4em);filter:blur(8px);transition-delay:calc(var(--k)*35ms)}
+h1 .rot span{opacity:0}
+h1 .rot span.on{animation:fin .9s ease-out forwards}
+h1 .rot span.out{animation:fout .6s ease-in forwards}
+@keyframes fin{from{opacity:0;transform:translateY(10px);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes fout{from{opacity:1;transform:none;filter:blur(0)}to{opacity:0;transform:translateY(-8px);filter:blur(6px)}}
 .son{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.35);cursor:pointer;z-index:3}
 .son[hidden]{display:none}
 .son .pill{display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;border:0;background:linear-gradient(90deg,#C21A47,#E8476E);color:#fff;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(16px,4.6vw,24px);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 0 0 10px rgba(103,6,27,.55),0 0 40px rgba(224,32,79,.6);animation:pp 1.8s ease-in-out infinite;cursor:pointer}
@@ -145,9 +147,9 @@ var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambas
 (function(){
 // promesse : les phrases qui défilent sous le titre
 (function(){var L=['même si tu ne sais pas quoi vendre','même si tu n’as jamais fait de vidéo','même à côté de tes cours ou de ton taf','même si tu pars de zéro abonné'],R=document.getElementById('rot'),n=0;
-function mk(t){var sp=document.createElement('span');sp.innerHTML=t.split(' ').map(function(w,k){return '<i style="--k:'+k+'">'+w+'</i>'}).join(' ');R.appendChild(sp);return sp}
-function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},700)}
- var sp=mk(L[n%L.length]);n++;requestAnimationFrame(function(){requestAnimationFrame(function(){sp.classList.add('on')})})}
+function mk(t){var sp=document.createElement('span');sp.textContent=t;R.appendChild(sp);return sp}
+function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},650)}
+ var sp=mk(L[n%L.length]);n++;setTimeout(function(){sp.classList.add('on')},old?350:0)}
 show();setInterval(show,3200)})();
 
 var NEED=60,V=document.getElementById('v'),P=document.getElementById('pl'),B=document.getElementById('big'),SN=document.getElementById('snd'),PG=document.getElementById('pg'),max=0,open=false;
