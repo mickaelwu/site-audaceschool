@@ -171,7 +171,7 @@ var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambas
 // la réservation apparaît après la première minute
 (function(){
 // titre : les douleurs qui défilent sous « Tu en as marre : »
-(function(){var L=['du réveil à 6h30','des journées toutes pareilles','de finir le mois à 0','de ne pas être libre'],R=document.getElementById('rot'),n=0;
+(function(){var L=['du réveil à 6h30','du métro le matin','de finir le mois à 0','de ne pas être libre'],R=document.getElementById('rot'),n=0;
 function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},320)}
  var sp=document.createElement('span');sp.textContent=L[n++%L.length];R.appendChild(sp);setTimeout(function(){sp.classList.add('on')},old?450:0)}
 show();setInterval(show,4300)})();
