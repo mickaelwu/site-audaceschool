@@ -58,12 +58,12 @@ p{margin:0}
   <div class="head">
     <span class="k">Programme ambassadeur</span>
     <h1>Recommande l’école. Gagne 100 € par personne qualifiée.</h1>
-    <p>Tu partages ton lien. Les gens écrivent à Mickaël sur WhatsApp. On s’occupe du reste.</p>
+    <p>Tu partages ton lien. Les gens réservent leur cours gratuit. On s’occupe du reste.</p>
   </div>
   <div class="steps">
     <div class="step"><b>1</b><div><h3>Tu reçois ton lien perso</h3><p>Tout de suite, juste en dessous.</p></div></div>
-    <div class="step"><b>2</b><div><h3>Tu le partages</h3><p>En bio, en story, à tes potes. Tes viewers reçoivent une formation gratuite.</p></div></div>
-    <div class="step"><b>3</b><div><h3>Tu touches 100 €</h3><p>Pour chaque personne qualifiée : elle a regardé la formation gratuite en entier et elle peut investir pour se lancer.</p></div></div>
+    <div class="step"><b>2</b><div><h3>Tu le partages</h3><p>En bio, en story, à tes potes. Tes viewers réservent leur premier cours, offert.</p></div></div>
+    <div class="step"><b>3</b><div><h3>Tu touches 100 €</h3><p>Pour chaque personne qualifiée : on l’a eue au téléphone et elle peut investir pour se lancer.</p></div></div>
   </div>
   <div class="card" id="go">
     <h2>Deviens ambassadeur.</h2>
@@ -90,7 +90,7 @@ if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[
 var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
 var nm=f.p.value.trim(),slug=nm.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'').slice(0,10)||'AUDACE',code=slug+(10+Math.floor(Math.random()*90)),link='https://audaceschool.com/cours-gratuit.html?a='+code;
 var d=new URLSearchParams();d.append('entry.1608116188','AMBASSADEUR — '+nm+' — code '+code);d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
-var show=function(){f.style.display='none';document.querySelector('#go > h2').textContent='C’est bon, '+nm+' !';document.querySelector('#go > .s').hidden=true;document.getElementById('hi').textContent='Voilà ton lien perso :';document.getElementById('lk').textContent=link;document.getElementById('say').textContent='« Écris à Mickaël, ta formation gratuite t’attend. Le lien est en bio. »';document.getElementById('done').hidden=false};
+var show=function(){f.style.display='none';document.querySelector('#go > h2').textContent='C’est bon, '+nm+' !';document.querySelector('#go > .s').hidden=true;document.getElementById('hi').textContent='Voilà ton lien perso :';document.getElementById('lk').textContent=link;document.getElementById('say').textContent='« Ton premier cours avec l’équipe de Mickaël Wu est offert. Réserve-le, le lien est en bio. »';document.getElementById('done').hidden=false};
 fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(show).catch(show);
 document.getElementById('cp').addEventListener('click',function(){var c=this,ok=function(){c.textContent='Copié ✓'};if(navigator.clipboard)navigator.clipboard.writeText(link).then(ok).catch(function(){prompt('Copie ton lien :',link)});else prompt('Copie ton lien :',link)});
 });})();
