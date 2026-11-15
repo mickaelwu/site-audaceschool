@@ -372,7 +372,7 @@ addEventListener('scroll',sc,{passive:true});sc();
 // vidéo du cours : cachée tant que le fichier n'est pas en ligne
 var vs=document.querySelector('#vsl source');
 // agenda iClosed perso de certains ambassadeurs (sinon l'agenda commun, avec le code dans l'UTM)
-var ICAMB={};
+var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeur-amaury'};
 // réservation bloquée tant que la première minute de la vidéo n'est pas regardée
 var NEED=60,seen=0,last=null,LK=document.getElementById('lock'),WF=document.getElementById('wf'),VV=document.querySelector('#vsl video');
 function unlock(){try{localStorage.setItem('vsl1','1')}catch(x){}LK.hidden=true;WF.classList.remove('locked')}
@@ -402,7 +402,7 @@ inp.classList.remove('bad');er.textContent='';
 if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[k].querySelector('input').focus();if(k===st.length-1)lb.textContent=AM?'Je choisis mon créneau':'Je réserve sur WhatsApp';return}
 var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
 var d=new URLSearchParams();var am='';try{am=(new URLSearchParams(location.search).get('a')||sessionStorage.getItem('amb')||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}d.append('entry.1608116188',f.p.value.trim()+(am?' · via '+am:''));d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
-var IC=(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-en-ligne')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am);
+var IC=(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeurs')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am);
 var cal=function(){var ag=document.getElementById('agenda');ag.classList.remove('wa');ag.style.padding='22px 0 0';
 ag.innerHTML='<p class="wa-t" style="text-align:center;padding:0 18px">C’est bon, '+f.p.value.trim().replace(/[<>&"]/g,'')+' ! Choisis ton créneau.</p><div class="iclosed-widget" data-url="'+IC+'" title="Cours gratuit AUDACE"></div><p class="callnote">Pas de créneau qui te va ? On t’appelle pour t’en trouver un.</p><div style="text-align:center;padding:18px"><a class="btn btn-main" id="icfb" href="'+IC+'" target="_blank" rel="noopener" style="display:none">Ouvrir l’agenda <span class="arr">→</span></a></div>';
 var sc=document.createElement('script');sc.src='https://app.iclosed.io/assets/widget.js';sc.async=true;document.body.appendChild(sc);
