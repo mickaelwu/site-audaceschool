@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ton cours gratuit — École AUDACE</title>
-<meta name="description" content="Apprends enfin à vivre d’internet. Regarde la vidéo et réserve ton premier cours, offert.">
-<meta property="og:title" content="Ton cours gratuit — École AUDACE">
-<meta property="og:description" content="Apprends enfin à vivre d’internet. Regarde la vidéo et réserve ton premier cours, offert.">
+<title>Ton appel de découverte — École AUDACE</title>
+<meta name="description" content="Regarde la vidéo et réserve ton appel de découverte avec l’équipe de Mickaël Wu.">
+<meta property="og:title" content="Ton appel de découverte — École AUDACE">
+<meta property="og:description" content="Regarde la vidéo et réserve ton appel de découverte avec l’équipe de Mickaël Wu.">
 <meta property="og:image" content="https://audaceschool.com/img/og.jpg">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0B0406">
@@ -14,56 +14,44 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&amp;display=swap">
 <style>
-:root{--b:#67061B;--b2:#9E1236;--ink:#FBF7F2;--bg:#0B0406;--card:#160A0D;--rose:#F6CCD5;--mut:rgba(251,247,242,.72)}
+:root{--ink:#FBF7F2;--bg:#0B0406;--card:#160A0D;--rose:#F6CCD5;--red:#F2365F;--mut:rgba(251,247,242,.72)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{margin:0;min-height:100vh;color:var(--ink);font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
- background:radial-gradient(ellipse 90% 55% at 50% 38%,rgba(158,18,54,.28),transparent 70%),
+ background:radial-gradient(ellipse 90% 40% at 50% 22%,rgba(158,18,54,.3),transparent 70%),
  linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/72px 72px,
  linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/72px 72px,var(--bg)}
 p{margin:0}
 .w{max-width:900px;margin:0 auto;padding:0 18px}
-.top{display:flex;justify-content:center;padding:56px 0 0}
+.top{display:flex;justify-content:center;padding:44px 0 0}
 .logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;color:var(--ink)}
 .logo b{font-family:'Instrument Sans',sans-serif;font-size:34px;font-weight:700;letter-spacing:.04em}
 .logo small{font-size:8px;font-weight:800;letter-spacing:.38em;margin-top:5px;opacity:.75}
-.brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink)}
-.brand .logo{align-items:center}
-.qg{position:relative;flex:none;width:76px;height:76px;filter:drop-shadow(0 0 16px rgba(194,26,71,.7))}
-.qg svg{display:block;width:100%;height:100%;overflow:visible}
-.qg .ring{transform-origin:50px 50px;animation:turn 16s linear infinite}
-@keyframes turn{to{transform:rotate(360deg)}}
-.qg .core{animation:breathe 3.2s ease-in-out infinite;transform-origin:50px 50px}
-@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
-.head{text-align:center;padding:56px 0 0}
+.head{text-align:center;padding:44px 0 0}
 h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:1.08}
 h1 .pre{display:block;font-weight:900;font-size:clamp(24px,7vw,46px);letter-spacing:-.01em;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.18)}
 h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(24px,7vw,46px);letter-spacing:-.015em}
-h1 .rot span{position:absolute;left:0;right:0;top:0;color:#F2365F;text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45)}
-h1 .rot span{opacity:0}
+h1 .rot span{position:absolute;left:0;right:0;top:0;color:var(--red);text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45);opacity:0}
 h1 .rot span.on{animation:fin .35s ease-out forwards}
 h1 .rot span.out{animation:fout .3s ease-in forwards}
 @keyframes fin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes fout{from{opacity:1;transform:none}to{opacity:0;transform:translateY(8px)}}
-.son{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.35);cursor:pointer;z-index:3}
-.son[hidden]{display:none}
-.son .pill{display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;border:0;background:linear-gradient(90deg,#C21A47,#E8476E);color:#fff;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(16px,4.6vw,24px);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 0 0 10px rgba(103,6,27,.55),0 0 40px rgba(224,32,79,.6);animation:pp 1.8s ease-in-out infinite;cursor:pointer}
-.son .pill svg{width:28px;height:28px}
-.son small{color:#fff;font-size:clamp(12px,3.6vw,16px);text-shadow:0 1px 6px rgba(0,0,0,.8)}
-@keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.wrap{position:relative;margin:52px auto 0;border-radius:24px;padding:2px;background:conic-gradient(from var(--a,0deg),rgba(246,204,213,.15),#9E1236 20%,#F6CCD5 28%,#9E1236 36%,rgba(246,204,213,.15) 55%,rgba(246,204,213,.15));animation:spin 6s linear infinite;box-shadow:0 0 60px rgba(158,18,54,.55),0 30px 80px rgba(0,0,0,.6)}
+.wrap{position:relative;margin:26px auto 0;border-radius:24px;padding:2px;background:conic-gradient(from var(--a,0deg),rgba(246,204,213,.15),#9E1236 20%,#F6CCD5 28%,#9E1236 36%,rgba(246,204,213,.15) 55%,rgba(246,204,213,.15));animation:spin 6s linear infinite;box-shadow:0 0 60px rgba(158,18,54,.55),0 30px 80px rgba(0,0,0,.6)}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
 @keyframes spin{to{--a:360deg}}
 .player{position:relative;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
 .player:fullscreen{border-radius:0;aspect-ratio:auto}.player:fullscreen video{object-fit:contain}
 .player video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}
-.big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s}
+.big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s;z-index:1}
 .big svg{width:30px;height:30px;margin-left:5px}
 .player.playing .big{opacity:0;pointer-events:none}
-.player.muted .big{display:none}
 @keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(246,204,213,.5),0 0 40px rgba(158,18,54,.8)}50%{box-shadow:0 0 0 18px rgba(246,204,213,0),0 0 40px rgba(158,18,54,.8)}}
-.bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.15)}
-.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#9E1236,#F6CCD5)}
+.son{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.35);cursor:pointer;z-index:4}
+.son[hidden]{display:none}
+.son .pill{display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;border:0;background:linear-gradient(90deg,#C21A47,#E8476E);color:#fff;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(16px,4.6vw,24px);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 0 0 10px rgba(103,6,27,.55),0 0 40px rgba(224,32,79,.6);animation:pp 1.8s ease-in-out infinite;cursor:pointer}
+.son .pill svg{width:28px;height:28px}
+.son small{color:#fff;font-size:clamp(12px,3.6vw,16px);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+@keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .ctl{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45));opacity:0;pointer-events:none;transition:opacity .25s}
 .player.ui .ctl{opacity:1;pointer-events:auto}
 .ctl .mid{display:flex;align-items:center;justify-content:center;gap:clamp(22px,8vw,54px)}
@@ -74,60 +62,68 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .ctl .pp{width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.5)}
 .ctl .pp svg{width:30px;height:30px}
 .ctl .bot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:6px 12px 8px;background:linear-gradient(90deg,rgba(158,18,54,.92),rgba(224,32,79,.85))}
-.ctl .bot span{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;color:#fff;min-width:74px}
 .ctl .tl{flex:1;height:5px;border-radius:9px;background:rgba(255,255,255,.3);overflow:hidden}
 .ctl .tl i{display:block;height:100%;width:0;background:#fff}
 .ctl .fs svg{width:22px;height:22px}
+.bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.15)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#9E1236,#F6CCD5)}
 .player.ui .bar{opacity:0}
-.snd{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer}
+.snd{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;z-index:3}
 .player.playing .snd{display:flex}
-.player.ui .snd{z-index:3}
 .snd svg{width:20px;height:20px}
-.gate{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:30px 6px 0;color:var(--mut)}
-.gate .up{width:26px;height:26px;color:var(--rose);animation:up 1.6s ease-in-out infinite}
-@keyframes up{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.gate .row{display:flex;gap:14px;align-items:center;max-width:520px;font-size:16px;line-height:1.45;color:var(--mut)}
-.gate .row svg{flex:none;width:22px;height:22px;color:var(--rose)}
-.gate b{color:#fff;font-weight:800}
-.gate .left{font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rose);min-height:20px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:62px;padding:0 32px;border-radius:16px;font-weight:800;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,filter .2s ease}
-.btn:active{transform:scale(.96)}
-.btn-main{background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.25) inset,0 12px 40px rgba(158,18,54,.6)}
-.btn-main:hover{filter:brightness(1.12)}
-.btn.go{display:none;margin:22px auto 0}
-.offer{text-align:center;margin:24px auto 0;max-width:440px}
-.lockbtn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:62px;border-radius:16px;font-weight:800;font-size:17px;color:rgba(255,255,255,.45);background:rgba(255,255,255,.06);border:1.5px dashed rgba(246,204,213,.3);cursor:not-allowed}
-.lockbtn svg{width:20px;height:20px}
-.offer-s{margin-top:12px;font-size:15px;color:var(--mut)}
-.offer-s b{color:#fff}
-.offer .btn.go{margin:0;width:100%}
-
-.agenda{display:none;max-width:900px;margin:40px auto 60px;border-radius:24px;background:var(--card);border:1px solid rgba(246,204,213,.14);box-shadow:0 0 60px rgba(158,18,54,.25);overflow:hidden;scroll-margin-top:14px;animation:in .5s ease}
-.agenda.on{display:block}
-.agenda.wa{padding:38px 20px;text-align:center}
-@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.wa-t{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;font-size:30px;letter-spacing:-.02em;margin:0;color:#fff}
-.wa-s{color:var(--mut);margin:8px auto 24px;max-width:440px;font-size:17px}
-.wf{display:grid;gap:12px;max-width:440px;margin:0 auto}
-.wf input{width:100%;min-height:58px;padding:0 18px;border-radius:14px;border:2px solid rgba(246,204,213,.18);background:rgba(255,255,255,.05);font:inherit;font-size:17px;color:#fff;outline:none}
-.wf input::placeholder{color:rgba(251,247,242,.4)}
-.wf input:focus{border-color:var(--rose);background:rgba(255,255,255,.08)}
-.wf input.bad{border-color:#FF6B6B}
-.wf .btn{width:100%;margin-top:4px}
-.wf .st{display:none;text-align:left}
-.wf .st.on{display:block;animation:stIn .35s ease}
-.wf label{display:block;font-weight:800;font-size:19px;margin:0 0 10px 4px;color:#fff}
-.wf-err{margin:0;color:#FF8A8A;font-weight:700;font-size:14px}
-@keyframes stIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.down{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:24px 6px 0;color:var(--mut);font-size:16px}
+.down svg{width:26px;height:26px;color:var(--rose);animation:dn 1.6s ease-in-out infinite}
+.down b{color:#fff}
+@keyframes dn{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.agenda{margin:22px auto 0;border-radius:24px;background:var(--card);border:1px solid rgba(246,204,213,.14);box-shadow:0 0 60px rgba(158,18,54,.25);overflow:hidden;scroll-margin-top:14px}
+.agenda h2{font-family:'Inter',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(22px,6vw,34px);letter-spacing:-.01em;line-height:1.1;text-align:center;margin:0;padding:30px 18px 6px;color:#fff}
+.agenda .s{text-align:center;color:var(--mut);padding:0 18px 22px;font-size:16px}
 .iclosed-widget{width:100%;height:720px;background:#fff}
-.callnote{color:var(--mut);font-size:15px;margin:14px 18px 0;text-align:center}
+.fb{display:none;text-align:center;padding:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:62px;padding:0 30px;border-radius:16px;font-weight:900;font-size:16px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,filter .2s ease;background:linear-gradient(145deg,#C21A47,#67061B);color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.25) inset,0 12px 40px rgba(158,18,54,.6)}
+.btn:active{transform:scale(.96)}
+.btn:hover{filter:brightness(1.12)}
+.sec{padding:84px 0 0}
+.k2{text-align:center;font-size:12px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--red)}
+.h2{text-align:center;margin:10px 0 0;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(28px,8vw,52px);line-height:1.02;letter-spacing:-.015em;color:#fff}
+.h2 em{color:var(--red);text-shadow:0 0 22px rgba(242,54,95,.55)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
+.tc{position:relative;display:block;border:0;padding:0;border-radius:18px;overflow:hidden;aspect-ratio:9/14;background:#000 center/cover no-repeat;cursor:pointer;text-align:left;color:#fff;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.tc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,4,6,.92))}
+.tc .pl{position:absolute;top:12px;right:12px;z-index:1;width:36px;height:36px;border-radius:50%;background:rgba(194,26,71,.9);display:flex;align-items:center;justify-content:center}
+.tc .pl svg{width:14px;height:14px;margin-left:2px}
+.tc .in{position:absolute;left:12px;right:12px;bottom:12px;z-index:1}
+.tc .in b{display:block;font-size:17px;font-weight:900}
+.tc .in i{display:block;font-style:normal;font-size:12px;opacity:.75}
+.tc .in span{display:block;margin-top:6px;font-size:14px;font-weight:800;color:var(--rose);line-height:1.25}
+.disc{text-align:center;color:rgba(251,247,242,.45);font-size:12px;margin-top:14px}
+.who{margin-top:30px;border-radius:24px;overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,.6)}
+.who img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 25%}
+@media(min-width:700px){.who img{aspect-ratio:16/10}}
+.bio{margin-top:26px}
+.bio h3{margin:0;font-family:'Inter',sans-serif;font-weight:900;font-size:24px;text-transform:uppercase;color:#fff}
+.bio p{margin-top:14px;color:var(--mut);font-size:16px;line-height:1.6}
+.bio p b{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+.stat{border-radius:16px;background:var(--card);border:1px solid rgba(246,204,213,.12);padding:16px 10px;text-align:center}
+.stat b{display:block;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(20px,6vw,30px);color:#fff}
+.stat span{display:block;font-size:12px;color:var(--mut);margin-top:2px}
+.end{text-align:center;padding:60px 0 0}
+.end .btn{width:100%;max-width:440px}
 .foot{text-align:center;color:rgba(251,247,242,.4);font-size:12px;padding:44px 0 30px}
-@media(max-width:600px){.top{padding-top:40px}.head{padding-top:48px}.wrap{margin-top:40px}}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(5,2,3,.94);display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+.modal.on{display:flex}
+.modal video{width:100%;max-width:520px;max-height:76vh;border-radius:18px;background:#000}
+.modal .x{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:20px;cursor:pointer}
+.modal .mw{color:#fff;font-weight:800;margin-bottom:12px;text-align:center}
+.modal .btn{margin-top:16px}
 </style>
 </head>
 <body>
 <div class="w">
-  <header class="top"><a class="brand" href="./" aria-label="École AUDACE"><span class="logo"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></span></a></header>
+  <header class="top"><a class="logo" href="./"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></a></header>
+
   <div class="head">
     <h1><span class="pre">Tu en as marre :</span><span class="rot" id="rot" aria-live="polite"></span></h1>
   </div>
@@ -141,110 +137,107 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
     <div class="bar"><i id="pg"></i></div>
   </div></div>
 
-  <div class="gate" id="gate">
-    <svg class="up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
-    <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><p id="gtx">Regarde cette vidéo de <b>5 minutes</b> pour débloquer ton <b>cours gratuit</b></p></div>
-    <div class="left" id="left"></div>
-  </div>
-  <div class="offer"><div class="lockbtn" id="lockbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Réserver mon cours gratuit</div><a class="btn btn-main go" id="go" href="#agenda">Je réserve mon cours gratuit <span>↓</span></a><p class="offer-s">1 h en tête à tête avec un coach · <b>offert</b></p></div>
+  <div class="down"><p>Réserve ton <b>appel de découverte</b> juste en dessous</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
 
-  <div class="agenda wa" id="agenda">
-    <p class="wa-t">Réserve ton cours gratuit.</p>
-    <p class="wa-s">On se parle ensuite sur WhatsApp pour fixer ton créneau.</p>
-    <form id="wf" class="wf" novalidate>
-      <div class="st on"><label for="f1">Ton prénom ?</label><input id="f1" name="p" type="text" placeholder="Ton prénom" autocomplete="given-name" enterkeyhint="next"></div>
-      <div class="st"><label for="f2">Ton e-mail ?</label><input id="f2" name="e" type="email" placeholder="ton@email.com" autocomplete="email" inputmode="email" enterkeyhint="next"></div>
-      <div class="st"><label for="f3">Ton numéro WhatsApp ?</label><input id="f3" name="w" type="tel" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" enterkeyhint="go"></div>
-      <p class="wf-err" id="wferr"></p>
-      <button class="btn btn-main" type="submit"><span id="wfb">Suivant</span> <span>→</span></button>
-    </form>
+  <div class="agenda" id="agenda">
+    <h2>Réserve ton appel de découverte</h2>
+    <p class="s">Gratuit. On regarde ta situation et ce que tu peux lancer.</p>
+    <div class="iclosed-widget" id="icw" title="Appel de découverte AUDACE"></div>
+    <div class="fb" id="fb"><a class="btn" id="fbl" href="#" target="_blank" rel="noopener">Ouvrir l’agenda →</a></div>
   </div>
+
+  <section class="sec">
+    <div class="k2">Ils l’ont fait</div>
+    <h2 class="h2">Des élèves <em>comme toi.</em></h2>
+    <div class="cards" id="cards"></div>
+    <p class="disc">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>
+  </section>
+
+  <section class="sec">
+    <div class="k2">Qui est Mickaël</div>
+    <h2 class="h2">L’homme derrière <em>AUDACE.</em></h2>
+    <div class="who"><img src="img/e-iv-micka.jpg" alt="Mickaël Wu sur scène" loading="lazy"></div>
+    <div class="bio">
+      <h3>Mickaël Wu</h3>
+      <p>Mickaël lance son <b>premier business à 9 ans</b>.</p>
+      <p>Étudiant à Paris-Dauphine, dans le top 20 de sa promo, il fait ses vidéos à côté des cours. Puis il <b>quitte tout</b> pour son business.</p>
+      <p>En 3 ans, il réunit près de <b>300 000 abonnés</b> sur TikTok, YouTube et Instagram, et accompagne <b>plus de 1 400 élèves</b> qui se lancent sur internet.</p>
+      <p>Aujourd’hui, à 20 ans, il a fondé l’École AUDACE avec une mission : apprendre aux jeunes à vivre d’internet, <b>même en partant de zéro</b>.</p>
+    </div>
+    <div class="stats"><div class="stat"><b>1 400+</b><span>élèves</span></div><div class="stat"><b>290k</b><span>abonnés</span></div><div class="stat"><b>4,9/5</b><span>avis élèves</span></div></div>
+  </section>
+
+  <div class="end"><a class="btn" href="#agenda">Réserver mon appel de découverte →</a></div>
 
   <p class="foot">© 2026 École AUDACE · Paris</p>
 </div>
 
-<script>
-// agenda iClosed perso de certains ambassadeurs (sinon l'agenda commun, avec le code dans l'UTM)
-var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeur-amaury'};
+<div class="modal" id="modal" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Fermer">✕</button><div class="mw" id="mwho"></div><video id="mv" controls playsinline preload="none"></video><a class="btn" href="#agenda" id="mcta">Réserver mon appel →</a></div>
 
-// lecteur sans avance rapide : on ne peut pas sauter plus loin que ce qu'on a déjà regardé
-// la réservation apparaît après la première minute
-(function(){
+<script>
 // titre : les douleurs qui défilent sous « Tu en as marre : »
 (function(){var L=['du réveil à 6h30','du métro le matin','de finir le mois à 0','de ne pas être libre'],R=document.getElementById('rot'),n=0;
 function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},320)}
  var sp=document.createElement('span');sp.textContent=L[n++%L.length];R.appendChild(sp);setTimeout(function(){sp.classList.add('on')},old?450:0)}
 show();setInterval(show,4300)})();
 
-var NEED=1e9,V=document.getElementById('v'),P=document.getElementById('pl'),B=document.getElementById('big'),SN=document.getElementById('snd'),PG=document.getElementById('pg'),max=0,open=false;
-function unlock(save){if(open)return;open=true;if(save){try{localStorage.setItem('vslfull','1')}catch(x){}}
-  document.querySelector('.gate .row svg').innerHTML='<path d="M20 6 9 17l-5-5"/>';document.querySelector('.gate .up').style.display='none';document.getElementById('gtx').innerHTML='<b>C’est débloqué.</b> Ton cours gratuit t’attend juste en dessous.';
-  document.getElementById('left').textContent='';document.getElementById('go').style.display='inline-flex';document.getElementById('lockbtn').style.display='none';
-  document.getElementById('agenda').classList.add('on');if(navigator.vibrate)navigator.vibrate([20,40,20])}
-try{if(localStorage.getItem('vslfull')==='1')unlock(false)}catch(x){}
+// lecteur : démarre sans le son, « Activez le son », boutons ±15 s et plein écran
+(function(){
+var V=document.getElementById('v'),P=document.getElementById('pl'),SN=document.getElementById('snd'),PG=document.getElementById('pg'),SO=document.getElementById('son'),waitSound=false,hideT;
 function toggle(){if(V.paused){V.play().catch(function(){})}else{V.pause()}}
-var SO=document.getElementById('son'),waitSound=false;
-var hideT;function ui(){P.classList.add('ui');clearTimeout(hideT);hideT=setTimeout(function(){if(!V.paused)P.classList.remove('ui')},2800)}
-function fmt(t){t=Math.max(0,Math.floor(t||0));return Math.floor(t/60)+':'+('0'+t%60).slice(-2)}
+function ui(){P.classList.add('ui');clearTimeout(hideT);hideT=setTimeout(function(){if(!V.paused)P.classList.remove('ui')},2800)}
 function ppIcon(){document.getElementById('ppi').innerHTML=V.paused?'<path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/>':'<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>'}
-V.addEventListener('play',ppIcon);V.addEventListener('pause',function(){ppIcon();if(!waitSound)P.classList.add('ui')});
-V.addEventListener('timeupdate',function(){if(V.duration)document.getElementById('tlf').style.width=(V.currentTime/V.duration*100)+'%'});
-function fullscreen(){try{if(V.webkitEnterFullscreen&&!document.fullscreenEnabled){V.webkitEnterFullscreen();return}var el=P;(el.requestFullscreen||el.webkitRequestFullscreen||function(){V.webkitEnterFullscreen&&V.webkitEnterFullscreen()}).call(el)}catch(x){try{V.webkitEnterFullscreen()}catch(y){}}}
+V.addEventListener('play',function(){P.classList.add('playing');ppIcon()});
+V.addEventListener('pause',function(){P.classList.remove('playing');ppIcon();if(!waitSound)P.classList.add('ui')});
+V.addEventListener('timeupdate',function(){if(V.duration){var w=(V.currentTime/V.duration*100)+'%';PG.style.width=w;document.getElementById('tlf').style.width=w}});
+V.addEventListener('ratechange',function(){if(V.playbackRate>1)V.playbackRate=1});
+V.addEventListener('contextmenu',function(e){e.preventDefault()});
+V.addEventListener('error',function(){P.parentNode.style.display='none'});
+SN.addEventListener('click',function(){V.muted=!V.muted;document.getElementById('wave').style.display=V.muted?'none':''});
+function fullscreen(){try{if(V.webkitEnterFullscreen&&!document.fullscreenEnabled){V.webkitEnterFullscreen();return}(P.requestFullscreen||P.webkitRequestFullscreen).call(P)}catch(x){try{V.webkitEnterFullscreen()}catch(y){}}}
 P.addEventListener('click',function(e){if(e.target.closest('#snd'))return;
-  if(waitSound){waitSound=false;SO.hidden=true;V.muted=false;document.getElementById('wave').style.display='';V.currentTime=0;max=0;V.play().catch(function(){});return}
+  if(waitSound){waitSound=false;SO.hidden=true;V.muted=false;document.getElementById('wave').style.display='';V.currentTime=0;V.play().catch(function(){});return}
   var b=e.target.closest('[data-a]');
   if(b&&P.classList.contains('ui')){var a=b.dataset.a;
-    if(a==='play')toggle();
-    else if(a==='back')V.currentTime=Math.max(0,V.currentTime-15);
-    else if(a==='fwd')V.currentTime=Math.min(max,V.currentTime+15);
-    else if(a==='fs')fullscreen();
+    if(a==='play')toggle();else if(a==='back')V.currentTime=Math.max(0,V.currentTime-15);else if(a==='fwd')V.currentTime=Math.min(V.duration||0,V.currentTime+15);else if(a==='fs')fullscreen();
     ui();return}
   if(V.paused&&!P.classList.contains('ui')){toggle();return}
-  if(P.classList.contains('ui')&&e.target.closest('.ctl')&&!b){P.classList.remove('ui');return}
+  if(P.classList.contains('ui')&&!b){P.classList.remove('ui');return}
   ui()});
-// la vidéo démarre toute seule sans le son, comme chez Ultra
 V.muted=true;V.play().then(function(){waitSound=true;SO.hidden=false;document.getElementById('wave').style.display='none'}).catch(function(){V.muted=false});
-V.addEventListener('play',function(){P.classList.add('playing')});
-V.addEventListener('pause',function(){P.classList.remove('playing')});
-SN.addEventListener('click',function(){V.muted=!V.muted;document.getElementById('wave').style.display=V.muted?'none':''});
-V.addEventListener('timeupdate',function(){
-  if(!waitSound&&!V.seeking&&V.currentTime>max&&V.currentTime-max<2)max=V.currentTime;
-  if(V.duration)PG.style.width=(V.currentTime/V.duration*100)+'%';
-  if(!open){var need=Math.min(NEED,(V.duration||NEED)-2);
-    
-    if(max>=need)unlock(true)}
-});
-V.addEventListener('seeking',function(){if(V.currentTime>max+1)V.currentTime=max});
-V.addEventListener('ratechange',function(){if(V.playbackRate>1)V.playbackRate=1});
-V.addEventListener('ended',function(){P.classList.remove('playing');unlock(true)});
-V.addEventListener('contextmenu',function(e){e.preventDefault()});
-document.getElementById('lockbtn').addEventListener('click',function(){var w=P.parentNode;scrollTo({top:w.getBoundingClientRect().top+scrollY-20,behavior:'smooth'});if(navigator.vibrate)navigator.vibrate(30)});
-// vidéo absente : on n'empêche pas de réserver
-V.addEventListener('error',function(){P.parentNode.style.display='none';document.getElementById('gate').style.display='none';unlock(false)});
 })();
 
-// code ambassadeur (?a=prenom), gardé pendant la visite
+// agenda iClosed : celui de l'ambassadeur s'il en a un, sinon l'agenda commun ambassadeurs (code dans l'UTM), sinon l'agenda normal
+(function(){
 try{var _a=new URLSearchParams(location.search).get('a');if(_a)sessionStorage.setItem('amb',_a)}catch(x){}
-// réservation : une question à la fois (prénom, e-mail, WhatsApp), enregistrées, puis WhatsApp (ou agenda iClosed si on vient d'un ambassadeur)
-(function(){var f=document.getElementById('wf'),er=document.getElementById('wferr'),lb=document.getElementById('wfb'),st=f.querySelectorAll('.st'),k=0,WA='https://wa.me/message/WLSOOX77HVD7O1',FORM='https://docs.google.com/forms/d/e/1FAIpQLScJGKOEpti00sG3MRyJMunAgKA7s5gBW2WykMdaqStR12M1kA/formResponse';
-var AM='';try{AM=(new URLSearchParams(location.search).get('a')||sessionStorage.getItem('amb')||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}
-if(AM)document.querySelector('#agenda .wa-s').textContent='Tu choisis ton créneau juste après.';
-var ok=[function(v){return v.length>0},function(v){return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)},function(v){return v.replace(/\D/g,'').length>=8}],msg=['Écris ton prénom.','Cet e-mail ne marche pas.','Écris ton numéro WhatsApp.'];
-f.addEventListener('submit',function(ev){ev.preventDefault();var inp=st[k].querySelector('input'),v=inp.value.trim();
-if(!ok[k](v)){inp.classList.add('bad');er.textContent=msg[k];inp.focus();return}
-inp.classList.remove('bad');er.textContent='';
-if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[k].querySelector('input').focus();if(k===st.length-1)lb.textContent=AM?'Je choisis mon créneau':'Je réserve sur WhatsApp';return}
-var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
-var d=new URLSearchParams();var am='';try{am=(new URLSearchParams(location.search).get('a')||sessionStorage.getItem('amb')||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}d.append('entry.1608116188',f.p.value.trim()+(am?' · via '+am:''));d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
-var IC=(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeurs')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am);
-var cal=function(){var ag=document.getElementById('agenda');ag.classList.remove('wa');ag.style.padding='22px 0 0';
-ag.innerHTML='<p class="wa-t" style="text-align:center;padding:0 18px">C’est bon, '+f.p.value.trim().replace(/[<>&"]/g,'')+' ! Choisis ton créneau.</p><div class="iclosed-widget" data-url="'+IC+'" title="Cours gratuit AUDACE"></div><p class="callnote">Pas de créneau qui te va ? On t’appelle pour t’en trouver un.</p><div style="text-align:center;padding:18px"><a class="btn btn-main" id="icfb" href="'+IC+'" target="_blank" rel="noopener" style="display:none">Ouvrir l’agenda <span class="arr">→</span></a></div>';
+var am='';try{am=(new URLSearchParams(location.search).get('a')||sessionStorage.getItem('amb')||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}
+var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeur-amaury'};
+var url=am?(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeurs')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am):'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-en-ligne';
+var w=document.getElementById('icw');w.className='iclosed-widget';w.setAttribute('data-url',url);document.getElementById('fbl').href=url;
 var sc=document.createElement('script');sc.src='https://app.iclosed.io/assets/widget.js';sc.async=true;document.body.appendChild(sc);
-scrollTo({top:ag.getBoundingClientRect().top+scrollY-12,behavior:'smooth'});
-setTimeout(function(){var w=ag.querySelector('.iclosed-widget');if(!w.querySelector('iframe')){w.style.display='none';document.getElementById('icfb').style.display='inline-flex'}},7000)};
-var gone=0,go=function(){if(gone)return;gone=1;if(am)cal();else location.href=WA};var t=setTimeout(go,2500);
-fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(function(){clearTimeout(t);go()}).catch(function(){clearTimeout(t);go()});});})();
+setTimeout(function(){if(!w.querySelector('iframe')){w.style.display='none';document.getElementById('fb').style.display='block'}},8000);
+})();
 
+// témoignages
+(function(){
+var E=[
+ {n:'Adrien',t:'Lycéen',r:'10 000 € par mois à 17 ans',img:'img/r-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4'},
+ {n:'Antonin',t:'Déscolarisé',r:'30 000 € par mois aujourd’hui',img:'img/r-antonin.jpg',v:'media/74963c4ee4e6f24219fb2e65a4c892e0.mp4'},
+ {n:'Mayline',t:'Étudiante en médecine',r:'2 500 € par semaine à 24 ans',img:'img/r-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'},
+ {n:'Paul et Math',t:'Deux étudiants',r:'4 500 € en un mois',img:'img/r-paulmath.jpg',v:'media/4d82ff03ed77c7b7b257784e893103ae.mp4'},
+ {n:'Bobby',t:'Ancien banquier',r:'200 000 abonnés TikTok en 40 jours',img:'img/r-bobby.jpg',v:'media/603671b422d2eceb4eecbcd2a31f8309.mp4'},
+ {n:'Fan',t:'Maman, coach de langue',r:'4 000 € par mois',img:'img/r-fan.jpg',v:'media/7814e5b2c5f88d7403104668fb856c18.mp4'}];
+var C=document.getElementById('cards');
+C.innerHTML=E.map(function(e,i){return '<button class="tc" data-i="'+i+'" style="background-image:url('+e.img+')" aria-label="Voir le témoignage de '+e.n+'"><span class="pl"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span><span class="in"><b>'+e.n+'</b><i>'+e.t+'</i><span>'+e.r+'</span></span></button>'}).join('');
+var M=document.getElementById('modal'),MV=document.getElementById('mv'),mainV=document.getElementById('v');
+C.addEventListener('click',function(ev){var b=ev.target.closest('.tc');if(!b)return;var e=E[+b.dataset.i];
+  document.getElementById('mwho').textContent=e.n+' · '+e.r;MV.poster=e.img;MV.src=e.v;M.classList.add('on');document.body.style.overflow='hidden';
+  if(!mainV.paused)mainV.pause();MV.play().catch(function(){})});
+function close(){MV.pause();MV.removeAttribute('src');MV.load();M.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('mx').onclick=close;M.addEventListener('click',function(e){if(e.target===M)close()});
+document.getElementById('mcta').addEventListener('click',close);
+addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
 </script>
 </body>
 </html>
