@@ -38,7 +38,7 @@ p{margin:0}
 .head{text-align:center;padding:56px 0 0}
 h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:1.08}
 h1 .pre{display:block;font-weight:900;font-size:clamp(24px,7vw,46px);letter-spacing:-.01em;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.18)}
-h1 .rot{position:relative;display:block;min-height:1.12em;white-space:nowrap;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(24px,7vw,46px);letter-spacing:-.015em}
+h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(24px,7vw,46px);letter-spacing:-.015em}
 h1 .rot span{position:absolute;left:0;right:0;top:0;color:#F2365F;text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45)}
 h1 .rot span{opacity:0}
 h1 .rot span.on{animation:fin .35s ease-out forwards}
@@ -164,7 +164,7 @@ var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambas
 // la réservation apparaît après la première minute
 (function(){
 // promesse : les phrases qui défilent sous le titre
-(function(){var L=['même sans produit','même sans abonnés','même débutant','même à côté du taf'],R=document.getElementById('rot'),n=0;
+(function(){var L=['même si tu ne sais pas quoi vendre','même si tu n’as jamais fait de vidéo','même à côté de tes cours ou de ton taf','même si tu pars de zéro abonné'],R=document.getElementById('rot'),n=0;
 function mk(t){var sp=document.createElement('span');sp.textContent=t;R.appendChild(sp);return sp}
 function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},320)}
  var sp=mk(L[n%L.length]);n++;setTimeout(function(){sp.classList.add('on')},old?450:0)}
