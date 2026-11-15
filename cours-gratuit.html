@@ -38,7 +38,7 @@ p{margin:0}
 .head{text-align:center;padding:56px 0 0}
 h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:1.08}
 h1 .pre{display:block;font-weight:900;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.01em;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.18)}
-h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.015em}
+h1 .rot{position:relative;display:block;min-height:1.12em;white-space:nowrap;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.015em}
 h1 .rot span{position:absolute;left:0;right:0;top:0;color:#F2365F;text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45)}
 h1 .rot span{opacity:0}
 h1 .rot span.on{animation:fin .35s ease-out forwards}
@@ -55,6 +55,7 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
 @keyframes spin{to{--a:360deg}}
 .player{position:relative;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
+.player:fullscreen{border-radius:0;aspect-ratio:auto}.player:fullscreen video{object-fit:contain}
 .player video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}
 .big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s}
 .big svg{width:30px;height:30px;margin-left:5px}
@@ -63,8 +64,24 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 @keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(246,204,213,.5),0 0 40px rgba(158,18,54,.8)}50%{box-shadow:0 0 0 18px rgba(246,204,213,0),0 0 40px rgba(158,18,54,.8)}}
 .bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.15)}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#9E1236,#F6CCD5)}
+.ctl{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45));opacity:0;pointer-events:none;transition:opacity .25s}
+.player.ui .ctl{opacity:1;pointer-events:auto}
+.ctl .mid{display:flex;align-items:center;justify-content:center;gap:clamp(22px,8vw,54px)}
+.ctl button{border:0;background:none;color:#fff;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.ctl .sk{width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.45);position:relative}
+.ctl .sk svg{width:26px;height:26px}
+.ctl .sk b{position:absolute;font-size:9px;font-weight:800;top:50%;left:50%;transform:translate(-50%,-38%)}
+.ctl .pp{width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.5)}
+.ctl .pp svg{width:30px;height:30px}
+.ctl .bot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:6px 12px 8px;background:linear-gradient(90deg,rgba(158,18,54,.92),rgba(224,32,79,.85))}
+.ctl .bot span{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;color:#fff;min-width:74px}
+.ctl .tl{flex:1;height:5px;border-radius:9px;background:rgba(255,255,255,.3);overflow:hidden}
+.ctl .tl i{display:block;height:100%;width:0;background:#fff}
+.ctl .fs svg{width:22px;height:22px}
+.player.ui .bar{opacity:0}
 .snd{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer}
 .player.playing .snd{display:flex}
+.player.ui .snd{z-index:3}
 .snd svg{width:20px;height:20px}
 .gate{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:30px 6px 0;color:var(--mut)}
 .gate .up{width:26px;height:26px;color:var(--rose);animation:up 1.6s ease-in-out infinite}
@@ -98,7 +115,6 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .iclosed-widget{width:100%;height:720px;background:#fff}
 .callnote{color:var(--mut);font-size:15px;margin:14px 18px 0;text-align:center}
 .foot{text-align:center;color:rgba(251,247,242,.4);font-size:12px;padding:44px 0 30px}
-@media(max-width:380px){h1 .rot{min-height:3.3em}}
 @media(max-width:600px){.top{padding-top:40px}.head{padding-top:48px}.wrap{margin-top:40px}}
 </style>
 </head>
@@ -110,10 +126,11 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
   </div>
 
   <div class="wrap"><div class="player" id="pl">
-    <video id="v" playsinline webkit-playsinline preload="metadata" poster="img/vsl-poster.jpg" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noplaybackrate" src="media/vsl.mp4"></video>
+    <video id="v" playsinline webkit-playsinline preload="metadata" poster="img/vsl-poster.jpg" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate" src="media/vsl.mp4"></video>
     <div class="son" id="son" hidden><button class="pill" type="button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Activez le son</button><small>La vidéo a démarré — clique pour l’entendre</small></div>
     <button class="big" id="big" aria-label="Lancer la vidéo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></button>
     <button class="snd" id="snd" aria-label="Couper le son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path id="wave" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
+    <div class="ctl" id="ctl"><div class="mid"><button class="sk" data-a="back" aria-label="Reculer de 15 secondes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><b>15</b></button><button class="pp" data-a="play" aria-label="Lecture ou pause"><svg id="ppi" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button><button class="sk" data-a="fwd" aria-label="Avancer de 15 secondes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg><b>15</b></button></div><div class="bot"><span id="tm">0:00 / 0:00</span><div class="tl"><i id="tlf"></i></div><button class="fs" data-a="fs" aria-label="Plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div></div>
     <div class="bar"><i id="pg"></i></div>
   </div></div>
 
@@ -147,7 +164,7 @@ var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambas
 // la réservation apparaît après la première minute
 (function(){
 // promesse : les phrases qui défilent sous le titre
-(function(){var L=['même si tu ne sais pas quoi vendre','même si tu n’as jamais fait de vidéo','même à côté de tes cours ou de ton taf','même si tu pars de zéro abonné'],R=document.getElementById('rot'),n=0;
+(function(){var L=['même sans produit','même sans abonnés','même débutant','même à côté du taf'],R=document.getElementById('rot'),n=0;
 function mk(t){var sp=document.createElement('span');sp.textContent=t;R.appendChild(sp);return sp}
 function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},320)}
  var sp=mk(L[n%L.length]);n++;setTimeout(function(){sp.classList.add('on')},old?450:0)}
@@ -161,9 +178,24 @@ function unlock(save){if(open)return;open=true;if(save){try{localStorage.setItem
 try{if(localStorage.getItem('vslfull')==='1')unlock(false)}catch(x){}
 function toggle(){if(V.paused){V.play().catch(function(){})}else{V.pause()}}
 var SO=document.getElementById('son'),waitSound=false;
+var hideT;function ui(){P.classList.add('ui');clearTimeout(hideT);hideT=setTimeout(function(){if(!V.paused)P.classList.remove('ui')},2800)}
+function fmt(t){t=Math.max(0,Math.floor(t||0));return Math.floor(t/60)+':'+('0'+t%60).slice(-2)}
+function ppIcon(){document.getElementById('ppi').innerHTML=V.paused?'<path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/>':'<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>'}
+V.addEventListener('play',ppIcon);V.addEventListener('pause',function(){ppIcon();if(!waitSound)P.classList.add('ui')});
+V.addEventListener('timeupdate',function(){document.getElementById('tm').textContent=fmt(V.currentTime)+' / '+fmt(V.duration);if(V.duration)document.getElementById('tlf').style.width=(V.currentTime/V.duration*100)+'%'});
+function fullscreen(){try{if(V.webkitEnterFullscreen&&!document.fullscreenEnabled){V.webkitEnterFullscreen();return}var el=P;(el.requestFullscreen||el.webkitRequestFullscreen||function(){V.webkitEnterFullscreen&&V.webkitEnterFullscreen()}).call(el)}catch(x){try{V.webkitEnterFullscreen()}catch(y){}}}
 P.addEventListener('click',function(e){if(e.target.closest('#snd'))return;
   if(waitSound){waitSound=false;SO.hidden=true;V.muted=false;document.getElementById('wave').style.display='';V.currentTime=0;max=0;V.play().catch(function(){});return}
-  toggle()});
+  var b=e.target.closest('[data-a]');
+  if(b&&P.classList.contains('ui')){var a=b.dataset.a;
+    if(a==='play')toggle();
+    else if(a==='back')V.currentTime=Math.max(0,V.currentTime-15);
+    else if(a==='fwd')V.currentTime=Math.min(max,V.currentTime+15);
+    else if(a==='fs')fullscreen();
+    ui();return}
+  if(V.paused&&!P.classList.contains('ui')){toggle();return}
+  if(P.classList.contains('ui')&&e.target.closest('.ctl')&&!b){P.classList.remove('ui');return}
+  ui()});
 // la vidéo démarre toute seule sans le son, comme chez Ultra
 V.muted=true;V.play().then(function(){waitSound=true;SO.hidden=false;document.getElementById('wave').style.display='none'}).catch(function(){V.muted=false});
 V.addEventListener('play',function(){P.classList.add('playing')});
