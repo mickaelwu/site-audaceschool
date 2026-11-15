@@ -374,7 +374,7 @@ inp.classList.remove('bad');er.textContent='';
 if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[k].querySelector('input').focus();if(k===st.length-1)lb.textContent='Je réserve sur WhatsApp';return}
 var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
 var d=new URLSearchParams();var am='';try{am=(new URLSearchParams(location.search).get('a')||sessionStorage.getItem('amb')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,30)}catch(x){}d.append('entry.1608116188',f.p.value.trim()+(am?' · via '+am:''));d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
-var go=function(){location.href=WA};var t=setTimeout(go,2500);
+var go=function(){location.href=am?'https://wa.me/message/37KCP3SGFVXQA1':WA};var t=setTimeout(go,2500);
 fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(function(){clearTimeout(t);go()}).catch(function(){clearTimeout(t);go()});});})();
 
 // fermer le lecteur quand on clique pour réserver
