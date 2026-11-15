@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ambassadeur — École AUDACE</title>
-<meta name="description" content="Recommande l'École AUDACE et gagne 300 € pour chaque personne qui rejoint l'école grâce à toi.">
+<meta name="description" content="Recommande l'École AUDACE et gagne 50 € pour chaque personne qualifiée que tu nous envoies.">
 <meta property="og:title" content="Deviens ambassadeur de l'École AUDACE">
-<meta property="og:description" content="Recommande l'école. Gagne 300 € par élève. Tu partages ton lien, on s'occupe du reste.">
+<meta property="og:description" content="Recommande l'école. Gagne 50 € par personne qualifiée. Tu partages ton lien, on s'occupe du reste.">
 <meta property="og:image" content="https://audaceschool.com/img/og.jpg">
 <meta name="robots" content="noindex">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -57,17 +57,17 @@ p{margin:0}
   <header class="page-top"><a class="logo" href="./"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></a></header>
   <div class="head">
     <span class="k">Programme ambassadeur</span>
-    <h1>Recommande l’école. Gagne 300 € par élève.</h1>
+    <h1>Recommande l’école. Gagne 50 € par personne qualifiée.</h1>
     <p>Tu partages ton lien. Les gens écrivent à Mickaël sur WhatsApp. On s’occupe du reste.</p>
   </div>
   <div class="steps">
-    <div class="step"><b>1</b><div><h3>Tu reçois ton code et ton lien</h3><p>Tout de suite, juste en dessous.</p></div></div>
-    <div class="step"><b>2</b><div><h3>Tu les partages</h3><p>Avec ton code, tes viewers ont leur premier cours offert.</p></div></div>
-    <div class="step"><b>3</b><div><h3>Tu touches 300 €</h3><p>Pour chaque personne qui rejoint l’école grâce à toi.</p></div></div>
+    <div class="step"><b>1</b><div><h3>Tu reçois ton lien perso</h3><p>Tout de suite, juste en dessous.</p></div></div>
+    <div class="step"><b>2</b><div><h3>Tu le partages</h3><p>En bio, en story, à tes potes. Tes viewers reçoivent une formation gratuite.</p></div></div>
+    <div class="step"><b>3</b><div><h3>Tu touches 50 €</h3><p>Pour chaque personne qualifiée : elle a regardé la formation gratuite en entier et elle peut investir pour se lancer.</p></div></div>
   </div>
   <div class="card" id="go">
     <h2>Deviens ambassadeur.</h2>
-    <p class="s">Ton code et ton lien s’affichent juste après.</p>
+    <p class="s">Ton lien perso s’affiche juste après.</p>
     <form id="wf" class="wf" novalidate>
       <div class="st on"><label for="f1">Ton prénom ?</label><input id="f1" name="p" type="text" placeholder="Ton prénom" autocomplete="given-name" enterkeyhint="next"></div>
       <div class="st"><label for="f2">Ton e-mail ?</label><input id="f2" name="e" type="email" placeholder="ton@email.com" autocomplete="email" inputmode="email" enterkeyhint="next"></div>
@@ -76,7 +76,7 @@ p{margin:0}
       <button class="btn btn-main" type="submit"><span id="wfb">Suivant</span> <span>→</span></button>
     </form>
     <div id="done" hidden><p class="s" id="hi" style="margin-top:0"></p><div id="lk" style="word-break:break-all;font-weight:800;font-size:17px;background:var(--sand);border-radius:14px;padding:16px 14px;margin:0 auto 14px;max-width:440px"></div><button class="btn btn-main" id="cp" type="button" style="width:100%;max-width:440px">Copier mon lien</button><p class="note" style="font-size:14px;color:var(--ink);font-weight:600;margin-top:18px">À dire à la fin de tes vidéos :</p><p class="note" id="say" style="font-size:15px;color:var(--ink);margin-top:6px"></p></div>
-    <p class="note">Payé sur les ventes encaissées. Si le client est remboursé, la commission est retirée.</p>
+    <p class="note">Chaque personne est validée par l’équipe de Mickaël. Payé au début de chaque mois.</p>
   </div>
 </div>
 <script>
@@ -90,7 +90,7 @@ if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[
 var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
 var nm=f.p.value.trim(),slug=nm.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'').slice(0,10)||'AUDACE',code=slug+(10+Math.floor(Math.random()*90)),link='https://audaceschool.com/cours-gratuit.html?a='+code;
 var d=new URLSearchParams();d.append('entry.1608116188','AMBASSADEUR — '+nm+' — code '+code);d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
-var show=function(){f.style.display='none';document.querySelector('#go > h2').textContent='C’est bon, '+nm+' !';document.querySelector('#go > .s').hidden=true;document.getElementById('hi').innerHTML='Ton code : <b style="font-size:26px;color:var(--b);letter-spacing:.04em">'+code+'</b><br>Ton lien :';document.getElementById('lk').textContent=link;document.getElementById('say').textContent='« Écris à Mickaël sur WhatsApp avec le code '+code+' : ton premier cours est offert. Le lien est en bio. »';document.getElementById('done').hidden=false};
+var show=function(){f.style.display='none';document.querySelector('#go > h2').textContent='C’est bon, '+nm+' !';document.querySelector('#go > .s').hidden=true;document.getElementById('hi').textContent='Voilà ton lien perso :';document.getElementById('lk').textContent=link;document.getElementById('say').textContent='« Écris à Mickaël, ta formation gratuite t’attend. Le lien est en bio. »';document.getElementById('done').hidden=false};
 fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(show).catch(show);
 document.getElementById('cp').addEventListener('click',function(){var c=this,ok=function(){c.textContent='Copié ✓'};if(navigator.clipboard)navigator.clipboard.writeText(link).then(ok).catch(function(){prompt('Copie ton lien :',link)});else prompt('Copie ton lien :',link)});
 });})();
