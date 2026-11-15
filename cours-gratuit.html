@@ -29,21 +29,22 @@ p{margin:0}
 .logo small{font-size:8px;font-weight:800;letter-spacing:.38em;margin-top:5px;opacity:.75}
 .brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink)}
 .brand .logo{align-items:flex-start}
-.qg{position:relative;flex:none;width:58px;height:58px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;background:linear-gradient(150deg,#C21A47 0%,#67061B 60%,#3A0310 100%);box-shadow:0 0 0 1px rgba(246,204,213,.35) inset,0 0 28px rgba(194,26,71,.65),0 10px 24px rgba(0,0,0,.5);overflow:hidden}
-.qg::before{content:"";position:absolute;inset:-40% -60%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-60%);animation:shine 4.5s ease-in-out infinite}
-@keyframes shine{0%,55%{transform:translateX(-60%)}80%,100%{transform:translateX(60%)}}
-.qg-t{position:relative;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:25px;letter-spacing:-.01em;color:#fff}
-.qg-s{position:relative;font-size:7px;font-weight:800;letter-spacing:.3em;margin:3px 0 0 .3em;color:var(--rose)}
+.qg{position:relative;flex:none;width:76px;height:76px;filter:drop-shadow(0 0 16px rgba(194,26,71,.7))}
+.qg svg{display:block;width:100%;height:100%;overflow:visible}
+.qg .ring{transform-origin:50px 50px;animation:turn 16s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.qg .core{animation:breathe 3.2s ease-in-out infinite;transform-origin:50px 50px}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 .head{text-align:center;padding:56px 0 0}
 h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:1.08}
 h1 .pre{display:block;font-weight:900;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.01em;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.18)}
 h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(25px,7.4vw,46px);letter-spacing:-.015em}
 h1 .rot span{position:absolute;left:0;right:0;top:0;color:#F2365F;text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45)}
 h1 .rot span{opacity:0}
-h1 .rot span.on{animation:fin .9s ease-out forwards}
-h1 .rot span.out{animation:fout .6s ease-in forwards}
-@keyframes fin{from{opacity:0;transform:translateY(10px);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
-@keyframes fout{from{opacity:1;transform:none;filter:blur(0)}to{opacity:0;transform:translateY(-8px);filter:blur(6px)}}
+h1 .rot span.on{animation:fin .35s ease-out forwards}
+h1 .rot span.out{animation:fout .3s ease-in forwards}
+@keyframes fin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fout{from{opacity:1;transform:none}to{opacity:0;transform:translateY(8px)}}
 .son{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.35);cursor:pointer;z-index:3}
 .son[hidden]{display:none}
 .son .pill{display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;border:0;background:linear-gradient(90deg,#C21A47,#E8476E);color:#fff;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(16px,4.6vw,24px);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 0 0 10px rgba(103,6,27,.55),0 0 40px rgba(224,32,79,.6);animation:pp 1.8s ease-in-out infinite;cursor:pointer}
@@ -103,7 +104,7 @@ h1 .rot span.out{animation:fout .6s ease-in forwards}
 </head>
 <body>
 <div class="w">
-  <header class="top"><a class="brand" href="./" aria-label="École AUDACE, QG Paris"><span class="qg"><span class="qg-t">QG</span><span class="qg-s">PARIS</span></span><span class="logo"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></span></a></header>
+  <header class="top"><a class="brand" href="./" aria-label="École AUDACE, QG Paris"><span class="qg"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="qgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E0204F"/><stop offset=".55" stop-color="#7A0822"/><stop offset="1" stop-color="#2E020C"/></linearGradient><linearGradient id="qgr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6CCD5"/><stop offset=".5" stop-color="#E0204F"/><stop offset="1" stop-color="#F6CCD5"/></linearGradient><path id="qgc" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><circle cx="50" cy="50" r="48" fill="none" stroke="url(#qgr)" stroke-width="1.6"/><g class="ring"><text font-family="Inter,sans-serif" font-size="8.2" font-weight="800" fill="#F6CCD5" textLength="246" lengthAdjust="spacing"><textPath href="#qgc" textLength="246" lengthAdjust="spacing">QG AUDACE • PARIS • QG AUDACE • PARIS • </textPath></text></g><g class="core"><circle cx="50" cy="50" r="30" fill="url(#qgg)" stroke="rgba(246,204,213,.55)" stroke-width="1"/><text x="50" y="58.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="24" font-weight="900" font-style="italic" letter-spacing="-1" fill="#fff">QG</text></g></svg></span><span class="logo"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></span></a></header>
   <div class="head">
     <h1><span class="pre">Apprends enfin à vivre d’internet,</span><span class="rot" id="rot" aria-live="polite"></span></h1>
   </div>
@@ -118,7 +119,7 @@ h1 .rot span.out{animation:fout .6s ease-in forwards}
 
   <div class="gate" id="gate">
     <svg class="up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
-    <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><p id="gtx">Regarde la <b>première minute</b> de la vidéo pour débloquer ton cours gratuit.</p></div>
+    <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><p id="gtx">Regarde cette vidéo de <b>5 minutes</b> pour débloquer l’étape suivante</p></div>
     <div class="left" id="left"></div>
   </div>
   <div style="text-align:center"><a class="btn btn-main go" id="go" href="#agenda">Je réserve mon cours gratuit <span>↓</span></a></div>
@@ -148,16 +149,16 @@ var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambas
 // promesse : les phrases qui défilent sous le titre
 (function(){var L=['même si tu ne sais pas quoi vendre','même si tu n’as jamais fait de vidéo','même à côté de tes cours ou de ton taf','même si tu pars de zéro abonné'],R=document.getElementById('rot'),n=0;
 function mk(t){var sp=document.createElement('span');sp.textContent=t;R.appendChild(sp);return sp}
-function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},650)}
- var sp=mk(L[n%L.length]);n++;setTimeout(function(){sp.classList.add('on')},old?350:0)}
-show();setInterval(show,3200)})();
+function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},320)}
+ var sp=mk(L[n%L.length]);n++;setTimeout(function(){sp.classList.add('on')},old?450:0)}
+show();setInterval(show,4300)})();
 
-var NEED=60,V=document.getElementById('v'),P=document.getElementById('pl'),B=document.getElementById('big'),SN=document.getElementById('snd'),PG=document.getElementById('pg'),max=0,open=false;
-function unlock(save){if(open)return;open=true;if(save){try{localStorage.setItem('vsl1','1')}catch(x){}}
+var NEED=1e9,V=document.getElementById('v'),P=document.getElementById('pl'),B=document.getElementById('big'),SN=document.getElementById('snd'),PG=document.getElementById('pg'),max=0,open=false;
+function unlock(save){if(open)return;open=true;if(save){try{localStorage.setItem('vslfull','1')}catch(x){}}
   document.querySelector('.gate .row svg').innerHTML='<path d="M20 6 9 17l-5-5"/>';document.querySelector('.gate .up').style.display='none';document.getElementById('gtx').innerHTML='<b>C’est débloqué.</b> Ton cours gratuit t’attend juste en dessous.';
   document.getElementById('left').textContent='';document.getElementById('go').style.display='inline-flex';
   document.getElementById('agenda').classList.add('on');if(navigator.vibrate)navigator.vibrate([20,40,20])}
-try{if(localStorage.getItem('vsl1')==='1')unlock(false)}catch(x){}
+try{if(localStorage.getItem('vslfull')==='1')unlock(false)}catch(x){}
 function toggle(){if(V.paused){V.play().catch(function(){})}else{V.pause()}}
 var SO=document.getElementById('son'),waitSound=false;
 P.addEventListener('click',function(e){if(e.target.closest('#snd'))return;
@@ -171,8 +172,8 @@ SN.addEventListener('click',function(){V.muted=!V.muted;document.getElementById(
 V.addEventListener('timeupdate',function(){
   if(!waitSound&&!V.seeking&&V.currentTime>max&&V.currentTime-max<2)max=V.currentTime;
   if(V.duration)PG.style.width=(V.currentTime/V.duration*100)+'%';
-  if(!open){var need=Math.min(NEED,(V.duration||NEED)-1),r=Math.ceil(need-max);
-    document.getElementById('left').textContent=max>0.5&&r>0?'Encore '+r+' seconde'+(r>1?'s':''):'';
+  if(!open){var need=Math.min(NEED,(V.duration||NEED)-2);
+    
     if(max>=need)unlock(true)}
 });
 V.addEventListener('seeking',function(){if(V.currentTime>max+1)V.currentTime=max});
