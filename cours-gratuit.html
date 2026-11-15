@@ -40,6 +40,11 @@ h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:
 h1 .pre{display:block;font-weight:900;font-size:clamp(24px,7vw,46px);letter-spacing:-.01em;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.18)}
 h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(24px,7vw,46px);letter-spacing:-.015em}
 h1 .rot span{position:absolute;left:0;right:0;top:0;color:#F2365F;text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45)}
+h1 .rot span b{position:relative;display:inline-block;font-weight:inherit}
+h1 .rot span b::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:.11em;border-radius:9px;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.7);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.6,0,.3,1)}
+h1 .rot span.strike b::after{transform:scaleX(1)}
+h1 .rot span.strike{color:rgba(242,54,95,.55)}
+h1 .rot span.dream{color:#fff;text-shadow:0 0 22px rgba(246,204,213,.75),0 0 50px rgba(242,54,95,.55)}
 h1 .rot span{opacity:0}
 h1 .rot span.on{animation:fin .35s ease-out forwards}
 h1 .rot span.out{animation:fout .3s ease-in forwards}
@@ -122,7 +127,7 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 <div class="w">
   <header class="top"><a class="brand" href="./" aria-label="École AUDACE"><span class="logo"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></span></a></header>
   <div class="head">
-    <h1><span class="pre">Vis d’internet,</span><span class="rot" id="rot" aria-live="polite"></span></h1>
+    <h1><span class="pre">Tu en as marre :</span><span class="rot" id="rot" aria-live="polite"></span></h1>
   </div>
 
   <div class="wrap"><div class="player" id="pl">
@@ -163,12 +168,16 @@ var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambas
 // lecteur sans avance rapide : on ne peut pas sauter plus loin que ce qu'on a déjà regardé
 // la réservation apparaît après la première minute
 (function(){
-// promesse : les phrases qui défilent sous le titre
-(function(){var L=['même si tu ne sais pas quoi vendre','même si tu n’as jamais fait de vidéo','même à côté de tes cours ou de ton taf','même si tu pars de zéro abonné'],R=document.getElementById('rot'),n=0;
-function mk(t){var sp=document.createElement('span');sp.textContent=t;R.appendChild(sp);return sp}
-function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},320)}
- var sp=mk(L[n%L.length]);n++;setTimeout(function(){sp.classList.add('on')},old?450:0)}
-show();setInterval(show,4300)})();
+// titre : la douleur s'affiche, se fait barrer, puis le rêve la remplace
+(function(){var D=[['du réveil à 6h30','lève-toi quand tu veux'],['du métro bondé','bosse d’où tu veux'],['de finir le mois à 0','vis enfin d’internet'],['de ton patron','deviens ton propre patron']],R=document.getElementById('rot'),n=0;
+function put(html,cls){var sp=document.createElement('span');sp.className=cls||'';sp.innerHTML=html;R.appendChild(sp);requestAnimationFrame(function(){sp.classList.add('on')});return sp}
+function out(sp){sp.classList.remove('on');sp.classList.add('out');setTimeout(function(){sp.remove()},320)}
+function cycle(){var d=D[n++%D.length];
+ var pain=put('<b>'+d[0]+'</b>');
+ setTimeout(function(){pain.classList.add('strike')},1700);
+ setTimeout(function(){out(pain)},2500);
+ setTimeout(function(){var dr=put('→ '+d[1],'dream');setTimeout(function(){out(dr)},2600);setTimeout(cycle,3050)},2850)}
+cycle()})();
 
 var NEED=1e9,V=document.getElementById('v'),P=document.getElementById('pl'),B=document.getElementById('big'),SN=document.getElementById('snd'),PG=document.getElementById('pg'),max=0,open=false;
 function unlock(save){if(open)return;open=true;if(save){try{localStorage.setItem('vslfull','1')}catch(x){}}
