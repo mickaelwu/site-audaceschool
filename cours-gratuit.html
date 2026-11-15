@@ -9,82 +9,88 @@
 <meta property="og:description" content="Apprends enfin à vivre d’internet. Regarde la vidéo et réserve ton premier cours, offert.">
 <meta property="og:image" content="https://audaceschool.com/img/og.jpg">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#FBF7F2">
+<meta name="theme-color" content="#0B0406">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <style>
-:root{--b:#67061B;--bd:#4A0414;--ink:#1E1012;--cream:#FBF7F2;--sand:#F3EBE4;--rose:#F6CCD5;--mut:#6B5558}
+:root{--b:#67061B;--b2:#9E1236;--ink:#FBF7F2;--bg:#0B0406;--card:#160A0D;--rose:#F6CCD5;--mut:rgba(251,247,242,.72)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;background:var(--cream);color:var(--ink);font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+ background:radial-gradient(ellipse 90% 55% at 50% 38%,rgba(158,18,54,.28),transparent 70%),
+ linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/72px 72px,
+ linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/72px 72px,var(--bg)}
 p{margin:0}
-.w{max-width:880px;margin:0 auto;padding:0 18px}
-.top{display:flex;justify-content:center;padding:34px 0 0}
-.logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;color:var(--b)}
-.logo b{font-family:'Instrument Sans',sans-serif;font-size:30px;letter-spacing:.03em}
-.logo small{font-size:8px;font-weight:800;letter-spacing:.36em;margin-top:4px}
-.head{text-align:center;padding:42px 0 0}
-.k{display:inline-block;margin:0 0 16px;padding:8px 14px;border-radius:999px;background:var(--b);color:var(--cream);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-h1{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;letter-spacing:-.03em;line-height:1;margin:0;font-size:clamp(40px,9vw,68px)}
-.player{position:relative;margin:38px auto 0;border-radius:22px;overflow:hidden;background:#14030A;box-shadow:0 22px 60px rgba(103,6,27,.28);aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
-.player video{display:block;width:100%;height:100%;object-fit:cover;background:#14030A;pointer-events:none}
-.big{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;border:0;background:rgba(103,6,27,.92);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 0 rgba(246,204,213,.6);animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s}
+.w{max-width:900px;margin:0 auto;padding:0 18px}
+.top{display:flex;justify-content:center;padding:56px 0 0}
+.logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;color:var(--ink)}
+.logo b{font-family:'Instrument Sans',sans-serif;font-size:34px;font-weight:700;letter-spacing:.04em}
+.logo small{font-size:8px;font-weight:800;letter-spacing:.38em;margin-top:5px;opacity:.75}
+.head{text-align:center;padding:64px 0 0}
+h1{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:.98;margin:0;font-size:clamp(40px,10vw,76px);color:#fff;text-shadow:0 0 34px rgba(158,18,54,.85),0 0 80px rgba(158,18,54,.45)}
+.wrap{position:relative;margin:52px auto 0;border-radius:24px;padding:2px;background:conic-gradient(from var(--a,0deg),rgba(246,204,213,.15),#9E1236 20%,#F6CCD5 28%,#9E1236 36%,rgba(246,204,213,.15) 55%,rgba(246,204,213,.15));animation:spin 6s linear infinite;box-shadow:0 0 60px rgba(158,18,54,.55),0 30px 80px rgba(0,0,0,.6)}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.player{position:relative;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
+.player video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}
+.big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s}
 .big svg{width:30px;height:30px;margin-left:5px}
 .player.playing .big{opacity:0;pointer-events:none}
-@keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(246,204,213,.55)}50%{box-shadow:0 0 0 16px rgba(246,204,213,0)}}
-.bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.18)}
-.bar i{display:block;height:100%;width:0;background:var(--rose)}
-.snd{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer}
+@keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(246,204,213,.5),0 0 40px rgba(158,18,54,.8)}50%{box-shadow:0 0 0 18px rgba(246,204,213,0),0 0 40px rgba(158,18,54,.8)}}
+.bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.15)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#9E1236,#F6CCD5)}
+.snd{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer}
 .player.playing .snd{display:flex}
 .snd svg{width:20px;height:20px}
-.gate{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:22px 10px 0;color:var(--mut)}
-.gate .up{width:22px;height:22px;color:var(--b);opacity:.7;animation:up 1.6s ease-in-out infinite}
-@keyframes up{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.gate .row{display:flex;gap:12px;align-items:center;max-width:460px;font-size:16px;line-height:1.45}
-.gate .row svg{flex:none;width:22px;height:22px;color:var(--b)}
-.gate b{color:var(--ink)}
-.gate .left{font-size:13px;font-weight:800;color:var(--b);min-height:18px}
-.btn.go{display:none;margin:20px auto 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:60px;padding:0 30px;border-radius:16px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,background .2s ease}
+.gate{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:30px 6px 0;color:var(--mut)}
+.gate .up{width:26px;height:26px;color:var(--rose);animation:up 1.6s ease-in-out infinite}
+@keyframes up{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.gate .row{display:flex;gap:14px;align-items:center;max-width:520px;font-size:19px;line-height:1.45;color:var(--mut)}
+.gate .row svg{flex:none;width:26px;height:26px;color:var(--rose)}
+.gate b{color:#fff;font-weight:800}
+.gate .left{font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--rose);min-height:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:62px;padding:0 32px;border-radius:16px;font-weight:800;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,filter .2s ease}
 .btn:active{transform:scale(.96)}
-.btn-main{background:var(--b);color:var(--cream);box-shadow:0 10px 30px rgba(103,6,27,.35)}
-.btn-main:hover{background:var(--bd)}
-.agenda{display:none;max-width:880px;margin:34px auto 60px;border-radius:22px;background:#fff;box-shadow:0 12px 34px rgba(30,16,18,.08);overflow:hidden;scroll-margin-top:14px;animation:in .5s ease}
+.btn-main{background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.25) inset,0 12px 40px rgba(158,18,54,.6)}
+.btn-main:hover{filter:brightness(1.12)}
+.btn.go{display:none;margin:22px auto 0}
+.agenda{display:none;max-width:900px;margin:40px auto 60px;border-radius:24px;background:var(--card);border:1px solid rgba(246,204,213,.14);box-shadow:0 0 60px rgba(158,18,54,.25);overflow:hidden;scroll-margin-top:14px;animation:in .5s ease}
 .agenda.on{display:block}
-.agenda.wa{padding:34px 20px;text-align:center}
+.agenda.wa{padding:38px 20px;text-align:center}
 @keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.wa-t{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.02em;margin:0;color:var(--ink)}
-.wa-s{color:var(--mut);margin:8px auto 22px;max-width:440px}
+.wa-t{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;font-size:30px;letter-spacing:-.02em;margin:0;color:#fff}
+.wa-s{color:var(--mut);margin:8px auto 24px;max-width:440px;font-size:17px}
 .wf{display:grid;gap:12px;max-width:440px;margin:0 auto}
-.wf input{width:100%;min-height:56px;padding:0 18px;border-radius:14px;border:2px solid #E7DADC;background:#FBF7F6;font:inherit;font-size:16px;color:inherit;outline:none}
-.wf input:focus{border-color:var(--b);background:#fff}
-.wf input.bad{border-color:#C0392B}
+.wf input{width:100%;min-height:58px;padding:0 18px;border-radius:14px;border:2px solid rgba(246,204,213,.18);background:rgba(255,255,255,.05);font:inherit;font-size:17px;color:#fff;outline:none}
+.wf input::placeholder{color:rgba(251,247,242,.4)}
+.wf input:focus{border-color:var(--rose);background:rgba(255,255,255,.08)}
+.wf input.bad{border-color:#FF6B6B}
 .wf .btn{width:100%;margin-top:4px}
 .wf .st{display:none;text-align:left}
 .wf .st.on{display:block;animation:stIn .35s ease}
-.wf label{display:block;font-weight:800;font-size:18px;margin:0 0 10px 4px}
-.wf-err{margin:0;color:#C0392B;font-weight:700;font-size:14px}
+.wf label{display:block;font-weight:800;font-size:19px;margin:0 0 10px 4px;color:#fff}
+.wf-err{margin:0;color:#FF8A8A;font-weight:700;font-size:14px}
 @keyframes stIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
-.iclosed-widget{width:100%;height:720px}
-.callnote{color:var(--mut);font-size:14px;margin:6px 18px 0;text-align:center}
-.foot{text-align:center;color:var(--mut);font-size:12px;padding:40px 0 30px}
+.iclosed-widget{width:100%;height:720px;background:#fff}
+.callnote{color:var(--mut);font-size:15px;margin:14px 18px 0;text-align:center}
+.foot{text-align:center;color:rgba(251,247,242,.4);font-size:12px;padding:44px 0 30px}
+@media(max-width:600px){.top{padding-top:40px}.head{padding-top:48px}.wrap{margin-top:40px}}
 </style>
 </head>
 <body>
 <div class="w">
   <header class="top"><a class="logo" href="./"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></a></header>
   <div class="head">
-    <span class="k">Premier cours gratuit</span>
     <h1>Apprends enfin à vivre d’internet.</h1>
   </div>
 
-  <div class="player" id="pl">
+  <div class="wrap"><div class="player" id="pl">
     <video id="v" playsinline webkit-playsinline preload="metadata" poster="img/vsl-poster.jpg" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noplaybackrate" src="media/vsl.mp4"></video>
     <button class="big" id="big" aria-label="Lancer la vidéo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></button>
     <button class="snd" id="snd" aria-label="Couper le son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path id="wave" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
     <div class="bar"><i id="pg"></i></div>
-  </div>
+  </div></div>
 
   <div class="gate" id="gate">
     <svg class="up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>
@@ -138,7 +144,7 @@ V.addEventListener('ratechange',function(){if(V.playbackRate>1)V.playbackRate=1}
 V.addEventListener('ended',function(){P.classList.remove('playing');unlock(true)});
 V.addEventListener('contextmenu',function(e){e.preventDefault()});
 // vidéo absente : on n'empêche pas de réserver
-V.addEventListener('error',function(){P.style.display='none';document.getElementById('gate').style.display='none';unlock(false)});
+V.addEventListener('error',function(){P.parentNode.style.display='none';document.getElementById('gate').style.display='none';unlock(false)});
 })();
 
 // code ambassadeur (?a=prenom), gardé pendant la visite
