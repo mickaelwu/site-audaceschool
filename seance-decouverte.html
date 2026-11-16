@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&amp;display=swap">
 <style>
+
 :root{--ink:#FBF7F2;--bg:#0B0406;--card:#160A0D;--rose:#F6CCD5;--red:#F2365F;--mut:rgba(251,247,242,.72)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;background:var(--bg)}
@@ -30,7 +31,7 @@ p{margin:0}
 .head{text-align:center;padding:44px 0 0}
 h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:1.08}
 h1 .pre{display:block;font-weight:900;font-size:clamp(24px,7vw,46px);letter-spacing:-.01em;color:#fff;text-shadow:0 0 30px rgba(255,255,255,.18)}
-h1 .rot{position:relative;display:block;min-height:1.15em;white-space:nowrap;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(24px,7vw,46px);letter-spacing:-.015em}
+h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(24px,7vw,46px);letter-spacing:-.015em}
 h1 .rot span{position:absolute;left:0;right:0;top:0;color:var(--red);text-shadow:0 0 22px rgba(242,54,95,.6),0 0 50px rgba(194,26,71,.45);opacity:0}
 h1 .rot span.on{animation:fin .35s ease-out forwards}
 h1 .rot span.out{animation:fout .3s ease-in forwards}
@@ -71,61 +72,63 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .snd{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;z-index:3}
 .player.playing .snd{display:flex}
 .snd svg{width:20px;height:20px}
-.down{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:24px 6px 0;color:var(--mut);font-size:16px}
-.down svg{width:26px;height:26px;color:var(--rose);animation:dn 1.6s ease-in-out infinite}
-.down b{color:#fff}
-@keyframes dn{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-.agenda{margin:30px auto 0;border-radius:24px;background:var(--card);border:1px solid rgba(246,204,213,.14);box-shadow:0 0 60px rgba(158,18,54,.25);overflow:hidden;scroll-margin-top:14px}
-.agenda h2{font-family:'Inter',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(22px,6vw,34px);letter-spacing:-.01em;line-height:1.1;text-align:center;margin:0;padding:30px 18px 6px;color:#fff}
-.agenda .s{text-align:center;color:var(--mut);padding:0 18px 22px;font-size:16px}
-.iclosed-widget{width:100%;height:720px;background:#fff}
-.fb{display:none;text-align:center;padding:22px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:62px;padding:0 30px;border-radius:16px;font-weight:900;font-size:16px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,filter .2s ease;background:linear-gradient(145deg,#C21A47,#67061B);color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.25) inset,0 12px 40px rgba(158,18,54,.6)}
-.btn:active{transform:scale(.96)}
-.btn:hover{filter:brightness(1.12)}
-.sec{padding:96px 0 0}
-.k2{text-align:center;font-size:12px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
-.h2{text-align:center;margin:12px 0 0;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(30px,8.4vw,56px);line-height:1;letter-spacing:-.02em;color:#fff}
-.h2 em{color:var(--red);text-shadow:0 0 22px rgba(242,54,95,.55)}
-.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:34px -18px 0;padding:8px 18px 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.rail::-webkit-scrollbar{display:none}
-.tc{flex:0 0 84%;max-width:560px;scroll-snap-align:center;position:relative;display:block;border:0;padding:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#000 center/cover no-repeat;cursor:pointer;text-align:left;color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.16),0 22px 50px rgba(0,0,0,.6);transition:transform .2s}
-.tc:active{transform:scale(.98)}
-@media(min-width:760px){.tc{flex-basis:calc(50% - 7px)}}
-.tc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,4,6,0) 35%,rgba(11,4,6,.55) 60%,rgba(11,4,6,.96))}
-.tc .pl{position:absolute;top:14px;right:14px;z-index:1;width:48px;height:48px;border-radius:50%;background:linear-gradient(145deg,#C21A47,#67061B);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(194,26,71,.25),0 0 30px rgba(224,32,79,.7)}
-.tc .pl svg{width:18px;height:18px;margin-left:3px}
-.tc .in{position:absolute;left:18px;right:18px;bottom:16px;z-index:1}
-.tc .in span{display:block;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(19px,5.4vw,26px);line-height:1.05;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.6)}
-.tc .in b{display:inline-block;margin-top:10px;font-size:14px;font-weight:800}
-.tc .in i{font-style:normal;font-size:13px;color:rgba(251,247,242,.7)}
-.tc .in i::before{content:" · "}
-.dots{display:flex;justify-content:center;gap:8px;margin-top:2px}
-.dots i{width:7px;height:7px;border-radius:9px;background:rgba(246,204,213,.25);transition:all .25s}
-.dots i.on{width:22px;background:var(--red)}
-.disc{text-align:center;color:rgba(251,247,242,.45);font-size:12px;margin-top:16px}
-.who{margin-top:34px}
-.who .wrap{margin:0}
-.who .ph{border-radius:22px;overflow:hidden;background:#000}
-.who .ph img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 40%}
-.bio{margin-top:30px;text-align:center}
-.bio h3{margin:0;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;font-size:clamp(28px,8vw,44px);text-transform:uppercase;letter-spacing:-.02em;line-height:1;color:#fff}
-.bio .role{margin-top:8px;font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
-.bio p{margin:18px auto 0;max-width:600px;color:var(--mut);font-size:17px;line-height:1.65}
+
+.cta-t{text-align:center;color:var(--mut);font-size:14px;margin:22px auto 14px;max-width:420px}
+.cta-t b{color:#fff}
+.btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:520px;margin:0 auto;min-height:64px;padding:0 26px;border-radius:16px;font-weight:900;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:0;white-space:nowrap;cursor:pointer;font-family:inherit;background:linear-gradient(145deg,#D21E4E,#8A0A29);color:#fff;box-shadow:0 0 0 1px rgba(246,204,213,.25) inset,0 14px 40px rgba(194,26,71,.55);transition:transform .15s,filter .2s}
+.btn:active{transform:scale(.97)}.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;box-shadow:0 0 0 1.5px rgba(246,204,213,.35) inset;min-height:54px;font-size:13px}
+.sec{padding:100px 0 0}
+.k2{text-align:center;font-size:12px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--red)}
+.h2{text-align:center;margin:12px 0 0;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(30px,8.6vw,58px);line-height:1;letter-spacing:-.02em;color:#fff}
+.h2 em{display:block;color:var(--red);text-shadow:0 0 22px rgba(242,54,95,.55)}
+.h2.plain{font-style:normal;text-transform:none;letter-spacing:-.02em}
+.photo{margin-top:30px;border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px rgba(246,204,213,.14),0 24px 60px rgba(0,0,0,.6)}
+.photo img{display:block;width:100%;max-height:640px;object-fit:cover;object-position:center 30%}
+.bio{margin-top:30px}
+.bio h3{margin:0;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(26px,7vw,40px);text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.bio p{margin-top:16px;color:var(--mut);font-size:16px;line-height:1.7}
 .bio p b{color:#fff}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:30px auto 0;max-width:640px}
-.stat{border-radius:18px;background:linear-gradient(180deg,rgba(194,26,71,.16),rgba(22,10,13,.9));border:1px solid rgba(246,204,213,.16);padding:18px 8px;text-align:center}
-.stat b{display:block;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;font-size:clamp(22px,6.6vw,34px);color:#fff;text-shadow:0 0 20px rgba(242,54,95,.5)}
-.stat span{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:4px}
-.end{text-align:center;padding:60px 0 0}
-.end .btn{width:100%;max-width:440px}
+.bio p.i{font-style:italic}
+.agenda{margin:30px auto 0;border-radius:22px;background:#141414;border:1px solid rgba(255,255,255,.08);overflow:hidden;scroll-margin-top:14px;padding:10px}
+.iclosed-widget{width:100%;height:720px;border-radius:14px;overflow:hidden}
+.fb{display:none;text-align:center;padding:22px}
+.box{margin-top:18px;border-radius:22px;background:#141414;border:1px solid rgba(255,255,255,.08);padding:28px 24px}
+.box h4{margin:0 0 16px;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(19px,5.4vw,24px);text-transform:uppercase;line-height:1.2;color:#fff}
+.box li{display:flex;gap:14px;align-items:flex-start;margin:12px 0;color:rgba(251,247,242,.85);font-size:16px;line-height:1.45;list-style:none}
+.box ul{margin:0;padding:0}
+.box li i{flex:none;font-style:normal;font-weight:900;color:var(--red);font-size:18px;line-height:1.2;width:18px}
+.tr-head{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin:26px 0 12px}
+.tr-head span{font-size:13px;color:var(--mut);font-variant-numeric:tabular-nums}
+.arr{width:38px;height:38px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#141414;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.arr:disabled{opacity:.35;cursor:default}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tc{border-radius:18px;overflow:hidden;background:#141414;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column}
+.tc .md{position:relative;aspect-ratio:3/4;background:#000 center/cover no-repeat;border:0;padding:0;cursor:pointer;width:100%}
+.tc .md .pl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:linear-gradient(145deg,#D21E4E,#8A0A29);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 7px rgba(194,26,71,.3),0 0 24px rgba(224,32,79,.7)}
+.tc .md .pl svg{width:18px;height:18px;margin-left:3px;fill:#fff}
+.tc .tx{padding:14px 12px 14px;display:flex;flex-direction:column;flex:1}
+.tc .hd{font-family:'Inter',sans-serif;font-weight:900;text-transform:uppercase;font-size:13.5px;line-height:1.2;color:var(--red)}
+.tc .q{margin-top:10px;font-style:italic;font-size:13px;line-height:1.45;color:rgba(251,247,242,.82)}
+.tc .rs{margin-top:10px;font-size:12px;font-weight:700;color:var(--red);line-height:1.35}
+.tc .who{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:flex-end;gap:6px}
+.tc .who b{display:block;font-size:13px;color:#fff}
+.tc .who small{display:block;font-size:11px;color:var(--mut);line-height:1.3}
+.tc .bdg{flex:none;font-size:10px;font-weight:800;color:var(--rose);background:rgba(194,26,71,.18);border-radius:99px;padding:4px 7px}
+.tc.txt .tx{padding-top:18px}
+.tc.txt .big{font-family:'Inter',sans-serif;font-weight:900;font-size:40px;line-height:.6;color:var(--red);height:20px}
+.pdots{display:flex;justify-content:center;gap:7px;margin:16px 0 18px}
+.pdots i{width:7px;height:7px;border-radius:9px;background:rgba(246,204,213,.22)}
+.pdots i.on{width:22px;background:var(--red)}
+.disc{text-align:center;color:rgba(251,247,242,.45);font-size:12px;margin-top:16px}
+.end{padding:50px 0 0}
 .foot{text-align:center;color:rgba(251,247,242,.4);font-size:12px;padding:44px 0 30px}
-.modal{position:fixed;inset:0;z-index:50;background:rgba(5,2,3,.94);display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(5,2,3,.95);display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px}
 .modal.on{display:flex}
 .modal video{width:100%;max-width:520px;max-height:76vh;border-radius:18px;background:#000}
 .modal .x{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:20px;cursor:pointer}
 .modal .mw{color:#fff;font-weight:800;margin-bottom:12px;text-align:center}
-.modal .btn{margin-top:16px}
+.modal .btn{margin-top:16px;max-width:520px}
 </style>
 </head>
 <body>
@@ -136,45 +139,59 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
     <h1><span class="pre">Ta séance découverte</span><span class="rot" id="rot" aria-live="polite"></span></h1>
   </div>
 
-  <div class="agenda" id="agenda">
-    <h2>Choisis ton créneau</h2>
-    <p class="s">Gratuit. Au QG à Paris ou en visio. On regarde ta situation et ce que tu peux lancer.</p>
-    <div class="iclosed-widget" id="icw" title="Séance découverte AUDACE"></div>
-    <div class="fb" id="fb"><a class="btn" id="fbl" href="#" target="_blank" rel="noopener">Ouvrir l’agenda →</a></div>
-  </div>
-
-  <section class="sec">
-    <div class="k2">Ils l’ont fait</div>
-    <h2 class="h2">Des élèves <em>comme toi.</em></h2>
-    <div class="rail" id="cards"></div>
-    <div class="dots" id="dots"></div>
-    <p class="disc">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>
-  </section>
+  <p class="cta-t">Clique sur le bouton ci-dessous pour réserver ta <b>séance découverte</b></p>
+  <a class="btn" href="#rdv">Réserver ma séance <span>→</span></a>
 
   <section class="sec">
     <div class="k2">Qui est Mickaël</div>
     <h2 class="h2">L’homme derrière <em>AUDACE.</em></h2>
-    <div class="who"><div class="wrap"><div class="ph"><img src="img/micka-coaching.jpg" alt="Mickaël Wu en plein coaching" loading="lazy"></div></div></div>
+    <div class="photo"><img src="img/micka-audace.jpg" alt="Mickaël Wu avec ses élèves de l’École AUDACE" loading="lazy"></div>
     <div class="bio">
       <h3>Mickaël Wu</h3>
-      <div class="role">Fondateur de l’École AUDACE</div>
-      <p>Mickaël lance son <b>premier business à 9 ans</b>.</p>
-      <p>Étudiant à Paris-Dauphine, dans le top 20 de sa promo, il fait ses vidéos à côté des cours. Puis il <b>quitte tout</b> pour son business.</p>
-      <p>En 3 ans, il réunit près de <b>300 000 abonnés</b> sur TikTok, YouTube et Instagram, et accompagne <b>plus de 1 400 élèves</b> qui se lancent sur internet.</p>
-      <p>Aujourd’hui, à 20 ans, il a fondé l’École AUDACE avec une mission : apprendre aux jeunes à vivre d’internet, <b>même en partant de zéro</b>.</p>
+      <p>Mickaël n’a pas hérité d’un réseau ni d’un capital.</p>
+      <p>À 9 ans, il lance son premier business. Étudiant à Paris-Dauphine, dans le top 20 de sa promo, il tourne ses vidéos à côté des cours. Puis il <b>quitte tout</b> pour son business.</p>
+      <p>En 3 ans, il réunit près de <b>300 000 abonnés</b> sur TikTok, YouTube et Instagram, et accompagne <b>plus de 1 400 élèves</b> : étudiants, salariés, parents, qui lancent leur business sur internet en partant de zéro.</p>
+      <p class="i">Aujourd’hui, à 20 ans, il a fondé l’École AUDACE avec une mission claire : apprendre aux jeunes à vivre d’internet, avec une méthode simple et un vrai suivi, au QG à Paris ou en ligne.</p>
     </div>
-    <div class="stats"><div class="stat"><b>1 400+</b><span>élèves</span></div><div class="stat"><b>290k</b><span>abonnés</span></div><div class="stat"><b>4,9/5</b><span>avis élèves</span></div></div>
   </section>
 
-  <div class="end"><a class="btn" href="#agenda">Réserver ma séance découverte →</a></div>
+  <section class="sec" id="rdv">
+    <div class="k2">La séance découverte</div>
+    <h2 class="h2">Ce qu’il va <em>se passer.</em></h2>
+    <div class="agenda" id="agenda">
+      <div class="iclosed-widget" id="icw" title="Séance découverte AUDACE"></div>
+      <div class="fb" id="fb"><a class="btn" id="fbl" href="#" target="_blank" rel="noopener">Ouvrir l’agenda →</a></div>
+    </div>
+    <div class="box"><h4>Séance découverte de 60 minutes</h4><ul>
+      <li><i>✓</i>Au QG à Paris ou en visio, c’est toi qui choisis</li>
+      <li><i>✓</i>On fait le point sur ta situation : études, travail, temps, objectifs</li>
+      <li><i>✓</i>On trouve le business en ligne qui te correspond le mieux</li>
+      <li><i>✓</i>On regarde honnêtement si on peut vraiment t’aider à y arriver</li></ul></div>
+    <div class="box"><h4>Ce que ce n’est pas</h4><ul>
+      <li><i>✕</i>Une séance de coaching gratuite</li>
+      <li><i>✕</i>Des conseils vagues et génériques</li>
+      <li><i>✕</i>De la pression pour t’inscrire</li></ul></div>
+  </section>
+
+  <section class="sec">
+    <div class="k2">Transformations</div>
+    <h2 class="h2 plain">Ce que disent nos élèves.</h2>
+    <div class="tr-head" id="trh"><span id="pg">1 / 3</span><button class="arr" id="prev" aria-label="Précédent">‹</button><button class="arr" id="next" aria-label="Suivant">›</button></div>
+    <div class="grid" id="cards"></div>
+    <div class="pdots" id="pdots"></div>
+    <button class="btn ghost" id="more" type="button">Voir plus de transformations</button>
+    <p class="disc">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>
+  </section>
+
+  <div class="end"><a class="btn" href="#rdv">Réserver ma séance <span>→</span></a></div>
 
   <p class="foot">© 2026 École AUDACE · Paris</p>
 </div>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Fermer">✕</button><div class="mw" id="mwho"></div><video id="mv" controls playsinline preload="none"></video><a class="btn" href="#agenda" id="mcta">Réserver ma séance →</a></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Fermer">✕</button><div class="mw" id="mwho"></div><video id="mv" controls playsinline preload="none"></video><a class="btn" href="#rdv" id="mcta">Réserver ma séance →</a></div>
 
 <script>
-// titre : ce qui défile sous « Ta séance découverte »
+// titre : les lignes qui défilent sous « Ta séance découverte »
 (function(){var L=['au QG à Paris','ou en visio','100 % gratuite','avec un coach AUDACE'],R=document.getElementById('rot'),n=0;
 function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},320)}
  var sp=document.createElement('span');sp.textContent=L[n++%L.length];R.appendChild(sp);setTimeout(function(){sp.classList.add('on')},old?450:0)}
@@ -191,22 +208,41 @@ var sc=document.createElement('script');sc.src='https://app.iclosed.io/assets/wi
 setTimeout(function(){if(!w.querySelector('iframe')){w.style.display='none';document.getElementById('fb').style.display='block'}},8000);
 })();
 
-// témoignages
+// transformations : 2 par 2, puis « voir plus » pour tout afficher
 (function(){
 var E=[
- {n:'Adrien',t:'Lycéen',r:'10 000 € par mois à 17 ans',img:'img/tm-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4'},
- {n:'Antonin',t:'Déscolarisé',r:'30 000 € par mois aujourd’hui',img:'img/tm-antonin.jpg',v:'media/74963c4ee4e6f24219fb2e65a4c892e0.mp4'},
- {n:'Mayline',t:'Étudiante en médecine',r:'2 500 € par semaine à 24 ans',img:'img/tm-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'},
- {n:'Paul et Math',t:'Deux étudiants',r:'4 500 € en un mois',img:'img/tm-paulmath.jpg',v:'media/4d82ff03ed77c7b7b257784e893103ae.mp4'},
- {n:'Bobby',t:'Ancien banquier',r:'200 000 abonnés TikTok en 40 jours',img:'img/tm-bobby.jpg',v:'media/603671b422d2eceb4eecbcd2a31f8309.mp4'},
- {n:'Fan',t:'Maman, coach de langue',r:'4 000 € par mois',img:'img/tm-fan.jpg',v:'media/7814e5b2c5f88d7403104668fb856c18.mp4'}];
-var C=document.getElementById('cards'),D=document.getElementById('dots');
-C.innerHTML=E.map(function(e,i){return '<button class="tc" data-i="'+i+'" style="background-image:url('+e.img+')" aria-label="Voir le témoignage de '+e.n+'"><span class="pl"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span><span class="in"><span>'+e.r+'</span><b>'+e.n+'</b><i>'+e.t+'</i></span></button>'}).join('');
-D.innerHTML=E.map(function(_,i){return '<i'+(i?'':' class="on"')+'></i>'}).join('');
-C.addEventListener('scroll',function(){var w=C.querySelector('.tc').offsetWidth+14,k=Math.round(C.scrollLeft/w);[].forEach.call(D.children,function(d,i){d.classList.toggle('on',i===k)})},{passive:true});
+ {n:'Antonin',t:'Trading · 18 ans',h:'Plus de 8 000 € par mois à 18 ans',q:'Je gagne plus de 8 000 euros par mois en création de contenu, à l’âge de 18 ans.',r:'Jamais plus de 2 000 €/mois avant',b:'8K€/MOIS',img:'img/tv-antonin.jpg',v:'media/74963c4ee4e6f24219fb2e65a4c892e0.mp4'},
+ {n:'Bobby',t:'Créateur TikTok',h:'100 000 abonnés en 28 jours',q:'En moins d’un mois sur TikTok, j’ai fait plus de 100 000 abonnés. T’as changé ma vie.',r:'Aujourd’hui 525K abonnés TikTok',b:'525K',img:'img/tv-bobby.jpg',v:'media/603671b422d2eceb4eecbcd2a31f8309.mp4'},
+ {n:'Paul et Math',t:'Coachs street workout',h:'5 000 € en 1 mois',q:'On était bloqués à 171 abonnés. On a réussi à atteindre les 5 000 abonnés.',r:'D’étudiants à coachs',b:'5K€',img:'img/tv-paulmath.jpg',v:'media/4d82ff03ed77c7b7b257784e893103ae.mp4'},
+ {n:'Fan',t:'Cours de chinois',h:'4 000 € par mois',q:'Si on pratique les conseils, il y a le résultat !',r:'3 420 € reçus en octobre',b:'4K€/MOIS',img:'img/tv-fan.jpg',v:'media/7814e5b2c5f88d7403104668fb856c18.mp4'},
+ {n:'Mayline',t:'Coach TCA',h:'2 500 € en 1 semaine',q:'D’étudiante en médecine à coach.',r:'Lancée à côté de ses études',b:'2,5K€',img:'img/tv-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'},
+ {n:'Adrien',t:'Photographie',h:'De lycéen à vidéaste',q:'De lycéen à vidéaste, avec ses premiers clients.',r:'Premières ventes à 400 €',b:'LYCÉEN',img:'img/tv-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4'},
+ {n:'Maxime',t:'Aide aux études',h:'86 000 € en 12 mois',q:'Il montre son tableau Stripe : 86 000 € encaissés en un an, à côté de ses études.',r:'143K abonnés TikTok',b:'86K€'},
+ {n:'Dezuur',t:'Vente de formations',h:'Plus de 8 000 € par mois',q:'J’ai fait 2k le premier mois, et là je suis à plus de 8k.',r:'Accompagnement remboursé dès le 1er mois',b:'8K€/MOIS'},
+ {n:'Jayden',t:'Coach de vie',h:'Plus de 5 000 € par mois',q:'Cet accompagnement a littéralement changé ma vie.',r:'D’une caravane à un vrai logement',b:'5K€/MOIS'},
+ {n:'Mathys',t:'Business en ligne · 18 ans',h:'4 000 € par mois à 18 ans',q:'J’ai déménagé de chez ma mère, j’ai pu avoir un appartement.',r:'Indépendant financièrement',b:'4K€/MOIS'},
+ {n:'Wail',t:'Etsy',h:'Revenus presque doublés',q:'Grâce à la formation, j’ai pu pratiquement doubler mes revenus.',r:'Jusqu’à 20 000 €/mois sur Etsy',b:'20K€/MOIS'},
+ {n:'Husler',t:'Revente Vinted · 17 ans',h:'14 200 € en 2 mois',q:'7 000 € reçus sur janvier, 8 000 sur février.',r:'À 17 ans',b:'14K€'},
+ {n:'Sofia',t:'Aide aux étudiants',h:'Plus de 9 000 € encaissés',q:'Elle aide les étudiants à réussir, et en vit.',r:'57K abonnés TikTok',b:'9K€'},
+ {n:'Kayss',t:'Achat-revente',h:'20 000 € en 5 mois',q:'6 000 € depuis que j’ai lancé mon programme d’accompagnement.',r:'4 à 5 000 €/mois',b:'20K€'}];
+var C=document.getElementById('cards'),PD=document.getElementById('pdots'),PG=document.getElementById('pg'),PV=document.getElementById('prev'),NX=document.getElementById('next'),MO=document.getElementById('more'),H=document.getElementById('trh');
+var VID=E.filter(function(e){return e.v}),pages=Math.ceil(VID.length/2),p=0,all=false;
+function card(e){var i=E.indexOf(e);
+ var top=e.v?'<button class="md" data-i="'+i+'" style="background-image:url('+e.img+')" aria-label="Voir le témoignage de '+e.n+'"><span class="pl"><svg viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span></button>':'';
+ return '<div class="tc'+(e.v?'':' txt')+'">'+top+'<div class="tx">'+(e.v?'':'<div class="big">“</div>')+'<div class="hd">'+e.h+'</div><div class="q">« '+e.q+' »</div><div class="rs">↑ '+e.r+'</div><div class="who"><div><b>'+e.n+'</b><small>'+e.t+'</small></div><span class="bdg">• '+e.b+'</span></div></div></div>'}
+function render(){
+ if(all){C.innerHTML=E.map(card).join('');H.style.display='none';PD.style.display='none';MO.textContent='Réduire'}
+ else{C.innerHTML=VID.slice(p*2,p*2+2).map(card).join('');H.style.display='';PD.style.display='';MO.textContent='Voir plus de transformations';
+  PG.textContent=(p+1)+' / '+pages;PV.disabled=p===0;NX.disabled=p===pages-1;
+  PD.innerHTML=Array.apply(null,{length:pages}).map(function(_,i){return '<i'+(i===p?' class="on"':'')+'></i>'}).join('')}}
+PV.onclick=function(){if(p>0){p--;render()}};NX.onclick=function(){if(p<pages-1){p++;render()}};
+MO.onclick=function(){all=!all;render();if(!all){var s=C.getBoundingClientRect().top+scrollY-160;scrollTo({top:s,behavior:'smooth'})}};
+var sx=0;C.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+C.addEventListener('touchend',function(e){if(all)return;var d=e.changedTouches[0].clientX-sx;if(d<-50&&p<pages-1){p++;render()}else if(d>50&&p>0){p--;render()}},{passive:true});
+render();
 var M=document.getElementById('modal'),MV=document.getElementById('mv'),mainV=document.getElementById('v');
-C.addEventListener('click',function(ev){var b=ev.target.closest('.tc');if(!b)return;var e=E[+b.dataset.i];
-  document.getElementById('mwho').textContent=e.n+' · '+e.r;MV.poster=e.img;MV.src=e.v;M.classList.add('on');document.body.style.overflow='hidden';
+C.addEventListener('click',function(ev){var b=ev.target.closest('.md');if(!b)return;var e=E[+b.dataset.i];
+  document.getElementById('mwho').textContent=e.n+' · '+e.h;MV.poster=e.img;MV.src=e.v;M.classList.add('on');document.body.style.overflow='hidden';
   if(mainV&&!mainV.paused)mainV.pause();MV.play().catch(function(){})});
 function close(){MV.pause();MV.removeAttribute('src');MV.load();M.classList.remove('on');document.body.style.overflow=''}
 document.getElementById('mx').onclick=close;M.addEventListener('click',function(e){if(e.target===M)close()});
