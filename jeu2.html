@@ -432,7 +432,7 @@ var D=function(){return DOM[S.dom]};
 function intro(){$('#steps').classList.remove('on');
  var d=show('<div class="col c"><div class="k rv">École AUDACE · Le jeu</div><h1 class="rv"'+dl(1)+'>Trouve tes premiers clients grâce à internet.</h1><p class="p rv"'+dl(2)+'>Tu vas faire, pour de vrai, les <b>4 étapes de la méthode</b> qu’on enseigne. Ça prend 2 minutes.</p>'+
  '<div class="prev rv"'+dl(3)+'><div><b>1</b>Ton offre</div><div><b>2</b>Ton contenu</div><div><b>3</b>Tes messages</div><div><b>4</b>Ton appel</div></div>'+
- '<button class="btn pulse rv"'+dl(4)+' id="go">Je commence →</button><a class="lnk rv"'+dl(5)+' href="'+BOOK+'">Je préfère réserver directement ma séance</a></div>');
+ '<button class="btn pulse rv"'+dl(4)+' id="go">Je commence →</button><a class="lnk rv"'+dl(5)+' href="'+BOOK+'">Je préfère réserver directement mon appel</a></div>');
  $('#go',d).onclick=function(e){ac();sfx.ok();vib(15);var c=center(e.currentTarget);burst(c[0],c[1],'conf',30);name()}}
 
 /* 1 — prénom */
@@ -651,8 +651,8 @@ function fin(){
  '<div class="tk"><i>2</i><span>Ta vidéo</span><b>'+fmt(S.views)+' vues</b></div>'+
  '<div class="tk"><i>3</i><span>Tes messages</span><b>'+S.int+' intéressés</b></div>'+
  '<div class="tk"><i>4</i><span>Ton appel</span><b>1er client</b></div></div>'+
- '<ul class="ul rv"'+dl(3)+'><li><i>✓</i>Ta séance découverte est offerte.</li><li><i>✓</i>Au QG à Paris, ou en visio si tu es loin.</li><li><i>✓</i>Avec ton coach, tu poses ton offre et tu repères les vidéos qui marchent dans ton domaine.</li></ul>'+
- '<a class="btn pulse rv"'+dl(4)+' id="bk" href="'+BOOK+'">Je réserve ma séance découverte →</a>'+
+ '<ul class="ul rv"'+dl(3)+'><li><i>✓</i>Ton appel stratégique est offert.</li><li><i>✓</i>Au QG à Paris, ou en visio si tu es loin.</li><li><i>✓</i>Avec ton coach, tu poses ton offre et tu repères les vidéos qui marchent dans ton domaine.</li></ul>'+
+ '<a class="btn pulse rv"'+dl(4)+' id="bk" href="'+BOOK+'">Je réserve mon appel stratégique →</a>'+
  '<button class="lnk rv"'+dl(5)+' id="again">Rejouer</button></div>');
  setTimeout(function(){var c=center($('#bk',d));burst(c[0],c[1],'conf',40)},700);
  try{sessionStorage.setItem('aud-jeu',JSON.stringify({prenom:S.name,situation:S.sit,produit:S.prod,domaine:dd.l}))}catch(e){}
