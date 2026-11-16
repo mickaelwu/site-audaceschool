@@ -146,6 +146,39 @@ body.cta #hint{bottom:max(104px,calc(env(safe-area-inset-bottom) + 104px))}
 #jump svg{width:34px;height:34px;fill:none;stroke:#3D0410;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 #jump:active{transform:scale(.9)}
 body.game #jump{display:flex}
+#act{left:50%;bottom:max(118px,calc(env(safe-area-inset-bottom) + 118px));transform:translate(-50%,14px) scale(.96);z-index:8;display:flex;align-items:center;gap:10px;min-height:56px;padding:0 24px 0 14px;border:0;border-radius:999px;background:#F6CCD5;color:#3D0410;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 12px 34px rgba(20,3,8,.6);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .25s cubic-bezier(.2,.9,.3,1.4),visibility .2s;white-space:nowrap}
+#act.on{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+#act kbd{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:#3D0410;color:#F6CCD5;font:700 15px 'Inter',sans-serif}
+#act span:before{content:"▶ "}
+.md{z-index:12;background:rgba(18,3,9,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;overflow-y:auto;touch-action:pan-y;align-items:flex-start}
+.md.on{opacity:1;visibility:visible}
+.md .in{position:relative;width:min(400px,100%);margin:auto;padding:26px 20px 20px;border-radius:26px;background:#1C040C;text-align:left;pointer-events:auto}
+.md h2{margin:8px 0 0;font-size:28px}
+.md .res{margin:4px 0 14px;font-size:16px;font-weight:600;color:#F6CCD5}
+.md .x{position:absolute;right:12px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:16px;cursor:pointer}
+.md .btn.big{margin-top:10px}
+#tv{display:block;width:100%;height:50vh;object-fit:contain;border-radius:18px;background:#000;margin-bottom:6px}
+.md .btn.big{font-size:16px;white-space:nowrap;padding:0 14px}
+#prof .form{margin-top:14px}
+#pf-i{display:block;width:100%;height:54px;padding:0 20px;border:0;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font:600 17px 'Inter',sans-serif;outline:none;user-select:text;-webkit-user-select:text}
+#pf-i::placeholder{color:#D9A9B1}
+#prof .lab{margin:14px 0 8px;font-size:14px;font-weight:600;color:#E3B9C0}
+#pf-chips{display:flex;flex-wrap:wrap;gap:6px}
+#pf-chips button{height:36px;padding:0 14px;border:0;border-radius:999px;background:rgba(255,255,255,.1);color:#FBF1EE;font:600 13.5px 'Inter',sans-serif;cursor:pointer}
+#pf-chips button.on{background:#F6CCD5;color:#3D0410}
+.phone{margin-top:16px;padding:18px;border-radius:22px;background:#fff;color:#1A0A0D}
+.ph-top{display:flex;align-items:center;gap:18px}
+#pf-av{flex:none;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#8B0A26;color:#fff;font:700 26px 'Instrument Sans',sans-serif;box-shadow:0 0 0 3px #fff,0 0 0 5px #F2A7B6}
+.phone .nums{display:flex;gap:22px;text-align:center}
+.phone .nums b{display:block;font-size:17px}.phone .nums span{font-size:12px;color:#6B5A5E}
+#pf-h{display:block;margin-top:12px;font-size:15px}
+#pf-n{font-size:14px;font-weight:600;color:#3D0410}
+#pf-b{margin:4px 0 0;font-size:14px;line-height:1.4}
+.phone .lk{margin-top:6px;font-size:14px;font-weight:600;color:#1B4FBF}
+.phone .fol{margin-top:12px;height:38px;border-radius:10px;display:grid;place-items:center;background:#8B0A26;color:#fff;font-weight:700;font-size:14px}
+#prof .after{display:none;margin:14px 0 0;font-size:15px;line-height:1.45;font-weight:600;color:#F6CCD5}
+#prof.done .after{display:flex}#prof.done p.after{display:block}
+#prof.done .form,#prof.done #pf-ok{display:none}
 </style>
 </head>
 <body>
@@ -168,6 +201,30 @@ body.game #jump{display:flex}
 <div id="hint" class="ui">Glisse ton doigt pour te déplacer</div>
 <button id="jump" class="ui" aria-label="Sauter"><svg viewBox="0 0 24 24"><path d="M6 13l6-6 6 6"/><path d="M6 19l6-6 6 6"/></svg></button>
 <div id="stick" class="ui"><div id="knob"></div></div>
+<button id="act" class="ui"></button>
+<div id="talk" class="ov md"><div class="in">
+<button class="x" data-close aria-label="Fermer">✕</button>
+<div class="k">Élève de l’École AUDACE</div>
+<h2 id="tn"></h2><p id="tr" class="res"></p>
+<video id="tv" controls playsinline webkit-playsinline preload="none"></video>
+<a class="btn big" href="seance-decouverte.html">Je réserve ma séance découverte →</a>
+<button class="btn ghost big" data-close>Continuer la visite</button>
+</div></div>
+<div id="prof" class="ov md"><div class="in">
+<button class="x" data-close aria-label="Fermer">✕</button>
+<div class="k">Étape 2 · Ton profil</div>
+<h2>Crée ton profil.</h2>
+<div class="form">
+<input id="pf-i" maxlength="18" placeholder="Ton prénom" autocomplete="given-name">
+<p class="lab">Tu es bon dans quoi ?</p>
+<div id="pf-chips"></div>
+</div>
+<div class="phone"><div class="ph-top"><div id="pf-av">?</div><div class="nums"><div><b>0</b><span>publications</span></div><div><b>0</b><span>abonnés</span></div></div></div>
+<b id="pf-h">@toi</b><div id="pf-n"></div><p id="pf-b"></p><div class="lk">Réserve ta séance découverte</div><div class="fol">Suivre</div></div>
+<p class="after">Ton profil est prêt. Maintenant, il faut que des gens le voient : salle 3, ton contenu.</p>
+<button class="btn big" id="pf-ok" disabled>Valider mon profil</button>
+<button class="btn ghost big after" data-close>Continuer la visite</button>
+</div></div>
 <div id="legal" class="ui">Les résultats dépendent du travail de chacun et ne sont pas garantis.</div>
 
 <div id="proof" class="ov">
@@ -178,7 +235,7 @@ body.game #jump{display:flex}
 <div id="pcta">
 <a class="btn big pulse" href="seance-decouverte.html">Je réserve ma séance découverte →</a>
 <p>Ton premier cours est offert. Au QG à Paris, ou en visio si tu es loin.</p>
-<div class="row"><button class="btn ghost" id="f-pdf">Télécharger mon plan (PDF)</button><button class="btn ghost" id="f-again">Continuer la visite</button></div>
+<div class="row"><button class="btn ghost" id="f-again">Continuer la visite</button></div>
 <p class="note">Les résultats dépendent du travail de chacun et ne sont pas garantis.</p>
 </div>
 </div>
@@ -190,7 +247,7 @@ body.game #jump{display:flex}
 <h1>Apprends à vivre d’internet.</h1>
 <p class="sub">Visite notre école en 2 minutes.</p>
 <button id="start" class="btn pulse" disabled>Chargement…</button>
-<p class="how">Gauche de l’écran : tu bouges. Droite : tu regardes autour.</p>
+<p class="how" id="how">Gauche de l’écran : tu bouges. Droite : tu regardes autour.</p>
 <a class="l" href="./">Je préfère le site classique</a>
 </div>
 </div>
@@ -205,6 +262,7 @@ body.game #jump{display:flex}
 window.addEventListener('error',function(e){if(e.target&&e.target.tagName&&e.target.tagName!=='SCRIPT')return;var b=document.getElementById('start');if(b&&b.disabled){document.getElementById('fallback').hidden=false;document.getElementById('intro').hidden=true;}},true);
 setTimeout(function(){var b=document.getElementById('start');if(b&&b.disabled){document.getElementById('fallback').hidden=false;document.getElementById('intro').hidden=true;}},20000);
 </script>
+<script>if(!matchMedia('(pointer:coarse)').matches)document.getElementById('how').textContent='ZQSD ou flèches : tu bouges. Souris : tu regardes autour. Maj : tu cours.';</script>
 <script type="module">
 // on demande toujours la dernière version du jeu, même si cette page est en cache
 fetch('qg-version.txt?' + Date.now(), { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (v) { return import('./pf-' + v.trim() + '.js'); }).catch(function () { document.getElementById('fallback').hidden = false; document.getElementById('intro').hidden = true; });

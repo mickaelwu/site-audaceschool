@@ -1,0 +1,3 @@
+Source du QG 3D (qg.html).
+Modifier qg.js puis : npx esbuild _src/qg.js --minify --format=esm --outfile=pf-HASH.js
+HASH = 8 premiers caracteres du md5 du fichier, a ecrire aussi dans qg-version.txt.
