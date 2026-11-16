@@ -43122,18 +43122,18 @@ var mt = qt,
   an = 4.4,
   fc = 3.6,
   hn = {
-    createur: { door: [-Q0 - 0.2, -39], rot: 1, z0: -16 },
-    business: { door: [-Q0 - 0.2, -11], rot: 1, z0: -16 },
-    cm: { door: [-Q0 - 0.2, -25], rot: 1, z0: -16 },
+    createur: { door: [-Q0 - 0.2, -39], rot: 1, z0: -16, fy: 24 },
+    business: { door: [-Q0 - 0.2, -11], rot: 1, z0: -16, fy: 12 },
+    cm: { door: [-Q0 - 0.2, -25], rot: 1, z0: -16, fy: 18 },
     studio: { door: [Q0 + 0.2, -25], rot: -1, z0: -30 },
-    closing: { door: [Q0 + 0.2, -39], rot: -1, z0: -44 },
-    cours: { door: [0, -Qa - 0.2], rot: 0, z0: -58 },
+    closing: { door: [Q0 + 0.2, -39], rot: -1, z0: -44, fy: 30 },
+    cours: { door: [0, -Qa - 0.2], rot: 0, z0: -58, fy: 36 },
   };
 for (let n in hn) {
   let e = hn[n],
     t = new Xt(),
     i = new Xt();
-  (t.position.set(e.door[0], 0, e.door[1]),
+  (t.position.set(e.door[0], e.fy || 0, e.door[1]),
     (t.rotation.y = (e.rot * Math.PI) / 2),
     (i.position.z = -e.z0),
     t.add(i),
@@ -43242,7 +43242,7 @@ function ys(n, e, t) {
       Math.max(a[0], o[0]),
       Math.max(a[1], o[1]),
     ]),
-      ct((r + s) / 2, 1.5, i + 0.1, s - r, 2.95, 0.04, Ae.glassWall, !1),
+      ct((r + s) / 2, 1.5, i + 0.1, s - r, 2.95, 0.04, hn[n].fy ? Ae.bord : Ae.glassWall, !1),
       ct((r + s) / 2, 0.06, i + 0.1, s - r, 0.12, 0.16, Ae.black));
     for (let l = 0; l <= 3; l++)
       ct(r + ((s - r) * l) / 3, 1.5, i + 0.1, 0.06, 2.95, 0.12, Ae.black);
@@ -43266,6 +43266,16 @@ function ys(n, e, t) {
     ((s.material.emissive = new _e("#fff")),
       (s.material.emissiveMap = s.material.map),
       (s.material.emissiveIntensity = 0.5));
+  }
+  if (hn[n].fy) {
+    let F = new bt({ color: "#CFCAC5", roughness: 0.35, metalness: 0.05 });
+    ct(0, -0.1, i - 7, 14.4, 0.2, 14.4, F, !1);
+    ct(0, an + 0.1, i - 7, 14.4, 0.2, 14.4, Ae.plaster, !1);
+    ct(0, -0.1, i + 1.4, 3.7, 0.2, 2.4, Ae.black, !1);
+    ct(0, 1.5, i + 2.55, 3.9, 3.2, 0.1, Ae.brass, !1);
+    for (let r of [-1, 1]) ct(r * 1.9, 1.5, i + 1.4, 0.1, 3.2, 2.4, Ae.black, !1);
+    ct(0, 3.02, i + 1.4, 3.7, 0.08, 2.3, Ae.line, !1);
+    Ga("ASCENSEUR", 0, 3.62, i - 0.08, Math.PI, 2.8, 0.55);
   }
   mt = qt;
 }
@@ -43691,6 +43701,20 @@ async function xm() {
     ys("studio", "Studio podcast", "Nos podcasts sont sur YouTube"),
     ys("closing", "4 \xB7 La vente", "Tes vues deviennent des clients"),
     ys("cours", "Ta s\xE9ance d\xE9couverte"),
+    Oi(null, -Q0 - 0.2, -Qa, -Q0, -4, an, Ae.bord),
+    Oi(null, Q0, -Qa, Q0 + 0.2, -32, an, Ae.bord),
+    Oi(null, -7.2, -Qa - 0.2, 7.2, -Qa, an, Ae.bord),
+    ct(0, 1.5, -Qa + 0.04, 3.9, 3.1, 0.08, Ae.brass, !1),
+    ct(-0.9, 1.45, -Qa + 0.1, 1.72, 2.9, 0.06, Ae.black, !1),
+    ct(0.9, 1.45, -Qa + 0.1, 1.72, 2.9, 0.06, Ae.black, !1),
+    Ga("ASCENSEUR", 0, 3.62, -Qa + 0.06, 0, 3.2, 0.62),
+    j0(["\xC9tages 1 \xE0 4", "Produit \xB7 Profil \xB7 Contenu \xB7 Vente"], -4.6, 2, -Qa + 0.02, 0, 3.6, 1.3, { max: 150, maxSub: 64, split: 0.6, color: "#F6CCD5" }),
+    j0(["Dernier \xE9tage", "Ta s\xE9ance d\xE9couverte"], 4.6, 2, -Qa + 0.02, 0, 3.6, 1.3, { max: 150, maxSub: 64, split: 0.6, color: "#F6CCD5" }),
+    y0("img/q-ws-classe.jpg", -Q0 + 0.03, 2.2, -10, Math.PI / 2, 3.2, 1.8),
+    y0("img/e-ws-laptops.jpg", -Q0 + 0.03, 2.2, -19.5, Math.PI / 2, 3.2, 1.8),
+    y0("img/q-ws-coach.jpg", -Q0 + 0.03, 2.2, -29, Math.PI / 2, 3.2, 1.8),
+    y0("img/q-ws-groupe.jpg", -Q0 + 0.03, 2.2, -39.5, Math.PI / 2, 3.2, 1.8),
+    y0("img/e-m-conference.jpg", Q0 - 0.03, 2.2, -39, -Math.PI / 2, 3.2, 1.8),
     Ga("AUDACE", 0, 6.5, -60.45, 0, 9.5, 2.1),
     Li(0.2, -24.5, 5.2, 3.8, Ae.rugDark),
     Et("sofa", 0.2, -26.2, 0, 1.25),
@@ -44647,11 +44671,11 @@ function H2(n) {
     ($e.vy -= 15 * n),
     ($e.y = Math.max(0, $e.y + $e.vy * n)),
     $e.y === 0 && ($e.vy < -3 && Tc(0.05, 220, 0.1, 0, 1), ($e.vy = 0)),
-    on.position.set($e.x, $e.y, $e.z),
+    on.position.set($e.x, $e.y + FY, $e.z),
     (on.rotation.y = $e.ry),
     on.userData.play($e.v > 2.2 ? "run" : $e.v > 0.3 ? "walk" : "idle"),
     on.userData.mixer.update(n),
-    Ms.position.set($e.x, 0.02, $e.z)),
+    Ms.position.set($e.x, 0.02 + FY, $e.z)),
     $e.v > 1 && (yt.moved = !0),
     !e && !yt.moved && Y1 > 1.2
       ? rh(
@@ -44687,7 +44711,8 @@ function H2(n) {
     Wa > 0 &&
       ((un.position.x += (Math.random() - 0.5) * Wa * 0.25),
       (un.position.y += (Math.random() - 0.5) * Wa * 0.25)),
-    un.lookAt(J1),
+    (un.position.y += FY),
+    un.lookAt(J1.x, J1.y + FY, J1.z),
     on)
   ) {
     let h = K1.distanceTo(new H($e.x, 1.62, $e.z)) > 1.3;
@@ -44695,6 +44720,7 @@ function H2(n) {
   }
   (Rm(n),
     _m(n),
+    liftCheck(),
     actFlush(),
     Fm(n),
     Lm(n),
@@ -44873,7 +44899,7 @@ function Nm(n, e, t) {
   });
 }
 var V2 = [
-    { id: "ecole", x: -1, z: -5.4, t: "Bienvenue \xE0 l\u2019\xC9cole AUDACE.", s: "Ici, tu apprends \xE0 gagner ta vie gr\xE2ce \xE0 internet. 4 salles, 4 \xE9tapes." },
+    { id: "ecole", x: -1, z: -5.4, t: "Bienvenue \xE0 l\u2019\xC9cole AUDACE.", s: "4 \xE9tapes, 4 \xE9tages. L\u2019ascenseur est au fond du hall." },
     { id: "trust", x: 3.4, z: -15.6, t: "N\xB01 sur TrustWho.", s: "96/100. Plus de 1 400 \xE9l\xE8ves accompagn\xE9s." },
     { id: "metier", k: "business", room: "business", x: 3.7, z: -18.9, t: "Tu vends ce que tu sais faire.", s: "Un coaching, dans ton domaine. \xC7a marche partout. Va parler \xE0 nos \xE9l\xE8ves." },
     { id: "metier", k: "cm", room: "cm", x: 3.7, z: -18.9, t: "Ton profil devient ta vitrine.", s: "Ton pr\xE9nom, ton domaine, ta bio. Avance pour cr\xE9er le tien.",
@@ -45042,7 +45068,7 @@ function openModal(id) {
   Ft(id).classList.add("on");
 }
 function closeModal() {
-  if (!yt.modal) return;
+  if (!yt.modal || yt.modal === "lift") return;
   let v = Ft("tv");
   v.pause();
   Ft(yt.modal).classList.remove("on");
@@ -45089,6 +45115,46 @@ Ft("pf-ok").addEventListener("click", () => {
   Em(60);
 });
 document.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", closeModal));
+
+var FY = 0, CF = 0, LA = !0,
+  FL = [null, "business", "cm", "createur", "closing", "cours"],
+  FN = ["L\u2019accueil", "Ton produit", "Ton profil", "Ton contenu", "La vente", "Ta s\xE9ance d\xE9couverte"];
+function liftCheck() {
+  if (ACT || yt.modal || yt.done || yt.phase === "intro") return;
+  let near;
+  if (CF === 0) near = Math.hypot($e.x, $e.z + Qa - 0.8) < 2.8;
+  else {
+    let r = FL[CF], p = hh(r, $e.x, $e.z);
+    near = Math.hypot(p[0], p[1] - hn[r].z0) < 2.5;
+  }
+  if (!near) { LA = !0; return; }
+  if (!LA) return;
+  let k = CF < 5 ? CF + 1 : 0;
+  ACT = { l: k ? (k === 5 ? "Monter au dernier \xE9tage" : "Monter \xE0 l\u2019\xE9tage " + k + " \xB7 " + FN[k]) : "Redescendre \xE0 l\u2019accueil", f: () => goFloor(k) };
+}
+function goFloor(k) {
+  if (yt.modal) return;
+  yt.modal = "lift";
+  for (let c in sn) sn[c] = !1;
+  Hi.x = Hi.y = 0;
+  Ft("lift-n").textContent = k ? (k === 5 ? "Dernier \xE9tage" : "\xC9tage " + k) : "Rez-de-chauss\xE9e";
+  Ft("lift-t").textContent = FN[k];
+  Ft("lift").classList.add("on");
+  R2([392, 523], 0.12, 0.2);
+  setTimeout(() => {
+    CF = k; LA = !1;
+    let r = FL[k];
+    if (r) {
+      let w = Gi(r, 0, hn[r].z0 - 2);
+      $e.x = w[0]; $e.z = w[1]; FY = hn[r].fy;
+      Ni = hn[r].rot === 1 ? Math.PI / 2 : hn[r].rot === -1 ? -Math.PI / 2 : 0;
+    } else { $e.x = 0; $e.z = -Qa + 3; FY = 0; Ni = Math.PI; }
+    $e.ry = Ni + Math.PI; wc = 0;
+    K1.set($e.x + Math.sin(Ni) * 4, 2.5, $e.z + Math.cos(Ni) * 4);
+    J1.set($e.x - Math.sin(Ni) * 2.2, 1.3, $e.z - Math.cos(Ni) * 2.2);
+  }, 650);
+  setTimeout(() => { R2([784, 1047], 0.08, 0.16); Ft("lift").classList.remove("on"); yt.modal = null; }, 1900);
+}
 async function Vm() {
   let n = Promise.race([
     document.fonts.load('700 40px "Instrument Sans"'),

@@ -148,6 +148,10 @@ body.cta #hint{bottom:max(104px,calc(env(safe-area-inset-bottom) + 104px))}
 body.game #jump{display:flex}
 #act{left:50%;bottom:max(118px,calc(env(safe-area-inset-bottom) + 118px));transform:translate(-50%,14px) scale(.96);z-index:8;display:flex;align-items:center;gap:10px;min-height:56px;padding:0 24px 0 14px;border:0;border-radius:999px;background:#F6CCD5;color:#3D0410;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 12px 34px rgba(20,3,8,.6);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .25s cubic-bezier(.2,.9,.3,1.4),visibility .2s;white-space:nowrap}
 #act.on{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+#lift{position:fixed;inset:0;z-index:13;display:grid;place-items:center;text-align:center;background:#1C040C;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s}
+#lift.on{opacity:1;visibility:visible}
+#lift-n{font:700 clamp(44px,9vw,84px)/1 'Instrument Sans',sans-serif;letter-spacing:-.02em;color:#fff}
+#lift-t{margin-top:12px;font-size:20px;font-weight:600;color:#F6CCD5}
 #act kbd{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:#3D0410;color:#F6CCD5;font:700 15px 'Inter',sans-serif}
 #act span:before{content:"▶ "}
 .md{z-index:12;background:rgba(18,3,9,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;visibility:hidden;overflow-y:auto;touch-action:pan-y;align-items:flex-start}
@@ -202,6 +206,7 @@ body.game #jump{display:flex}
 <button id="jump" class="ui" aria-label="Sauter"><svg viewBox="0 0 24 24"><path d="M6 13l6-6 6 6"/><path d="M6 19l6-6 6 6"/></svg></button>
 <div id="stick" class="ui"><div id="knob"></div></div>
 <button id="act" class="ui"></button>
+<div id="lift"><div><div id="lift-n"></div><div id="lift-t"></div></div></div>
 <div id="talk" class="ov md"><div class="in">
 <button class="x" data-close aria-label="Fermer">✕</button>
 <div class="k">Élève de l’École AUDACE</div>
@@ -245,7 +250,7 @@ body.game #jump{display:flex}
 <div class="in">
 <div class="k">École AUDACE · La visite</div>
 <h1>Apprends à vivre d’internet.</h1>
-<p class="sub">Visite notre école en 2 minutes.</p>
+<p class="sub">4 étapes, 4 étages. Visite notre école en 2 minutes.</p>
 <button id="start" class="btn pulse" disabled>Chargement…</button>
 <p class="how" id="how">Gauche de l’écran : tu bouges. Droite : tu regardes autour.</p>
 <a class="l" href="./">Je préfère le site classique</a>
