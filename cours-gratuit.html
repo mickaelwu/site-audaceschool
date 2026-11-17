@@ -1,12 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<script>
-/* test A/B : la moitié des visiteurs voit la version B (défi 5 000 € en 7 jours). Toujours la même version pour une même personne. ?v=A ou ?v=B pour forcer. */
-(function(){try{var q=new URLSearchParams(location.search),f=(q.get('v')||'').toUpperCase(),v=f==='A'||f==='B'?f:localStorage.getItem('aud-ab');
-if(v!=='A'&&v!=='B')v=Math.random()<.5?'A':'B';localStorage.setItem('aud-ab',v);
-if(v==='B')location.replace('cours-gratuit-b.html'+location.search+location.hash)}catch(e){}})();
-</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ton appel de découverte — École AUDACE</title>
@@ -46,6 +41,9 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .wrap{position:relative;margin:30px auto 0;border-radius:14px;padding:0;border:2px solid var(--acc);box-shadow:0 0 34px rgba(194,26,71,.35)}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
 @keyframes spin{to{--a:360deg}}
+.wrap::before{content:"";position:absolute;inset:-3px;border-radius:15px;padding:3px;background:conic-gradient(from var(--a),transparent 0deg 240deg,rgba(255,255,255,.25) 285deg,#fff 330deg,rgba(255,255,255,.35) 348deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 3.2s linear infinite;pointer-events:none;z-index:3}
+.wrap::after{content:"";position:absolute;inset:-5px;border-radius:17px;padding:5px;background:conic-gradient(from var(--a),transparent 0deg 300deg,#fff 330deg,transparent 360deg);filter:blur(8px);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 3.2s linear infinite;pointer-events:none;z-index:3;opacity:.9}
+
 .player{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
 .player:fullscreen{border-radius:0;aspect-ratio:auto}.player:fullscreen video{object-fit:contain}
 .lock{margin:22px auto 0;max-width:560px;text-align:center;background:#1b1b1d;border-radius:14px;padding:18px 20px}
@@ -264,7 +262,7 @@ setInterval(function(){if(done||!yp||!yp.getPlayerState)return;
 try{var _a=new URLSearchParams(location.search).get('a');if(_a)(sessionStorage.setItem('amb',_a),localStorage.setItem('amb30',JSON.stringify({c:_a,t:Date.now()})))}catch(x){}
 var am='';try{am=(new URLSearchParams(location.search).get('a')||(function(){try{var o=JSON.parse(localStorage.getItem('amb30')||'null');if(o&&Date.now()-o.t<5184e6)return o.c}catch(e){}try{return sessionStorage.getItem('amb')}catch(e){}return ''})()||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}
 var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeur-amaury'};
-var url=am?(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeurs')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am):'https://app.iclosed.io/e/mickaelwu/appel-de-d-couverte-audace';url+=(url.indexOf('?')>-1?'&':'?')+'utm_content=lp-a';
+var url=am?(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeurs')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am):'https://app.iclosed.io/e/mickaelwu/appel-de-d-couverte-audace';
 var w=document.getElementById('icw');w.className='iclosed-widget';w.setAttribute('data-url',url);document.getElementById('fbl').href=url;
 var sc=document.createElement('script');sc.src='https://app.iclosed.io/assets/widget.js';sc.async=true;document.body.appendChild(sc);
 setTimeout(function(){if(!w.querySelector('iframe')){w.style.display='none';document.getElementById('fb').style.display='block'}},8000);
