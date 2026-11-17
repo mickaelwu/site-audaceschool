@@ -248,11 +248,10 @@ input.i.bad{border-color:#C0392B}
 .money b.m2{font-size:44px;line-height:1.05}
 .z2 a{display:block;margin-top:4px;font-size:12.5px;font-weight:800;color:var(--ink)}
 .crew{margin-bottom:14px}
-.mi{text-align:center}
-.mi h3{font-size:21px;margin:4px 0 8px;color:var(--b)}
-.mi p{color:var(--ink);font-size:16px;margin:0}
-.mi .n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--rose);color:var(--b);font:700 16px 'Instrument Sans',sans-serif}
-.quote{text-align:center;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:22px 4px 18px}
+.t.vis{font-size:clamp(25px,6vw,36px);line-height:1.18;margin-bottom:20px}.t.vis em{font-style:italic}
+.val{padding:20px}.val div{display:flex;gap:16px;align-items:baseline}.val div+div{margin-top:16px}
+.val b{flex:none;font-family:'Instrument Sans',sans-serif;font-size:26px;color:#8B0A26;line-height:1}
+.val p{margin:0;color:var(--mut);font-size:16px}.val strong{color:var(--ink)}
 .scr>.k{display:table;margin:0 auto 12px;text-align:center}
 .scr>.t,.scr>.lead{text-align:center}
 .crew h3,.crew>p{text-align:center}
@@ -286,16 +285,17 @@ input.i.bad{border-color:#C0392B}
     </div>
   </section>
 
-  <!-- 1. Notre mission -->
+  <!-- 1. Notre vision -->
   <section class="scr">
-    <span class="k">Notre mission</span>
-    <h2 class="t">Pourquoi l’École AUDACE existe.</h2>
-    <p class="lead">L’école classique t’apprend à chercher un emploi. Nous, on t’apprend à créer le tien.</p>
-    <figure class="ph"><img src="img/e-m-conference.jpg" alt="Un événement de l’École AUDACE"></figure>
-    <div class="card mi"><span class="n">1</span><h3>Le monde a changé</h3><p>Aujourd’hui, c’est grâce aux réseaux qu’on se fait connaître et qu’on trouve ses clients. Ceux qui savent s’en servir prennent toute la place. Les autres sont vite oubliés.</p></div>
-    <div class="card mi"><span class="n">2</span><h3>Notre mission</h3><p>Apprendre à chacun à vivre de ce qu’il sait faire, grâce à internet. Changer les mentalités, redonner le goût du travail et de l’audace. Plus de 1&nbsp;400 élèves l’ont déjà fait avec nous.</p></div>
-    <div class="card mi"><span class="n">3</span><h3>Pourquoi on recrute des partenaires</h3><p>Une grande école ne grandit pas grâce à une seule voix. On veut des centaines de créateurs qui portent AUDACE, chacun auprès de son audience. Et qui grandissent avec nous.</p></div>
-    <p class="quote">L’entrepreneuriat,<br>enfin une filière.</p>
+    <span class="k">Vision et valeurs</span>
+    <h2 class="t vis">Un monde où le travail redevient une fierté, et où chacun prend son avenir en main <em>en bâtissant son business avec internet et l’IA.</em></h2>
+    <figure class="ph"><img src="media/be6c32d0f331e77997b3245217db7ca1.jpg" alt="Des élèves de l’École AUDACE qui travaillent ensemble"></figure>
+    <div class="card val">
+      <div><b>01</b><p><strong>L’audace.</strong> On passe à l’action avant de se sentir prêt.</p></div>
+      <div><b>02</b><p><strong>Ensemble.</strong> Personne ne réussit seul : on s’entoure des meilleurs.</p></div>
+      <div><b>03</b><p><strong>Les preuves.</strong> On montre de vrais résultats, pas des promesses.</p></div>
+    </div>
+    <div class="crew"><h3>Pourquoi on recrute des partenaires stratégiques.</h3><p style="margin-bottom:0">Une grande école ne grandit pas grâce à une seule voix. On veut des centaines de créateurs qui portent cette vision, chacun auprès de son audience. Et qui grandissent avec nous.</p></div>
     <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Nos preuves →</button></div>
   </section>
 
@@ -510,7 +510,7 @@ var KEY='aud-ambassadeur';
 var S={nm:'',e:'',w:'',code:'',link:'',statut:'',siret:'',m:''};
 try{var mq=(new URLSearchParams(location.search).get('m')||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(mq)localStorage.setItem('aud-mentor',mq);S.m=mq||localStorage.getItem('aud-mentor')||''}catch(x){}
 var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
-var scr=$$('.scr'),cur=0,LBL=['','Notre mission','Nos preuves','Le deal','La vision','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
+var scr=$$('.scr'),cur=0,LBL=['','Vision et valeurs','Nos preuves','Le deal','La vision','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
 
 function show(i){
   scr[cur].classList.remove('on');cur=i;scr[cur].classList.add('on');
