@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Aperçu — Page partenaire AUDACE</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@600;700&amp;family=Inter:wght@500;600;700;800&amp;display=swap">
+<style>
+:root{--b:#67061B;--ink:#1E1012;--cream:#FBF7F2;--rose:#F6CCD5;--mut:#6B5558}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:520px;margin:0 auto;padding:36px 20px 60px;text-align:center}
+.logo{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:34px;color:var(--b);letter-spacing:-.02em;line-height:1}
+.sub{font-size:11px;font-weight:800;letter-spacing:.3em;color:var(--b);margin-top:6px}
+h1{font-family:'Instrument Sans',sans-serif;font-size:28px;margin:28px 0 6px;letter-spacing:-.02em}
+p{color:var(--mut);margin:0 0 22px}
+.sw{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#fff;border-radius:16px;padding:6px;margin-bottom:22px;box-shadow:0 8px 24px rgba(30,16,18,.06)}
+.sw button{border:0;border-radius:12px;padding:12px;font:700 15px 'Inter',sans-serif;background:transparent;color:var(--mut);cursor:pointer}
+.sw button.on{background:var(--b);color:#fff}
+.l{display:grid;gap:10px}
+.l a{display:flex;align-items:center;gap:14px;background:#fff;border-radius:18px;padding:16px;text-decoration:none;color:var(--ink);box-shadow:0 8px 24px rgba(30,16,18,.06);text-align:left}
+.l a b{flex:none;width:44px;height:44px;border-radius:12px;background:var(--rose);color:var(--b);display:flex;align-items:center;justify-content:center;font:700 19px 'Instrument Sans',sans-serif}
+.l a span{font-weight:700;font-size:16px}
+.l a i{margin-left:auto;font-style:normal;color:var(--b);font-weight:800}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="logo">AUDACE</div>
+  <div class="sub">APERÇU INTERNE</div>
+  <h1>Page partenaire</h1>
+  <p>Ouvre n'importe quelle étape directement. Toujours la dernière version.</p>
+  <div class="sw"><button class="on" data-p="non">Pas élève</button><button data-p="eleve">Déjà élève</button></div>
+  <div class="l">
+    <a data-e="0" href="#"><b>0</b><span>Inscription</span><i>→</i></a>
+    <a data-e="1" href="#"><b>1</b><span>Le pourquoi</span><i>→</i></a>
+    <a data-e="2" href="#"><b>2</b><span>Le deal</span><i>→</i></a>
+    <a data-e="3" href="#"><b>3</b><span>La vision et les paliers</span><i>→</i></a>
+    <a data-e="4" href="#"><b>4</b><span>Comment tes ventes sont comptées</span><i>→</i></a>
+    <a data-e="5" href="#"><b>5</b><span>Ce qui se passe après</span><i>→</i></a>
+    <a data-e="6" href="#"><b>6</b><span>Les règles</span><i>→</i></a>
+    <a data-e="7" href="#"><b>7</b><span>Le kit du partenaire</span><i>→</i></a>
+  </div>
+</div>
+<script>
+var prof='non';
+document.querySelectorAll('.sw button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.sw button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');prof=b.dataset.p})});
+document.querySelectorAll('.l a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var n=a.dataset.e,v='v='+Date.now();
+  location.href=n==='0'?'ambassadeur.html?nouveau&'+v:'ambassadeur.html?etape='+n+(prof==='eleve'?'&profil=eleve':'')+'&'+v})});
+</script>
+</body>
+</html>
