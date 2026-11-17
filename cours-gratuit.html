@@ -46,6 +46,7 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 
 .player{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
 .player:fullscreen{border-radius:0;aspect-ratio:auto}.player:fullscreen video{object-fit:contain}
+.player.pfs{position:fixed;inset:0;z-index:9999;border-radius:0;aspect-ratio:auto;width:100vw;height:100dvh}.player.pfs video{object-fit:contain}
 .lock{margin:18px auto 0;max-width:560px;text-align:center;padding:0 6px}
 .lock .up{display:block;width:16px;height:16px;margin:0 auto 12px;border-left:3px solid var(--red);border-top:3px solid var(--red);transform:rotate(45deg);border-radius:2px;animation:upb 1.4s ease-in-out infinite}
 @keyframes upb{0%,100%{transform:translateY(0) rotate(45deg);opacity:.6}50%{transform:translateY(-6px) rotate(45deg);opacity:1}}
@@ -240,7 +241,13 @@ V.addEventListener('ratechange',function(){if(V.playbackRate>1)V.playbackRate=1}
 V.addEventListener('contextmenu',function(e){e.preventDefault()});
 V.addEventListener('error',function(){P.parentNode.style.display='none'});
 SN.addEventListener('click',function(){V.muted=!V.muted;document.getElementById('wave').style.display=V.muted?'none':''});
-function fullscreen(){try{if(V.webkitEnterFullscreen&&!document.fullscreenEnabled){V.webkitEnterFullscreen();return}(P.requestFullscreen||P.webkitRequestFullscreen).call(P)}catch(x){try{V.webkitEnterFullscreen()}catch(y){}}}
+/* plein écran : jamais le lecteur natif de l'iPhone (il affiche la durée) ; sur iPhone, la vidéo remplit l'écran avec notre propre lecteur */
+function pfs(on){P.classList.toggle('pfs',on);document.documentElement.style.overflow=on?'hidden':''}
+function fullscreen(){if(P.classList.contains('pfs')){pfs(false);return}
+  if(document.fullscreenElement||document.webkitFullscreenElement){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return}
+  if(document.fullscreenEnabled&&P.requestFullscreen){P.requestFullscreen().catch(function(){pfs(true)});return}
+  if(document.webkitFullscreenEnabled&&P.webkitRequestFullscreen){P.webkitRequestFullscreen();return}
+  pfs(true)}
 P.addEventListener('click',function(e){if(e.target.closest('#snd'))return;
   if(waitSound){waitSound=false;SO.hidden=true;V.muted=false;document.getElementById('wave').style.display='';V.currentTime=0;V.play().catch(function(){});return}
   var b=e.target.closest('[data-a]');
