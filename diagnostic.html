@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="fr">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ton diagnostic gratuit — École AUDACE</title>
+<meta name="description" content="Regarde la vidéo et réserve ton appel de découverte avec l’équipe de Mickaël Wu.">
+<meta property="og:title" content="Ton appel de découverte — École AUDACE">
+<meta property="og:description" content="Regarde la vidéo et réserve ton appel de découverte avec l’équipe de Mickaël Wu.">
+<meta property="og:image" content="https://audaceschool.com/img/og.jpg">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F0F10">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&amp;display=swap">
+<style>
+
+:root{--ink:#FAFAFA;--bg:#0F0F10;--card:#171717;--rose:#F6CCD5;--red:#E0244F;--acc:#C21A47;--mut:rgba(250,250,250,.66);--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+ background:radial-gradient(ellipse 80% 30% at 50% 0,rgba(194,26,71,.12),transparent 70%),
+ linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px) 0 0/80px 80px,
+ linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px) 0 0/80px 80px,var(--bg)}
+p{margin:0}
+.w{max-width:900px;margin:0 auto;padding:0 18px}
+.top{display:flex;justify-content:center;padding:44px 0 0}
+.logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;color:var(--ink)}
+.logo b{font-family:'Instrument Sans',sans-serif;font-size:34px;font-weight:700;letter-spacing:.04em}
+.logo small{font-size:8px;font-weight:800;letter-spacing:.38em;margin-top:5px;opacity:.75}
+.head{text-align:center;padding:44px 0 0}
+h1{margin:0;font-family:'Inter',sans-serif;text-transform:uppercase;line-height:1.08}
+h1 .pre{display:block;font-weight:900;font-size:clamp(24px,7vw,46px);letter-spacing:-.01em;color:#fff}
+h1 .rot{position:relative;display:block;min-height:2.2em;margin-top:6px;font-weight:900;font-style:italic;font-size:clamp(24px,7vw,46px);letter-spacing:-.015em}
+h1 .rot span{position:absolute;left:0;right:0;top:0;color:var(--red);text-shadow:0 0 24px rgba(224,36,79,.35);opacity:0}
+h1 .rot span.on{animation:fin .35s ease-out forwards}
+h1 .rot span.out{animation:fout .3s ease-in forwards}
+@keyframes fin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fout{from{opacity:1;transform:none}to{opacity:0;transform:translateY(8px)}}
+.wrap{position:relative;margin:30px auto 0;border-radius:14px;padding:0;border:2px solid var(--acc);box-shadow:0 0 34px rgba(194,26,71,.35)}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.wrap::before{content:"";position:absolute;inset:-2px;border-radius:14px;padding:2px;background:conic-gradient(from var(--a),transparent 0deg 270deg,rgba(255,255,255,.08) 300deg,rgba(255,255,255,.75) 340deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 4s linear infinite;pointer-events:none;z-index:3}
+
+.player{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
+.player:fullscreen{border-radius:0;aspect-ratio:auto}.player:fullscreen video{object-fit:contain}
+.player.pfs{position:fixed;inset:0;z-index:9999;border-radius:0;aspect-ratio:auto;width:100vw;height:100dvh}.player.pfs video{object-fit:contain}
+.lock{margin:18px auto 0;max-width:560px;text-align:center;padding:0 6px}
+.lock .up{display:block;width:16px;height:16px;margin:0 auto 12px;border-left:3px solid var(--red);border-top:3px solid var(--red);transform:rotate(45deg);border-radius:2px;animation:upb 1.4s ease-in-out infinite}
+@keyframes upb{0%,100%{transform:translateY(0) rotate(45deg);opacity:.6}50%{transform:translateY(-6px) rotate(45deg);opacity:1}}
+.lock .lr{display:flex;align-items:center;gap:14px;text-align:center}
+.lock .lr svg{flex:none;width:26px;height:26px;color:var(--red)}
+.lock .lr p{flex:1;margin:0;color:var(--mut);font-size:clamp(15px,4.2vw,18px);line-height:1.45}
+.lock .lr p b{color:#fff;font-weight:800}
+.player #ytp,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.player video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}
+.big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s;z-index:1}
+.big svg{width:30px;height:30px;margin-left:5px}
+.player.playing .big{opacity:0;pointer-events:none}
+@keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(246,204,213,.5),0 0 40px rgba(158,18,54,.8)}50%{box-shadow:0 0 0 18px rgba(246,204,213,0),0 0 40px rgba(158,18,54,.8)}}
+.son{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.35);cursor:pointer;z-index:4}
+.son[hidden]{display:none}
+.son .pill{display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;border:0;background:linear-gradient(90deg,#C21A47,#E8476E);color:#fff;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(16px,4.6vw,24px);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 0 0 5px rgba(103,6,27,.7),0 0 30px rgba(224,32,79,.45);animation:pp 1.8s ease-in-out infinite;cursor:pointer;position:relative;z-index:1}
+.son .pill svg{width:28px;height:28px}
+.son small{color:#fff;font-size:clamp(12px,3.6vw,16px);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+@keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.son::before{content:"";position:absolute;left:50%;top:50%;width:min(64vw,330px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:radial-gradient(circle,rgba(0,0,0,0) 55%,rgba(255,255,255,.03));animation:ripple 2.6s ease-out infinite;pointer-events:none}
+@keyframes ripple{0%{transform:translate(-50%,-50%) scale(.55);opacity:0}25%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.1);opacity:0}}
+.ctl{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45));opacity:0;pointer-events:none;transition:opacity .25s}
+.player.ui .ctl{opacity:1;pointer-events:auto}
+.ctl .mid{display:flex;align-items:center;justify-content:center;gap:clamp(22px,8vw,54px)}
+.ctl button{border:0;background:none;color:#fff;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.ctl .sk{width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.45);position:relative}
+.ctl .sk svg{width:26px;height:26px}
+.ctl .sk b{position:absolute;font-size:9px;font-weight:800;top:50%;left:50%;transform:translate(-50%,-38%)}
+.ctl .pp{width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.5)}
+.ctl .pp svg{width:30px;height:30px}
+.ctl .bot{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:6px 12px 8px;background:linear-gradient(90deg,rgba(158,18,54,.92),rgba(224,32,79,.85))}
+.ctl .tl{flex:1;height:5px;border-radius:9px;background:rgba(255,255,255,.3);overflow:hidden}
+.ctl .tl i{display:block;height:100%;width:0;background:#fff}
+.ctl .fs svg{width:22px;height:22px}
+.bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.15)}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#9E1236,#F6CCD5)}
+.player.ui .bar{opacity:0}
+.snd{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;z-index:3}
+.player.playing .snd{display:flex}
+.snd svg{width:20px;height:20px}
+
+.cta-t{text-align:center;color:var(--mut);font-size:14px;margin:22px auto 14px;max-width:420px}
+.cta-t b{color:#fff}
+.btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:520px;margin:0 auto;min-height:60px;padding:0 24px;border-radius:10px;font-weight:900;font-size:15px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border:0;white-space:nowrap;cursor:pointer;font-family:inherit;background:var(--acc);color:#fff;box-shadow:0 10px 30px rgba(194,26,71,.3);transition:transform .15s,filter .2s}
+.btn:active{transform:scale(.97)}.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;box-shadow:none;min-height:44px;font-size:13px;color:var(--mut);width:auto}
+.sec{padding:100px 0 0}
+.k2{text-align:center;font-size:12px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--red)}
+.h2{text-align:center;margin:12px 0 0;font-family:'Inter',sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(30px,8.6vw,58px);line-height:1;letter-spacing:-.02em;color:#fff}
+.h2 em{display:block;color:var(--red)}
+.h2.plain{font-style:normal;text-transform:none;letter-spacing:-.02em}
+.photo{margin-top:30px;border-radius:12px;overflow:hidden}
+.photo img{display:block;width:100%;aspect-ratio:5/4;object-fit:cover;object-position:48% 41%}
+.bio{margin-top:30px;text-align:center}
+.bio h3{margin:0;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(26px,7vw,40px);text-transform:uppercase;letter-spacing:-.01em;color:#fff}
+.bio p{margin-top:16px;color:var(--mut);font-size:16px;line-height:1.7}
+.bio p b{color:#fff}
+.bio p.i{font-style:italic}
+.bst{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.bst b{display:block;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(32px,8vw,48px);line-height:1;color:#fff;letter-spacing:-.02em}
+.bst span{display:block;margin-top:6px;color:var(--mut);font-size:15px}
+.agenda{max-width:520px;margin:34px auto 0;border-radius:20px;background:#141415;border:1px solid var(--line);scroll-margin-top:14px;padding:9px}
+.iclosed-widget{width:100%;height:720px;border-radius:12px;overflow:hidden;isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black);background:#212121}
+.iclosed-widget iframe{display:block;border:0!important;border-radius:12px;background:transparent}
+.fb{display:none;text-align:center;padding:22px}
+.box{margin-top:16px;border-radius:14px;background:var(--card);border:1px solid var(--line);padding:24px 22px}
+.box h4{margin:0 0 16px;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(19px,5.4vw,24px);text-transform:uppercase;line-height:1.2;color:#fff}
+.box li{display:flex;gap:14px;align-items:flex-start;margin:12px 0;color:rgba(251,247,242,.85);font-size:16px;line-height:1.45;list-style:none}
+.box ul{margin:0;padding:0}
+.box li i{flex:none;font-style:normal;font-weight:900;color:var(--red);font-size:18px;line-height:1.2;width:18px}
+.tr-head{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin:26px 0 12px}
+.tr-head span{font-size:13px;color:var(--mut);font-variant-numeric:tabular-nums}
+.arr{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:var(--card);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.arr:disabled{opacity:.35;cursor:default}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tc{border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
+.tc .md{position:relative;aspect-ratio:3/4;background:#000 center/cover no-repeat;border:0;padding:0;cursor:pointer;width:100%}
+.tc .md .pl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:linear-gradient(145deg,#D21E4E,#8A0A29);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(194,26,71,.25)}
+.tc .md .pl svg{width:18px;height:18px;margin-left:3px;fill:#fff}
+.tc .tx{padding:14px 12px 14px;display:flex;flex-direction:column;flex:1}
+.tc .hd{font-family:'Inter',sans-serif;font-weight:900;text-transform:uppercase;font-size:13.5px;line-height:1.2;color:var(--red)}
+.tc .q{margin-top:10px;font-style:italic;font-size:13px;line-height:1.45;color:rgba(251,247,242,.82)}
+.tc .rs{margin-top:10px;font-size:12px;font-weight:700;color:var(--red);line-height:1.35}
+.tc .who{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:flex-end;gap:6px}
+.tc .who b{display:block;font-size:13px;color:#fff}
+.tc .who small{display:block;font-size:11px;color:var(--mut);line-height:1.3}
+.tc .bdg{flex:none;font-size:10px;font-weight:800;color:var(--red);background:rgba(194,26,71,.14);border-radius:99px;padding:4px 7px}
+.tc.txt .tx{padding-top:18px}
+.tc.txt .big{font-family:'Inter',sans-serif;font-weight:900;font-size:40px;line-height:.6;color:var(--red);height:20px}
+.pdots{display:flex;justify-content:center;gap:6px;margin:16px 0 20px}
+.pdots i{width:7px;height:7px;border-radius:9px;background:rgba(246,204,213,.22)}
+.pdots i.on{width:22px;background:var(--red)}
+.disc{text-align:center;color:rgba(251,247,242,.45);font-size:12px;margin-top:16px}
+.end{padding:50px 0 0}
+.foot{text-align:center;color:rgba(251,247,242,.4);font-size:12px;padding:44px 0 30px}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(5,2,3,.95);display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+.modal.on{display:flex}
+.modal video{width:100%;max-width:520px;max-height:76vh;border-radius:18px;background:#000}
+.modal .x{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:20px;cursor:pointer}
+.modal .mw{color:#fff;font-weight:800;margin-bottom:12px;text-align:center}
+.modal .btn{margin-top:16px;max-width:520px}
+h1 .rot.st{min-height:0;color:var(--red);text-shadow:0 0 24px rgba(224,36,79,.35)}
+.head .sub{margin:12px 0 0;color:var(--mut);font-size:15px;font-weight:600}
+.qz{border-radius:12px;background:#121214;padding:26px 20px 24px;min-height:340px}
+.qz.in{animation:qin .35s ease-out both}@keyframes qin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.qbar{height:6px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}.qbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#C21A47,#E8476E);transition:width .4s}
+.qn{margin-top:20px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.qq{margin:10px 0 22px;text-align:center;color:#fff;font-weight:900;font-size:clamp(22px,5.6vw,30px);line-height:1.15}
+.qo{display:grid;gap:10px}
+.qo button{min-height:58px;padding:0 18px;border-radius:12px;border:1.5px solid rgba(255,255,255,.12);background:#1b1b1e;color:#fff;font:inherit;font-weight:800;font-size:16px;text-align:left;cursor:pointer;transition:transform .12s,background .15s,border-color .15s}
+.qo button:active{transform:scale(.98)}.qo button.sel{background:#C21A47;border-color:#C21A47;box-shadow:0 10px 26px rgba(194,26,71,.4)}
+.an{min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;font-size:18px}
+.an .sp{width:46px;height:46px;border-radius:50%;border:4px solid rgba(255,255,255,.12);border-top-color:#E0244F;animation:rot .8s linear infinite}@keyframes rot{to{transform:rotate(360deg)}}
+.res{text-align:center;animation:qin .45s ease-out both}
+.res .ck{width:52px;height:52px;margin:6px auto 0;border-radius:50%;background:#C21A47;color:#fff;display:grid;place-items:center;font-size:26px;font-weight:900;box-shadow:0 0 0 8px rgba(194,26,71,.2)}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:-6px 0 18px}.chips span{padding:7px 12px;border-radius:999px;background:rgba(194,26,71,.16);color:#F6CCD5;font-size:13px;font-weight:700}
+.res .rt{color:var(--mut);font-size:16px;margin:0 0 16px}.res .rt b{color:#fff}
+.grid.two{text-align:left}
+</style>
+</head>
+<body>
+<div class="w">
+  <header class="top"><a class="logo" href="./"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></a></header>
+
+  <div class="head">
+    <h1><span class="pre">Ton diagnostic gratuit :</span><span class="rot st">ton plan vers 5&nbsp;000&nbsp;€/mois</span></h1>
+    <p class="sub">4 questions · 30 secondes</p>
+  </div>
+
+  <div class="wrap"><div class="qz" id="qz">
+    <div class="qbar"><i id="qbi"></i></div>
+    <div class="qn" id="qn"></div>
+    <h2 class="qq" id="qq"></h2>
+    <div class="qo" id="qo"></div>
+  </div></div>
+
+
+  <p class="cta-t">Réserve ton <b>appel offert</b> : on construit ce plan avec toi.</p>
+  <a class="btn" href="#rdv">Réserver mon appel <span>→</span></a>
+
+  <section class="sec">
+    <div class="k2">Qui est Mickaël</div>
+    <h2 class="h2">L’homme derrière <em>AUDACE.</em></h2>
+    <div class="photo"><img src="img/micka-audace.jpg" alt="Mickaël Wu avec ses élèves de l’École AUDACE" loading="lazy"></div>
+    <div class="bio">
+      <h3>Moi, c’est Micka.</h3>
+      <p>J’ai 7 ans quand mes parents divorcent.</p>
+      <p>Mon père tombe en dépression. Son business s’écroule.</p>
+      <p>À côté du lycée, je lance le mien.</p>
+      <div class="bst"><div><b>40 k€</b><span>par mois, à Dauphine</span></div><div><b>300 k€</b><span>par mois, aujourd’hui</span></div></div>
+      <p class="i">Aujourd’hui, je donne aux jeunes ce que j’aurais aimé avoir.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="rdv">
+    <div class="k2">L’appel de découverte</div>
+    <h2 class="h2">Ce qu’il va <em>se passer.</em></h2>
+    <div class="agenda" id="agenda">
+      <div class="iclosed-widget" id="icw" title="Appel de découverte AUDACE"></div>
+      <div class="fb" id="fb"><a class="btn" id="fbl" href="#" target="_blank" rel="noopener">Ouvrir l’agenda →</a></div>
+    </div>
+    <div class="box"><h4>Appel de découverte de 60 minutes</h4><ul>
+      <li><i>✓</i>On fait le point sur ta situation : études, travail, temps, objectifs</li>
+      <li><i>✓</i>Un plan d’action pour atteindre +5&nbsp;000&nbsp;€/mois</li></ul></div>
+    <div class="box"><h4>Ce que ce n’est pas</h4><ul>
+      <li><i>✕</i>Une séance de coaching gratuite</li>
+      <li><i>✕</i>Des conseils vagues et génériques</li>
+      <li><i>✕</i>Une vente déguisée</li></ul></div>
+  </section>
+
+  <section class="sec">
+    <div class="k2">Transformations</div>
+    <h2 class="h2 plain">Ce que disent nos clients.</h2>
+    <div class="tr-head" id="trh"><span id="pg">1 / 6</span><button class="arr" id="prev" aria-label="Précédent">‹</button><button class="arr" id="next" aria-label="Suivant">›</button></div>
+    <div class="grid" id="cards"></div>
+    <div class="pdots" id="pdots"></div>
+    <button class="btn" id="more" type="button">Voir plus de transformations</button>
+  </section>
+
+  <div class="end"><a class="btn" href="#rdv">Réserver mon appel <span>→</span></a></div>
+
+  <p class="foot">© 2026 École AUDACE · Paris</p>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Fermer">✕</button><div class="mw" id="mwho"></div><video id="mv" controls playsinline preload="none"></video><a class="btn" href="#rdv" id="mcta">Réserver mon appel →</a></div>
+
+<script>
+// agenda iClosed (chargé à la fin du diagnostic, avec les réponses) : celui de l'ambassadeur s'il en a un, sinon l'agenda commun ambassadeurs, sinon l'agenda normal
+window.loadAgenda=function(term){
+try{var _a=new URLSearchParams(location.search).get('a');if(_a)(sessionStorage.setItem('amb',_a),localStorage.setItem('amb30',JSON.stringify({c:_a,t:Date.now()})))}catch(x){}
+var am='';try{am=(new URLSearchParams(location.search).get('a')||(function(){try{var o=JSON.parse(localStorage.getItem('amb30')||'null');if(o&&Date.now()-o.t<5184e6)return o.c}catch(e){}try{return sessionStorage.getItem('amb')}catch(e){}return ''})()||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}
+var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeur-amaury'};
+var url=am?(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeurs')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am):'https://app.iclosed.io/e/mickaelwu/appel-de-d-couverte-audace';
+url+=(url.indexOf('?')>-1?'&':'?')+'utm_content=lp-diag&utm_term='+encodeURIComponent(term||'');
+var w=document.getElementById('icw');w.className='iclosed-widget';w.setAttribute('data-url',url);document.getElementById('fbl').href=url;
+var sc=document.createElement('script');sc.src='https://app.iclosed.io/assets/widget.js';sc.async=true;document.body.appendChild(sc);
+setTimeout(function(){if(!w.querySelector('iframe')){w.style.display='none';document.getElementById('fb').style.display='block'}},8000);
+};
+
+// transformations : 2 par 2, puis « voir plus » pour tout afficher
+(function(){
+var E=[
+ {n:'Lucas',t:'Coaching sportif',h:'Plus de 5 000 € par mois',q:'',r:'Des ventes de 900 € à 1 200 €',b:'5K€/MOIS',img:'img/tv-lucas.jpg',v:'media/t-lucas.mp4'},
+ {n:'Lucas Arniac',t:'Cours de DJ',h:'5 000 € par mois',q:'J’ai réalisé plus de 5 000 euros ce mois-ci dans la niche du DJ.',r:'De 0 à 10K abonnés TikTok',b:'5K€/MOIS',img:'img/tv-lucasarniac.jpg',v:'media/t-lucasarniac.mp4'},
+ {n:'Mayline',t:'Coach TCA',h:'2 500 € en 1 semaine',q:'',r:'Lancée à côté de ses études de médecine',b:'2,5K€',img:'img/tv-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'},
+ {n:'Husler',t:'Revente Vinted · 17 ans',h:'14 200 € en 2 mois à 17 ans',q:'7 000 € reçus sur janvier, 8 000 sur février.',r:'De quoi quitter les études',b:'14K€',img:'img/tv-husler.jpg',v:'media/t-husler.mp4'},
+ {n:'Kayss',t:'Achat-revente',h:'20 000 € en 5 mois',q:'6 000 € depuis que j’ai lancé mon programme d’accompagnement.',r:'4 à 5 000 € par mois',b:'20K€',img:'img/tv-kayss.jpg',v:'media/t-kayss.mp4'},
+ {n:'Dezuur',t:'Vente de formations',h:'Plus de 8 000 € par mois',q:'Le premier mois, j’ai remboursé l’accompagnement.',r:'De 0 € à 7 000 € en 2 mois',b:'8K€/MOIS',img:'img/tv-dezuur.jpg',v:'media/t-dezuur.mp4'},
+ {n:'Bobby',t:'Créateur TikTok',h:'100 000 abonnés en 28 jours',q:'T’as changé ma vie.',r:'Aujourd’hui 525K abonnés',b:'525K',img:'img/tv-bobby.jpg',v:'media/t-bobby.mp4'},
+ {n:'Jayden',t:'Coach de vie',h:'Plus de 5 000 € par mois',q:'Je gagne plus de 5 000 euros par mois grâce à l’accompagnement.',r:'De 0 à 100K abonnés en 2 mois',b:'5K€/MOIS',img:'img/tv-jayden.jpg',v:'media/t-jayden.mp4'},
+ {n:'Anès',t:'Business en ligne',h:'Plus de 5 000 € par mois',q:'J’ai fait bien plus que 5 000 euros par mois grâce à Mika.',r:'1 000 € en 24 h',b:'9,5K€',img:'img/tv-anes.jpg',v:'media/t-anes.mp4'},
+ {n:'Iliès',t:'TikTok faceless',h:'6 000 € en 3 mois',q:'',r:'Sans jamais montrer son visage',b:'6K€',img:'img/tv-noface.jpg',v:'media/t-noface.mp4'},
+ {n:'Fan',t:'Cours de chinois',h:'4 000 € par mois',q:'Si on pratique les conseils, il y a le résultat !',r:'3 420 € reçus en octobre',b:'4K€/MOIS',img:'img/tv-fan.jpg',v:'media/7814e5b2c5f88d7403104668fb856c18.mp4'},
+ {n:'Wail',t:'Etsy',h:'3 000 € par mois',q:'La formation est vraiment incroyable.',r:'Revenus presque doublés',b:'3K€/MOIS',img:'img/tv-wail.jpg',v:'media/t-wail.mp4'},
+ {n:'Jules',t:'Business en ligne · 16 ans',h:'2 000 € par mois à 16 ans',q:'Le meilleur accompagnement de France.',r:'Des feedbacks sur chaque vidéo',b:'2K€/MOIS',img:'img/tv-jules.jpg',v:'media/t-jules.mp4'},
+ {n:'Alban',t:'Micro-trottoirs',h:'2 000 € par mois',q:'Avant, je faisais en moyenne 500 euros par mois.',r:'Revenus multipliés par 4',b:'2K€/MOIS',img:'img/tv-alban.jpg',v:'media/t-alban.mp4'},
+ {n:'Paul et Math',t:'Coachs street workout',h:'De 171 à 5 000 abonnés',q:'On était bloqués à 171 abonnés. On a réussi à atteindre les 5 000 abonnés.',r:'D’étudiants à coachs',b:'5K',img:'img/tv-paulmath.jpg',v:'media/4d82ff03ed77c7b7b257784e893103ae.mp4'},
+ {n:'Raphaël',t:'Street workout',h:'1,6 million de vues en 1 mois',q:'',r:'1 420 € en février',b:'1,6M',img:'img/tv-raphael.jpg',v:'media/t-raphael.mp4'},
+ {n:'Julien',t:'Contenu et closing · 17 ans',h:'1 500 € en 3 semaines',q:'J’ai déjà pu générer plus de 1 500 euros, en partant de zéro.',r:'À 17 ans',b:'1,5K€',img:'img/tv-julien.jpg',v:'media/t-julien.mp4'},
+ {n:'Maël',t:'Business en ligne',h:'1 400 € générés',q:'L’achat de l’accompagnement, je sais que je ne perds pas.',r:'Objectif : 5 000 €/mois',b:'1,4K€',img:'img/tv-mael.jpg',v:'media/t-mael.mp4'},
+ {n:'Loeiz',t:'IA',h:'1 000 € en 17 jours',q:'J’ai rejoint le 1er avril, on est le 17, et j’ai déjà fait plus de 1 000 euros.',r:'Road to 5K/mois',b:'1K€',img:'img/tv-loeiz.jpg',v:'media/t-loeiz.mp4'},
+ {n:'Luca',t:'Coaching volley · 18 ans',h:'600 € en 1 semaine à 18 ans',q:'J’ai fait 600 euros en une semaine, à l’âge de 18 ans.',r:'+3 000 abonnés en 2 semaines',b:'600€',img:'img/tv-lucavolley.jpg',v:'media/t-lucavolley.mp4'},
+ {n:'Tom',t:'TikTok money',h:'500 € en 1 jour',q:'En un jour, avec une vidéo, j’ai fait 500 euros.',r:'100 000 abonnés avec 2 vidéos',b:'100K',img:'img/tv-tom.jpg',v:'media/t-tom.mp4'},
+ {n:'Maya',t:'Aide aux étudiants',h:'50 000 abonnés TikTok',q:'J’ai pu générer plusieurs milliers d’euros grâce à tout ça.',r:'75 000 abonnés sur Insta',b:'125K',img:'img/tv-maya.jpg',v:'media/t-maya.mp4'},
+ {n:'Younes',t:'Croissance TikTok',h:'60 000 abonnés en 20 jours',q:'Franchement, je m’y attendais pas.',r:'10 000 abonnés en 15 jours',b:'60K',img:'img/tv-younes.jpg',v:'media/t-younes.mp4'},
+ {n:'Philippe',t:'Création de contenu',h:'30 000 abonnés en 1 semaine',q:'',r:'Après 7 mois sans percer',b:'30K',img:'img/tv-philippe.jpg',v:'media/t-philippe.mp4'},
+ {n:'Steve',t:'YouTube',h:'100 000 vues en 3 jours',q:'C’est le record du monde !',r:'Sur YouTube',b:'100K',img:'img/tv-steve.jpg',v:'media/t-steve.mp4'},
+ {n:'Tatan',t:'TikTok depuis Haïti',h:'300 € de TikTok money',q:'Je suis trop heureux de faire de l’argent sur TikTok.',r:'Alors que TikTok n’est pas monétisé chez lui',b:'300€',img:'img/tv-tatan.jpg',v:'media/t-tatan.mp4'},
+ {n:'Matéo',t:'IA et automatisation · 19 ans',h:'Première vente',q:'J’ai fait ma première vente aujourd’hui.',r:'Après avoir changé de niche',b:'1RE VENTE',img:'img/tv-mateo.jpg',v:'media/t-mateo.mp4'},
+ {n:'Maks',t:'Création de contenu',h:'1er client en 10 jours',q:'Premier client en dix jours d’accompagnement, c’est dingue.',r:'Client signé à 200 €',b:'200€',img:'img/tv-ikigai.jpg',v:'media/t-ikigai.mp4'},
+ {n:'Adrien',t:'Photographie',h:'De lycéen à vidéaste',q:'',r:'Premières ventes à 400 €',b:'LYCÉEN',img:'img/tv-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4'}
+];
+window.AE=E;window.acard=function(e){return card(e)};var C=document.getElementById('cards'),PD=document.getElementById('pdots'),PG=document.getElementById('pg'),PV=document.getElementById('prev'),NX=document.getElementById('next'),MO=document.getElementById('more'),H=document.getElementById('trh');
+var VID=E.slice(0,12),pages=Math.ceil(VID.length/2),p=0,all=false;
+function card(e){var i=E.indexOf(e);
+ var top=e.v?'<button class="md" data-i="'+i+'" style="background-image:url('+e.img+')" aria-label="Voir le témoignage de '+e.n+'"><span class="pl"><svg viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span></button>':'';
+ return '<div class="tc'+(e.v?'':' txt')+'">'+top+'<div class="tx">'+(e.v?'':'<div class="big">“</div>')+'<div class="hd">'+e.h+'</div>'+(e.q?'<div class="q">« '+e.q+' »</div>':'')+'<div class="rs">↑ '+e.r+'</div><div class="who"><div><b>'+e.n+'</b><small>'+e.t+'</small></div><span class="bdg">• '+e.b+'</span></div></div></div>'}
+function render(){
+ if(all){C.innerHTML=E.map(card).join('');H.style.display='none';PD.style.display='none';MO.textContent='Réduire';MO.classList.add('ghost')}
+ else{C.innerHTML=VID.slice(p*2,p*2+2).map(card).join('');H.style.display='';PD.style.display='';MO.textContent='Voir plus de transformations';MO.classList.remove('ghost');
+  PG.textContent=(p+1)+' / '+pages;PV.disabled=p===0;NX.disabled=p===pages-1;
+  PD.innerHTML=Array.apply(null,{length:pages}).map(function(_,i){return '<i'+(i===p?' class="on"':'')+'></i>'}).join('')}}
+PV.onclick=function(){if(p>0){p--;render()}};NX.onclick=function(){if(p<pages-1){p++;render()}};
+MO.onclick=function(){all=!all;render();if(!all){var s=C.getBoundingClientRect().top+scrollY-160;scrollTo({top:s,behavior:'smooth'})}};
+var sx=0;C.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+C.addEventListener('touchend',function(e){if(all)return;var d=e.changedTouches[0].clientX-sx;if(d<-50&&p<pages-1){p++;render()}else if(d>50&&p>0){p--;render()}},{passive:true});
+render();
+var M=document.getElementById('modal'),MV=document.getElementById('mv'),mainV=document.getElementById('v');
+document.addEventListener('click',function(ev){var b=ev.target.closest('.md');if(!b)return;var e=E[+b.dataset.i];
+  document.getElementById('mwho').textContent=e.n+' · '+e.h;MV.poster=e.img;MV.src=e.v;M.classList.add('on');document.body.style.overflow='hidden';
+  if(mainV&&!mainV.paused)mainV.pause();MV.play().catch(function(){})});
+function close(){MV.pause();MV.removeAttribute('src');MV.load();M.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('mx').onclick=close;M.addEventListener('click',function(e){if(e.target===M)close()});
+document.getElementById('mcta').addEventListener('click',close);
+addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
+
+// diagnostic : 4 questions, puis le profil, 2 élèves qui avaient le même profil, et l'agenda
+(function(){
+var Q=[
+ {k:'p',q:'Tu fais quoi dans la vie ?',o:[['lyc','🎒 Lycéen'],['etu','🎓 Étudiant'],['sal','💼 Salarié'],['aut','🚀 Autre']]},
+ {k:'r',q:'Tu gagnes combien par mois aujourd’hui ?',o:[['0','0 €'],['1k','Moins de 1 000 €'],['2k','1 000 à 2 000 €'],['2k+','Plus de 2 000 €']]},
+ {k:'g',q:'Ton objectif ?',o:[['1er','Mes premiers euros en ligne'],['5k','5 000 € par mois'],['sal','Remplacer mon salaire'],['10k','Plus de 10 000 € par mois']]},
+ {k:'t',q:'Combien de temps par semaine tu peux y mettre ?',o:[['-5h','Moins de 5 h'],['5-10h','5 à 10 h'],['10-20h','10 à 20 h'],['20h+','Plus de 20 h']]}];
+var PR={lyc:['Husler','Jules'],etu:['Mayline','Paul et Math'],sal:['Bobby','Fan'],aut:['Lucas','Lucas Arniac']};
+var LAB={lyc:'Lycéen',etu:'Étudiant',sal:'Salarié',aut:'Entrepreneur en devenir'};
+var A={},A2={},n=0,QZ=document.getElementById('qz'),W=QZ.closest('.wrap'),hid=[];
+var x=W.nextElementSibling;while(x){if(!x.classList.contains('foot')){hid.push([x,x.style.display]);x.style.display='none'}x=x.nextElementSibling}
+function step(){var s=Q[n];document.getElementById('qbi').style.width=(n/Q.length*100)+'%';
+ document.getElementById('qn').textContent='Question '+(n+1)+' sur '+Q.length;document.getElementById('qq').textContent=s.q;
+ document.getElementById('qo').innerHTML=s.o.map(function(o){return '<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>'}).join('');
+ QZ.classList.remove('in');void QZ.offsetWidth;QZ.classList.add('in')}
+document.getElementById('qo').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+ b.classList.add('sel');A[Q[n].k]=b.dataset.v;A2[Q[n].k]=b.textContent.replace(/^\S+\s(?=[A-ZÉ])/,'');
+ setTimeout(function(){n++;if(n<Q.length)step();else wait()},260)});
+function wait(){document.getElementById('qbi').style.width='100%';
+ QZ.innerHTML='<div class="an"><span class="sp"></span><b>On analyse ton profil…</b></div>';setTimeout(result,1700)}
+function result(){
+ var L=PR[A.p].map(function(nm){return AE.filter(function(e){return e.n===nm})[0]}).filter(Boolean);
+ QZ.innerHTML='<div class="res"><div class="ck">✓</div><div class="qn">Ton résultat</div><h2 class="qq">Ton profil : '+LAB[A.p]+'.</h2>'+
+  '<div class="chips"><span>'+A2.r+' aujourd’hui</span><span>Objectif : '+A2.g.toLowerCase()+'</span><span>'+A2.t+' par semaine</span></div>'+
+  '<p class="rt">Bonne nouvelle : <b>2 élèves avec ton profil</b> sont passés par l’École AUDACE.</p><div class="grid two">'+L.map(acard).join('')+'</div></div>';
+ hid.forEach(function(h){h[0].style.display=h[1]});
+ window.loadAgenda([A.p,A.r,A.g,A.t].join('_'))}
+step();
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d0d583caaa75407789e852c1c6aaa9c5"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
