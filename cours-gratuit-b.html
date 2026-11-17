@@ -214,7 +214,7 @@ if(L.length>1)setInterval(function(){if(document.hidden)return;sp.className='out
 (function(){
 var SO=document.getElementById('son'),yp=null;
 window.onYouTubeIframeAPIReady=function(){
-  yp=new YT.Player('ytp',{videoId:'BehV36drUq8',playerVars:{autoplay:1,mute:1,playsinline:1,rel:0,modestbranding:1,controls:1},
+  yp=new YT.Player('ytp',{videoId:'zJiJpk_KDA0',playerVars:{start:41,autoplay:1,mute:1,playsinline:1,rel:0,modestbranding:1,controls:1},
     events:{onReady:function(ev){ev.target.mute();ev.target.playVideo();SO.hidden=false}}});
 };
 SO.addEventListener('click',function(){if(!yp)return;SO.hidden=true;yp.unMute();yp.setVolume(100);yp.seekTo(0,true);yp.playVideo()});
