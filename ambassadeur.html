@@ -316,7 +316,7 @@ var scr=$$('.scr'),cur=0,LBL=['','Le pourquoi','Le deal','Comment tes ventes son
 function show(i){
   scr[cur].classList.remove('on');cur=i;scr[cur].classList.add('on');
   var p=$('#prog');
-  if(i>0&&i<6){p.classList.add('on');$('#pbar').style.width=(i/5*100)+'%';$('#plabel').textContent='Étape '+i+' sur 5 · '+LBL[i]}else p.classList.remove('on');
+  if(i>0&&i<6){p.classList.add('on');$('#pbar').style.width=(i/5*100)+'%';$('#plabel').textContent='Étape '+i+' sur 5'}else p.classList.remove('on');
   window.scrollTo(0,0);
 }
 $$('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(cur+(+b.dataset.go))})});
