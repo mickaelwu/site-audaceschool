@@ -139,11 +139,12 @@ input.i.bad{border-color:#C0392B}
     </div>
     <div class="formcard">
       <h2>Deviens ambassadeur.</h2>
-      <p class="s">3 questions, puis 2 minutes pour tout comprendre. Ton lien perso arrive à la fin.</p>
+      <p class="s">4 questions, puis 2 minutes pour tout comprendre. Ton lien perso arrive à la fin.</p>
       <form id="wf" class="wf" novalidate>
         <div class="st on"><label class="q" for="f1">Ton prénom ?</label><input class="i" id="f1" name="p" type="text" placeholder="Ton prénom" autocomplete="given-name" enterkeyhint="next"></div>
         <div class="st"><label class="q" for="f2">Ton e-mail ?</label><input class="i" id="f2" name="e" type="email" placeholder="ton@email.com" autocomplete="email" inputmode="email" enterkeyhint="next"></div>
         <div class="st"><label class="q" for="f3">Ton numéro WhatsApp ?</label><input class="i" id="f3" name="w" type="tel" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" enterkeyhint="go"></div>
+        <div class="st"><p class="q" style="font-weight:800;font-size:18px;margin:0 0 10px 4px">Tu es déjà élève AUDACE ?</p><div class="choice" id="prof" style="margin:0"><button class="ch" type="button" data-v="oui"><i></i>Oui, je suis déjà élève</button><button class="ch" type="button" data-v="non"><i></i>Pas encore</button></div></div>
         <p class="err" id="wferr"></p>
         <button class="btn btn-main" type="submit"><span id="wfb">Suivant</span> <span>→</span></button>
       </form>
@@ -182,7 +183,6 @@ input.i.bad{border-color:#C0392B}
     </div>
     <h3 class="pt">Et en plus, des paliers.</h3>
     <p style="color:var(--mut)">En plus de tes 500 € par personne.</p>
-    <div class="seg" id="eleve"><button type="button" class="on" data-e="non">Pas encore élève</button><button type="button" data-e="oui">Déjà élève AUDACE</button></div>
     <div class="flow lad" data-e="non">
       <div class="f"><b>3</b><div><h3>Un appel stratégique en personne</h3><p>Avec le CEO de Mickaël Wu et le Head of Delivery d’une boîte à 3 M€ par mois, pour te scaler.</p></div></div>
       <div class="f"><b>6</b><div><h3>3 mois d’accompagnement AUDACE offerts</h3><p>Tu vis l’école de l’intérieur, avec ton coach.</p></div></div>
@@ -326,19 +326,18 @@ function names(){$$('.nm').forEach(function(n){n.textContent=S.nm})}
 /* inscription : une question à la fois */
 var f=$('#wf'),er=$('#wferr'),lb=$('#wfb'),st=f.querySelectorAll('.st'),k=0;
 var ok=[function(v){return v.length>0},function(v){return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)},function(v){return v.replace(/\D/g,'').length>=8}],msg=['Écris ton prénom.','Cet e-mail ne marche pas.','Écris ton numéro WhatsApp.'];
-f.addEventListener('submit',function(ev){ev.preventDefault();var inp=st[k].querySelector('input'),v=inp.value.trim();
-  if(!ok[k](v)){inp.classList.add('bad');er.textContent=msg[k];inp.focus();return}
-  inp.classList.remove('bad');er.textContent='';
-  if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[k].querySelector('input').focus();if(k===st.length-1)lb.textContent='Je commence';return}
+S.eleve='';
+$$('#prof .ch').forEach(function(c){c.addEventListener('click',function(){$$('#prof .ch').forEach(function(x){x.classList.remove('on')});c.classList.add('on');S.eleve=c.dataset.v;er.textContent=''})});
+f.addEventListener('submit',function(ev){ev.preventDefault();var inp=st[k].querySelector('input');
+  if(inp){var v=inp.value.trim();if(!ok[k](v)){inp.classList.add('bad');er.textContent=msg[k];inp.focus();return}inp.classList.remove('bad')}
+  else if(!S.eleve){er.textContent='Choisis une réponse.';return}
+  er.textContent='';
+  if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');var ni=st[k].querySelector('input');if(ni)ni.focus();if(k===st.length-1)lb.textContent='Je commence';return}
   S.nm=f.p.value.trim();S.e=f.e.value.trim();S.w=f.w.value.trim();
   var slug=S.nm.normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'').slice(0,10)||'AUDACE';
   S.code=slug+(10+Math.floor(Math.random()*90));S.link='https://audaceschool.com/cours-gratuit.html?a='+S.code;
-  names();$$('.cd').forEach(function(c){c.textContent=S.code});show(1);
+  names();$$('.cd').forEach(function(c){c.textContent=S.code});$$('.lad').forEach(function(l){l.hidden=l.dataset.e!==S.eleve});show(1);
 });
-
-/* paliers : élève ou pas */
-S.eleve='non';
-$$('#eleve button').forEach(function(t){t.addEventListener('click',function(){$$('#eleve button').forEach(function(x){x.classList.remove('on')});t.classList.add('on');S.eleve=t.dataset.e;$$('.lad').forEach(function(l){l.hidden=l.dataset.e!==S.eleve})})});
 
 /* vidéos témoignages */
 var mo=$('#modal'),mv=$('#mv');
