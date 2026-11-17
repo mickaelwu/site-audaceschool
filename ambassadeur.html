@@ -11,7 +11,7 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,900&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <style>
 :root{--b:#67061B;--bd:#4A0414;--ink:#1E1012;--cream:#FBF7F2;--sand:#F3EBE4;--rose:#F6CCD5;--mut:#6B5558;--ok:#1F7A4D}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -129,62 +129,16 @@ input.i.bad{border-color:#C0392B}
 .lad .f b small{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;margin-top:3px;letter-spacing:0}
 .copied{background:var(--ok)!important;color:#fff!important}
 
-/* ===== thème sombre AUDACE (même univers que la page d'appel) ===== */
-@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
-@keyframes spin{to{--a:360deg}}
-:root{--b:#C21A47;--bd:#A3133B;--ink:#FAFAFA;--cream:#0F0F10;--sand:#1E1E21;--rose:rgba(194,26,71,.18);--mut:rgba(250,250,250,.64);--ok:#1F9D5B;--red:#E0244F}
-body{background:#0F0F10;color:#FAFAFA;
- background-image:radial-gradient(900px 520px at 50% -120px,rgba(194,26,71,.32),transparent 70%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
- background-size:auto,48px 48px,48px 48px;background-attachment:fixed}
-h1,h2,h3{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-.02em}
-.logo{color:#fff}.logo small{color:rgba(255,255,255,.75)}
-.k{background:rgba(194,26,71,.2);color:#F6CCD5;border:1px solid rgba(224,36,79,.45);box-shadow:0 0 22px rgba(224,36,79,.25)}
-.head h1.hx{font-weight:900;text-transform:uppercase;line-height:1.02;font-size:clamp(30px,7.4vw,52px)}
-.hx span{display:block;color:#fff}
-.hx em{display:block;margin:6px 0;font-style:italic;font-size:1.32em;color:var(--red);text-shadow:0 0 34px rgba(224,36,79,.55);animation:glow 2.6s ease-in-out infinite}
-.hx em i{font-style:italic;font-variant-numeric:tabular-nums}
-@keyframes glow{50%{text-shadow:0 0 54px rgba(224,36,79,.85)}}
-.t{text-transform:uppercase;font-weight:900}
-.prog{background:rgba(15,15,16,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.bar{background:rgba(255,255,255,.08)}
-.bar i{background:linear-gradient(90deg,#C21A47,#FF4D78);box-shadow:0 0 14px rgba(224,36,79,.7)}
-.card,.stat,.f,.kit,.acc{background:#161618;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 18px 40px rgba(0,0,0,.35)}
-.big,.stat b{color:var(--red);text-shadow:0 0 26px rgba(224,36,79,.45);font-family:'Inter',sans-serif;font-weight:900}
-.scr.on .big,.scr.on .stat b{animation:pop .6s cubic-bezier(.2,1.4,.4,1) both}
-@keyframes pop{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:none}}
-.stat a{color:#fff}
-.f b{background:rgba(194,26,71,.2);color:#FF8FA8;font-family:'Inter',sans-serif;font-weight:900}
-.f.win{background:linear-gradient(135deg,#C21A47,#7E0B2A);color:#fff;box-shadow:0 18px 44px rgba(194,26,71,.4)}
-.f.win b{background:rgba(255,255,255,.18);color:#fff}.f.win p{color:#FFD7E0}
-.gold{background:linear-gradient(135deg,rgba(194,26,71,.22),rgba(194,26,71,.08));box-shadow:inset 0 0 0 1px rgba(224,36,79,.35)}
-.gold h3{color:#FF8FA8}
-.demo{background:#0A0A0B;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-.demo u{background:var(--b);color:#fff}
-.formcard{position:relative;background:#141416;box-shadow:0 0 0 1.5px rgba(194,26,71,.7),0 0 46px rgba(194,26,71,.3);border-radius:20px}
-.formcard::before{content:"";position:absolute;inset:-2px;border-radius:21px;padding:2px;background:conic-gradient(from var(--a),transparent 0deg 270deg,rgba(255,255,255,.08) 300deg,rgba(255,255,255,.8) 340deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 4s linear infinite;pointer-events:none}
-.formcard h2{text-transform:uppercase;font-weight:900}
-input.i{background:#0E0E10;border-color:rgba(255,255,255,.12);color:#fff}
-input.i::placeholder{color:rgba(255,255,255,.35)}
-input.i:focus{background:#0E0E10;border-color:var(--red);box-shadow:0 0 0 4px rgba(224,36,79,.18)}
-.err{color:#FF6B81}
-.ch{background:#1B1B1E;border-color:rgba(255,255,255,.12);color:#fff}
-.ch i{border-color:rgba(255,255,255,.35)}
-.ch.on{background:rgba(194,26,71,.16);border-color:var(--red);box-shadow:0 0 22px rgba(224,36,79,.25)}
-.ch.on i{border-color:var(--red)}
-.btn-main{background:linear-gradient(180deg,#E0244F,#B3163F);color:#fff;text-transform:uppercase;letter-spacing:.04em;box-shadow:0 12px 34px rgba(224,36,79,.45);animation:bp 2.4s ease-in-out infinite}
-.btn-main:hover{background:linear-gradient(180deg,#EA2E59,#BF1A45)}
-@keyframes bp{50%{box-shadow:0 12px 46px rgba(224,36,79,.75)}}
-.btn-main[disabled]{animation:none}
-.btn-soft,.nav .back{background:#1E1E21;color:#fff}
-.lk{background:#0A0A0B;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(224,36,79,.6),0 0 26px rgba(224,36,79,.2)}
-.kit .txt{background:#0E0E10;color:#fff}
-.sty em{background:var(--b);color:#fff}
-.seg{background:#1B1B1E}.seg button{color:var(--mut)}.seg button.on{background:#C21A47;color:#fff;box-shadow:0 6px 18px rgba(194,26,71,.4)}
-.chans span,.chans a{background:#0E0E10;color:#fff}.chans b{color:#FF8FA8}
-.vid{box-shadow:0 0 0 1px rgba(255,255,255,.08),0 16px 36px rgba(0,0,0,.45)}
-.vid .tri{background:#C21A47;box-shadow:0 0 0 6px rgba(194,26,71,.3)}
-.vid .tri:after{border-left-color:#fff}
-.modal .x{background:#fff;color:#111}
+.bonh{margin-top:30px}.bonh .k{margin-bottom:4px}.bonh .pt{margin-top:8px}
+.lad .f h3::before{content:"BONUS";display:inline-block;vertical-align:3px;margin-right:8px;padding:3px 8px;border-radius:999px;background:linear-gradient(135deg,#FFD25A,#F5A623);color:#2A1500;font-size:10px;font-weight:900;letter-spacing:.12em;box-shadow:0 0 14px rgba(255,200,80,.35)}
+.lad .f.win h3::before{background:#FBF7F2;color:#67061B;box-shadow:none}
+.ph{position:relative;margin:0 0 14px;border-radius:20px;overflow:hidden;background:var(--sand);box-shadow:0 12px 34px rgba(30,16,18,.12)}
+.ph img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.ph span{position:absolute;left:12px;bottom:12px;padding:6px 11px;border-radius:999px;background:rgba(251,247,242,.94);color:var(--b);font-size:13px;font-weight:800}
+.ph.hero{margin-top:22px}.ph.hero img{aspect-ratio:16/8}
+.ph2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}.ph2 .ph{margin:0}.ph2 .ph img{aspect-ratio:1/1}
+.card .ph{margin:-24px -20px 18px;border-radius:20px 20px 0 0;box-shadow:none}
+.scr.on .ph img{animation:zin 1.2s ease-out both}@keyframes zin{from{transform:scale(1.08)}to{transform:none}}
 </style>
 </head>
 <body>
@@ -197,8 +151,9 @@ input.i:focus{background:#0E0E10;border-color:var(--red);box-shadow:0 0 0 4px rg
   <section class="scr on">
     <div class="head">
       <span class="k">Programme ambassadeur</span>
-      <h1 class="hx"><span>Recommande l’école.</span><em>Gagne <i id="c500">500</i>&nbsp;€</em><span>par personne qui rejoint.</span></h1>
+      <h1>Recommande l’école. Gagne 500 € par personne qui rejoint.</h1>
     </div>
+    <figure class="ph hero"><img src="img/q-n05.jpg" alt="Les élèves de l’École AUDACE réunis" loading="lazy" style="object-position:50% 40%"><span>La communauté AUDACE</span></figure>
     <div class="formcard">
       <h2>Deviens ambassadeur.</h2>
       <p class="s">4 questions, puis 2 minutes pour tout comprendre. Ton lien perso arrive à la fin.</p>
@@ -223,6 +178,7 @@ input.i:focus{background:#0E0E10;border-color:var(--red);box-shadow:0 0 0 4px rg
       <div class="stat"><b>96/100</b><span>audit indépendant TrustWho</span><a href="https://rapport.trustwho.io/rapport/mickael-wu-business" target="_blank" rel="noopener">Voir le rapport →</a></div>
     </div>
     <div class="card" style="padding:18px 20px"><div class="big" style="font-size:30px">5 000 € en 3 mois</div><p style="margin-top:6px;color:var(--mut)">ou remboursé. La personne que tu recommandes ne prend aucun risque.</p></div>
+    <div class="ph2"><figure class="ph"><img src="img/e-m-conference.jpg" alt="Une salle pleine à un événement AUDACE" loading="lazy" style="object-position:50% 50%"><span>Nos événements</span></figure><figure class="ph"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE avec Mickaël" loading="lazy" style="object-position:50% 50%"><span>Nos ateliers</span></figure></div>
     <div class="vids">
       <button class="vid" type="button" data-v="media/t-husler.mp4"><img src="img/tv-husler.jpg" alt="Husler, revente Vinted" loading="lazy"><span class="tri"></span><span class="pl"><b>14 200 €</b>en 2 mois, à 17 ans</span></button>
       <button class="vid" type="button" data-v="media/t-jayden.mp4"><img src="img/tv-jayden.jpg" alt="Jayden, coach de vie" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois</span></button>
@@ -240,6 +196,7 @@ input.i:focus{background:#0E0E10;border-color:var(--red);box-shadow:0 0 0 4px rg
     <div class="card"><div class="big">500 €</div><p style="margin-top:8px;color:var(--mut)">Elle paie en une fois : tu touches 500 € le mois suivant.</p></div>
     <div class="card"><div class="big">3 × 167 €</div><p style="margin-top:8px;color:var(--mut)">Elle paie en 3 fois : tu touches environ 167 € à chaque paiement, pendant 3 mois.</p></div>
     <div class="card">
+      <figure class="ph"><img src="img/q-ws-coach.jpg" alt="L’équipe AUDACE au travail" loading="lazy" style="object-position:50% 35%"><span>On s’occupe du reste</span></figure>
       <h3 style="font-size:24px;margin-bottom:6px">100 % de marge pour toi.</h3>
       <p style="color:var(--mut);margin-bottom:14px">500 €, juste pour faire découvrir l’école. Aucun produit à créer, aucun coût, rien à livrer. Ce que tu touches, tu le gardes.</p>
       <p style="font-weight:800;margin-bottom:8px">Toi, tu fais juste ça :</p>
@@ -254,6 +211,7 @@ input.i:focus{background:#0E0E10;border-color:var(--red);box-shadow:0 0 0 4px rg
       </ul>
     </div>
     <div class="card">
+      <figure class="ph"><img src="img/e-iv-micka.jpg" alt="Mickaël Wu au micro" loading="lazy" style="object-position:50% 50%"><span>Mickaël Wu</span></figure>
       <h3 style="font-size:24px;margin-bottom:6px">500 € pour un lien, c’est énorme.</h3>
       <p style="color:var(--mut);margin-bottom:14px">Parce que la confiance, c’est aussi nous qui la créons. Avant même son appel, la personne que tu recommandes peut nous regarder sur nos chaînes :</p>
       <div class="chans">
@@ -269,15 +227,16 @@ input.i:focus{background:#0E0E10;border-color:var(--red);box-shadow:0 0 0 4px rg
       <div class="stat"><b>5</b><span>personnes = 2 500 €</span></div>
       <div class="stat"><b>10</b><span>personnes = 5 000 €</span></div>
     </div>
-    <h3 class="pt">Et en plus, des paliers selon tes ventes.</h3>
-    <p style="color:var(--mut)">En plus de tes 500 € par personne.</p>
+    <div class="bonh"><span class="k">🎁 Paliers bonus</span>
+    <h3 class="pt">Et en bonus, des cadeaux selon tes ventes.</h3>
+    <p style="color:var(--mut)">En plus de tes 500 € par personne. Chaque palier débloque un bonus.</p></div>
     <div class="flow lad" data-e="non">
       <div class="f"><b>3<small>ventes</small></b><div><h3>Un appel stratégique en personne</h3><p>Avec le CEO de Mickaël Wu et le Head of Delivery d’une boîte à 3 M€ par mois, pour te scaler.</p></div></div>
       <div class="f"><b>6<small>ventes</small></b><div><h3>3 mois d’accompagnement AUDACE offerts</h3><p>Tu vis l’école de l’intérieur, avec ton coach.</p></div></div>
       <div class="f"><b>10<small>ventes</small></b><div><h3>L’École AUDACE gratuite, à vie</h3><p>Pour toujours.</p></div></div>
       <div class="f"><b>20<small>ventes</small></b><div><h3>Ton passage sur le podcast de Mickaël</h3><p>Tu racontes ton parcours devant ses 300 000 abonnés.</p></div></div>
       <div class="f"><b>50<small>ventes</small></b><div><h3>Un séminaire à l’étranger avec Mickaël</h3><p>Avec l’équipe, tout payé.</p></div></div>
-      <div class="f"><b>100<small>ventes</small></b><div><h3>10 000 € de bonus</h3><p>En plus de tes 50 000 € de primes.</p></div></div>
+      <div class="f"><b>100<small>ventes</small></b><div><h3>10 000 € en cash</h3><p>En plus de tes 50 000 € de primes.</p></div></div>
       <div class="f win"><b>200<small>ventes</small></b><div><h3>Ta voiture offerte</h3><p>Jusqu’à 30 000 €, ou la somme en cash.</p></div></div>
     </div>
     <div class="flow lad" data-e="oui" hidden>
@@ -286,10 +245,10 @@ input.i:focus{background:#0E0E10;border-color:var(--red);box-shadow:0 0 0 4px rg
       <div class="f"><b>10<small>ventes</small></b><div><h3>Ta place VIP à l’AUDACE Experience</h3><p>Et un dîner avec Mickaël.</p></div></div>
       <div class="f"><b>20<small>ventes</small></b><div><h3>Ton passage sur le podcast de Mickaël</h3><p>Tu racontes ton parcours devant ses 300 000 abonnés.</p></div></div>
       <div class="f"><b>50<small>ventes</small></b><div><h3>Un séminaire à l’étranger avec Mickaël</h3><p>Avec l’équipe, tout payé.</p></div></div>
-      <div class="f"><b>100<small>ventes</small></b><div><h3>10 000 € de bonus</h3><p>En plus de tes 50 000 € de primes.</p></div></div>
+      <div class="f"><b>100<small>ventes</small></b><div><h3>10 000 € en cash</h3><p>En plus de tes 50 000 € de primes.</p></div></div>
       <div class="f win"><b>200<small>ventes</small></b><div><h3>Ta voiture offerte</h3><p>Jusqu’à 30 000 €, ou la somme en cash.</p></div></div>
     </div>
-    <p class="note" style="color:var(--mut);font-size:14px">Les paliers comptent les personnes qui ont rejoint l’école et payé.</p>
+    <p class="note" style="color:var(--mut);font-size:14px">Les paliers bonus comptent les personnes qui ont rejoint l’école et payé.</p>
     <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Comment mes ventes sont comptées ? →</button></div>
   </section>
 
@@ -312,6 +271,7 @@ input.i:focus{background:#0E0E10;border-color:var(--red);box-shadow:0 0 0 4px rg
   <section class="scr">
     <span class="k">Ce qui se passe après</span>
     <h2 class="t">Toi, tu partages. Nous, on fait le reste.</h2>
+    <figure class="ph"><img src="img/q-ws-groupe.jpg" alt="Mickaël Wu avec des élèves AUDACE" loading="lazy" style="object-position:50% 30%"><span>Mickaël avec ses élèves</span></figure>
     <div class="flow mid" style="margin-top:18px">
       <div class="f"><b>1</b><div><h3>Elle regarde une courte vidéo</h3></div></div>
       <div class="f"><b>2</b><div><h3>Elle réserve son appel gratuit</h3></div></div>
@@ -467,11 +427,6 @@ $$('[data-copy]').forEach(function(b){var o=b.textContent;b.addEventListener('cl
 /* déjà inscrit sur ce téléphone : on ouvre directement le kit (?nouveau pour refaire une inscription) */
 try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv&&sv.code&&!/[?&]nouveau/.test(location.search)){S.nm=sv.nm;S.code=sv.code;S.link=sv.link;kit()}}catch(x){}
 })();
-</script>
-<script>
-(function(){var e=document.getElementById('c500');if(!e)return;var t0=null,d=1100;
-function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/d);e.textContent=Math.round(500*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)}
-e.textContent='0';setTimeout(function(){requestAnimationFrame(f)},250)})();
 </script>
 </body>
 </html>
