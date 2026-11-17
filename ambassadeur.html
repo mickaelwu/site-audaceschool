@@ -248,6 +248,11 @@ input.i.bad{border-color:#C0392B}
 .money b.m2{font-size:44px;line-height:1.05}
 .z2 a{display:block;margin-top:4px;font-size:12.5px;font-weight:800;color:var(--ink)}
 .crew{margin-bottom:14px}
+.mi{text-align:center}
+.mi h3{font-size:21px;margin:4px 0 8px;color:var(--b)}
+.mi p{color:var(--ink);font-size:16px;margin:0}
+.mi .n{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--rose);color:var(--b);font:700 16px 'Instrument Sans',sans-serif}
+.quote{text-align:center;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:22px 4px 18px}
 .scr>.k{display:table;margin:0 auto 12px;text-align:center}
 .scr>.t,.scr>.lead{text-align:center}
 .crew h3,.crew>p{text-align:center}
@@ -281,9 +286,22 @@ input.i.bad{border-color:#C0392B}
     </div>
   </section>
 
-  <!-- 1. Le pourquoi -->
+  <!-- 1. Notre mission -->
   <section class="scr">
-    <span class="k">Le pourquoi</span>
+    <span class="k">Notre mission</span>
+    <h2 class="t">Pourquoi l’École AUDACE existe.</h2>
+    <p class="lead">L’école classique t’apprend à chercher un emploi. Nous, on t’apprend à créer le tien.</p>
+    <figure class="ph"><img src="img/e-m-conference.jpg" alt="Un événement de l’École AUDACE"></figure>
+    <div class="card mi"><span class="n">1</span><h3>Le monde a changé</h3><p>Aujourd’hui, c’est grâce aux réseaux qu’on se fait connaître et qu’on trouve ses clients. Ceux qui savent s’en servir prennent toute la place. Les autres sont vite oubliés.</p></div>
+    <div class="card mi"><span class="n">2</span><h3>Notre mission</h3><p>Apprendre à chacun à vivre de ce qu’il sait faire, grâce à internet. Changer les mentalités, redonner le goût du travail et de l’audace. Plus de 1&nbsp;400 élèves l’ont déjà fait avec nous.</p></div>
+    <div class="card mi"><span class="n">3</span><h3>Pourquoi on recrute des partenaires</h3><p>Une grande école ne grandit pas grâce à une seule voix. On veut des centaines de créateurs qui portent AUDACE, chacun auprès de son audience. Et qui grandissent avec nous.</p></div>
+    <p class="quote">L’entrepreneuriat,<br>enfin une filière.</p>
+    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Nos preuves →</button></div>
+  </section>
+
+  <!-- 2. Nos preuves -->
+  <section class="scr">
+    <span class="k">Nos preuves</span>
     <h2 class="t"><span class="nm"></span>, tu ne vends pas du vent.</h2>
     <p class="lead">Tu recommandes une école qui a déjà ses preuves. Regarde par toi-même.</p>
     <div class="money"><span>La garantie de l’école</span><b class="m2">5 000 €<br>en 3 mois</b><em>ou remboursé. Ceux que tu recommandes ne prennent aucun risque.</em></div>
@@ -492,12 +510,12 @@ var KEY='aud-ambassadeur';
 var S={nm:'',e:'',w:'',code:'',link:'',statut:'',siret:'',m:''};
 try{var mq=(new URLSearchParams(location.search).get('m')||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(mq)localStorage.setItem('aud-mentor',mq);S.m=mq||localStorage.getItem('aud-mentor')||''}catch(x){}
 var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
-var scr=$$('.scr'),cur=0,LBL=['','Le pourquoi','Le deal','La vision','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
+var scr=$$('.scr'),cur=0,LBL=['','Notre mission','Nos preuves','Le deal','La vision','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
 
 function show(i){
   scr[cur].classList.remove('on');cur=i;scr[cur].classList.add('on');
   var p=$('#prog');
-  if(i>0&&i<7){p.classList.add('on');$('#pbar').style.width=(i/6*100)+'%';$('#plabel').textContent='Étape '+i+' sur 6'}else p.classList.remove('on');
+  if(i>0&&i<8){p.classList.add('on');$('#pbar').style.width=(i/7*100)+'%';$('#plabel').textContent='Étape '+i+' sur 7'}else p.classList.remove('on');
   window.scrollTo(0,0);
 }
 $$('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(cur+(+b.dataset.go))})});
@@ -566,7 +584,7 @@ function kit(){
   T.say=$('#say').textContent;
   T.mentor='https://audaceschool.com/ambassadeur.html?m='+S.code;$('#lkm').textContent=T.mentor;
   $('#msgPote').textContent=T.pote;
-  show(7);
+  show(8);
 }
 $$('[data-copy]').forEach(function(b){var o=b.textContent;b.addEventListener('click',function(){var t=T[b.dataset.copy];
   var okc=function(){b.textContent='Copié ✓';b.classList.add('copied');setTimeout(function(){b.textContent=o;b.classList.remove('copied')},1800)};
@@ -574,9 +592,9 @@ $$('[data-copy]').forEach(function(b){var o=b.textContent;b.addEventListener('cl
 
 /* aperçu : ?etape=N ouvre directement l'étape N (&profil=eleve pour la version élève) */
 var qp=new URLSearchParams(location.search),eN=parseInt(qp.get('etape'),10);
-if(eN>=1&&eN<=7){if(!S.nm)S.nm='Thomas';if(!S.code)S.code='THOMAS7';if(!S.link)S.link='https://audaceschool.com/cours-gratuit.html?a='+S.code;S.eleve=qp.get('profil')==='eleve'?'oui':'non';
+if(eN>=1&&eN<=8){if(!S.nm)S.nm='Thomas';if(!S.code)S.code='THOMAS7';if(!S.link)S.link='https://audaceschool.com/cours-gratuit.html?a='+S.code;S.eleve=qp.get('profil')==='eleve'?'oui':'non';
   names();$$('.cd').forEach(function(c){c.textContent=S.code});$$('.lad').forEach(function(l){l.hidden=l.dataset.e!==S.eleve});if(window.lvUpdate)lvUpdate();
-  if(eN===7)kit();else show(eN);return}
+  if(eN===8)kit();else show(eN);return}
 /* déjà inscrit sur ce téléphone : on ouvre directement le kit (?nouveau pour refaire une inscription) */
 try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv&&sv.code&&!/[?&]nouveau/.test(location.search)){S.nm=sv.nm;S.code=sv.code;S.link=sv.link;kit()}}catch(x){}
 })();
