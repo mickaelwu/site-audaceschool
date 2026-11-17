@@ -186,6 +186,31 @@ input.i.bad{border-color:#C0392B}
 .car .f:nth-child(2) b{background:#EA94A9;color:#4A0414}
 .car .f:nth-child(3) b{background:#C73B60;color:#fff}
 .car .f:nth-child(4) b{background:linear-gradient(135deg,#FFE08A,#F5B83D);color:#4A0414}
+.money{position:relative;text-align:center;border-radius:24px;padding:22px 16px 20px;margin:4px 0 10px;background:linear-gradient(160deg,#fff,#FFF6E3);box-shadow:0 0 0 2px #F5C76A,0 18px 44px rgba(245,184,61,.28)}
+.money span{display:block;font-size:14px;font-weight:700;color:var(--mut)}
+.money b{display:block;font-family:'Instrument Sans',sans-serif;font-size:72px;letter-spacing:-.04em;line-height:1;margin:6px 0 2px;background:linear-gradient(180deg,#8A0B27,#67061B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.money em{font-style:normal;font-weight:800;font-size:15px}
+.pay{color:var(--mut);font-size:14px;text-align:center;margin:0 6px 18px}
+.vs{display:grid;grid-template-columns:.8fr 1.2fr;gap:10px;margin-bottom:10px}
+.vs>div{border-radius:20px;padding:16px 14px}
+.vs .me{background:var(--b);color:var(--cream)}
+.vs .us{background:#fff;box-shadow:0 8px 26px rgba(30,16,18,.06)}
+.vs h4{margin:0 0 10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.vs .us h4{color:var(--b)}
+.vs ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px;line-height:1.3;font-weight:600}
+.vs .me ul{font-size:18px;font-weight:800}
+.vs .me p{margin-top:12px;color:var(--rose);font-weight:700;font-size:14px}
+.vs .us li:before{content:"✓ ";color:var(--b);font-weight:800}
+.zero{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.zero div{background:#fff;border-radius:16px;padding:12px 6px;text-align:center;box-shadow:0 8px 24px rgba(30,16,18,.06)}
+.zero b{display:block;font-family:'Instrument Sans',sans-serif;font-size:24px;color:var(--b);line-height:1}
+.zero span{display:block;font-size:12.5px;font-weight:600;color:var(--mut);margin-top:4px}
+.sim{text-align:center}
+.sim .q2{font-weight:800;margin-bottom:14px}
+#sim{width:100%;accent-color:var(--b);height:28px}
+.simo span{display:block;font-weight:700;color:var(--mut);margin-top:8px}
+.simo b{display:block;font-family:'Instrument Sans',sans-serif;font-size:40px;letter-spacing:-.03em;color:var(--b);line-height:1.1;margin:4px 0}
+.simo em{font-style:normal;font-weight:700;font-size:15px}
 </style>
 </head>
 <body>
@@ -234,27 +259,19 @@ input.i.bad{border-color:#C0392B}
   <!-- 2. Le deal -->
   <section class="scr">
     <span class="k">Le deal</span>
-    <h2 class="t">500 € par personne qui rejoint l’école.</h2>
-    <p class="lead">Sans limite. Tu touches au rythme où la personne paie.</p>
-    <div class="card"><div class="big">500 €</div><p style="margin-top:8px;color:var(--mut)">Elle paie en une fois : tu touches 500 € le mois suivant.</p></div>
-    <div class="card"><div class="big">3 × 167 €</div><p style="margin-top:8px;color:var(--mut)">Elle paie en 3 fois : tu touches environ 167 € à chaque paiement, pendant 3 mois.</p></div>
-    <div class="card">
-      <h3 style="font-size:24px;margin-bottom:6px">100 % de marge pour toi.</h3>
-      <p style="color:var(--mut);margin-bottom:14px">500 €, juste pour faire découvrir l’école. Aucun produit à créer, aucun coût, rien à livrer. Ce que tu touches, tu le gardes.</p>
-      <p style="font-weight:800;margin-bottom:8px">Toi, tu fais juste ça :</p>
-      <ul class="r"><li>Tu fais tes vidéos et tu partages ton lien.</li></ul>
-      <p style="font-weight:800;margin:16px 0 8px">Nous, on gère tout le reste :</p>
-      <ul class="r">
-        <li>La confiance : nos vidéos sur 3 chaînes YouTube et 2 comptes Instagram la construisent pour toi. Pas besoin de convaincre.</li>
-        <li>Les messages aux personnes intéressées.</li>
-        <li>Les appels et la vente.</li>
-        <li>Le site, les paiements et les contrats.</li>
-        <li>Le coaching des élèves jusqu’à leurs résultats.</li>
-      </ul>
+    <h2 class="t">Le deal est injuste. Pour nous.</h2>
+    <p class="lead">Toi, tu encaisses. Nous, on fait tout le travail.</p>
+    <div class="money"><span>Pour chaque personne qui rejoint l’école</span><b>500 €</b><em>pour toi, sans limite</em></div>
+    <p class="pay">Elle paie en une fois : tu touches 500 € le mois suivant. En 3 fois : environ 167 € à chaque paiement.</p>
+    <div class="vs">
+      <div class="me"><h4>Ton travail</h4><ul><li>Tes vidéos</li><li>Ton lien</li></ul><p>C’est tout.</p></div>
+      <div class="us"><h4>Notre travail</h4><ul><li>La confiance, avec nos chaînes YouTube et Insta</li><li>Les messages</li><li>Les appels et la vente</li><li>Le site, les paiements, les contrats</li><li>Le coaching de l’élève jusqu’à ses résultats</li></ul></div>
     </div>
-    <div class="row">
-      <div class="stat"><b>10</b><span>personnes par mois = 5 000 €</span></div>
-      <div class="stat"><b>20</b><span>personnes par mois = 10 000 €</span></div>
+    <div class="zero"><div><b>0 €</b><span>de coûts</span></div><div><b>0</b><span>appel à faire</span></div><div><b>100 %</b><span>de marge</span></div></div>
+    <div class="card sim">
+      <p class="q2">Combien de personnes tu fais rejoindre par mois ?</p>
+      <input type="range" id="sim" min="1" max="40" value="20" aria-label="Personnes par mois">
+      <div class="simo"><span id="simn">20 personnes</span><b id="simm">10 000 € / mois</b><em id="simy">soit 120 000 € par an</em></div>
     </div>
     <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Jusqu’où je peux aller ? →</button></div>
   </section>
@@ -450,6 +467,10 @@ f.addEventListener('submit',function(ev){ev.preventDefault();var inp=st[k].query
   names();$$('.cd').forEach(function(c){c.textContent=S.code});$$('.lad').forEach(function(l){l.hidden=l.dataset.e!==S.eleve});show(1);
 });
 
+/* simulateur */
+(function(){var r=$('#sim');if(!r)return;var f=function(n){return n.toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ')};
+function u(){var n=+r.value;$('#simn').textContent=n+(n>1?' personnes':' personne');$('#simm').textContent=f(n*500)+' € / mois';$('#simy').textContent='soit '+f(n*6000)+' € par an'}
+r.addEventListener('input',u);u()})();
 /* vidéos témoignages */
 var mo=$('#modal'),mv=$('#mv');
 $$('.vid').forEach(function(b){b.addEventListener('click',function(){mv.src=b.dataset.v;mo.classList.add('on');mv.play().catch(function(){})})});
