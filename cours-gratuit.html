@@ -38,7 +38,7 @@ h1 .rot span.on{animation:fin .35s ease-out forwards}
 h1 .rot span.out{animation:fout .3s ease-in forwards}
 @keyframes fin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes fout{from{opacity:1;transform:none}to{opacity:0;transform:translateY(8px)}}
-.wrap{position:relative;margin:30px auto 0;border-radius:14px;padding:0;border:2px solid var(--acc);box-shadow:0 0 34px rgba(194,26,71,.35)}
+.wrap{position:relative;margin:30px auto 0;border-radius:14px;padding:0;border:2px solid var(--acc);box-shadow:0 0 50px rgba(194,26,71,.5),0 0 120px rgba(194,26,71,.28)}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
 @keyframes spin{to{--a:360deg}}
 .wrap::before{content:"";position:absolute;inset:-3px;border-radius:15px;padding:3px;background:conic-gradient(from var(--a),transparent 0deg 240deg,rgba(255,255,255,.25) 285deg,#fff 330deg,rgba(255,255,255,.35) 348deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 3.2s linear infinite;pointer-events:none;z-index:3}
@@ -46,9 +46,13 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 
 .player{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
 .player:fullscreen{border-radius:0;aspect-ratio:auto}.player:fullscreen video{object-fit:contain}
-.lock{margin:22px auto 0;max-width:560px;text-align:center;background:#1b1b1d;border-radius:14px;padding:18px 20px}
-.lock b{display:block;color:#fff;font-size:17px}
-.lock span{display:block;margin-top:6px;color:var(--mut);font-size:15px;font-variant-numeric:tabular-nums}
+.lock{margin:18px auto 0;max-width:560px;text-align:center;padding:0 6px}
+.lock .up{display:block;width:16px;height:16px;margin:0 auto 12px;border-left:3px solid var(--red);border-top:3px solid var(--red);transform:rotate(45deg);border-radius:2px;animation:upb 1.4s ease-in-out infinite}
+@keyframes upb{0%,100%{transform:translateY(0) rotate(45deg);opacity:.6}50%{transform:translateY(-6px) rotate(45deg);opacity:1}}
+.lock .lr{display:flex;align-items:center;gap:14px;text-align:center}
+.lock .lr svg{flex:none;width:26px;height:26px;color:var(--red)}
+.lock .lr p{flex:1;margin:0;color:var(--mut);font-size:clamp(15px,4.2vw,18px);line-height:1.45}
+.lock .lr p b{color:#fff;font-weight:800}
 .player #ytp,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 .player video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}
 .big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s;z-index:1}
@@ -57,10 +61,15 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 @keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(246,204,213,.5),0 0 40px rgba(158,18,54,.8)}50%{box-shadow:0 0 0 18px rgba(246,204,213,0),0 0 40px rgba(158,18,54,.8)}}
 .son{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.35);cursor:pointer;z-index:4}
 .son[hidden]{display:none}
-.son .pill{display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;border:0;background:linear-gradient(90deg,#C21A47,#E8476E);color:#fff;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(16px,4.6vw,24px);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 0 0 10px rgba(103,6,27,.55),0 0 40px rgba(224,32,79,.6);animation:pp 1.8s ease-in-out infinite;cursor:pointer}
+.son .pill{display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:999px;border:0;background:linear-gradient(90deg,#C21A47,#E8476E);color:#fff;font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(16px,4.6vw,24px);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 0 0 10px rgba(103,6,27,.55),0 0 40px rgba(224,32,79,.6);animation:wig 1.7s ease-in-out infinite;cursor:pointer;position:relative;overflow:visible;isolation:isolate}
 .son .pill svg{width:28px;height:28px}
 .son small{color:#fff;font-size:clamp(12px,3.6vw,16px);text-shadow:0 1px 6px rgba(0,0,0,.8)}
 @keyframes pp{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes wig{0%,100%{transform:scale(1)}8%{transform:scale(1.1) rotate(-2deg)}16%{transform:scale(.96) rotate(2deg)}24%{transform:scale(1.07) rotate(-1deg)}32%{transform:scale(1)}}
+.son .pill::before{content:"";position:absolute;inset:-6px;border-radius:999px;border:2px solid rgba(255,255,255,.75);animation:ring 1.7s ease-out infinite;z-index:-1}
+@keyframes ring{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.25,1.7)}}
+.son .pill::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.6) 50%,transparent 65%);background-size:260% 100%;animation:shine 1.7s linear infinite;pointer-events:none}
+@keyframes shine{from{background-position:130% 0}to{background-position:-30% 0}}
 .ctl{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45));opacity:0;pointer-events:none;transition:opacity .25s}
 .player.ui .ctl{opacity:1;pointer-events:auto}
 .ctl .mid{display:flex;align-items:center;justify-content:center;gap:clamp(22px,8vw,54px)}
@@ -226,7 +235,7 @@ function ui(){P.classList.add('ui');clearTimeout(hideT);hideT=setTimeout(functio
 function ppIcon(){document.getElementById('ppi').innerHTML=V.paused?'<path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/>':'<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>'}
 V.addEventListener('play',function(){P.classList.add('playing');ppIcon()});
 V.addEventListener('pause',function(){P.classList.remove('playing');ppIcon();if(!waitSound)P.classList.add('ui')});
-V.addEventListener('timeupdate',function(){if(V.duration){var w=(V.currentTime/V.duration*100)+'%';PG.style.width=w;document.getElementById('tlf').style.width=w}});
+V.addEventListener('timeupdate',function(){if(V.duration){var w=(Math.pow(Math.min(1,V.currentTime/V.duration),.5)*100)+'%';PG.style.width=w;document.getElementById('tlf').style.width=w}});
 V.addEventListener('ratechange',function(){if(V.playbackRate>1)V.playbackRate=1});
 V.addEventListener('contextmenu',function(e){e.preventDefault()});
 V.addEventListener('error',function(){P.parentNode.style.display='none'});
@@ -244,16 +253,15 @@ P.addEventListener('click',function(e){if(e.target.closest('#snd'))return;
 V.muted=true;V.play().then(function(){waitSound=true;SO.hidden=false;document.getElementById('wave').style.display='none'}).catch(function(){V.muted=false});
 })();
 (function(){var V=document.getElementById('v'),yp={getPlayerState:function(){return V.ended?0:(!V.paused?1:2)},isMuted:function(){return V.muted||V.volume===0},getDuration:function(){return isFinite(V.duration)?V.duration:0}};
-/* la suite de la page (réservation, témoignages…) se débloque après 5 minutes de vidéo regardées avec le son (ou la fin de la vidéo si elle est plus courte). Débloqué une fois = débloqué pour toujours sur ce téléphone. */
+/* la suite de la page (réservation, témoignages…) se débloque après 1 minute de vidéo regardée avec le son (ou la fin de la vidéo si elle est plus courte). Débloqué une fois = débloqué pour toujours sur ce téléphone. */
 var KEY='aud-vsl-ok',done=false,hid=[],lk=null,watched=0;try{done=localStorage.getItem(KEY)==='1'}catch(e){}
 var W=document.getElementById('pl').closest('.wrap');
 if(!done){var n=W.nextElementSibling;while(n){if(!n.classList.contains('foot')){hid.push([n,n.style.display]);n.style.display='none'}n=n.nextElementSibling}
-  lk=document.createElement('div');lk.className='lock';lk.innerHTML='<b>🔒 Regarde la vidéo avec le son</b><span id="lkt">La réservation de ton appel se débloque après 5 minutes de vidéo.</span>';W.parentNode.insertBefore(lk,W.nextSibling)}
+  lk=document.createElement('div');lk.className='lock';lk.innerHTML='<i class="up"></i><div class="lr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.2" fill="currentColor"/></svg><p>Regarde cette vidéo de <b>1 minute</b> pour débloquer l’étape suivante</p></div>';W.parentNode.insertBefore(lk,W.nextSibling)}
 function unlock(){if(done)return;done=true;try{localStorage.setItem(KEY,'1')}catch(e){}hid.forEach(function(h){h[0].style.display=h[1]});if(lk)lk.remove()}
 setInterval(function(){if(done||!yp||!yp.getPlayerState)return;
   if(yp.getPlayerState()===0){unlock();return}
-  if(yp.getPlayerState()===1&&!yp.isMuted()){watched++;var d=yp.getDuration()||0,goal=d?Math.min(300,Math.max(d-3,1)):300,r=Math.max(0,Math.ceil(goal-watched));
-    var t=document.getElementById('lkt');if(t)t.textContent='La réservation de ton appel se débloque dans '+Math.floor(r/60)+':'+String(r%60).padStart(2,'0')+'.';
+  if(yp.getPlayerState()===1&&!yp.isMuted()){watched++;var d=yp.getDuration()||0,goal=d?Math.min(60,Math.max(d-3,1)):60,r=Math.max(0,Math.ceil(goal-watched));
     if(watched>=goal)unlock()}},1000);
 })();
 
