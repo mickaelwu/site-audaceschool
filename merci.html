@@ -143,6 +143,19 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .ok b{display:block;color:#fff;font-size:18px}.ok span{display:block;color:var(--mut);font-size:15px;margin-top:2px}
 .wa{text-align:center;margin-top:40px}.wa-t{text-align:center;color:var(--mut);max-width:560px;margin:10px auto 18px}
 .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.vert{max-width:340px;margin:0 auto;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 0 0 2px rgba(194,26,71,.6),0 0 40px rgba(194,26,71,.25)}
+.vert video{display:block;width:100%;aspect-ratio:471/1024;background:#000}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+@media(max-width:640px){.qgrid{grid-template-columns:1fr}}
+.qc{position:relative;display:block;aspect-ratio:16/9;border:0;padding:0;border-radius:16px;overflow:hidden;background:#000;cursor:pointer;text-align:left;font:inherit}
+.qc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75;pointer-events:none}
+.qc:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.85))}
+.qc .qn{position:absolute;z-index:2;top:12px;left:12px;padding:5px 11px;border-radius:999px;background:rgba(194,26,71,.25);color:#F6CCD5;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.qc b{position:absolute;z-index:2;left:16px;right:16px;bottom:14px;color:#fff;font-size:clamp(17px,2.4vw,22px);font-weight:900;line-height:1.15}
+.qc .pb{position:absolute;z-index:2;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:#C21A47;box-shadow:0 0 0 8px rgba(194,26,71,.25)}
+.qc .pb:after{content:"";position:absolute;top:50%;left:50%;margin:-9px 0 0 -5px;border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent}
+.modal.land video{max-width:960px}
+.more{text-align:center}
 </style>
 </head>
 <body>
@@ -160,9 +173,22 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 
   <section class="sec">
     <div class="k2">Message important</div>
-    <h2 class="h2">Prépare ton <em>appel.</em></h2>
-    <p class="wa-t">Cette vidéo te donne le contexte pour notre échange.</p>
-    <div class="wrap"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/zJiJpk_KDA0?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Prépare ton appel" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+    <h2 class="h2">Fais tes recherches <em>sur nous.</em></h2>
+    <p class="wa-t">Un audit indépendant a passé l’École AUDACE au crible. Regarde avant ton appel.</p>
+    <div class="vert"><video controls playsinline preload="metadata" poster="https://www.mickaelwu.com/assets/trustwho-poster.jpg" src="https://www.mickaelwu.com/assets/trustwho.mp4"></video></div>
+  </section>
+
+  <section class="sec">
+    <div class="k2">Réponses aux objections</div>
+    <h2 class="h2 plain">Tu te demandes peut-être…</h2>
+    <p class="wa-t">Ces vidéos courtes répondent aux questions les plus fréquentes.</p>
+    <div class="qgrid">
+      <button class="qc" type="button" data-v="https://www.mickaelwu.com/assets/capsule-1.mp4"><video muted playsinline preload="metadata" src="https://www.mickaelwu.com/assets/capsule-1.mp4#t=2"></video><span class="qn">Question 1</span><span class="pb"></span><b>Des appels vraiment illimités ?</b></button>
+      <button class="qc" type="button" data-v="https://www.mickaelwu.com/assets/capsule-2.mp4"><video muted playsinline preload="metadata" src="https://www.mickaelwu.com/assets/capsule-2.mp4#t=2"></video><span class="qn">Question 2</span><span class="pb"></span><b>Et si je décroche ?</b></button>
+      <button class="qc" type="button" data-v="https://www.mickaelwu.com/assets/capsule-3.mp4"><video muted playsinline preload="metadata" src="https://www.mickaelwu.com/assets/capsule-3.mp4#t=2"></video><span class="qn">Question 3</span><span class="pb"></span><b>Par quoi je commence ?</b></button>
+      <button class="qc" type="button" data-v="https://www.mickaelwu.com/assets/capsule-5.mp4"><video muted playsinline preload="metadata" src="https://www.mickaelwu.com/assets/capsule-5.mp4#t=2"></video><span class="qn">Question 4</span><span class="pb"></span><b>Et si je ne sais pas vendre ?</b></button>
+      <button class="qc" type="button" data-v="https://www.mickaelwu.com/assets/capsule-9.mp4"><video muted playsinline preload="metadata" src="https://www.mickaelwu.com/assets/capsule-9.mp4#t=2"></video><span class="qn">Question 5</span><span class="pb"></span><b>Je vais avancer seul ?</b></button>
+    </div>
   </section>
 
   <section class="sec">
@@ -173,6 +199,13 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
     <div class="pdots" id="pdots"></div>
     <button class="btn" id="more" type="button">Voir plus de transformations</button>
     <p class="disc">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>
+  </section>
+
+  <section class="sec more">
+    <div class="k2">En attendant ton appel</div>
+    <h2 class="h2">Envie d’en savoir plus sur <em>la méthode ?</em></h2>
+    <p class="wa-t">Plonge dans notre page pour comprendre en détail comment fonctionne l’École AUDACE.</p>
+    <a class="btn" href="methode.html">Découvrir la méthode AUDACE <span>→</span></a>
   </section>
 
   <div class="end"><a class="btn" id="wa2" href="#" target="_blank" rel="noopener">J’écris à Mickaël sur WhatsApp <span>→</span></a></div>
@@ -251,6 +284,12 @@ addEventListener('keydown',function(e){if(e.key==='Escape')close()});
 (function(){var am='';try{var o=JSON.parse(localStorage.getItem('amb30')||'null');if(o&&Date.now()-o.t<5184e6)am=o.c}catch(e){}
 var u=am?'https://wa.me/message/37KCP3SGFVXQA1':'https://wa.me/message/WLSOOX77HVD7O1';
 ['wa1','wa2','mcta'].forEach(function(id){var a=document.getElementById(id);if(a)a.href=u});})();
+// vidéos « réponses aux objections » : ouvertes dans la grande fenêtre vidéo
+(function(){var M=document.getElementById('modal'),MV=document.getElementById('mv');
+document.querySelectorAll('.qc').forEach(function(b){b.addEventListener('click',function(){
+  document.getElementById('mwho').textContent=b.querySelector('b').textContent;MV.removeAttribute('poster');MV.src=b.dataset.v;M.classList.add('on','land');document.body.style.overflow='hidden';MV.play().catch(function(){})})});
+document.getElementById('mx').addEventListener('click',function(){M.classList.remove('land')});
+M.addEventListener('click',function(e){if(e.target===M)M.classList.remove('land')});})();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d0d583caaa75407789e852c1c6aaa9c5"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
