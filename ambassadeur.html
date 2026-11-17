@@ -268,6 +268,14 @@ input.i.bad{border-color:#C0392B}
       <div class="stat"><b>10</b><span>personnes par mois = 5 000 €</span></div>
       <div class="stat"><b>20</b><span>personnes par mois = 10 000 €</span></div>
     </div>
+    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Jusqu’où je peux aller ? →</button></div>
+  </section>
+
+  <!-- 2 bis. La vision -->
+  <section class="scr">
+    <span class="k">La vision</span>
+    <h2 class="t">On ne cherche pas des affiliés. On construit une équipe.</h2>
+    <p class="lead">Des créateurs qui grandissent avec nous, et qu’on accompagne jusqu’au bout.</p>
     <div class="card goal"><span class="role">Notre ambition</span><h3 style="font-size:24px;margin:2px 0 6px">Des partenaires stratégiques à plus de 10 000 € par mois.</h3><p style="color:var(--mut)">20 personnes par mois, c’est moins d’une par jour. Chaque jour où quelqu’un rejoint l’école grâce à toi, c’est 500 € pour toi. C’est l’objectif qu’on se fixe avec chaque partenaire, et on t’aide à l’atteindre.</p></div>
     <div class="card">
       <h3 style="font-size:24px;margin-bottom:6px">Tu n’es jamais seul. On scale ensemble.</h3>
@@ -428,12 +436,12 @@ var KEY='aud-ambassadeur';
 var S={nm:'',e:'',w:'',code:'',link:'',statut:'',siret:'',m:''};
 try{var mq=(new URLSearchParams(location.search).get('m')||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(mq)localStorage.setItem('aud-mentor',mq);S.m=mq||localStorage.getItem('aud-mentor')||''}catch(x){}
 var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
-var scr=$$('.scr'),cur=0,LBL=['','Le pourquoi','Le deal','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
+var scr=$$('.scr'),cur=0,LBL=['','Le pourquoi','Le deal','La vision','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
 
 function show(i){
   scr[cur].classList.remove('on');cur=i;scr[cur].classList.add('on');
   var p=$('#prog');
-  if(i>0&&i<6){p.classList.add('on');$('#pbar').style.width=(i/5*100)+'%';$('#plabel').textContent='Étape '+i+' sur 5'}else p.classList.remove('on');
+  if(i>0&&i<7){p.classList.add('on');$('#pbar').style.width=(i/6*100)+'%';$('#plabel').textContent='Étape '+i+' sur 6'}else p.classList.remove('on');
   window.scrollTo(0,0);
 }
 $$('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(cur+(+b.dataset.go))})});
@@ -488,7 +496,7 @@ function kit(){
   T.say=$('#say').textContent;
   T.mentor='https://audaceschool.com/ambassadeur.html?m='+S.code;$('#lkm').textContent=T.mentor;
   $('#msgPote').textContent=T.pote;$('#waPote').href='https://wa.me/?text='+encodeURIComponent(T.pote);
-  show(6);
+  show(7);
 }
 $$('[data-copy]').forEach(function(b){var o=b.textContent;b.addEventListener('click',function(){var t=T[b.dataset.copy];
   var okc=function(){b.textContent='Copié ✓';b.classList.add('copied');setTimeout(function(){b.textContent=o;b.classList.remove('copied')},1800)};
