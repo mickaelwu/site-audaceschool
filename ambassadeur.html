@@ -248,6 +248,12 @@ input.i.bad{border-color:#C0392B}
 .money b.m2{font-size:44px;line-height:1.05}
 .z2 a{display:block;margin-top:4px;font-size:12.5px;font-weight:800;color:var(--ink)}
 .crew{margin-bottom:14px}
+.who{font-size:clamp(24px,6.4vw,32px);line-height:1.12;text-align:center;margin:4px 0 8px}
+.meth{display:grid;gap:10px;margin-bottom:12px}
+.ms{display:grid;grid-template-columns:1fr 104px;gap:14px;align-items:center;background:#fff;border-radius:20px;padding:12px 12px 12px 18px;box-shadow:0 12px 34px rgba(30,16,18,.08)}
+.ms>div>b{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--b);color:#fff;font:700 15px 'Instrument Sans',sans-serif}
+.ms h3{font-size:20px;margin:8px 0 4px}.ms p{margin:0;color:var(--mut);font-size:15px;line-height:1.4}
+.ms .vid .pl{left:6px;right:6px;bottom:6px;font-size:10.5px}.ms .vid .pl b{font-size:14px}.ms .vid .tri{width:34px;height:34px;margin:-17px 0 0 -17px}
 .t.big1{font-size:clamp(28px,7.4vw,40px);line-height:1.08}
 .bad{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 14px}
 .bad>*{display:block;text-decoration:none;border-radius:20px;padding:18px 10px;text-align:center;background:linear-gradient(160deg,#7A0A24,#4A0414);box-shadow:0 14px 34px rgba(103,6,27,.25)}
@@ -301,6 +307,20 @@ input.i.bad{border-color:#C0392B}
       <div><b>300&nbsp;k</b><span>abonnés qui nous suivent</span></div>
     </div>
     <figure class="ph"><img src="media/be6c32d0f331e77997b3245217db7ca1.jpg" alt="Des élèves de l’École AUDACE qui travaillent ensemble"></figure>
+    <span class="k">Qui on est</span>
+    <h3 class="who">L’école de la création de contenu et du business en ligne.</h3>
+    <p class="lead">Notre méthode en 4 étapes. Chaque étape, un vrai élève qui l’a fait.</p>
+    <div class="meth">
+      <div class="ms"><div><b>1</b><h3>Ta passion</h3><p>Ce que tu aimes ou ce que tu sais déjà faire. Le DJ, le sport, une langue, n’importe quoi.</p></div><button class="vid" type="button" data-v="media/t-lucasarniac.mp4"><img src="img/tv-lucasarniac.jpg" alt="Lucas, cours de DJ" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois avec le DJ</span></button></div>
+      <div class="ms"><div><b>2</b><h3>Ton coaching</h3><p>On en fait une offre claire, que des gens ont envie d’acheter.</p></div><button class="vid" type="button" data-v="media/7814e5b2c5f88d7403104668fb856c18.mp4"><img src="img/tv-fan.jpg" alt="Fan, cours de chinois" loading="lazy"><span class="tri"></span><span class="pl"><b>4 000 €</b>par mois, cours de chinois</span></button></div>
+      <div class="ms"><div><b>3</b><h3>Ton contenu</h3><p>Des vidéos qui font des vues et qui attirent tes futurs clients.</p></div><button class="vid" type="button" data-v="media/t-bobby.mp4"><img src="img/tv-bobby.jpg" alt="Bobby, créateur TikTok" loading="lazy"><span class="tri"></span><span class="pl"><b>100 k</b>abonnés en 28 jours</span></button></div>
+      <div class="ms"><div><b>4</b><h3>Tes ventes</h3><p>Tes abonnés deviennent tes clients, par message et par appel.</p></div><button class="vid" type="button" data-v="media/t-kayss.mp4"><img src="img/tv-kayss.jpg" alt="Kayss, achat-revente" loading="lazy"><span class="tri"></span><span class="pl"><b>20 000 €</b>en 5 mois</span></button></div>
+    </div>
+    <div class="vids">
+      <button class="vid" type="button" data-v="media/t-husler.mp4"><img src="img/tv-husler.jpg" alt="Husler, revente Vinted" loading="lazy"><span class="tri"></span><span class="pl"><b>14 200 €</b>en 2 mois, à 17 ans</span></button>
+      <button class="vid" type="button" data-v="media/t-dezuur.mp4"><img src="img/tv-dezuur.jpg" alt="Dezuur, vente de formations" loading="lazy"><span class="tri"></span><span class="pl"><b>8 000 €</b>par mois</span></button>
+      <button class="vid" type="button" data-v="media/4d82ff03ed77c7b7b257784e893103ae.mp4"><img src="img/tv-paulmath.jpg" alt="Paul et Math, coachs street workout" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois, street workout</span></button>
+    </div>
     <span class="k">Pourquoi on veut des partenaires</span>
     <div class="card why"><b>1</b><h3>Une seule porte d’entrée</h3><p>Aujourd’hui, presque tous nos élèves arrivent par les vidéos de Mickaël Wu. Des milliers de jeunes qui ont besoin de l’école ne l’ont jamais vu passer.</p></div>
     <div class="card why"><b>2</b><h3>Eux, ils te suivent toi</h3><p>Ils te font confiance. Une recommandation de ta part vaut plus que n’importe quelle pub.</p></div>
@@ -318,7 +338,7 @@ input.i.bad{border-color:#C0392B}
     <div class="money"><span>La garantie de l’école</span><b class="m2">5 000 €<br>en 3 mois</b><em>ou remboursé. Ceux que tu recommandes ne prennent aucun risque.</em></div>
     <div class="strip" aria-label="Photos de l’École AUDACE"><div class="tr"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE"><img src="img/q-n05.jpg" alt="La communauté AUDACE"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves"><img src="img/e-e-stalingrad.jpg" alt="Après un événement"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" aria-hidden="true"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" aria-hidden="true"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" aria-hidden="true"><img src="img/q-n05.jpg" alt="La communauté AUDACE" aria-hidden="true"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" aria-hidden="true"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" aria-hidden="true"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" aria-hidden="true"></div></div>
     <div class="vids">
-      <button class="vid" type="button" data-v="media/t-husler.mp4"><img src="img/tv-husler.jpg" alt="Husler, revente Vinted" loading="lazy"><span class="tri"></span><span class="pl"><b>14 200 €</b>en 2 mois, à 17 ans</span></button>
+      <button class="vid" type="button" data-v="media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4"><img src="img/tv-mayline.jpg" alt="Mayline, coach" loading="lazy"><span class="tri"></span><span class="pl"><b>2 500 €</b>en 1 semaine</span></button>
       <button class="vid" type="button" data-v="media/t-jayden.mp4"><img src="img/tv-jayden.jpg" alt="Jayden, coach de vie" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois</span></button>
       <button class="vid" type="button" data-v="media/t-anes.mp4"><img src="img/tv-anes.jpg" alt="Anès, business en ligne" loading="lazy"><span class="tri"></span><span class="pl"><b>9 500 €</b>business en ligne</span></button>
     </div>
