@@ -225,6 +225,13 @@ input.i.bad{border-color:#C0392B}
 .lad .f.unl{box-shadow:0 0 0 2px #F5C76A,0 10px 28px rgba(245,184,61,.25)}
 .lad .f.unl:after{content:"Débloqué";position:absolute;top:-9px;right:14px;background:#F5C76A;color:#4A0414;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:99px}
 .join{box-shadow:0 0 0 2px #F5C76A}
+.money b.m2{font-size:44px;line-height:1.05}
+.z2 a{display:block;margin-top:4px;font-size:12.5px;font-weight:800;color:var(--ink)}
+.crew{margin-bottom:14px}
+.lkbox .lk{background:#fff;margin:10px 0 12px}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.confetti i{position:absolute;top:-12px;width:9px;height:14px;border-radius:2px;animation:fall 2.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.9}}
 </style>
 </head>
 <body>
@@ -255,18 +262,16 @@ input.i.bad{border-color:#C0392B}
     <span class="k">Le pourquoi</span>
     <h2 class="t"><span class="nm"></span>, tu ne vends pas du vent.</h2>
     <p class="lead">Tu recommandes une école qui a déjà ses preuves. Regarde par toi-même.</p>
-    <div class="row">
-      <div class="stat"><b>1 400+</b><span>élèves déjà accompagnés</span></div>
-      <div class="stat"><b>96/100</b><span>audit indépendant TrustWho</span><a href="https://rapport.trustwho.io/rapport/mickael-wu-business" target="_blank" rel="noopener">Voir le rapport →</a></div>
-    </div>
-    <div class="card" style="padding:18px 20px"><div class="big" style="font-size:30px">5 000 € en 3 mois</div><p style="margin-top:6px;color:var(--mut)">ou remboursé. La personne que tu recommandes ne prend aucun risque.</p></div>
+    <div class="money"><span>La garantie de l’école</span><b class="m2">5 000 € en 3 mois</b><em>ou remboursé. Ceux que tu recommandes ne prennent aucun risque.</em></div>
+    <div class="zero z2"><div><b>1 400+</b><span>élèves accompagnés</span></div><div><b>96/100</b><span>audit TrustWho</span><a href="https://rapport.trustwho.io/rapport/mickael-wu-business" target="_blank" rel="noopener">Voir →</a></div><div><b>300 k</b><span>abonnés qui nous suivent</span></div></div>
     <div class="strip" aria-label="Photos de l’École AUDACE"><div class="tr"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" loading="lazy"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" loading="lazy"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" loading="lazy"><img src="img/q-n05.jpg" alt="La communauté AUDACE" loading="lazy"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" loading="lazy"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" loading="lazy"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" loading="lazy"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" loading="lazy" aria-hidden="true"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-n05.jpg" alt="La communauté AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" loading="lazy" aria-hidden="true"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" loading="lazy" aria-hidden="true"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" loading="lazy" aria-hidden="true"></div></div>
     <div class="vids">
       <button class="vid" type="button" data-v="media/t-husler.mp4"><img src="img/tv-husler.jpg" alt="Husler, revente Vinted" loading="lazy"><span class="tri"></span><span class="pl"><b>14 200 €</b>en 2 mois, à 17 ans</span></button>
       <button class="vid" type="button" data-v="media/t-jayden.mp4"><img src="img/tv-jayden.jpg" alt="Jayden, coach de vie" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois</span></button>
       <button class="vid" type="button" data-v="media/t-anes.mp4"><img src="img/tv-anes.jpg" alt="Anès, business en ligne" loading="lazy"><span class="tri"></span><span class="pl"><b>9 500 €</b>business en ligne</span></button>
     </div>
-    <div class="gold"><h3>Pourquoi c’est facile à recommander</h3><p>Plein de gens autour de toi veulent vivre d’internet sans savoir par où commencer. Tu ne leur vends rien : tu leur offres un appel offert de découverte avec l’équipe. Ce sont nos coachs qui expliquent et qui vendent.</p></div>
+    <div class="crew"><h3>Facile à recommander.</h3><p>Plein de gens autour de toi veulent vivre d’internet sans savoir par où commencer.</p>
+      <div class="tiles"><div><b>0</b><span>chose à vendre</span></div><div><b>Offert</b><span>l’appel de découverte</span></div><div><b>Nous</b><span>on explique et on vend</span></div></div></div>
     <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">J’ai compris →</button></div>
   </section>
 
@@ -343,12 +348,13 @@ input.i.bad{border-color:#C0392B}
     <h2 class="t">Ton lien porte ton code. C’est tout.</h2>
     <p class="lead">Tu n’as rien à déclarer, rien à remplir. Tout se fait tout seul.</p>
     <div class="demo">audaceschool.com/cours-gratuit.html?a=<u class="cd">TONCODE</u></div>
+    <div class="zero"><div><b>Auto</b><span>rien à déclarer</span></div><div><b>2 mois</b><span>la vente reste à toi</span></div><div><b>1×/mois</b><span>on te paie</span></div></div>
     <div class="flow">
       <div class="f"><b>1</b><div><h3>La personne clique sur ton lien</h3><p>Même si elle réserve jusqu’à 2 mois plus tard sur un lien public de Mickaël Wu ou d’AUDACE, la commission est quand même pour toi.</p></div></div>
       <div class="f"><b>2</b><div><h3>Elle réserve son appel</h3><p>Son rendez-vous est enregistré automatiquement avec ton code.</p></div></div>
       <div class="f"><b>3</b><div><h3>Elle rejoint l’école</h3><p>La vente est notée à ton nom. Chaque début de mois, on fait le compte et on te paie.</p></div></div>
     </div>
-    <div class="gold"><h3>La seule règle à retenir</h3><p>La personne doit réserver avec ton lien. Si un pote t’écrit « c’est quoi ton école ? », ne l’envoie nulle part ailleurs : envoie-lui ton lien.</p></div>
+    <div class="gold join"><h3>La seule règle à retenir</h3><p>La personne doit réserver avec ton lien. Si un pote t’écrit « c’est quoi ton école ? », ne l’envoie nulle part ailleurs : envoie-lui ton lien.</p></div>
     <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Et après ? →</button></div>
   </section>
 
@@ -359,8 +365,8 @@ input.i.bad{border-color:#C0392B}
     <div class="flow mid" style="margin-top:18px">
       <div class="f"><b>1</b><div><h3>Elle regarde une courte vidéo</h3></div></div>
       <div class="f"><b>2</b><div><h3>Elle fait son appel offert de découverte avec l’équipe</h3></div></div>
-      <div class="f win"><b>€</b><div><h3>Elle rejoint l’école : tu touches 500 €</h3></div></div>
     </div>
+    <div class="money"><span>3. Elle rejoint l’école</span><b>+500 €</b><em>pour toi. Sans avoir fait un seul appel.</em></div>
     <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Dernière étape →</button></div>
   </section>
 
@@ -378,7 +384,8 @@ input.i.bad{border-color:#C0392B}
         <li>Si une personne est remboursée ou arrête de payer, ta prime s’arrête.</li>
       </ul>
     </div>
-    <div class="gold"><h3>Comment tu es payé</h3><p>On te paie sur facture. Pour ça, il te faut un statut, par exemple auto-entrepreneur : ça se crée en ligne, gratuitement. Pas encore de statut ? Pas grave : tes primes sont gardées de côté et versées dès que tu en as un.</p><p style="margin-top:10px">Tu es mineur ? Un de tes parents peut créer son statut et nous facturer à ta place : on lui verse tes primes.</p></div>
+    <div class="zero"><div><b>Facture</b><span>simple, 1×/mois</span></div><div><b>Le mois</b><span>suivant la vente</span></div><div><b>0 €</b><span>pour entrer</span></div></div>
+    <div class="gold join"><h3>Comment tu es payé</h3><p>On te paie sur facture. Pour ça, il te faut un statut, par exemple auto-entrepreneur : ça se crée en ligne, gratuitement. Pas encore de statut ? Pas grave : tes primes sont gardées de côté et versées dès que tu en as un.</p><p style="margin-top:10px">Tu es mineur ? Un de tes parents peut créer son statut et nous facturer à ta place : on lui verse tes primes.</p></div>
     <p style="font-weight:800;font-size:18px;margin:18px 0 0 4px">Tu as déjà un statut ?</p>
     <div class="choice" id="stat">
       <button class="ch" type="button" data-v="oui"><i></i>Oui, j’ai un numéro SIRET</button>
@@ -405,8 +412,7 @@ input.i.bad{border-color:#C0392B}
       </ul>
       <a class="btn btn-wa" href="https://chat.whatsapp.com/L1E3fYOi3LLAKFF4Wy12YX" target="_blank" rel="noopener">Rejoindre le groupe WhatsApp</a>
     </div>
-    <div class="lk" id="lk"></div>
-    <button class="btn btn-main" type="button" data-copy="link">Copier mon lien</button>
+    <div class="money lkbox"><span>Ton lien perso</span><div class="lk" id="lk"></div><button class="btn btn-main" type="button" data-copy="link">Copier mon lien</button></div>
     <div style="height:18px"></div>
 
     <div class="kit">
@@ -496,6 +502,10 @@ function u(){var n=+r.value,k=0;$$('.lad .f').forEach(function(e){var v=parseInt
 var st=n>=10?'Mentor AUDACE':n>=5?'Partenaire confirmé':'Partenaire stratégique';
 $('#lvn').textContent=n+(n>1?' personnes':' personne');$('#lvm').textContent=f(n*500)+' €';$('#lvs').textContent='de primes · Statut : '+st+' · '+k+(k>1?' paliers débloqués':' palier débloqué')}
 r.addEventListener('input',u);u();window.lvUpdate=u})();
+/* confettis à l’arrivée sur le kit */
+window.boom=function(){try{var c=document.createElement('div');c.className='confetti';var col=['#F5C76A','#67061B','#F6CCD5','#DC6683','#FFE08A'];
+for(var i=0;i<70;i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.background=col[i%col.length];e.style.animationDelay=(Math.random()*.6)+'s';e.style.transform='rotate('+Math.random()*360+'deg)';c.appendChild(e)}
+document.body.appendChild(c);setTimeout(function(){c.remove()},3600)}catch(x){}};
 /* vidéos témoignages */
 var mo=$('#modal'),mv=$('#mv');
 $$('.vid').forEach(function(b){b.addEventListener('click',function(){mv.src=b.dataset.v;mo.classList.add('on');mv.play().catch(function(){})})});
@@ -514,7 +524,7 @@ $('#fin').addEventListener('click',function(){
   var d=new URLSearchParams();
   d.append('entry.1608116188','AMBASSADEUR — '+S.nm+' — code '+S.code+' — statut : '+(S.statut==='oui'?'SIRET '+S.siret:'pas encore')+' — élève : '+S.eleve+(S.m?' — mentor : '+S.m:'')+' — règles acceptées');
   d.append('entry.1696167199',S.e);d.append('entry.128016296',S.w);
-  var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link}))}catch(x){}kit()};
+  var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link}))}catch(x){}kit();if(window.boom)boom()};
   fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(done).catch(done);
 });
 
