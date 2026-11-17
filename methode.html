@@ -164,6 +164,11 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .vs .wa-t{text-align:left;margin:8px 0 16px}
 .player video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
 .im{text-align:center}
+.prof{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 6px}
+.prof button{padding:14px 10px;border-radius:14px;border:1.5px solid rgba(255,255,255,.12);background:#161618;color:#fff;font:inherit;font-weight:800;font-size:15px;cursor:pointer;transition:transform .15s,background .2s,border-color .2s}
+.prof button:active{transform:scale(.97)}
+.prof button.sel{background:#C21A47;border-color:#C21A47;box-shadow:0 10px 26px rgba(194,26,71,.35)}
+.pv{margin-top:26px}.pv .vh{font-size:clamp(18px,3.4vw,24px);margin-bottom:12px}
 </style>
 </head>
 <body>
@@ -185,27 +190,28 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
   </section>
 
   <section class="sec vs">
-    <div class="vk">Vidéo 2 · Nos élèves</div>
-    <h3 class="vh">Écoute-les, pas moi.</h3>
+    <div class="vk">Vidéo 2 · Un élève</div>
+    <h3 class="vh">De 0 à 10&nbsp;000&nbsp;€ par mois en 60&nbsp;jours.</h3>
     <div class="wrap"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/3qtYqqRk7ss?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Nos élèves racontent" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
   </section>
 
-  <section class="sec vs">
-    <div class="vk">Vidéo 3 · Pour tes proches</div>
-    <h3 class="vh">Si quelqu’un autour de toi veut se rassurer.</h3>
-    <p class="wa-t">La mère d’un de nos élèves raconte ce qu’elle a vu de l’extérieur.</p>
-    <div class="wrap"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/F8Os0uK5MdY?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Une mère raconte" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
-  </section>
-
-  <section class="sec vs">
-    <div class="vk">Vidéo 4 · La garantie</div>
-    <h3 class="vh">On préfère porter le risque avec toi.</h3>
-    <div class="wrap"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/ue5PkTFRJLc?rel=0&amp;modestbranding=1&amp;playsinline=1" title="La garantie AUDACE" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+  <section class="sec">
+    <div class="k2">Pour tes parents</div>
+    <h2 class="h2 plain">Ce qu’en disent les parents.</h2>
+    <div class="vs pv">
+      <h3 class="vh">La maman d’un élève qui gagne 5&nbsp;000&nbsp;€ par mois.</h3>
+      <div class="wrap"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/F8Os0uK5MdY?rel=0&amp;modestbranding=1&amp;playsinline=1" title="La maman d’un élève à 5 000 € par mois" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+    </div>
+    <div class="vs pv">
+      <h3 class="vh">La maman d’un élève qui gagne 10&nbsp;000&nbsp;€ par mois.</h3>
+      <div class="wrap"><div class="player"><iframe src="https://www.youtube-nocookie.com/embed/ue5PkTFRJLc?rel=0&amp;modestbranding=1&amp;playsinline=1" title="La maman d’un élève à 10 000 € par mois" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+    </div>
   </section>
 
   <section class="sec">
     <div class="k2">Preuves</div>
-    <h2 class="h2 plain">Ce que disent nos élèves.</h2>
+    <h2 class="h2 plain">Des élèves comme toi.</h2>
+    <div class="prof" id="prof"><button type="button" data-p="lyc">🎒 Lycéen</button><button type="button" data-p="etu">🎓 Étudiant</button><button type="button" data-p="sal">💼 Salarié ou parent</button><button type="button" data-p="aut">🚀 Autre</button></div>
     <div class="tr-head" id="trh"><span id="pg">1 / 6</span><button class="arr" id="prev" aria-label="Précédent">‹</button><button class="arr" id="next" aria-label="Suivant">›</button></div>
     <div class="grid" id="cards"></div>
     <div class="pdots" id="pdots"></div>
@@ -275,6 +281,12 @@ MO.onclick=function(){all=!all;render();if(!all){var s=C.getBoundingClientRect()
 var sx=0;C.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
 C.addEventListener('touchend',function(e){if(all)return;var d=e.changedTouches[0].clientX-sx;if(d<-50&&p<pages-1){p++;render()}else if(d>50&&p>0){p--;render()}},{passive:true});
 render();
+var PR={lyc:['Husler','Jules','Julien','Adrien','Luca'],etu:['Mayline','Paul et Math'],sal:['Bobby','Fan']};
+document.querySelectorAll('#prof button').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.p,on=!b.classList.contains('sel');
+  document.querySelectorAll('#prof button').forEach(function(x){x.classList.toggle('sel',on&&x===b)});
+  var known=[].concat(PR.lyc,PR.etu,PR.sal);
+  VID=!on?E.slice(0,12):E.filter(function(e){return k==='aut'?known.indexOf(e.n)<0:PR[k].indexOf(e.n)>-1});
+  pages=Math.ceil(VID.length/2);p=0;all=false;render()})});
 var M=document.getElementById('modal'),MV=document.getElementById('mv'),mainV=document.getElementById('v');
 C.addEventListener('click',function(ev){var b=ev.target.closest('.md');if(!b)return;var e=E[+b.dataset.i];
   document.getElementById('mwho').textContent=e.n+' · '+e.h;MV.poster=e.img;MV.src=e.v;M.classList.add('on');document.body.style.overflow='hidden';
