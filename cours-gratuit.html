@@ -53,7 +53,6 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .lock span{display:block;margin-top:6px;color:var(--mut);font-size:15px;font-variant-numeric:tabular-nums}
 .player #ytp,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 .player video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}
-.player #vv{position:absolute;inset:0;object-fit:contain;pointer-events:auto}
 .big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s;z-index:1}
 .big svg{width:30px;height:30px;margin-left:5px}
 .player.playing .big{opacity:0;pointer-events:none}
@@ -155,8 +154,12 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
   </div>
 
   <div class="wrap"><div class="player" id="pl">
-    <div id="ytp"></div>
+    <video id="v" playsinline webkit-playsinline preload="metadata" poster="media/vsl-a-poster.jpg" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate" src="media/vsl-a.mp4"></video>
     <div class="son" id="son" hidden><button class="pill" type="button"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Activez le son</button><small>La vidéo a démarré — clique pour l’entendre</small></div>
+    <button class="big" id="big" aria-label="Lancer la vidéo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></button>
+    <button class="snd" id="snd" aria-label="Couper le son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path id="wave" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
+    <div class="ctl" id="ctl"><div class="mid"><button class="sk" data-a="back" aria-label="Reculer de 15 secondes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><b>15</b></button><button class="pp" data-a="play" aria-label="Lecture ou pause"><svg id="ppi" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button><button class="sk" data-a="fwd" aria-label="Avancer de 15 secondes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg><b>15</b></button></div><div class="bot"><div class="tl"><i id="tlf"></i></div><button class="fs" data-a="fs" aria-label="Plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div></div>
+    <div class="bar"><i id="vpg"></i></div>
   </div></div>
 
 
@@ -217,18 +220,32 @@ var sp=document.createElement('span');sp.className='on';sp.textContent=L[n++%L.l
 /* un seul texte à la fois : il s'efface, change, puis réapparaît (pas de superposition, même si l'onglet était en arrière-plan) */
 setInterval(function(){if(document.hidden)return;sp.className='out';setTimeout(function(){sp.textContent=L[n++%L.length];sp.className='';void sp.offsetWidth;sp.className='on'},320)},4300)})();
 
-// lecteur : la VSL (hébergée sur le site) démarre sans le son ; « Activez le son » la relance depuis le début avec le son
+// lecteur : démarre sans le son, « Activez le son », boutons ±15 s et plein écran
 (function(){
-var SO=document.getElementById('son'),yp=null;
-var V=document.createElement('video');V.id='vv';V.src='media/vsl-a.mp4';V.poster='media/vsl-a-poster.jpg';V.muted=true;V.autoplay=true;V.playsInline=true;V.setAttribute('playsinline','');V.controls=true;V.preload='auto';
-document.getElementById('ytp').appendChild(V);
-/* même interface que le lecteur YouTube, pour garder le blocage des 5 minutes tel quel */
-yp={getPlayerState:function(){return V.ended?0:(!V.paused?1:2)},isMuted:function(){return V.muted||V.volume===0},getDuration:function(){return isFinite(V.duration)?V.duration:0},
-  unMute:function(){V.muted=false},setVolume:function(v){V.volume=v/100},seekTo:function(t){V.currentTime=t},playVideo:function(){var q=V.play();if(q)q.catch(function(){})},mute:function(){V.muted=true}};
-V.addEventListener('playing',function(){if(V.muted)SO.hidden=false});
-V.addEventListener('volumechange',function(){if(!V.muted)SO.hidden=true});
-yp.playVideo();
-SO.addEventListener('click',function(){if(!yp)return;SO.hidden=true;yp.unMute();yp.setVolume(100);yp.seekTo(0,true);yp.playVideo()});
+var V=document.getElementById('v'),P=document.getElementById('pl'),SN=document.getElementById('snd'),PG=document.getElementById('vpg'),SO=document.getElementById('son'),waitSound=false,hideT;
+function toggle(){if(V.paused){V.play().catch(function(){})}else{V.pause()}}
+function ui(){P.classList.add('ui');clearTimeout(hideT);hideT=setTimeout(function(){if(!V.paused)P.classList.remove('ui')},2800)}
+function ppIcon(){document.getElementById('ppi').innerHTML=V.paused?'<path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/>':'<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>'}
+V.addEventListener('play',function(){P.classList.add('playing');ppIcon()});
+V.addEventListener('pause',function(){P.classList.remove('playing');ppIcon();if(!waitSound)P.classList.add('ui')});
+V.addEventListener('timeupdate',function(){if(V.duration){var w=(V.currentTime/V.duration*100)+'%';PG.style.width=w;document.getElementById('tlf').style.width=w}});
+V.addEventListener('ratechange',function(){if(V.playbackRate>1)V.playbackRate=1});
+V.addEventListener('contextmenu',function(e){e.preventDefault()});
+V.addEventListener('error',function(){P.parentNode.style.display='none'});
+SN.addEventListener('click',function(){V.muted=!V.muted;document.getElementById('wave').style.display=V.muted?'none':''});
+function fullscreen(){try{if(V.webkitEnterFullscreen&&!document.fullscreenEnabled){V.webkitEnterFullscreen();return}(P.requestFullscreen||P.webkitRequestFullscreen).call(P)}catch(x){try{V.webkitEnterFullscreen()}catch(y){}}}
+P.addEventListener('click',function(e){if(e.target.closest('#snd'))return;
+  if(waitSound){waitSound=false;SO.hidden=true;V.muted=false;document.getElementById('wave').style.display='';V.currentTime=0;V.play().catch(function(){});return}
+  var b=e.target.closest('[data-a]');
+  if(b&&P.classList.contains('ui')){var a=b.dataset.a;
+    if(a==='play')toggle();else if(a==='back')V.currentTime=Math.max(0,V.currentTime-15);else if(a==='fwd')V.currentTime=Math.min(V.duration||0,V.currentTime+15);else if(a==='fs')fullscreen();
+    ui();return}
+  if(V.paused&&!P.classList.contains('ui')){toggle();return}
+  if(P.classList.contains('ui')&&!b){P.classList.remove('ui');return}
+  ui()});
+V.muted=true;V.play().then(function(){waitSound=true;SO.hidden=false;document.getElementById('wave').style.display='none'}).catch(function(){V.muted=false});
+})();
+(function(){var V=document.getElementById('v'),yp={getPlayerState:function(){return V.ended?0:(!V.paused?1:2)},isMuted:function(){return V.muted||V.volume===0},getDuration:function(){return isFinite(V.duration)?V.duration:0}};
 /* la suite de la page (réservation, témoignages…) se débloque après 5 minutes de vidéo regardées avec le son (ou la fin de la vidéo si elle est plus courte). Débloqué une fois = débloqué pour toujours sur ce téléphone. */
 var KEY='aud-vsl-ok',done=false,hid=[],lk=null,watched=0;try{done=localStorage.getItem(KEY)==='1'}catch(e){}
 var W=document.getElementById('pl').closest('.wrap');
