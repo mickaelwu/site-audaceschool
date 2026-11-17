@@ -202,9 +202,9 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 <script>
 // titre : les douleurs qui défilent sous « Tu en as marre : »
 (function(){var L=['du réveil à 6h30','du métro le matin','de finir le mois à 0','de ne pas être libre'],R=document.getElementById('rot'),n=0;
-function show(){var old=R.querySelector('span.on');if(old){old.classList.remove('on');old.classList.add('out');setTimeout(function(){old.remove()},320)}
- var sp=document.createElement('span');sp.textContent=L[n++%L.length];R.appendChild(sp);setTimeout(function(){sp.classList.add('on')},old?450:0)}
-show();setInterval(show,4300)})();
+var sp=document.createElement('span');sp.className='on';sp.textContent=L[n++%L.length];R.appendChild(sp);
+/* un seul texte à la fois : il s'efface, change, puis réapparaît (pas de superposition, même si l'onglet était en arrière-plan) */
+setInterval(function(){if(document.hidden)return;sp.className='out';setTimeout(function(){sp.textContent=L[n++%L.length];sp.className='';void sp.offsetWidth;sp.className='on'},320)},4300)})();
 
 // lecteur : démarre sans le son, « Activez le son », boutons ±15 s et plein écran
 (function(){
