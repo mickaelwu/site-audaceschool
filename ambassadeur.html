@@ -125,8 +125,8 @@ input.i.bad{border-color:#C0392B}
 .chans{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .chans span,.chans a{display:block;background:var(--cream);border-radius:12px;padding:10px 12px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
 .chans b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--b)}
-.lad .f b{flex-direction:column;height:auto;min-width:58px;padding:6px 6px;line-height:1;display:flex;align-items:center;justify-content:center}
-.lad .f b small{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;margin-top:3px;letter-spacing:0}
+.lad .f b,.car .f b{flex-direction:column;height:auto;min-width:58px;padding:6px 6px;line-height:1;display:flex;align-items:center;justify-content:center}
+.lad .f b small,.car .f b small{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;margin-top:3px;letter-spacing:0}
 .copied{background:var(--ok)!important;color:#fff!important}
 
 .bonh{margin-top:30px}.bonh .k{margin-bottom:4px}.bonh .pt{margin-top:8px}
@@ -148,6 +148,15 @@ input.i.bad{border-color:#C0392B}
 .lad .f:nth-child(5) b{background:#C73B60;color:#fff}
 .lad .f:nth-child(6) b{background:#A4173F;color:#fff}
 .lad .f.win b{background:linear-gradient(135deg,#FFE08A,#F5B83D);color:#4A0414}
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.fx div{background:var(--cream);border-radius:14px;padding:14px;text-align:center}
+.fx b{display:block;font-family:'Instrument Sans',sans-serif;font-size:30px;line-height:1;color:var(--b)}
+.fx span{display:block;margin-top:6px;font-size:14px;font-weight:700}
+.car .f b{min-height:46px}.car .f:first-child b{font-size:14px}
+.car .f:nth-child(1) b{background:#F9DCE3;color:#67061B}
+.car .f:nth-child(2) b{background:#EA94A9;color:#4A0414}
+.car .f:nth-child(3) b{background:#C73B60;color:#fff}
+.car .f:nth-child(4) b{background:linear-gradient(135deg,#FFE08A,#F5B83D);color:#4A0414}
 </style>
 </head>
 <body>
@@ -230,6 +239,12 @@ input.i.bad{border-color:#C0392B}
       </div>
       <p style="font-weight:700;margin-top:14px">Toi, tu ouvres la porte. Nos vidéos et notre équipe font le reste.</p>
     </div>
+    <div class="card">
+      <h3 style="font-size:24px;margin-bottom:6px">Payé dès ta première vidéo.</h3>
+      <p style="color:var(--mut)">Avant même ta première vente. Pour chaque vidéo validée par l’équipe :</p>
+      <div class="fx"><div><b>50 €</b><span>par vidéo YouTube</span></div><div><b>10 €</b><span>par vidéo Insta ou TikTok</span></div></div>
+      <p style="color:var(--mut)">Et on te forme : un retour de l’équipe sur chaque vidéo, pour que ton contenu fasse plus de vues et plus de ventes.</p>
+    </div>
     <div class="row">
       <div class="stat"><b>5</b><span>personnes = 2 500 €</span></div>
       <div class="stat"><b>10</b><span>personnes = 5 000 €</span></div>
@@ -256,6 +271,14 @@ input.i.bad{border-color:#C0392B}
       <div class="f win"><b>200<small>ventes</small></b><div><h3>Ta voiture offerte</h3><p>Jusqu’à 30 000 €, ou la somme en cash.</p></div></div>
     </div>
     <p class="note" style="color:var(--mut);font-size:14px">Les paliers bonus comptent les personnes qui ont rejoint l’école et payé.</p>
+    <div class="bonh"><span class="k">🚀 Ta place dans AUDACE</span>
+    <h3 class="pt">Tu commences partenaire. Tu peux aller beaucoup plus loin.</h3></div>
+    <div class="flow car">
+      <div class="f"><b>Départ</b><div><h3>Partenaire stratégique</h3><p>500 € par vente, ton fixe par vidéo, la formation et les retours de l’équipe.</p></div></div>
+      <div class="f"><b>5<small>ventes</small></b><div><h3>Partenaire confirmé</h3><p>Une vidéo en collab avec Mickaël, sur le sujet de ton choix. Et ta place offerte à l’AUDACE Experience.</p></div></div>
+      <div class="f"><b>10<small>ventes</small></b><div><h3>Mentor AUDACE</h3><p>Tu fais entrer d’autres partenaires et tu les formes. Tu touches 50 € sur chaque vente qu’ils font.</p></div></div>
+      <div class="f"><b>★</b><div><h3>Rejoindre l’équipe</h3><p>Coach, Head of Content, responsable événements… Quand tu veux, la porte est ouverte.</p></div></div>
+    </div>
     <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Comment mes ventes sont comptées ? →</button></div>
   </section>
 
@@ -296,6 +319,10 @@ input.i.bad{border-color:#C0392B}
       <ul class="r">
         <li>Tu parles de l’école à ta façon : bio, story, vidéo, ou à tes proches.</li>
         <li>Tu es payé uniquement sur l’argent vraiment encaissé.</li>
+        <li>Pour être payée, une vidéo doit être validée par l’équipe avant d’être postée.</li>
+        <li>Tu indiques « Collaboration commerciale » sur tes vidéos, c’est la loi.</li>
+        <li>Tu ne paies jamais rien pour entrer dans le programme.</li>
+        <li>Mentor : tu touches uniquement sur les vraies ventes de tes partenaires, jamais pour le simple fait de les avoir fait entrer.</li>
       </ul>
       <ul class="r no" style="margin-top:12px">
         <li>Tu ne promets jamais de gains d’argent à quelqu’un.</li>
@@ -353,6 +380,13 @@ input.i.bad{border-color:#C0392B}
       <button class="btn btn-soft" type="button" data-copy="say">Copier la phrase</button>
     </div>
 
+    <div class="kit">
+      <h3>5. Fais entrer d’autres partenaires</h3>
+      <p class="h">Un pote créateur ? Envoie-lui ce lien. Dès que tu es Mentor (10 ventes), tu touches 50 € sur chaque vente qu’il fait.</p>
+      <div class="lk" id="lkm" style="font-size:15px"></div>
+      <button class="btn btn-soft" type="button" data-copy="mentor">Copier le lien partenaire</button>
+    </div>
+
     <div class="gold"><h3>Rappel</h3><p>La personne doit réserver avec ton lien pour que ça compte. 500 € par personne qui rejoint, au rythme où elle paie, sur facture.</p></div>
   </section>
 </div>
@@ -363,7 +397,8 @@ input.i.bad{border-color:#C0392B}
 (function(){
 var FORM='https://docs.google.com/forms/d/e/1FAIpQLScJGKOEpti00sG3MRyJMunAgKA7s5gBW2WykMdaqStR12M1kA/formResponse';
 var KEY='aud-ambassadeur';
-var S={nm:'',e:'',w:'',code:'',link:'',statut:'',siret:''};
+var S={nm:'',e:'',w:'',code:'',link:'',statut:'',siret:'',m:''};
+try{var mq=(new URLSearchParams(location.search).get('m')||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(mq)localStorage.setItem('aud-mentor',mq);S.m=mq||localStorage.getItem('aud-mentor')||''}catch(x){}
 var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
 var scr=$$('.scr'),cur=0,LBL=['','Le pourquoi','Le deal','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
 
@@ -408,7 +443,7 @@ $('#fin').addEventListener('click',function(){
   if(!$('#ok').checked){e5.textContent='Coche la case pour accepter les règles.';return}
   e5.textContent='';var b=this;b.disabled=true;
   var d=new URLSearchParams();
-  d.append('entry.1608116188','AMBASSADEUR — '+S.nm+' — code '+S.code+' — statut : '+(S.statut==='oui'?'SIRET '+S.siret:'pas encore')+' — élève : '+S.eleve+' — règles acceptées');
+  d.append('entry.1608116188','AMBASSADEUR — '+S.nm+' — code '+S.code+' — statut : '+(S.statut==='oui'?'SIRET '+S.siret:'pas encore')+' — élève : '+S.eleve+(S.m?' — mentor : '+S.m:'')+' — règles acceptées');
   d.append('entry.1696167199',S.e);d.append('entry.128016296',S.w);
   var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link}))}catch(x){}kit()};
   fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(done).catch(done);
@@ -423,6 +458,7 @@ function kit(){
   T.bio='📲 Appel offert de découverte avec l’École AUDACE 👇';
   T.stories='1. Tu veux vivre d’internet mais tu sais pas par où commencer ?\n2. L’École AUDACE a déjà accompagné plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+S.link;
   T.say=$('#say').textContent;
+  T.mentor='https://audaceschool.com/ambassadeur.html?m='+S.code;$('#lkm').textContent=T.mentor;
   $('#msgPote').textContent=T.pote;$('#waPote').href='https://wa.me/?text='+encodeURIComponent(T.pote);
   show(6);
 }
