@@ -23,7 +23,7 @@ p{margin:0}
 .logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;color:var(--b)}
 .logo b{font-family:'Instrument Sans',sans-serif;font-size:26px;letter-spacing:.03em}
 .logo small{font-size:8px;font-weight:800;letter-spacing:.36em;margin-top:3px}
-.k{display:inline-block;margin:0 0 12px;padding:7px 13px;border-radius:999px;background:var(--b);color:var(--cream);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.k{display:inline-block;margin:0 0 12px;padding:7px 13px;border-radius:999px;background:var(--rose);color:var(--b);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 
 .scr{display:none;animation:in .35s ease}
 .scr.on{display:block}
@@ -89,7 +89,20 @@ ul.r.no li:before{background:#C0392B url("data:image/svg+xml,%3Csvg xmlns='http:
 .btn-wa{background:#1FAF55;color:#fff}
 .nav{display:grid;grid-template-columns:58px 1fr;gap:10px;margin-top:20px}
 .nav .back{padding:0;background:var(--sand);color:var(--ink);font-size:20px}
-.formcard{background:#fff;border-radius:20px;box-shadow:0 12px 34px rgba(30,16,18,.08);padding:30px 20px;text-align:center;margin-top:26px}
+.formcard{background:#fff;border-radius:24px;box-shadow:0 18px 50px rgba(103,6,27,.12);padding:22px 20px 24px;text-align:center;margin-top:18px}
+.dots{display:flex;gap:6px;justify-content:center;margin:0 0 18px}
+.dots i{width:28px;height:6px;border-radius:99px;background:var(--sand);transition:background .3s ease,width .3s ease}
+.dots i.on{background:var(--b);width:40px}
+.hero2{position:relative;margin:10px -20px 0;overflow:hidden}
+.hero2 img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%;animation:zin 1.4s ease-out both}
+.hero2:after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,var(--cream))}
+.hero2 .tag{position:absolute;left:50%;top:16px;transform:translateX(-50%);white-space:nowrap;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--b);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 6px 20px rgba(0,0,0,.18);z-index:1}
+#s0 .head{padding:0;margin-top:-34px;position:relative;z-index:1}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.perks div{background:#fff;border-radius:16px;padding:14px 8px;text-align:center;box-shadow:0 8px 24px rgba(30,16,18,.06)}
+.perks b{display:block;font-family:'Instrument Sans',sans-serif;font-size:26px;letter-spacing:-.03em;line-height:1;color:var(--b)}
+.perks span{display:block;margin-top:6px;font-size:12.5px;line-height:1.3;font-weight:600;color:var(--mut)}
+@media(min-width:680px){.hero2{margin:10px 0 0;border-radius:24px}.hero2 img{aspect-ratio:16/9}}
 .formcard h2{font-size:26px}
 .formcard .s{color:var(--mut);margin:8px auto 20px;max-width:420px}
 .wf{display:grid;gap:12px;max-width:440px;margin:0 auto}
@@ -166,15 +179,16 @@ input.i.bad{border-color:#C0392B}
   <div class="prog" id="prog"><div class="bar"><i id="pbar"></i></div><span id="plabel"></span></div>
 
   <!-- 0. Inscription -->
-  <section class="scr on">
-    <div class="head">
-      <span class="k">Partenaire stratégique AUDACE</span>
-      <h1>Recommande l’école. Gagne 500 € par personne qui rejoint.</h1>
+  <section class="scr on" id="s0">
+    <figure class="hero2"><img src="img/amb-hero.jpg" alt="Mickaël Wu sur scène à l’AUDACE Experience"><span class="tag">Partenaire stratégique AUDACE</span></figure>
+    <div class="head"><h1>Recommande l’école. Gagne 500 € par personne qui rejoint.</h1></div>
+    <div class="perks">
+      <div><b>500 €</b><span>par personne qui rejoint</span></div>
+      <div><b>50 €</b><span>par vidéo YouTube</span></div>
+      <div><b>0 €</b><span>pour entrer</span></div>
     </div>
-    <figure class="ph hero"><img src="img/amb-hero.jpg" alt="Mickaël Wu sur scène à l’AUDACE Experience" style="object-position:50% 50%"></figure>
     <div class="formcard">
-      <h2>Deviens partenaire stratégique.</h2>
-      <p class="s">4 questions, puis 2 minutes pour tout comprendre. Ton lien perso arrive à la fin.</p>
+      <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
       <form id="wf" class="wf" novalidate>
         <div class="st on"><label class="q" for="f1">Ton prénom ?</label><input class="i" id="f1" name="p" type="text" placeholder="Ton prénom" autocomplete="given-name" enterkeyhint="next"></div>
         <div class="st"><label class="q" for="f2">Ton e-mail ?</label><input class="i" id="f2" name="e" type="email" placeholder="ton@email.com" autocomplete="email" inputmode="email" enterkeyhint="next"></div>
@@ -420,7 +434,7 @@ f.addEventListener('submit',function(ev){ev.preventDefault();var inp=st[k].query
   if(inp){var v=inp.value.trim();if(!ok[k](v)){inp.classList.add('bad');er.textContent=msg[k];inp.focus();return}inp.classList.remove('bad')}
   else if(!S.eleve){er.textContent='Choisis une réponse.';return}
   er.textContent='';
-  if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');var ni=st[k].querySelector('input');if(ni)ni.focus();if(k===st.length-1)lb.textContent='Je commence';return}
+  if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');$$('#dots i').forEach(function(d,j){d.classList.toggle('on',j<=k)});var ni=st[k].querySelector('input');if(ni)ni.focus();if(k===st.length-1)lb.textContent='Je commence';return}
   S.nm=f.p.value.trim();S.e=f.e.value.trim();S.w=f.w.value.trim();
   var slug=S.nm.normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'').slice(0,10)||'AUDACE';
   S.code=slug+(10+Math.floor(Math.random()*90));S.link='https://audaceschool.com/cours-gratuit.html?a='+S.code;
