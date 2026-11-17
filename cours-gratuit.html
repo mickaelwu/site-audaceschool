@@ -48,6 +48,9 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 @keyframes spin{to{--a:360deg}}
 .player{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer;-webkit-user-select:none;user-select:none}
 .player:fullscreen{border-radius:0;aspect-ratio:auto}.player:fullscreen video{object-fit:contain}
+.lock{margin:22px auto 0;max-width:560px;text-align:center;background:#1b1b1d;border-radius:14px;padding:18px 20px}
+.lock b{display:block;color:#fff;font-size:17px}
+.lock span{display:block;margin-top:6px;color:var(--mut);font-size:15px;font-variant-numeric:tabular-nums}
 .player #ytp,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 .player video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}
 .big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s;z-index:1}
@@ -221,6 +224,17 @@ window.onYouTubeIframeAPIReady=function(){
     events:{onReady:function(ev){ev.target.mute();ev.target.playVideo();SO.hidden=false}}});
 };
 SO.addEventListener('click',function(){if(!yp)return;SO.hidden=true;yp.unMute();yp.setVolume(100);yp.seekTo(0,true);yp.playVideo()});
+/* la suite de la page (réservation, témoignages…) se débloque après 5 minutes de vidéo regardées avec le son (ou la fin de la vidéo si elle est plus courte). Débloqué une fois = débloqué pour toujours sur ce téléphone. */
+var KEY='aud-vsl-ok',done=false,hid=[],lk=null,watched=0;try{done=localStorage.getItem(KEY)==='1'}catch(e){}
+var W=document.getElementById('pl').closest('.wrap');
+if(!done){var n=W.nextElementSibling;while(n){if(!n.classList.contains('foot')){hid.push([n,n.style.display]);n.style.display='none'}n=n.nextElementSibling}
+  lk=document.createElement('div');lk.className='lock';lk.innerHTML='<b>🔒 Regarde la vidéo avec le son</b><span id="lkt">La réservation de ton appel se débloque après 5 minutes de vidéo.</span>';W.parentNode.insertBefore(lk,W.nextSibling)}
+function unlock(){if(done)return;done=true;try{localStorage.setItem(KEY,'1')}catch(e){}hid.forEach(function(h){h[0].style.display=h[1]});if(lk)lk.remove()}
+setInterval(function(){if(done||!yp||!yp.getPlayerState)return;
+  if(yp.getPlayerState()===0){unlock();return}
+  if(yp.getPlayerState()===1&&!yp.isMuted()){watched++;var d=yp.getDuration()||0,goal=d?Math.min(300,Math.max(d-3,1)):300,r=Math.max(0,Math.ceil(goal-watched));
+    var t=document.getElementById('lkt');if(t)t.textContent='La réservation de ton appel se débloque dans '+Math.floor(r/60)+':'+String(r%60).padStart(2,'0')+'.';
+    if(watched>=goal)unlock()}},1000);
 var t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';document.head.appendChild(t);
 })();
 
