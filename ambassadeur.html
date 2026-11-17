@@ -201,6 +201,19 @@ input.i.bad{border-color:#C0392B}
 .vs .me ul{font-size:18px;font-weight:800}
 .vs .me p{margin-top:12px;color:var(--rose);font-weight:700;font-size:14px}
 .vs .us li:before{content:"✓ ";color:var(--b);font-weight:800}
+.trust{background:#fff;border-radius:20px;padding:16px 14px;margin-bottom:10px;box-shadow:0 8px 26px rgba(30,16,18,.06)}
+.trust h4{margin:0 0 10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--b)}
+.trust .shot{display:block;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(30,16,18,.12)}
+.trust .shot img{display:block;width:100%;height:auto}
+.trust .cap{font-size:14px;font-weight:600;color:var(--mut);margin:10px 2px 12px}
+.acc{display:grid;gap:8px}
+.acc a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;background:var(--cream);color:var(--ink);text-decoration:none}
+.acc svg{width:26px;height:26px;flex:none}
+.acc span{flex:1;font-size:13px;color:var(--mut);line-height:1.3}
+.acc span b{display:block;font-size:15px;color:var(--ink)}
+.acc i{font-style:normal;font-weight:800;color:var(--b)}
+.demo-l{font-size:14px;font-weight:800;color:var(--b);margin:0 2px 8px}
+.demo-n{font-size:14px;color:var(--mut);margin:8px 2px 16px}
 .zero{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 .zero div{background:#fff;border-radius:16px;padding:12px 6px;text-align:center;box-shadow:0 8px 24px rgba(30,16,18,.06)}
 .zero b{display:block;font-family:'Instrument Sans',sans-serif;font-size:24px;color:var(--b);line-height:1}
@@ -243,7 +256,7 @@ input.i.bad{border-color:#C0392B}
   <!-- 0. Inscription -->
   <section class="scr on" id="s0">
     <figure class="hero2"><img src="img/amb-selfie.jpg" alt="Selfie de Mickaël Wu avec ses élèves en atelier AUDACE"><span class="tag">Partenaire stratégique AUDACE</span></figure>
-    <div class="head"><h1>Recommande l’école. Gagne 500 € par personne qui rejoint.</h1><p class="amb">Notre ambition : que des partenaires stratégiques à plus de <b>10 000 € par mois</b>.</p></div>
+    <div class="head"><h1>Recommande l’école. Gagne 500 € par personne qui rejoint.</h1><p class="amb">Notre ambition : que des partenaires stratégiques à plus de <b>10&nbsp;000&nbsp;€ par mois</b>.</p></div>
     <div class="formcard">
       <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
       <form id="wf" class="wf" novalidate>
@@ -285,6 +298,12 @@ input.i.bad{border-color:#C0392B}
       <div class="me"><h4>Ton travail</h4><ul><li>Tes vidéos</li><li>Ton lien</li></ul><p>C’est tout.</p></div>
       <div class="us"><h4>Notre travail</h4><ul><li>La confiance, avec nos chaînes YouTube et Insta</li><li>Les messages</li><li>Les appels et la vente</li><li>Le site, les paiements, les contrats</li><li>Le coaching de l’élève jusqu’à ses résultats</li></ul></div>
     </div>
+    <div class="trust">
+      <h4>La confiance, c’est nos chaînes</h4>
+      <a class="shot" href="https://www.youtube.com/@mickaelwu" target="_blank" rel="noopener"><img src="img/yt-debutant-5000.jpg" alt="Vidéo YouTube de Mickaël Wu : je fais passer ce débutant de 0 à 5000 € en 7 jours, 26 k vues en 2 jours" loading="lazy"></a>
+      <p class="cap">Notre dernière vidéo : 26&nbsp;k vues en 2 jours. Tes abonnés nous connaissent déjà.</p>
+      <div class="acc"><a href="https://www.youtube.com/@mickaelwu" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF0033" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8z"/><path fill="#fff" d="M9.7 15.3 15.6 12 9.7 8.7z"/></svg><span><b>Mickaël Wu</b>YouTube · 65&nbsp;k abonnés</span><i>→</i></a><a href="https://www.youtube.com/@Micka%C3%ABlWuAccompagnement" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF0033" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8z"/><path fill="#fff" d="M9.7 15.3 15.6 12 9.7 8.7z"/></svg><span><b>École AUDACE</b>YouTube</span><i>→</i></a><a href="https://www.instagram.com/mickawu/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEC564"/><stop offset=".5" stop-color="#E1306C"/><stop offset="1" stop-color="#833AB4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igg)"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="#fff"/></svg><span><b>@mickawu</b>Instagram · 65&nbsp;k abonnés</span><i>→</i></a><a href="https://www.instagram.com/ecoleaudace/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEC564"/><stop offset=".5" stop-color="#E1306C"/><stop offset="1" stop-color="#833AB4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igg)"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="#fff"/></svg><span><b>@ecoleaudace</b>Instagram</span><i>→</i></a><a href="https://www.instagram.com/mickaelwub2b/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEC564"/><stop offset=".5" stop-color="#E1306C"/><stop offset="1" stop-color="#833AB4"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igg)"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="#fff"/></svg><span><b>@mickaelwub2b</b>Instagram</span><i>→</i></a></div>
+    </div>
     <div class="zero"><div><b>0 €</b><span>de coûts</span></div><div><b>0</b><span>appel à faire</span></div><div><b>100 %</b><span>de marge</span></div></div>
     <div class="card sim">
       <p class="q2">Combien de personnes tu fais rejoindre par mois ?</p>
@@ -298,10 +317,9 @@ input.i.bad{border-color:#C0392B}
   <section class="scr">
     <span class="k">La vision</span>
     <h2 class="t">Tu ne rejoins pas un programme. Tu rejoins l’équipe.</h2>
-    <p class="lead">On cherche des partenaires qui montent à 10 000 € par mois et qui évoluent avec nous, vraiment dans la boîte.</p>
+    <p class="lead">On cherche des partenaires qui montent à 10&nbsp;000&nbsp;€ par mois et qui évoluent avec nous, vraiment dans la boîte.</p>
     <div class="crew">
       <h3>On scale ensemble.</h3>
-      <p>Jamais seul avec un lien. On est là pour te coacher.</p>
       <div class="tiles">
         <div><b>1×/mois</b><span>Rendez-vous entre créateurs qui s’entraident</span></div>
         <div><b>En live</b><span>Appels de groupe avec Mickaël Wu et son CEO</span></div>
@@ -344,8 +362,9 @@ input.i.bad{border-color:#C0392B}
     <span class="k">Comment tes ventes sont comptées</span>
     <h2 class="t">Ton lien porte ton code. C’est tout.</h2>
     <p class="lead">Tu n’as rien à déclarer, rien à remplir. Tout se fait tout seul.</p>
+    <p class="demo-l">Exemple de ton lien perso&nbsp;:</p>
     <div class="demo">audaceschool.com/cours-gratuit.html?a=<u class="cd">TONCODE</u></div>
-    <div class="zero"><div><b>Auto</b><span>rien à déclarer</span></div><div><b>2 mois</b><span>la vente reste à toi</span></div><div><b>1×/mois</b><span>on te paie</span></div></div>
+    <p class="demo-n">Le code à la fin, c’est le tien. Tu reçois ton vrai lien à la fin de cette page.</p>
     <div class="flow">
       <div class="f"><b>1</b><div><h3>La personne clique sur ton lien</h3><p>Même si elle réserve jusqu’à 2 mois plus tard sur un lien public de Mickaël Wu ou d’AUDACE, la commission est quand même pour toi.</p></div></div>
       <div class="f"><b>2</b><div><h3>Elle réserve son appel</h3><p>Son rendez-vous est enregistré automatiquement avec ton code.</p></div></div>
@@ -449,7 +468,7 @@ input.i.bad{border-color:#C0392B}
       <button class="btn btn-soft" type="button" data-copy="mentor">Copier le lien partenaire</button>
     </div>
 
-    <div class="gold"><h3>Rappel</h3><p>La personne doit réserver avec ton lien pour que ça compte. 500 € par personne qui rejoint, au rythme où elle paie, sur facture. Ton objectif : 20 personnes par mois, soit 10 000 €.</p></div>
+    <div class="gold"><h3>Rappel</h3><p>La personne doit réserver avec ton lien pour que ça compte. 500 € par personne qui rejoint, au rythme où elle paie, sur facture. Ton objectif : 20 personnes par mois, soit 10&nbsp;000&nbsp;€.</p></div>
   </section>
 </div>
 
@@ -490,11 +509,11 @@ f.addEventListener('submit',function(ev){ev.preventDefault();var inp=st[k].query
 });
 
 /* simulateur */
-(function(){var r=$('#sim');if(!r)return;var f=function(n){return n.toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ')};
+(function(){var r=$('#sim');if(!r)return;var f=function(n){return n.toLocaleString('fr-FR').replace(/\u202f|\u00a0| /g,'\u00a0')};
 function u(){var n=+r.value;$('#simn').textContent=n+(n>1?' personnes':' personne');$('#simm').textContent=f(n*500)+' € / mois';$('#simy').textContent='soit '+f(n*6000)+' € par an'}
 r.addEventListener('input',u);u()})();
 /* simulateur paliers */
-(function(){var r=$('#lv');if(!r)return;var f=function(n){return n.toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ')};
+(function(){var r=$('#lv');if(!r)return;var f=function(n){return n.toLocaleString('fr-FR').replace(/\u202f|\u00a0| /g,'\u00a0')};
 function u(){var n=+r.value,k=0;$$('.lad .f').forEach(function(e){var v=parseInt(e.querySelector('b').textContent,10),ok=n>=v;e.classList.toggle('unl',ok);e.classList.toggle('lock',!ok);if(ok&&!e.parentNode.hidden)k++});
 var st=n>=10?'Mentor AUDACE':n>=5?'Partenaire confirmé':'Partenaire stratégique';
 $('#lvn').textContent=n+(n>1?' personnes':' personne');$('#lvm').textContent=f(n*500)+' €';$('#lvs').textContent='de primes · Statut : '+st+' · '+k+(k>1?' paliers débloqués':' palier débloqué')}
