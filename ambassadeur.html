@@ -248,10 +248,14 @@ input.i.bad{border-color:#C0392B}
 .money b.m2{font-size:44px;line-height:1.05}
 .z2 a{display:block;margin-top:4px;font-size:12.5px;font-weight:800;color:var(--ink)}
 .crew{margin-bottom:14px}
-.t.vis{font-size:clamp(25px,6vw,36px);line-height:1.18;margin-bottom:20px}.t.vis em{font-style:italic}
-.val{padding:20px}.val div{display:flex;gap:16px;align-items:baseline}.val div+div{margin-top:16px}
-.val b{flex:none;width:38px;font-family:'Instrument Sans',sans-serif;font-size:26px;color:#8B0A26;line-height:1}
-.val p{margin:0;color:var(--mut);font-size:16px}.val strong{color:var(--ink)}
+.t.big1{font-size:clamp(28px,7.4vw,40px);line-height:1.08}
+.bad{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 14px}
+.bad>*{display:block;text-decoration:none;border-radius:20px;padding:18px 10px;text-align:center;background:linear-gradient(160deg,#7A0A24,#4A0414);box-shadow:0 14px 34px rgba(103,6,27,.25)}
+.bad b{display:block;font-family:'Instrument Sans',sans-serif;font-size:40px;letter-spacing:-.03em;line-height:1;color:#F5C76A}
+.bad span{display:block;margin-top:6px;font-size:13px;font-weight:700;color:var(--rose)}
+.scr>.k+.card.why,.scr>.k:not(:first-child){margin-top:10px}
+.why{text-align:center}.why b{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--rose);color:var(--b);font:700 16px 'Instrument Sans',sans-serif}
+.why h3{font-size:21px;margin:8px 0 6px}.why p{margin:0;color:var(--mut);font-size:16px}
 .scr>.k{display:table;margin:0 auto 12px;text-align:center}
 .scr>.t,.scr>.lead{text-align:center}
 .crew h3,.crew>p{text-align:center}
@@ -285,18 +289,25 @@ input.i.bad{border-color:#C0392B}
     </div>
   </section>
 
-  <!-- 1. Notre vision -->
+  <!-- 1. Pourquoi toi -->
   <section class="scr">
-    <span class="k">Vision et valeurs</span>
-    <h2 class="t vis">Un monde où le travail redevient une fierté, et où chacun prend son avenir en main <em>en bâtissant son business avec internet et l’IA.</em></h2>
-    <figure class="ph"><img src="media/be6c32d0f331e77997b3245217db7ca1.jpg" alt="Des élèves de l’École AUDACE qui travaillent ensemble"></figure>
-    <div class="card val">
-      <div><b>01</b><p><strong>L’audace.</strong> On passe à l’action avant de se sentir prêt.</p></div>
-      <div><b>02</b><p><strong>Ensemble.</strong> Personne ne réussit seul : on s’entoure des meilleurs.</p></div>
-      <div><b>03</b><p><strong>Le travail acharné.</strong> On n’est pas du genre à s’arrêter à 35&nbsp;h par semaine.</p></div>
+    <span class="k">Pourquoi toi</span>
+    <h2 class="t big1">On a construit la machine.<br>Il nous manque ta voix.</h2>
+    <p class="lead">Il y a 3 ans, AUDACE n’existait pas. Aujourd’hui :</p>
+    <div class="bad">
+      <div><b>1&nbsp;400+</b><span>élèves accompagnés</span></div>
+      <div><b>120</b><span>nouveaux élèves chaque mois</span></div>
+      <a href="https://rapport.trustwho.io/rapport/mickael-wu-business" target="_blank" rel="noopener"><b>N°1</b><span>sur TrustWho, 96/100 · Voir →</span></a>
+      <div><b>300&nbsp;k</b><span>abonnés qui nous suivent</span></div>
     </div>
-    <div class="crew"><h3>Pourquoi on recrute des partenaires stratégiques.</h3><p style="margin-bottom:0">Une grande école ne grandit pas grâce à une seule voix. On veut des centaines de créateurs qui portent cette vision, chacun auprès de son audience. Et qui grandissent avec nous.</p></div>
-    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Nos preuves →</button></div>
+    <figure class="ph"><img src="media/be6c32d0f331e77997b3245217db7ca1.jpg" alt="Des élèves de l’École AUDACE qui travaillent ensemble"></figure>
+    <span class="k">Pourquoi on veut des partenaires</span>
+    <div class="card why"><b>1</b><h3>Une seule porte d’entrée</h3><p>Aujourd’hui, presque tous nos élèves arrivent par les vidéos de Mickaël Wu. Des milliers de jeunes qui ont besoin de l’école ne l’ont jamais vu passer.</p></div>
+    <div class="card why"><b>2</b><h3>Eux, ils te suivent toi</h3><p>Ils te font confiance. Une recommandation de ta part vaut plus que n’importe quelle pub.</p></div>
+    <div class="card why"><b>3</b><h3>Tu ouvres la porte, on fait le reste</h3><p>L’appel, la vente, le coaching jusqu’aux résultats. Et on partage avec toi.</p></div>
+    <div class="crew"><h3>Ce qu’on défend.</h3><p>Un monde où le travail redevient une fierté, et où chacun bâtit son business avec internet et l’IA.</p>
+      <div class="tiles"><div><b>L’audace</b><span>On agit avant de se sentir prêt</span></div><div><b>Ensemble</b><span>Personne ne réussit seul</span></div><div><b>Travail</b><span>Pas de 35&nbsp;h chez nous</span></div></div></div>
+    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Voir nos preuves →</button></div>
   </section>
 
   <!-- 2. Nos preuves -->
@@ -305,7 +316,6 @@ input.i.bad{border-color:#C0392B}
     <h2 class="t"><span class="nm"></span>, tu ne vends pas du vent.</h2>
     <p class="lead">Tu recommandes une école qui a déjà ses preuves. Regarde par toi-même.</p>
     <div class="money"><span>La garantie de l’école</span><b class="m2">5 000 €<br>en 3 mois</b><em>ou remboursé. Ceux que tu recommandes ne prennent aucun risque.</em></div>
-    <div class="zero z2"><div><b>1 400+</b><span>élèves accompagnés</span></div><div><b>96/100</b><span>audit TrustWho</span><a href="https://rapport.trustwho.io/rapport/mickael-wu-business" target="_blank" rel="noopener">Voir →</a></div><div><b>300 k</b><span>abonnés qui nous suivent</span></div></div>
     <div class="strip" aria-label="Photos de l’École AUDACE"><div class="tr"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE"><img src="img/q-n05.jpg" alt="La communauté AUDACE"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves"><img src="img/e-e-stalingrad.jpg" alt="Après un événement"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" aria-hidden="true"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" aria-hidden="true"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" aria-hidden="true"><img src="img/q-n05.jpg" alt="La communauté AUDACE" aria-hidden="true"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" aria-hidden="true"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" aria-hidden="true"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" aria-hidden="true"></div></div>
     <div class="vids">
       <button class="vid" type="button" data-v="media/t-husler.mp4"><img src="img/tv-husler.jpg" alt="Husler, revente Vinted" loading="lazy"><span class="tri"></span><span class="pl"><b>14 200 €</b>en 2 mois, à 17 ans</span></button>
@@ -510,7 +520,7 @@ var KEY='aud-ambassadeur';
 var S={nm:'',e:'',w:'',code:'',link:'',statut:'',siret:'',m:''};
 try{var mq=(new URLSearchParams(location.search).get('m')||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(mq)localStorage.setItem('aud-mentor',mq);S.m=mq||localStorage.getItem('aud-mentor')||''}catch(x){}
 var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
-var scr=$$('.scr'),cur=0,LBL=['','Vision et valeurs','Nos preuves','Le deal','La vision','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
+var scr=$$('.scr'),cur=0,LBL=['','Pourquoi toi','Nos preuves','Le deal','La vision','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
 
 function show(i){
   scr[cur].classList.remove('on');cur=i;scr[cur].classList.add('on');
