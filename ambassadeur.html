@@ -417,7 +417,7 @@ input.i.bad{border-color:#C0392B}
       <h3>1. Envoie-le à un pote</h3>
       <p class="h">Le plus rapide. Un message, et c’est envoyé.</p>
       <div class="txt" id="msgPote"></div>
-      <a class="btn btn-wa" id="waPote" href="#" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>
+      <button class="btn btn-soft" type="button" data-copy="pote">Copier le message</button>
     </div>
 
     <div class="kit">
@@ -536,7 +536,7 @@ function kit(){
   T.stories='1. Tu veux vivre d’internet mais tu sais pas par où commencer ?\n2. L’École AUDACE a déjà accompagné plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+S.link;
   T.say=$('#say').textContent;
   T.mentor='https://audaceschool.com/ambassadeur.html?m='+S.code;$('#lkm').textContent=T.mentor;
-  $('#msgPote').textContent=T.pote;$('#waPote').href='https://wa.me/?text='+encodeURIComponent(T.pote);
+  $('#msgPote').textContent=T.pote;
   show(7);
 }
 $$('[data-copy]').forEach(function(b){var o=b.textContent;b.addEventListener('click',function(){var t=T[b.dataset.copy];
