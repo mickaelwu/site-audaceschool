@@ -164,10 +164,13 @@ input.i.bad{border-color:#C0392B}
 .ph2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}.ph2 .ph{margin:0}.ph2 .ph img{aspect-ratio:1/1}
 .card .ph{margin:-24px -20px 18px;border-radius:20px 20px 0 0;box-shadow:none}
 .scr.on .ph img{animation:zin 1.2s ease-out both}@keyframes zin{from{transform:scale(1.08)}to{transform:none}}
-.strip{position:relative;margin:4px -20px 16px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.strip .tr{display:flex;gap:10px;width:max-content;animation:mq 38s linear infinite}
+.strip{position:relative;margin:4px -20px 16px;overflow:hidden}
+.strip::before,.strip::after{content:"";position:absolute;top:0;bottom:0;width:8%;z-index:2;pointer-events:none}
+.strip::before{left:0;background:linear-gradient(90deg,var(--cream),transparent)}
+.strip::after{right:0;background:linear-gradient(-90deg,var(--cream),transparent)}
+.strip .tr{display:flex;gap:10px;width:max-content;will-change:transform;-webkit-animation:mq 30s linear infinite;animation:mq 30s linear infinite}
 .strip img{height:150px;width:auto;border-radius:14px;object-fit:cover;box-shadow:0 8px 22px rgba(30,16,18,.14)}
-@keyframes mq{to{transform:translateX(-50%)}}
+@-webkit-keyframes mq{from{-webkit-transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(-50%,0,0)}}@keyframes mq{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 .lad .f:nth-child(1) b{background:#F9DCE3;color:#67061B}
 .lad .f:nth-child(2) b{background:#F3BCC9;color:#67061B}
 .lad .f:nth-child(3) b{background:#EA94A9;color:#4A0414}
@@ -279,7 +282,7 @@ input.i.bad{border-color:#C0392B}
     <p class="lead">Tu recommandes une école qui a déjà ses preuves. Regarde par toi-même.</p>
     <div class="money"><span>La garantie de l’école</span><b class="m2">5 000 €<br>en 3 mois</b><em>ou remboursé. Ceux que tu recommandes ne prennent aucun risque.</em></div>
     <div class="zero z2"><div><b>1 400+</b><span>élèves accompagnés</span></div><div><b>96/100</b><span>audit TrustWho</span><a href="https://rapport.trustwho.io/rapport/mickael-wu-business" target="_blank" rel="noopener">Voir →</a></div><div><b>300 k</b><span>abonnés qui nous suivent</span></div></div>
-    <div class="strip" aria-label="Photos de l’École AUDACE"><div class="tr"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" loading="lazy"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" loading="lazy"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" loading="lazy"><img src="img/q-n05.jpg" alt="La communauté AUDACE" loading="lazy"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" loading="lazy"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" loading="lazy"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" loading="lazy"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" loading="lazy" aria-hidden="true"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-n05.jpg" alt="La communauté AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" loading="lazy" aria-hidden="true"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" loading="lazy" aria-hidden="true"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" loading="lazy" aria-hidden="true"></div></div>
+    <div class="strip" aria-label="Photos de l’École AUDACE"><div class="tr"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE"><img src="img/q-n05.jpg" alt="La communauté AUDACE"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves"><img src="img/e-e-stalingrad.jpg" alt="Après un événement"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" aria-hidden="true"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" aria-hidden="true"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" aria-hidden="true"><img src="img/q-n05.jpg" alt="La communauté AUDACE" aria-hidden="true"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" aria-hidden="true"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" aria-hidden="true"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" aria-hidden="true"></div></div>
     <div class="vids">
       <button class="vid" type="button" data-v="media/t-husler.mp4"><img src="img/tv-husler.jpg" alt="Husler, revente Vinted" loading="lazy"><span class="tri"></span><span class="pl"><b>14 200 €</b>en 2 mois, à 17 ans</span></button>
       <button class="vid" type="button" data-v="media/t-jayden.mp4"><img src="img/tv-jayden.jpg" alt="Jayden, coach de vie" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois</span></button>
