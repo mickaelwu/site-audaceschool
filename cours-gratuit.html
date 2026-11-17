@@ -53,6 +53,7 @@ h1 .rot span.out{animation:fout .3s ease-in forwards}
 .lock span{display:block;margin-top:6px;color:var(--mut);font-size:15px;font-variant-numeric:tabular-nums}
 .player #ytp,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
 .player video{display:block;width:100%;height:100%;object-fit:cover;background:#000;pointer-events:none}
+.player #vv{position:absolute;inset:0;object-fit:contain;pointer-events:auto}
 .big{position:absolute;inset:0;margin:auto;width:88px;height:88px;border-radius:50%;border:0;background:linear-gradient(145deg,#B3163F,#67061B);color:#fff;display:flex;align-items:center;justify-content:center;animation:pl 2.2s ease-in-out infinite;cursor:pointer;transition:opacity .25s;z-index:1}
 .big svg{width:30px;height:30px;margin-left:5px}
 .player.playing .big{opacity:0;pointer-events:none}
@@ -216,13 +217,17 @@ var sp=document.createElement('span');sp.className='on';sp.textContent=L[n++%L.l
 /* un seul texte à la fois : il s'efface, change, puis réapparaît (pas de superposition, même si l'onglet était en arrière-plan) */
 setInterval(function(){if(document.hidden)return;sp.className='out';setTimeout(function(){sp.textContent=L[n++%L.length];sp.className='';void sp.offsetWidth;sp.className='on'},320)},4300)})();
 
-// lecteur : la VSL YouTube démarre sans le son ; « Activez le son » la relance depuis le début avec le son
+// lecteur : la VSL (hébergée sur le site) démarre sans le son ; « Activez le son » la relance depuis le début avec le son
 (function(){
 var SO=document.getElementById('son'),yp=null;
-window.onYouTubeIframeAPIReady=function(){
-  yp=new YT.Player('ytp',{videoId:'BehV36drUq8',playerVars:{autoplay:1,mute:1,playsinline:1,rel:0,modestbranding:1,controls:1},
-    events:{onReady:function(ev){ev.target.mute();ev.target.playVideo();SO.hidden=false}}});
-};
+var V=document.createElement('video');V.id='vv';V.src='media/vsl-a.mp4';V.poster='media/vsl-a-poster.jpg';V.muted=true;V.autoplay=true;V.playsInline=true;V.setAttribute('playsinline','');V.controls=true;V.preload='auto';
+document.getElementById('ytp').appendChild(V);
+/* même interface que le lecteur YouTube, pour garder le blocage des 5 minutes tel quel */
+yp={getPlayerState:function(){return V.ended?0:(!V.paused?1:2)},isMuted:function(){return V.muted||V.volume===0},getDuration:function(){return isFinite(V.duration)?V.duration:0},
+  unMute:function(){V.muted=false},setVolume:function(v){V.volume=v/100},seekTo:function(t){V.currentTime=t},playVideo:function(){var q=V.play();if(q)q.catch(function(){})},mute:function(){V.muted=true}};
+V.addEventListener('playing',function(){if(V.muted)SO.hidden=false});
+V.addEventListener('volumechange',function(){if(!V.muted)SO.hidden=true});
+yp.playVideo();
 SO.addEventListener('click',function(){if(!yp)return;SO.hidden=true;yp.unMute();yp.setVolume(100);yp.seekTo(0,true);yp.playVideo()});
 /* la suite de la page (réservation, témoignages…) se débloque après 5 minutes de vidéo regardées avec le son (ou la fin de la vidéo si elle est plus courte). Débloqué une fois = débloqué pour toujours sur ce téléphone. */
 var KEY='aud-vsl-ok',done=false,hid=[],lk=null,watched=0;try{done=localStorage.getItem(KEY)==='1'}catch(e){}
@@ -235,7 +240,6 @@ setInterval(function(){if(done||!yp||!yp.getPlayerState)return;
   if(yp.getPlayerState()===1&&!yp.isMuted()){watched++;var d=yp.getDuration()||0,goal=d?Math.min(300,Math.max(d-3,1)):300,r=Math.max(0,Math.ceil(goal-watched));
     var t=document.getElementById('lkt');if(t)t.textContent='La réservation de ton appel se débloque dans '+Math.floor(r/60)+':'+String(r%60).padStart(2,'0')+'.';
     if(watched>=goal)unlock()}},1000);
-var t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';document.head.appendChild(t);
 })();
 
 // agenda iClosed : celui de l'ambassadeur s'il en a un, sinon l'agenda commun ambassadeurs (code dans l'UTM), sinon l'agenda normal
