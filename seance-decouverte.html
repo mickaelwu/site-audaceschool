@@ -212,19 +212,18 @@ setTimeout(function(){if(!w.querySelector('iframe')){w.style.display='none';docu
 // transformations : 2 par 2, puis « voir plus » pour tout afficher
 (function(){
 var E=[
- {n:'Antonin',t:'Trading · 18 ans',h:'8 000 € par mois à 18 ans',q:'Je gagne plus de 8 000 euros par mois en création de contenu, à l’âge de 18 ans.',r:'Jamais plus de 2 000 €/mois avant',b:'8K€/MOIS',img:'img/tv-antonin.jpg',v:'media/74963c4ee4e6f24219fb2e65a4c892e0.mp4'},
+ {n:'Lucas',t:'Coaching sportif',h:'Plus de 5 000 € par mois',q:'',r:'Des ventes de 900 € à 1 200 €',b:'5K€/MOIS',img:'img/tv-lucas.jpg',v:'media/t-lucas.mp4'},
+ {n:'Lucas Arniac',t:'Cours de DJ',h:'5 000 € par mois',q:'J’ai réalisé plus de 5 000 euros ce mois-ci dans la niche du DJ.',r:'De 0 à 10K abonnés TikTok',b:'5K€/MOIS',img:'img/tv-lucasarniac.jpg',v:'media/t-lucasarniac.mp4'},
+ {n:'Mayline',t:'Coach TCA',h:'2 500 € en 1 semaine',q:'',r:'Lancée à côté de ses études de médecine',b:'2,5K€',img:'img/tv-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'},
  {n:'Husler',t:'Revente Vinted · 17 ans',h:'14 200 € en 2 mois à 17 ans',q:'7 000 € reçus sur janvier, 8 000 sur février.',r:'De quoi quitter les études',b:'14K€',img:'img/tv-husler.jpg',v:'media/t-husler.mp4'},
  {n:'Kayss',t:'Achat-revente',h:'20 000 € en 5 mois',q:'6 000 € depuis que j’ai lancé mon programme d’accompagnement.',r:'4 à 5 000 € par mois',b:'20K€',img:'img/tv-kayss.jpg',v:'media/t-kayss.mp4'},
  {n:'Dezuur',t:'Vente de formations',h:'Plus de 8 000 € par mois',q:'Le premier mois, j’ai remboursé l’accompagnement.',r:'De 0 € à 7 000 € en 2 mois',b:'8K€/MOIS',img:'img/tv-dezuur.jpg',v:'media/t-dezuur.mp4'},
  {n:'Bobby',t:'Créateur TikTok',h:'100 000 abonnés en 28 jours',q:'T’as changé ma vie.',r:'Aujourd’hui 525K abonnés',b:'525K',img:'img/tv-bobby.jpg',v:'media/t-bobby.mp4'},
  {n:'Jayden',t:'Coach de vie',h:'Plus de 5 000 € par mois',q:'Je gagne plus de 5 000 euros par mois grâce à l’accompagnement.',r:'De 0 à 100K abonnés en 2 mois',b:'5K€/MOIS',img:'img/tv-jayden.jpg',v:'media/t-jayden.mp4'},
  {n:'Anès',t:'Business en ligne',h:'Plus de 5 000 € par mois',q:'J’ai fait bien plus que 5 000 euros par mois grâce à Mika.',r:'1 000 € en 24 h',b:'9,5K€',img:'img/tv-anes.jpg',v:'media/t-anes.mp4'},
- {n:'Lucas Arniac',t:'Cours de DJ',h:'5 000 € par mois',q:'J’ai réalisé plus de 5 000 euros ce mois-ci dans la niche du DJ.',r:'De 0 à 10K abonnés TikTok',b:'5K€/MOIS',img:'img/tv-lucasarniac.jpg',v:'media/t-lucasarniac.mp4'},
- {n:'Lucas',t:'Coaching sportif',h:'Plus de 5 000 € par mois',q:'',r:'Des ventes de 900 € à 1 200 €',b:'5K€/MOIS',img:'img/tv-lucas.jpg',v:'media/t-lucas.mp4'},
  {n:'Iliès',t:'TikTok faceless',h:'6 000 € en 3 mois',q:'',r:'Sans jamais montrer son visage',b:'6K€',img:'img/tv-noface.jpg',v:'media/t-noface.mp4'},
  {n:'Fan',t:'Cours de chinois',h:'4 000 € par mois',q:'Si on pratique les conseils, il y a le résultat !',r:'3 420 € reçus en octobre',b:'4K€/MOIS',img:'img/tv-fan.jpg',v:'media/7814e5b2c5f88d7403104668fb856c18.mp4'},
  {n:'Wail',t:'Etsy',h:'3 000 € par mois',q:'La formation est vraiment incroyable.',r:'Revenus presque doublés',b:'3K€/MOIS',img:'img/tv-wail.jpg',v:'media/t-wail.mp4'},
- {n:'Mayline',t:'Coach TCA',h:'2 500 € en 1 semaine',q:'',r:'Lancée à côté de ses études de médecine',b:'2,5K€',img:'img/tv-mayline.jpg',v:'media/52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'},
  {n:'Jules',t:'Business en ligne · 16 ans',h:'2 000 € par mois à 16 ans',q:'Le meilleur accompagnement de France.',r:'Des feedbacks sur chaque vidéo',b:'2K€/MOIS',img:'img/tv-jules.jpg',v:'media/t-jules.mp4'},
  {n:'Alban',t:'Micro-trottoirs',h:'2 000 € par mois',q:'Avant, je faisais en moyenne 500 euros par mois.',r:'Revenus multipliés par 4',b:'2K€/MOIS',img:'img/tv-alban.jpg',v:'media/t-alban.mp4'},
  {n:'Paul et Math',t:'Coachs street workout',h:'De 171 à 5 000 abonnés',q:'On était bloqués à 171 abonnés. On a réussi à atteindre les 5 000 abonnés.',r:'D’étudiants à coachs',b:'5K',img:'img/tv-paulmath.jpg',v:'media/4d82ff03ed77c7b7b257784e893103ae.mp4'},
@@ -241,7 +240,8 @@ var E=[
  {n:'Tatan',t:'TikTok depuis Haïti',h:'300 € de TikTok money',q:'Je suis trop heureux de faire de l’argent sur TikTok.',r:'Alors que TikTok n’est pas monétisé chez lui',b:'300€',img:'img/tv-tatan.jpg',v:'media/t-tatan.mp4'},
  {n:'Matéo',t:'IA et automatisation · 19 ans',h:'Première vente',q:'J’ai fait ma première vente aujourd’hui.',r:'Après avoir changé de niche',b:'1RE VENTE',img:'img/tv-mateo.jpg',v:'media/t-mateo.mp4'},
  {n:'Maks',t:'Création de contenu',h:'1er client en 10 jours',q:'Premier client en dix jours d’accompagnement, c’est dingue.',r:'Client signé à 200 €',b:'200€',img:'img/tv-ikigai.jpg',v:'media/t-ikigai.mp4'},
- {n:'Adrien',t:'Photographie',h:'De lycéen à vidéaste',q:'',r:'Premières ventes à 400 €',b:'LYCÉEN',img:'img/tv-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4'}];
+ {n:'Adrien',t:'Photographie',h:'De lycéen à vidéaste',q:'',r:'Premières ventes à 400 €',b:'LYCÉEN',img:'img/tv-adrien.jpg',v:'media/348eed8c10aae3b9a0050bedbe2b3487.mp4'}
+];
 var C=document.getElementById('cards'),PD=document.getElementById('pdots'),PG=document.getElementById('pg'),PV=document.getElementById('prev'),NX=document.getElementById('next'),MO=document.getElementById('more'),H=document.getElementById('trh');
 var VID=E.slice(0,12),pages=Math.ceil(VID.length/2),p=0,all=false;
 function card(e){var i=E.indexOf(e);
