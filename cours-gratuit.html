@@ -235,7 +235,7 @@ V.muted=true;V.play().then(function(){waitSound=true;SO.hidden=false;document.ge
 // agenda iClosed : celui de l'ambassadeur s'il en a un, sinon l'agenda commun ambassadeurs (code dans l'UTM), sinon l'agenda normal
 (function(){
 try{var _a=new URLSearchParams(location.search).get('a');if(_a)(sessionStorage.setItem('amb',_a),localStorage.setItem('amb30',JSON.stringify({c:_a,t:Date.now()})))}catch(x){}
-var am='';try{am=(new URLSearchParams(location.search).get('a')||(function(){try{var o=JSON.parse(localStorage.getItem('amb30')||'null');if(o&&Date.now()-o.t<2592e6)return o.c}catch(e){}try{return sessionStorage.getItem('amb')}catch(e){}return ''})()||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}
+var am='';try{am=(new URLSearchParams(location.search).get('a')||(function(){try{var o=JSON.parse(localStorage.getItem('amb30')||'null');if(o&&Date.now()-o.t<5184e6)return o.c}catch(e){}try{return sessionStorage.getItem('amb')}catch(e){}return ''})()||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}
 var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeur-amaury'};
 var url=am?(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeurs')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am):'https://app.iclosed.io/e/mickaelwu/appel-de-d-couverte-audace';
 var w=document.getElementById('icw');w.className='iclosed-widget';w.setAttribute('data-url',url);document.getElementById('fbl').href=url;
