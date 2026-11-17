@@ -307,7 +307,7 @@ addEventListener('keydown',function(e){if(e.key==='Escape')close()});
 (function(){
 var Q=[
  {k:'p',q:'Tu fais quoi dans la vie ?',o:[['lyc','🎒 Lycéen'],['etu','🎓 Étudiant'],['sal','💼 Salarié'],['aut','🚀 Autre']]},
- {k:'r',q:'Tu gagnes combien par mois aujourd’hui ?',o:[['0','0 €'],['1k','Moins de 1 000 €'],['2k','1 000 à 2 000 €'],['2k+','Plus de 2 000 €']]},
+ {k:'r',q:'Ton business en ligne te rapporte combien par mois ?',o:[['0','Rien, je n’ai pas encore commencé','Pas encore de business en ligne'],['1k','Moins de 1 000 €','Moins de 1 000 €/mois en ligne'],['2k','1 000 à 2 000 €','1 000 à 2 000 €/mois en ligne'],['2k+','Plus de 2 000 €','Plus de 2 000 €/mois en ligne']]},
  {k:'g',q:'Ton objectif ?',o:[['1er','Mes premiers euros en ligne'],['5k','5 000 € par mois'],['sal','Remplacer mon salaire'],['10k','Plus de 10 000 € par mois']]},
  {k:'t',q:'Combien de temps par semaine tu peux y mettre ?',o:[['-5h','Moins de 5 h'],['5-10h','5 à 10 h'],['10-20h','10 à 20 h'],['20h+','Plus de 20 h']]}];
 var PR={lyc:['Husler','Jules'],etu:['Mayline','Paul et Math'],sal:['Bobby','Fan'],aut:['Lucas','Lucas Arniac']};
@@ -319,14 +319,14 @@ function step(){var s=Q[n];document.getElementById('qbi').style.width=(n/Q.lengt
  document.getElementById('qo').innerHTML=s.o.map(function(o){return '<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>'}).join('');
  QZ.classList.remove('in');void QZ.offsetWidth;QZ.classList.add('in')}
 document.getElementById('qo').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
- b.classList.add('sel');A[Q[n].k]=b.dataset.v;A2[Q[n].k]=b.textContent.replace(/^\S+\s(?=[A-ZÉ])/,'');
+ b.classList.add('sel');A[Q[n].k]=b.dataset.v;var oo=Q[n].o.filter(function(o){return o[0]===b.dataset.v})[0];A2[Q[n].k]=oo[2]||b.textContent.replace(/^\S+\s(?=[A-ZÉ])/,'');
  setTimeout(function(){n++;if(n<Q.length)step();else wait()},260)});
 function wait(){document.getElementById('qbi').style.width='100%';
  QZ.innerHTML='<div class="an"><span class="sp"></span><b>On analyse ton profil…</b></div>';setTimeout(result,1700)}
 function result(){
  var L=PR[A.p].map(function(nm){return AE.filter(function(e){return e.n===nm})[0]}).filter(Boolean);
  QZ.innerHTML='<div class="res"><div class="ck">✓</div><div class="qn">Ton résultat</div><h2 class="qq">Ton profil : '+LAB[A.p]+'.</h2>'+
-  '<div class="chips"><span>'+A2.r+' aujourd’hui</span><span>Objectif : '+A2.g.toLowerCase()+'</span><span>'+A2.t+' par semaine</span></div>'+
+  '<div class="chips"><span>'+A2.r+'</span><span>Objectif : '+A2.g.toLowerCase()+'</span><span>'+A2.t+' par semaine</span></div>'+
   '<p class="rt">Bonne nouvelle : <b>2 élèves avec ton profil</b> sont passés par l’École AUDACE.</p><div class="grid two">'+L.map(acard).join('')+'</div></div>';
  hid.forEach(function(h){h[0].style.display=h[1]});
  window.loadAgenda([A.p,A.r,A.g,A.t].join('_'))}
