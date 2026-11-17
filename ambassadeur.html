@@ -103,6 +103,16 @@ ul.r.no li:before{background:#C0392B url("data:image/svg+xml,%3Csvg xmlns='http:
 .perks b{display:block;font-family:'Instrument Sans',sans-serif;font-size:26px;letter-spacing:-.03em;line-height:1;color:var(--b)}
 .perks span{display:block;margin-top:6px;font-size:12.5px;line-height:1.3;font-weight:600;color:var(--mut)}
 @media(min-width:680px){.hero2{margin:10px 0 0;border-radius:24px}.hero2 img{aspect-ratio:16/9}}
+@property --ga{syntax:'<angle>';initial-value:0deg;inherits:false}
+#s0 .formcard{position:relative}
+#s0 .formcard::before{content:"";position:absolute;inset:-2px;border-radius:26px;padding:2px;pointer-events:none;
+background:conic-gradient(from var(--ga),transparent 0deg,transparent 250deg,rgba(103,6,27,.55) 300deg,#F5C76A 335deg,#fff 345deg,transparent 360deg);
+-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:ga 4.5s linear infinite}
+@keyframes ga{to{--ga:360deg}}
+.hero2 .tag{overflow:hidden}
+.hero2 .tag::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(245,199,106,.55),transparent);transform:skewX(-20deg);animation:sh 3.2s ease-in-out infinite}
+@keyframes sh{0%,55%{left:-60%}100%{left:130%}}
+.perks b{background:linear-gradient(180deg,#8A0B27,#67061B);-webkit-background-clip:text;background-clip:text;color:transparent}
 .formcard h2{font-size:26px}
 .formcard .s{color:var(--mut);margin:8px auto 20px;max-width:420px}
 .wf{display:grid;gap:12px;max-width:440px;margin:0 auto}
