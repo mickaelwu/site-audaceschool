@@ -559,6 +559,8 @@ var FORM='https://docs.google.com/forms/d/e/1FAIpQLScJGKOEpti00sG3MRyJMunAgKA7s5
 var KEY='aud-ambassadeur';
 var S={nm:'',e:'',w:'',code:'',link:'',statut:'',siret:'',m:''};
 try{var mq=(new URLSearchParams(location.search).get('m')||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(mq)localStorage.setItem('aud-mentor',mq);S.m=mq||localStorage.getItem('aud-mentor')||''}catch(x){}
+/* setter qui a recruté le partenaire : ?s=christi / quentin / clement */
+try{var sq=(new URLSearchParams(location.search).get('s')||'').toLowerCase().replace(/[^a-z0-9-]/g,'');if(sq)localStorage.setItem('aud-setter',sq);S.st=sq||localStorage.getItem('aud-setter')||''}catch(x){}
 var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
 var scr=$$('.scr'),cur=0,LBL=['','Pourquoi toi','Nos preuves','Le deal','La vision','Comment tes ventes sont comptées','Ce qui se passe après','Les règles','Ton kit'];
 
@@ -617,7 +619,7 @@ $('#fin').addEventListener('click',function(){
   if(!$('#ok').checked){e5.textContent='Coche la case pour accepter les règles.';return}
   e5.textContent='';var b=this;b.disabled=true;
   var d=new URLSearchParams();
-  d.append('entry.1608116188','AMBASSADEUR — '+S.nm+' — code '+S.code+' — statut : '+(S.statut==='oui'?'SIRET '+S.siret:'pas encore')+' — élève : '+S.eleve+(S.m?' — mentor : '+S.m:'')+' — règles acceptées');
+  d.append('entry.1608116188','AMBASSADEUR — '+S.nm+' — code '+S.code+' — statut : '+(S.statut==='oui'?'SIRET '+S.siret:'pas encore')+' — élève : '+S.eleve+(S.m?' — mentor : '+S.m:'')+(S.st?' — setter : '+S.st:'')+' — règles acceptées');
   d.append('entry.1696167199',S.e);d.append('entry.128016296',S.w);
   var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link}))}catch(x){}kit();if(window.boom)boom()};
   fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(done).catch(done);
