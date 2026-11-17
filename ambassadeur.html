@@ -139,6 +139,10 @@ input.i.bad{border-color:#C0392B}
 .ph2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}.ph2 .ph{margin:0}.ph2 .ph img{aspect-ratio:1/1}
 .card .ph{margin:-24px -20px 18px;border-radius:20px 20px 0 0;box-shadow:none}
 .scr.on .ph img{animation:zin 1.2s ease-out both}@keyframes zin{from{transform:scale(1.08)}to{transform:none}}
+.strip{position:relative;margin:4px -20px 16px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.strip .tr{display:flex;gap:10px;width:max-content;animation:mq 38s linear infinite}
+.strip img{height:150px;width:auto;border-radius:14px;object-fit:cover;box-shadow:0 8px 22px rgba(30,16,18,.14)}
+@keyframes mq{to{transform:translateX(-50%)}}
 </style>
 </head>
 <body>
@@ -153,7 +157,7 @@ input.i.bad{border-color:#C0392B}
       <span class="k">Programme ambassadeur</span>
       <h1>Recommande l’école. Gagne 500 € par personne qui rejoint.</h1>
     </div>
-    <figure class="ph hero"><img src="img/q-n05.jpg" alt="Les élèves de l’École AUDACE réunis" loading="lazy" style="object-position:50% 40%"><span>La communauté AUDACE</span></figure>
+    <figure class="ph hero"><img src="img/amb-hero.jpg" alt="Mickaël Wu sur scène à l’AUDACE Experience" style="object-position:50% 50%"><span>L’AUDACE Experience</span></figure>
     <div class="formcard">
       <h2>Deviens ambassadeur.</h2>
       <p class="s">4 questions, puis 2 minutes pour tout comprendre. Ton lien perso arrive à la fin.</p>
@@ -178,7 +182,7 @@ input.i.bad{border-color:#C0392B}
       <div class="stat"><b>96/100</b><span>audit indépendant TrustWho</span><a href="https://rapport.trustwho.io/rapport/mickael-wu-business" target="_blank" rel="noopener">Voir le rapport →</a></div>
     </div>
     <div class="card" style="padding:18px 20px"><div class="big" style="font-size:30px">5 000 € en 3 mois</div><p style="margin-top:6px;color:var(--mut)">ou remboursé. La personne que tu recommandes ne prend aucun risque.</p></div>
-    <div class="ph2"><figure class="ph"><img src="img/e-m-conference.jpg" alt="Une salle pleine à un événement AUDACE" loading="lazy" style="object-position:50% 50%"><span>Nos événements</span></figure><figure class="ph"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE avec Mickaël" loading="lazy" style="object-position:50% 50%"><span>Nos ateliers</span></figure></div>
+    <div class="strip" aria-label="Photos de l’École AUDACE"><div class="tr"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" loading="lazy"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" loading="lazy"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" loading="lazy"><img src="img/q-n05.jpg" alt="La communauté AUDACE" loading="lazy"><img src="img/q-ws-coach.jpg" alt="Les coachs AUDACE" loading="lazy"><img src="img/e-iv-micka.jpg" alt="Mickaël Wu" loading="lazy"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" loading="lazy"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" loading="lazy"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" loading="lazy"><img src="img/micka-audace.jpg" alt="Les élèves AUDACE" loading="lazy" aria-hidden="true"><img src="img/e-m-conference.jpg" alt="Un événement AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-ws-classe.jpg" alt="Un atelier AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-n05.jpg" alt="La communauté AUDACE" loading="lazy" aria-hidden="true"><img src="img/q-ws-coach.jpg" alt="Les coachs AUDACE" loading="lazy" aria-hidden="true"><img src="img/e-iv-micka.jpg" alt="Mickaël Wu" loading="lazy" aria-hidden="true"><img src="img/q-ws-groupe.jpg" alt="Mickaël avec ses élèves" loading="lazy" aria-hidden="true"><img src="img/e-e-stalingrad.jpg" alt="Après un événement" loading="lazy" aria-hidden="true"><img src="img/q-ws-tournage.jpg" alt="Un tournage AUDACE" loading="lazy" aria-hidden="true"></div></div>
     <div class="vids">
       <button class="vid" type="button" data-v="media/t-husler.mp4"><img src="img/tv-husler.jpg" alt="Husler, revente Vinted" loading="lazy"><span class="tri"></span><span class="pl"><b>14 200 €</b>en 2 mois, à 17 ans</span></button>
       <button class="vid" type="button" data-v="media/t-jayden.mp4"><img src="img/tv-jayden.jpg" alt="Jayden, coach de vie" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois</span></button>
@@ -196,7 +200,6 @@ input.i.bad{border-color:#C0392B}
     <div class="card"><div class="big">500 €</div><p style="margin-top:8px;color:var(--mut)">Elle paie en une fois : tu touches 500 € le mois suivant.</p></div>
     <div class="card"><div class="big">3 × 167 €</div><p style="margin-top:8px;color:var(--mut)">Elle paie en 3 fois : tu touches environ 167 € à chaque paiement, pendant 3 mois.</p></div>
     <div class="card">
-      <figure class="ph"><img src="img/q-ws-coach.jpg" alt="L’équipe AUDACE au travail" loading="lazy" style="object-position:50% 35%"><span>On s’occupe du reste</span></figure>
       <h3 style="font-size:24px;margin-bottom:6px">100 % de marge pour toi.</h3>
       <p style="color:var(--mut);margin-bottom:14px">500 €, juste pour faire découvrir l’école. Aucun produit à créer, aucun coût, rien à livrer. Ce que tu touches, tu le gardes.</p>
       <p style="font-weight:800;margin-bottom:8px">Toi, tu fais juste ça :</p>
@@ -211,7 +214,6 @@ input.i.bad{border-color:#C0392B}
       </ul>
     </div>
     <div class="card">
-      <figure class="ph"><img src="img/e-iv-micka.jpg" alt="Mickaël Wu au micro" loading="lazy" style="object-position:50% 50%"><span>Mickaël Wu</span></figure>
       <h3 style="font-size:24px;margin-bottom:6px">500 € pour un lien, c’est énorme.</h3>
       <p style="color:var(--mut);margin-bottom:14px">Parce que la confiance, c’est aussi nous qui la créons. Avant même son appel, la personne que tu recommandes peut nous regarder sur nos chaînes :</p>
       <div class="chans">
@@ -271,7 +273,6 @@ input.i.bad{border-color:#C0392B}
   <section class="scr">
     <span class="k">Ce qui se passe après</span>
     <h2 class="t">Toi, tu partages. Nous, on fait le reste.</h2>
-    <figure class="ph"><img src="img/q-ws-groupe.jpg" alt="Mickaël Wu avec des élèves AUDACE" loading="lazy" style="object-position:50% 30%"><span>Mickaël avec ses élèves</span></figure>
     <div class="flow mid" style="margin-top:18px">
       <div class="f"><b>1</b><div><h3>Elle regarde une courte vidéo</h3></div></div>
       <div class="f"><b>2</b><div><h3>Elle réserve son appel gratuit</h3></div></div>
