@@ -62,7 +62,7 @@ p{margin:0}
 
 .flow{display:grid;gap:10px;margin-bottom:14px}
 .f{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 8px 26px rgba(30,16,18,.06)}
-.f b{flex:none;width:40px;height:40px;border-radius:12px;background:var(--rose);color:var(--b);display:grid;place-items:center;font-family:'Instrument Sans',sans-serif;font-size:20px}
+.f b{flex:none;min-width:40px;padding:0 6px;height:40px;border-radius:12px;background:var(--rose);color:var(--b);display:grid;place-items:center;font-family:'Instrument Sans',sans-serif;font-size:20px}
 .f h3{font-size:18px;letter-spacing:-.01em;line-height:1.25}
 .f p{color:var(--mut);font-size:15px;line-height:1.4;margin-top:3px}
 .f.win{background:var(--b);color:var(--cream)}
@@ -120,6 +120,7 @@ input.i.bad{border-color:#C0392B}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--sand);padding:5px;border-radius:16px;margin:12px 0 12px}
 .seg button{min-height:46px;border:0;border-radius:12px;background:transparent;font:inherit;font-weight:800;font-size:14px;color:var(--mut);cursor:pointer}
 .seg button.on{background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(30,16,18,.08)}
+[hidden]{display:none!important}
 .copied{background:var(--ok)!important;color:#fff!important}
 </style>
 </head>
