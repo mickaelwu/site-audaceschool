@@ -633,7 +633,6 @@ function proof(){
  var d=show('<div class="col c"><div class="k rv">Pas un jeu : la réalité</div><h2 class="rv"'+dl(1)+'>'+esc(S.name)+', voilà '+m.n+'.</h2><p class="p rv"'+dl(2)+'>'+m.t+'. Même méthode que celle que tu viens de jouer.</p>'+
  '<div class="proof rv"'+dl(3)+' id="pf" style="background-image:url('+m.img+')"><button class="ov" id="pp"><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></span><span class="r" id="pr">'+m.r+'</span><span class="n" id="pn">'+m.n+' · '+m.t+'</span></button></div>'+
  '<div class="others rv"'+dl(4)+'>'+[mk].concat(rest).map(function(k,i){var e=EL[k];return '<button class="oth'+(i?'':' cur')+'" data-k="'+k+'" style="background-image:url('+e.img+')"><span>'+e.n+'<br>'+e.r+'</span></button>'}).join('')+'</div>'+
- '<p class="small rv"'+dl(5)+' style="margin-top:10px">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>'+
  '<button class="btn pulse rv"'+dl(6)+' id="n">Je veux faire pareil →</button></div>');
  var pf=$('#pf',d),cur=mk;
  function play(k){var e=EL[k];cur=k;pf.innerHTML='<video src="'+e.v+'" poster="'+e.img+'" controls playsinline autoplay></video>';var v=pf.querySelector('video');v.play().catch(function(){});sfx.tap();

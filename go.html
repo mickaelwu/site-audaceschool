@@ -361,8 +361,7 @@ document.querySelectorAll('.pick').forEach(function(b){b.addEventListener('click
     scan.classList.remove('on');
     if(navigator.vibrate)navigator.vibrate([20,40,20]);
     found.innerHTML='<div class="found-h"><span class="ok">✓</span>2 élèves avaient ton profil</div><div class="cards">'+P[p].map(card).join('')+'</div>'+
-    '<div class="after"><div><div class="d">Ils ont commencé par un cours offert.</div><p>Comme toi, ils étaient '+(p==='etu'?'étudiants':p==='lyc'?'au lycée ou en dehors du système':'salariés ou parents')+'. Ton tour.</p></div><a class="btn btn-light cta" href="'+BOOK+'">Réserver mon cours offert <span class="arr">→</span></a></div>'+
-    '<p class="disc">Résultats individuels, qui dépendent du travail de chacun et ne sont pas garantis.</p>';
+    '<div class="after"><div><div class="d">Ils ont commencé par un cours offert.</div><p>Comme toi, ils étaient '+(p==='etu'?'étudiants':p==='lyc'?'au lycée ou en dehors du système':'salariés ou parents')+'. Ton tour.</p></div><a class="btn btn-light cta" href="'+BOOK+'">Réserver mon cours offert <span class="arr">→</span></a></div>';
     var y=found.getBoundingClientRect().top+scrollY-84;scrollTo({top:y,behavior:'smooth'});
     busy=false;
   },1000);
