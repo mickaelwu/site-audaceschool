@@ -256,11 +256,11 @@ V.muted=true;V.play().then(function(){waitSound=true;SO.hidden=false;document.ge
 })();
 (function(){var V=document.getElementById('v'),yp={getPlayerState:function(){return V.ended?0:(!V.paused?1:2)},isMuted:function(){return V.muted||V.volume===0},getDuration:function(){return isFinite(V.duration)?V.duration:0}};
 /* la suite de la page (réservation, témoignages…) se débloque après 1 minute de vidéo regardée avec le son (ou la fin de la vidéo si elle est plus courte). Débloqué une fois = débloqué pour toujours sur ce téléphone. */
-var KEY='aud-vsl-ok',done=false,hid=[],lk=null,watched=0;try{done=localStorage.getItem(KEY)==='1'}catch(e){}
+var KEY='aud-vsl-ok2',done=false,hid=[],lk=null,watched=0;try{done=sessionStorage.getItem(KEY)==='1'}catch(e){} /* déblocage valable seulement pour la visite en cours */
 var W=document.getElementById('pl').closest('.wrap');
 if(!done){var n=W.nextElementSibling;while(n){if(!n.classList.contains('foot')){hid.push([n,n.style.display]);n.style.display='none'}n=n.nextElementSibling}
   lk=document.createElement('div');lk.className='lock';lk.innerHTML='<i class="up"></i><div class="lr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.2" fill="currentColor"/></svg><p>Regarde cette vidéo de <b>1 minute</b> pour débloquer l’étape suivante</p></div>';W.parentNode.insertBefore(lk,W.nextSibling)}
-function unlock(){if(done)return;done=true;try{localStorage.setItem(KEY,'1')}catch(e){}hid.forEach(function(h){h[0].style.display=h[1]});if(lk)lk.remove()}
+function unlock(){if(done)return;done=true;try{sessionStorage.setItem(KEY,'1')}catch(e){}hid.forEach(function(h){h[0].style.display=h[1]});if(lk)lk.remove()}
 setInterval(function(){if(done||!yp||!yp.getPlayerState)return;
   if(yp.getPlayerState()===0){unlock();return}
   if(yp.getPlayerState()===1&&!yp.isMuted()){watched++;var d=yp.getDuration()||0,goal=d?Math.min(60,Math.max(d-3,1)):60,r=Math.max(0,Math.ceil(goal-watched));
