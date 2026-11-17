@@ -193,7 +193,7 @@ input.i.bad{border-color:#C0392B}
       <button class="vid" type="button" data-v="media/t-jayden.mp4"><img src="img/tv-jayden.jpg" alt="Jayden, coach de vie" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois</span></button>
       <button class="vid" type="button" data-v="media/t-anes.mp4"><img src="img/tv-anes.jpg" alt="Anès, business en ligne" loading="lazy"><span class="tri"></span><span class="pl"><b>9 500 €</b>business en ligne</span></button>
     </div>
-    <div class="gold"><h3>Pourquoi c’est facile à recommander</h3><p>Plein de gens autour de toi veulent vivre d’internet sans savoir par où commencer. Tu ne leur vends rien : tu leur offres un appel gratuit avec l’équipe. Ce sont nos coachs qui expliquent et qui vendent.</p></div>
+    <div class="gold"><h3>Pourquoi c’est facile à recommander</h3><p>Plein de gens autour de toi veulent vivre d’internet sans savoir par où commencer. Tu ne leur vends rien : tu leur offres un appel offert de découverte avec l’équipe. Ce sont nos coachs qui expliquent et qui vendent.</p></div>
     <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">J’ai compris →</button></div>
   </section>
 
@@ -280,7 +280,7 @@ input.i.bad{border-color:#C0392B}
     <h2 class="t">Toi, tu partages. Nous, on fait le reste.</h2>
     <div class="flow mid" style="margin-top:18px">
       <div class="f"><b>1</b><div><h3>Elle regarde une courte vidéo</h3></div></div>
-      <div class="f"><b>2</b><div><h3>Elle réserve son appel gratuit</h3></div></div>
+      <div class="f"><b>2</b><div><h3>Elle réserve son appel offert de découverte</h3></div></div>
       <div class="f"><b>3</b><div><h3>Elle écrit à Mickaël sur WhatsApp</h3></div></div>
       <div class="f"><b>4</b><div><h3>Elle fait son appel avec l’équipe</h3></div></div>
       <div class="f win"><b>€</b><div><h3>Elle rejoint l’école : tu touches 500 €</h3></div></div>
@@ -333,7 +333,7 @@ input.i.bad{border-color:#C0392B}
     <div class="kit">
       <h3>2. Mets-le en bio</h3>
       <p class="h">Sur Insta et TikTok. Colle ton lien, avec cette phrase au-dessus.</p>
-      <div class="txt">📲 Appel gratuit avec l’École AUDACE 👇</div>
+      <div class="txt">📲 Appel offert de découverte avec l’École AUDACE 👇</div>
       <button class="btn btn-soft" type="button" data-copy="bio">Copier la phrase</button>
     </div>
 
@@ -342,14 +342,14 @@ input.i.bad{border-color:#C0392B}
       <p class="h">Une par une, dans l’ordre. Mets ton lien en sticker sur la dernière.</p>
       <div class="sty"><em>1</em><div class="txt">Tu veux vivre d’internet mais tu sais pas par où commencer ?</div></div>
       <div class="sty"><em>2</em><div class="txt">L’École AUDACE a déjà accompagné plus de 1 400 élèves.</div></div>
-      <div class="sty"><em>3</em><div class="txt">Ils offrent un appel de découverte gratuit. Réserve le tien avec mon lien 👇</div></div>
+      <div class="sty"><em>3</em><div class="txt">Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇</div></div>
       <button class="btn btn-soft" type="button" data-copy="stories">Copier les 3 textes</button>
     </div>
 
     <div class="kit">
       <h3>4. Dis-le à la fin de tes vidéos</h3>
       <p class="h">Si tu fais du contenu.</p>
-      <div class="txt" id="say">« Réserve ton appel de découverte gratuit avec l’École AUDACE, le lien est en bio. »</div>
+      <div class="txt" id="say">« Réserve ton appel offert de découverte avec l’École AUDACE, le lien est en bio. »</div>
       <button class="btn btn-soft" type="button" data-copy="say">Copier la phrase</button>
     </div>
 
@@ -419,9 +419,9 @@ var T={};
 function kit(){
   names();$('#lk').textContent=S.link;
   T.link=S.link;
-  T.pote='Frère, tu m’avais dit que tu voulais lancer un truc sur internet. L’École AUDACE offre un appel de découverte gratuit pour voir si c’est fait pour toi. Réserve avec mon lien : '+S.link;
-  T.bio='📲 Appel gratuit avec l’École AUDACE 👇';
-  T.stories='1. Tu veux vivre d’internet mais tu sais pas par où commencer ?\n2. L’École AUDACE a déjà accompagné plus de 1 400 élèves.\n3. Ils offrent un appel de découverte gratuit. Réserve le tien avec mon lien 👇 '+S.link;
+  T.pote='Frère, tu m’avais dit que tu voulais lancer un truc sur internet. L’École AUDACE propose un appel offert de découverte pour voir si c’est fait pour toi. Réserve avec mon lien : '+S.link;
+  T.bio='📲 Appel offert de découverte avec l’École AUDACE 👇';
+  T.stories='1. Tu veux vivre d’internet mais tu sais pas par où commencer ?\n2. L’École AUDACE a déjà accompagné plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+S.link;
   T.say=$('#say').textContent;
   $('#msgPote').textContent=T.pote;$('#waPote').href='https://wa.me/?text='+encodeURIComponent(T.pote);
   show(6);
