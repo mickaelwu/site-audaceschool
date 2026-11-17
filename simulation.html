@@ -282,7 +282,7 @@ var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){retu
 var S={name:'',photo:'',situ:'',skill:'',key:''},order=$$('.sc'),cur=0;
 var bar=$('#bar');for(var i=0;i<order.length-1;i++)bar.insertAdjacentHTML('beforeend','<i><b></b></i>');
 // ambassadeur : on garde le code jusqu'à la réservation
-try{var a=new URLSearchParams(location.search).get('a');if(a){sessionStorage.setItem('amb',a);$('#cta').href='seance-decouverte.html?a='+encodeURIComponent(a)}}catch(e){}
+try{var a=new URLSearchParams(location.search).get('a');if(a){(sessionStorage.setItem('amb',a),localStorage.setItem('amb30',JSON.stringify({c:a,t:Date.now()})));$('#cta').href='seance-decouverte.html?a='+encodeURIComponent(a)}}catch(e){}
 
 /* ---- sons, vibrations, confettis ---- */
 var AC;function tone(f,d,t,v){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();var o=AC.createOscillator(),g=AC.createGain();o.type=t||'sine';o.frequency.value=f;g.gain.value=v||.06;g.gain.exponentialRampToValueAtTime(.0001,AC.currentTime+d);o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d)}catch(e){}}

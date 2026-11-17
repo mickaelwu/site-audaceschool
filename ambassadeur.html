@@ -13,87 +13,343 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
 <style>
-:root{--b:#67061B;--bd:#4A0414;--ink:#1E1012;--cream:#FBF7F2;--sand:#F3EBE4;--rose:#F6CCD5;--mut:#6B5558}
+:root{--b:#67061B;--bd:#4A0414;--ink:#1E1012;--cream:#FBF7F2;--sand:#F3EBE4;--rose:#F6CCD5;--mut:#6B5558;--ok:#1F7A4D}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;letter-spacing:-.025em;line-height:1.02;margin:0}
+h1,h2,h3{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;letter-spacing:-.025em;line-height:1.05;margin:0}
 p{margin:0}
-.w{max-width:880px;margin:0 auto;padding:0 22px}
+.w{max-width:640px;margin:0 auto;padding:0 20px 60px}
 .page-top{display:flex;justify-content:center;padding:18px 0 4px}
 .logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;color:var(--b)}
 .logo b{font-family:'Instrument Sans',sans-serif;font-size:26px;letter-spacing:.03em}
 .logo small{font-size:8px;font-weight:800;letter-spacing:.36em;margin-top:3px}
-.head{text-align:center;padding:18px 0 0}
 .k{display:inline-block;margin:0 0 12px;padding:7px 13px;border-radius:999px;background:var(--b);color:var(--cream);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-.head h1{font-size:clamp(34px,7vw,58px)}
-.head p{color:var(--mut);margin:14px auto 0;max-width:540px}
-.steps{display:grid;gap:12px;margin:34px auto 0;max-width:640px}
-.step{display:flex;gap:16px;align-items:center;background:#fff;border-radius:18px;padding:18px 20px;box-shadow:0 8px 26px rgba(30,16,18,.06)}
-.step b{flex:none;width:44px;height:44px;border-radius:12px;background:var(--rose);color:var(--b);display:flex;align-items:center;justify-content:center;font-family:'Instrument Sans',sans-serif;font-size:22px}
-.step h3{font-size:19px;letter-spacing:-.01em;line-height:1.2}
-.step p{color:var(--mut);font-size:15px;margin-top:3px;line-height:1.4}
-.card{max-width:640px;margin:22px auto 70px;border-radius:20px;background:#fff;box-shadow:0 12px 34px rgba(30,16,18,.08);padding:34px 22px;text-align:center;scroll-margin-top:16px}
-.card h2{font-size:26px}
-.card .s{color:var(--mut);margin:8px auto 22px;max-width:440px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 30px;border-radius:16px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,background .2s ease}
-.btn:active{transform:scale(.96)}
+
+.scr{display:none;animation:in .35s ease}
+.scr.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.head{text-align:center;padding:18px 0 0}
+.head h1{font-size:clamp(34px,8vw,54px)}
+.head p{color:var(--mut);margin:14px auto 0;max-width:500px}
+.t{font-size:clamp(28px,6.5vw,40px);margin:6px 0 10px}
+.lead{color:var(--mut);margin-bottom:22px}
+
+.prog{position:sticky;top:0;z-index:5;background:var(--cream);padding:12px 0 10px;display:none}
+.prog.on{display:block}
+.bar{height:8px;border-radius:99px;background:var(--sand);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--b);border-radius:99px;transition:width .4s ease}
+.prog span{display:block;font-size:13px;font-weight:700;color:var(--mut);margin-top:6px}
+
+.card{background:#fff;border-radius:20px;box-shadow:0 12px 34px rgba(30,16,18,.08);padding:24px 20px;margin-bottom:14px}
+.big{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:44px;letter-spacing:-.03em;line-height:1;color:var(--b)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.stat{background:#fff;border-radius:18px;padding:18px 16px;box-shadow:0 8px 26px rgba(30,16,18,.06)}
+.stat b{display:block;font-family:'Instrument Sans',sans-serif;font-size:32px;letter-spacing:-.03em;line-height:1.05;color:var(--b)}
+.stat span{font-size:14px;color:var(--mut);line-height:1.35;display:block;margin-top:4px}
+.stat a{display:inline-block;margin-top:6px;font-size:14px;font-weight:700;color:var(--ink)}
+
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.vid{position:relative;border-radius:16px;overflow:hidden;background:#000;aspect-ratio:9/16;cursor:pointer;border:0;padding:0}
+.vid img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+.vid .pl{position:absolute;left:8px;right:8px;bottom:8px;color:#fff;text-align:left;font-size:12px;font-weight:700;line-height:1.25;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.vid .pl b{display:block;font-size:16px}
+.vid .tri{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center}
+.vid .tri:after{content:"";border-left:14px solid var(--b);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.modal{position:fixed;inset:0;z-index:20;background:rgba(10,4,6,.92);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}
+.modal video{max-width:100%;max-height:82vh;border-radius:16px;background:#000}
+.modal .x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:20px;cursor:pointer}
+
+.flow{display:grid;gap:10px;margin-bottom:14px}
+.f{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 8px 26px rgba(30,16,18,.06)}
+.f b{flex:none;width:40px;height:40px;border-radius:12px;background:var(--rose);color:var(--b);display:grid;place-items:center;font-family:'Instrument Sans',sans-serif;font-size:20px}
+.f h3{font-size:18px;letter-spacing:-.01em;line-height:1.25}
+.f p{color:var(--mut);font-size:15px;line-height:1.4;margin-top:3px}
+.f.win{background:var(--b);color:var(--cream)}
+.f.win b{background:var(--cream)}
+.f.win p{color:var(--rose)}
+
+.demo{background:var(--ink);color:var(--cream);border-radius:18px;padding:18px;font-weight:700;font-size:16px;word-break:break-all;margin-bottom:12px}
+.demo u{text-decoration:none;background:var(--b);padding:2px 6px;border-radius:6px}
+.gold{background:var(--rose);border-radius:18px;padding:18px;margin-bottom:14px}
+.gold h3{font-size:19px;margin-bottom:6px;color:var(--b)}
+.gold p{font-size:15px}
+
+ul.r{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.r li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.4}
+ul.r li:before{content:"";flex:none;width:22px;height:22px;border-radius:50%;margin-top:1px;background:var(--b) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23FBF7F2' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+ul.r.no li:before{background:#C0392B url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 7l10 10M17 7L7 17' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 22px;border-radius:16px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,background .2s ease;width:100%;text-align:center}
+.btn:active{transform:scale(.97)}
 .btn-main{background:var(--b);color:var(--cream);box-shadow:0 10px 30px rgba(103,6,27,.35)}
 .btn-main:hover{background:var(--bd)}
+.btn-main[disabled]{opacity:.5;box-shadow:none}
+.btn-soft{background:var(--sand);color:var(--ink)}
+.btn-wa{background:#1FAF55;color:#fff}
+.nav{display:grid;grid-template-columns:58px 1fr;gap:10px;margin-top:20px}
+.nav .back{padding:0;background:var(--sand);color:var(--ink);font-size:20px}
+.formcard{background:#fff;border-radius:20px;box-shadow:0 12px 34px rgba(30,16,18,.08);padding:30px 20px;text-align:center;margin-top:26px}
+.formcard h2{font-size:26px}
+.formcard .s{color:var(--mut);margin:8px auto 20px;max-width:420px}
 .wf{display:grid;gap:12px;max-width:440px;margin:0 auto}
 .wf .st{display:none;text-align:left}
-.wf .st.on{display:block;animation:stIn .35s ease}
-.wf label{display:block;font-weight:800;font-size:18px;margin:0 0 10px 4px}
-.wf input{width:100%;min-height:56px;padding:0 18px;border-radius:14px;border:2px solid #E7DADC;background:#FBF7F6;font:inherit;font-size:16px;color:inherit;outline:none}
-.wf input:focus{border-color:var(--b);background:#fff}
-.wf input.bad{border-color:#C0392B}
-.wf .btn{width:100%;margin-top:4px}
-.wf-err{margin:0;color:#C0392B;font-weight:700;font-size:14px}
-.note{color:var(--mut);font-size:13px;margin-top:16px}
-@keyframes stIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.wf .st.on{display:block;animation:in .3s ease}
+label.q{display:block;font-weight:800;font-size:18px;margin:0 0 10px 4px}
+input.i{width:100%;min-height:56px;padding:0 18px;border-radius:14px;border:2px solid #E7DADC;background:#FBF7F6;font:inherit;font-size:16px;color:inherit;outline:none}
+input.i:focus{border-color:var(--b);background:#fff}
+input.i.bad{border-color:#C0392B}
+.err{margin:0;color:#C0392B;font-weight:700;font-size:14px}
+.choice{display:grid;gap:10px;margin:12px 0}
+.ch{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid #E7DADC;border-radius:14px;padding:14px 16px;font-weight:700;cursor:pointer;font-size:16px;text-align:left;font-family:inherit;color:inherit}
+.ch.on{border-color:var(--b);background:#FFF7F8}
+.ch i{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #C9B8BB}
+.ch.on i{border:7px solid var(--b)}
+.acc{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:16px;padding:16px;margin-top:14px;cursor:pointer;font-weight:600;font-size:15px;line-height:1.4}
+.acc input{flex:none;width:24px;height:24px;accent-color:var(--b);margin:0}
+
+.lk{word-break:break-all;font-weight:800;font-size:17px;background:var(--sand);border-radius:14px;padding:16px 14px;margin:0 0 12px;text-align:center}
+.kit{background:#fff;border-radius:18px;padding:18px;box-shadow:0 8px 26px rgba(30,16,18,.06);margin-bottom:12px}
+.kit h3{font-size:18px;margin-bottom:4px}
+.kit .h{color:var(--mut);font-size:14px;margin-bottom:10px}
+.kit .txt{background:var(--cream);border-radius:12px;padding:14px;font-size:15px;line-height:1.45;margin-bottom:10px}
+.kit .btn{min-height:48px;font-size:15px}
+.sty{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.sty em{font-style:normal;width:34px;height:34px;border-radius:10px;background:var(--b);color:var(--cream);display:grid;place-items:center;font-weight:800}
+.copied{background:var(--ok)!important;color:#fff!important}
 </style>
 </head>
 <body>
 <div class="w">
   <header class="page-top"><a class="logo" href="./"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></a></header>
-  <div class="head">
-    <span class="k">Programme ambassadeur</span>
-    <h1>Recommande l’école. Gagne 500 € par personne qui rejoint.</h1>
-    <p>Tu partages ton lien. Les gens réservent un appel de découverte. On s’occupe de la vente.</p>
-  </div>
-  <div class="steps">
-    <div class="step"><b>1</b><div><h3>Tu reçois ton lien perso</h3><p>Tout de suite, juste en dessous.</p></div></div>
-    <div class="step"><b>2</b><div><h3>Tu le partages</h3><p>En bio, en story, à tes potes. Ils réservent un appel de découverte gratuit.</p></div></div>
-    <div class="step"><b>3</b><div><h3>Tu touches 500 €</h3><p>Pour chaque personne qui rejoint l’école. Tu touches au rythme où elle paie, en une ou plusieurs fois.</p></div></div>
-  </div>
-  <div class="card" id="go">
-    <h2>Deviens ambassadeur.</h2>
-    <p class="s">Ton lien perso s’affiche juste après.</p>
-    <form id="wf" class="wf" novalidate>
-      <div class="st on"><label for="f1">Ton prénom ?</label><input id="f1" name="p" type="text" placeholder="Ton prénom" autocomplete="given-name" enterkeyhint="next"></div>
-      <div class="st"><label for="f2">Ton e-mail ?</label><input id="f2" name="e" type="email" placeholder="ton@email.com" autocomplete="email" inputmode="email" enterkeyhint="next"></div>
-      <div class="st"><label for="f3">Ton numéro WhatsApp ?</label><input id="f3" name="w" type="tel" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" enterkeyhint="go"></div>
-      <p class="wf-err" id="wferr"></p>
-      <button class="btn btn-main" type="submit"><span id="wfb">Suivant</span> <span>→</span></button>
-    </form>
-    <div id="done" hidden><p class="s" id="hi" style="margin-top:0"></p><div id="lk" style="word-break:break-all;font-weight:800;font-size:17px;background:var(--sand);border-radius:14px;padding:16px 14px;margin:0 auto 14px;max-width:440px"></div><button class="btn btn-main" id="cp" type="button" style="width:100%;max-width:440px">Copier mon lien</button><p class="note" style="font-size:14px;color:var(--ink);font-weight:600;margin-top:18px">À dire à la fin de tes vidéos :</p><p class="note" id="say" style="font-size:15px;color:var(--ink);margin-top:6px"></p></div>
-    <p class="note">Payé sur l’argent encaissé, au rythme où la personne paie. Si elle est remboursée ou arrête de payer, la prime s’arrête.</p>
-  </div>
+
+  <div class="prog" id="prog"><div class="bar"><i id="pbar"></i></div><span id="plabel"></span></div>
+
+  <!-- 0. Inscription -->
+  <section class="scr on">
+    <div class="head">
+      <span class="k">Programme ambassadeur</span>
+      <h1>Recommande l’école. Gagne 500 € par personne qui rejoint.</h1>
+      <p>Tu partages ton lien. Les gens réservent un appel de découverte gratuit. On s’occupe de la vente.</p>
+    </div>
+    <div class="formcard">
+      <h2>Deviens ambassadeur.</h2>
+      <p class="s">3 questions, puis 2 minutes pour tout comprendre. Ton lien perso arrive à la fin.</p>
+      <form id="wf" class="wf" novalidate>
+        <div class="st on"><label class="q" for="f1">Ton prénom ?</label><input class="i" id="f1" name="p" type="text" placeholder="Ton prénom" autocomplete="given-name" enterkeyhint="next"></div>
+        <div class="st"><label class="q" for="f2">Ton e-mail ?</label><input class="i" id="f2" name="e" type="email" placeholder="ton@email.com" autocomplete="email" inputmode="email" enterkeyhint="next"></div>
+        <div class="st"><label class="q" for="f3">Ton numéro WhatsApp ?</label><input class="i" id="f3" name="w" type="tel" placeholder="06 12 34 56 78" autocomplete="tel" inputmode="tel" enterkeyhint="go"></div>
+        <p class="err" id="wferr"></p>
+        <button class="btn btn-main" type="submit"><span id="wfb">Suivant</span> <span>→</span></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 1. Le pourquoi -->
+  <section class="scr">
+    <span class="k">Le pourquoi</span>
+    <h2 class="t"><span class="nm"></span>, tu ne vends pas du vent.</h2>
+    <p class="lead">Tu recommandes une école qui a déjà ses preuves. Regarde par toi-même.</p>
+    <div class="row">
+      <div class="stat"><b>1 400+</b><span>élèves déjà accompagnés</span></div>
+      <div class="stat"><b>96/100</b><span>audit indépendant TrustWho</span><a href="https://rapport.trustwho.io/rapport/mickael-wu-business" target="_blank" rel="noopener">Voir le rapport →</a></div>
+    </div>
+    <div class="vids">
+      <button class="vid" type="button" data-v="media/t-husler.mp4"><img src="img/tv-husler.jpg" alt="Husler, revente Vinted" loading="lazy"><span class="tri"></span><span class="pl"><b>14 200 €</b>en 2 mois, à 17 ans</span></button>
+      <button class="vid" type="button" data-v="media/t-jayden.mp4"><img src="img/tv-jayden.jpg" alt="Jayden, coach de vie" loading="lazy"><span class="tri"></span><span class="pl"><b>5 000 €</b>par mois</span></button>
+      <button class="vid" type="button" data-v="media/t-anes.mp4"><img src="img/tv-anes.jpg" alt="Anès, business en ligne" loading="lazy"><span class="tri"></span><span class="pl"><b>9 500 €</b>business en ligne</span></button>
+    </div>
+    <div class="gold"><h3>Pourquoi c’est facile à recommander</h3><p>Plein de gens autour de toi veulent vivre d’internet sans savoir par où commencer. Tu ne leur vends rien : tu leur offres un appel gratuit avec l’équipe. Ce sont nos coachs qui expliquent et qui vendent.</p></div>
+    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">J’ai compris →</button></div>
+  </section>
+
+  <!-- 2. Le deal -->
+  <section class="scr">
+    <span class="k">Le deal</span>
+    <h2 class="t">500 € par personne qui rejoint l’école.</h2>
+    <p class="lead">Sans limite. Tu touches au rythme où la personne paie.</p>
+    <div class="card"><div class="big">500 €</div><p style="margin-top:8px;color:var(--mut)">Elle paie en une fois : tu touches 500 € le mois suivant.</p></div>
+    <div class="card"><div class="big">3 × 167 €</div><p style="margin-top:8px;color:var(--mut)">Elle paie en 3 fois : tu touches environ 167 € à chaque paiement, pendant 3 mois.</p></div>
+    <div class="row">
+      <div class="stat"><b>5</b><span>personnes = 2 500 €</span></div>
+      <div class="stat"><b>10</b><span>personnes = 5 000 €</span></div>
+    </div>
+    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Comment vous savez que c’est moi ? →</button></div>
+  </section>
+
+  <!-- 3. Le tracking -->
+  <section class="scr">
+    <span class="k">Comment on sait que c’est toi</span>
+    <h2 class="t">Ton lien porte ton code. C’est tout.</h2>
+    <p class="lead">Tu n’as rien à déclarer, rien à remplir. Tout se fait tout seul.</p>
+    <div class="demo">audaceschool.com/cours-gratuit.html?a=<u class="cd">TONCODE</u></div>
+    <div class="flow">
+      <div class="f"><b>1</b><div><h3>La personne clique sur ton lien</h3><p>Ton code reste gardé sur son téléphone pendant 30 jours. Si elle revient plus tard, ça compte toujours pour toi.</p></div></div>
+      <div class="f"><b>2</b><div><h3>Elle réserve son appel</h3><p>Son rendez-vous est enregistré automatiquement avec ton code.</p></div></div>
+      <div class="f"><b>3</b><div><h3>Elle rejoint l’école</h3><p>La vente est notée à ton nom. Chaque début de mois, on fait le compte et on te paie.</p></div></div>
+    </div>
+    <div class="gold"><h3>La seule règle à retenir</h3><p>La personne doit réserver avec ton lien. Si un pote t’écrit « c’est quoi ton école ? », ne l’envoie nulle part ailleurs : envoie-lui ton lien.</p></div>
+    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Et après ? →</button></div>
+  </section>
+
+  <!-- 4. Ce que vit la personne -->
+  <section class="scr">
+    <span class="k">Ce qui se passe après</span>
+    <h2 class="t">Toi, tu partages. Nous, on fait le reste.</h2>
+    <p class="lead">Voilà exactement ce que vit la personne que tu recommandes.</p>
+    <div class="flow">
+      <div class="f"><b>1</b><div><h3>Elle regarde une courte vidéo</h3><p>Sur la page de l’appel de découverte, juste après avoir cliqué sur ton lien.</p></div></div>
+      <div class="f"><b>2</b><div><h3>Elle réserve son appel gratuit</h3><p>L’agenda est juste sous la vidéo. Elle choisit son créneau.</p></div></div>
+      <div class="f"><b>3</b><div><h3>Elle écrit à Mickaël sur WhatsApp</h3><p>Juste après sa réservation. Mickaël lui répond en personne.</p></div></div>
+      <div class="f"><b>4</b><div><h3>Elle fait son appel avec l’équipe</h3><p>On l’écoute, on regarde si l’école est faite pour elle, et on lui explique tout.</p></div></div>
+      <div class="f win"><b>€</b><div><h3>Elle rejoint l’école : tu touches 500 €</h3><p>Au rythme où elle paie.</p></div></div>
+    </div>
+    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" data-go="1">Dernière étape →</button></div>
+  </section>
+
+  <!-- 5. Règles + paiement -->
+  <section class="scr">
+    <span class="k">Les règles</span>
+    <h2 class="t">Simple et clair, pour tout le monde.</h2>
+    <div class="card">
+      <ul class="r">
+        <li>Tu parles de l’école à ta façon : bio, story, vidéo, ou à tes proches.</li>
+        <li>Tu es payé uniquement sur l’argent vraiment encaissé.</li>
+      </ul>
+      <ul class="r no" style="margin-top:12px">
+        <li>Tu ne promets jamais de gains d’argent à quelqu’un.</li>
+        <li>Pas de faux contacts : un appel qui ne signe pas ne rapporte rien.</li>
+        <li>Si une personne est remboursée ou arrête de payer, ta prime s’arrête.</li>
+      </ul>
+    </div>
+    <div class="gold"><h3>Comment tu es payé</h3><p>On te paie sur facture. Pour ça, il te faut un statut, par exemple auto-entrepreneur : ça se crée en ligne, gratuitement. Pas encore de statut ? Pas grave : tes primes sont gardées de côté et versées dès que tu en as un.</p></div>
+    <p style="font-weight:800;font-size:18px;margin:18px 0 0 4px">Tu as déjà un statut ?</p>
+    <div class="choice" id="stat">
+      <button class="ch" type="button" data-v="oui"><i></i>Oui, j’ai un numéro SIRET</button>
+      <button class="ch" type="button" data-v="non"><i></i>Pas encore</button>
+    </div>
+    <div id="siretw" hidden><input class="i" id="siret" type="text" inputmode="numeric" placeholder="Ton numéro SIRET (14 chiffres)" autocomplete="off"></div>
+    <label class="acc"><input type="checkbox" id="ok">J’ai tout compris et j’accepte les règles du programme ambassadeur AUDACE.</label>
+    <p class="err" id="err5" style="margin-top:10px"></p>
+    <div class="nav"><button class="btn back" type="button" data-go="-1" aria-label="Retour">←</button><button class="btn btn-main" type="button" id="fin">Je récupère mon lien →</button></div>
+  </section>
+
+  <!-- 6. Le kit -->
+  <section class="scr">
+    <span class="k">C’est parti</span>
+    <h2 class="t">Bienvenue chez les ambassadeurs, <span class="nm"></span>.</h2>
+    <p class="lead">Voilà ton lien et tout ce qu’il faut pour le partager. Garde cette page : sur ce téléphone, elle s’ouvrira directement sur ton kit.</p>
+    <div class="lk" id="lk"></div>
+    <button class="btn btn-main" type="button" data-copy="link">Copier mon lien</button>
+    <div style="height:18px"></div>
+
+    <div class="kit">
+      <h3>1. Envoie-le à un pote</h3>
+      <p class="h">Le plus rapide. Un message, et c’est envoyé.</p>
+      <div class="txt" id="msgPote"></div>
+      <a class="btn btn-wa" id="waPote" href="#" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>
+    </div>
+
+    <div class="kit">
+      <h3>2. Mets-le en bio</h3>
+      <p class="h">Sur Insta et TikTok. Colle ton lien, avec cette phrase au-dessus.</p>
+      <div class="txt">📲 Appel gratuit avec l’École AUDACE 👇</div>
+      <button class="btn btn-soft" type="button" data-copy="bio">Copier la phrase</button>
+    </div>
+
+    <div class="kit">
+      <h3>3. Poste 3 stories</h3>
+      <p class="h">Une par une, dans l’ordre. Mets ton lien en sticker sur la dernière.</p>
+      <div class="sty"><em>1</em><div class="txt">Tu veux vivre d’internet mais tu sais pas par où commencer ?</div></div>
+      <div class="sty"><em>2</em><div class="txt">L’École AUDACE a déjà accompagné plus de 1 400 élèves.</div></div>
+      <div class="sty"><em>3</em><div class="txt">Ils offrent un appel de découverte gratuit. Réserve le tien avec mon lien 👇</div></div>
+      <button class="btn btn-soft" type="button" data-copy="stories">Copier les 3 textes</button>
+    </div>
+
+    <div class="kit">
+      <h3>4. Dis-le à la fin de tes vidéos</h3>
+      <p class="h">Si tu fais du contenu.</p>
+      <div class="txt" id="say">« Réserve ton appel de découverte gratuit avec l’équipe de Mickaël Wu, le lien est en bio. »</div>
+      <button class="btn btn-soft" type="button" data-copy="say">Copier la phrase</button>
+    </div>
+
+    <div class="gold"><h3>Rappel</h3><p>La personne doit réserver avec ton lien pour que ça compte. 500 € par personne qui rejoint, au rythme où elle paie, sur facture.</p></div>
+  </section>
 </div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><button class="x" id="mx" type="button" aria-label="Fermer">✕</button><video id="mv" controls playsinline preload="none"></video></div>
+
 <script>
-// une question à la fois (prénom, e-mail, WhatsApp), enregistrées, puis lien perso affiché
-(function(){var f=document.getElementById('wf'),er=document.getElementById('wferr'),lb=document.getElementById('wfb'),st=f.querySelectorAll('.st'),k=0,FORM='https://docs.google.com/forms/d/e/1FAIpQLScJGKOEpti00sG3MRyJMunAgKA7s5gBW2WykMdaqStR12M1kA/formResponse';
+(function(){
+var FORM='https://docs.google.com/forms/d/e/1FAIpQLScJGKOEpti00sG3MRyJMunAgKA7s5gBW2WykMdaqStR12M1kA/formResponse';
+var KEY='aud-ambassadeur';
+var S={nm:'',e:'',w:'',code:'',link:'',statut:'',siret:''};
+var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
+var scr=$$('.scr'),cur=0,LBL=['','Le pourquoi','Le deal','Comment on sait que c’est toi','Ce qui se passe après','Les règles','Ton kit'];
+
+function show(i){
+  scr[cur].classList.remove('on');cur=i;scr[cur].classList.add('on');
+  var p=$('#prog');
+  if(i>0&&i<6){p.classList.add('on');$('#pbar').style.width=(i/5*100)+'%';$('#plabel').textContent='Étape '+i+' sur 5 · '+LBL[i]}else p.classList.remove('on');
+  window.scrollTo(0,0);
+}
+$$('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(cur+(+b.dataset.go))})});
+function names(){$$('.nm').forEach(function(n){n.textContent=S.nm})}
+
+/* inscription : une question à la fois */
+var f=$('#wf'),er=$('#wferr'),lb=$('#wfb'),st=f.querySelectorAll('.st'),k=0;
 var ok=[function(v){return v.length>0},function(v){return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)},function(v){return v.replace(/\D/g,'').length>=8}],msg=['Écris ton prénom.','Cet e-mail ne marche pas.','Écris ton numéro WhatsApp.'];
 f.addEventListener('submit',function(ev){ev.preventDefault();var inp=st[k].querySelector('input'),v=inp.value.trim();
-if(!ok[k](v)){inp.classList.add('bad');er.textContent=msg[k];inp.focus();return}
-inp.classList.remove('bad');er.textContent='';
-if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[k].querySelector('input').focus();if(k===st.length-1)lb.textContent='Je deviens ambassadeur';return}
-var b=f.querySelector('button');b.disabled=true;b.style.opacity='.7';
-var nm=f.p.value.trim(),slug=nm.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'').slice(0,10)||'AUDACE',code=slug+(10+Math.floor(Math.random()*90)),link='https://audaceschool.com/cours-gratuit.html?a='+code;
-var d=new URLSearchParams();d.append('entry.1608116188','AMBASSADEUR — '+nm+' — code '+code);d.append('entry.1696167199',f.e.value.trim());d.append('entry.128016296',f.w.value.trim());
-var show=function(){f.style.display='none';document.querySelector('#go > h2').textContent='C’est bon, '+nm+' !';document.querySelector('#go > .s').hidden=true;document.getElementById('hi').textContent='Voilà ton lien perso :';document.getElementById('lk').textContent=link;document.getElementById('say').textContent='« Réserve ton appel de découverte gratuit avec l’équipe de Mickaël Wu, le lien est en bio. »';document.getElementById('done').hidden=false};
-fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(show).catch(show);
-document.getElementById('cp').addEventListener('click',function(){var c=this,ok=function(){c.textContent='Copié ✓'};if(navigator.clipboard)navigator.clipboard.writeText(link).then(ok).catch(function(){prompt('Copie ton lien :',link)});else prompt('Copie ton lien :',link)});
-});})();
+  if(!ok[k](v)){inp.classList.add('bad');er.textContent=msg[k];inp.focus();return}
+  inp.classList.remove('bad');er.textContent='';
+  if(k<st.length-1){st[k].classList.remove('on');k++;st[k].classList.add('on');st[k].querySelector('input').focus();if(k===st.length-1)lb.textContent='Je commence';return}
+  S.nm=f.p.value.trim();S.e=f.e.value.trim();S.w=f.w.value.trim();
+  var slug=S.nm.normalize('NFD').replace(/[̀-ͯ]/g,'').toUpperCase().replace(/[^A-Z0-9]+/g,'').slice(0,10)||'AUDACE';
+  S.code=slug+(10+Math.floor(Math.random()*90));S.link='https://audaceschool.com/cours-gratuit.html?a='+S.code;
+  names();$$('.cd').forEach(function(c){c.textContent=S.code});show(1);
+});
+
+/* vidéos témoignages */
+var mo=$('#modal'),mv=$('#mv');
+$$('.vid').forEach(function(b){b.addEventListener('click',function(){mv.src=b.dataset.v;mo.classList.add('on');mv.play().catch(function(){})})});
+function closeM(){mv.pause();mv.removeAttribute('src');mv.load();mo.classList.remove('on')}
+$('#mx').addEventListener('click',closeM);mo.addEventListener('click',function(e){if(e.target===mo)closeM()});
+
+/* statut + acceptation */
+$$('#stat .ch').forEach(function(c){c.addEventListener('click',function(){$$('#stat .ch').forEach(function(x){x.classList.remove('on')});c.classList.add('on');S.statut=c.dataset.v;$('#err5').textContent='';$('#siretw').hidden=S.statut!=='oui';if(S.statut==='oui')$('#siret').focus()})});
+$('#fin').addEventListener('click',function(){
+  var e5=$('#err5');
+  if(!S.statut){e5.textContent='Dis-nous si tu as déjà un statut.';return}
+  S.siret=($('#siret').value||'').replace(/\s/g,'');
+  if(S.statut==='oui'&&!/^\d{14}$/.test(S.siret)){e5.textContent='Ton SIRET doit faire 14 chiffres.';$('#siret').classList.add('bad');return}
+  if(!$('#ok').checked){e5.textContent='Coche la case pour accepter les règles.';return}
+  e5.textContent='';var b=this;b.disabled=true;
+  var d=new URLSearchParams();
+  d.append('entry.1608116188','AMBASSADEUR — '+S.nm+' — code '+S.code+' — statut : '+(S.statut==='oui'?'SIRET '+S.siret:'pas encore')+' — règles acceptées');
+  d.append('entry.1696167199',S.e);d.append('entry.128016296',S.w);
+  var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link}))}catch(x){}kit()};
+  fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(done).catch(done);
+});
+
+/* kit */
+var T={};
+function kit(){
+  names();$('#lk').textContent=S.link;
+  T.link=S.link;
+  T.pote='Frère, tu m’avais dit que tu voulais lancer un truc sur internet. L’École AUDACE offre un appel de découverte gratuit pour voir si c’est fait pour toi. Réserve avec mon lien : '+S.link;
+  T.bio='📲 Appel gratuit avec l’École AUDACE 👇';
+  T.stories='1. Tu veux vivre d’internet mais tu sais pas par où commencer ?\n2. L’École AUDACE a déjà accompagné plus de 1 400 élèves.\n3. Ils offrent un appel de découverte gratuit. Réserve le tien avec mon lien 👇 '+S.link;
+  T.say=$('#say').textContent;
+  $('#msgPote').textContent=T.pote;$('#waPote').href='https://wa.me/?text='+encodeURIComponent(T.pote);
+  show(6);
+}
+$$('[data-copy]').forEach(function(b){var o=b.textContent;b.addEventListener('click',function(){var t=T[b.dataset.copy];
+  var okc=function(){b.textContent='Copié ✓';b.classList.add('copied');setTimeout(function(){b.textContent=o;b.classList.remove('copied')},1800)};
+  if(navigator.clipboard)navigator.clipboard.writeText(t).then(okc).catch(function(){prompt('Copie ce texte :',t)});else prompt('Copie ce texte :',t)})});
+
+/* déjà inscrit sur ce téléphone : on ouvre directement le kit (?nouveau pour refaire une inscription) */
+try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv&&sv.code&&!/[?&]nouveau/.test(location.search)){S.nm=sv.nm;S.code=sv.code;S.link=sv.link;kit()}}catch(x){}
+})();
 </script>
 </body>
 </html>

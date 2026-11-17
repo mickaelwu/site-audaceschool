@@ -334,7 +334,7 @@ var kfmt=function(n){return n>=1e6?(n/1e6).toFixed(1).replace('.',',')+' M':n>=1
 var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 
 /* ambassadeur : on garde le code jusqu'à la page de réservation */
-var AMB='';try{AMB=new URLSearchParams(location.search).get('a')||sessionStorage.getItem('amb')||'';if(AMB)sessionStorage.setItem('amb',AMB)}catch(e){}
+var AMB='';try{AMB=new URLSearchParams(location.search).get('a')||(function(){try{var o=JSON.parse(localStorage.getItem('amb30')||'null');if(o&&Date.now()-o.t<2592e6)return o.c}catch(e){}try{return sessionStorage.getItem('amb')}catch(e){}return ''})()||'';if(AMB)(sessionStorage.setItem('amb',AMB),localStorage.setItem('amb30',JSON.stringify({c:AMB,t:Date.now()})))}catch(e){}
 var BOOK='seance-decouverte.html'+(AMB?'?a='+encodeURIComponent(AMB):'');
 
 /* ---------- données ---------- */
