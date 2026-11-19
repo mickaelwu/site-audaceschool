@@ -296,6 +296,45 @@ input.i.bad{border-color:#C0392B}
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
 .confetti i{position:absolute;top:-12px;width:9px;height:14px;border-radius:2px;animation:fall 2.6s ease-in forwards}
 @keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.9}}
+
+/* ===== Thème sombre façon compte bancaire (comme le tableau de bord) ===== */
+:root{--cream:#0F0608;--sand:#24151A;--ink:#FFF8F5;--mut:#B9A3A8;--card:#1B0F12;--line:#2E1B20}
+html{background:#0F0608}
+body{background:#0F0608}
+body:before{content:"";position:fixed;inset:0 0 auto 0;height:420px;pointer-events:none;z-index:-1;background:radial-gradient(90% 70% at 85% 0%,rgba(194,33,77,.38),rgba(194,33,77,0) 60%),radial-gradient(80% 60% at 0% 10%,rgba(110,10,34,.45),rgba(110,10,34,0) 60%)}
+.logo{color:#fff}
+.k{background:rgba(255,255,255,.08);color:#F6CCD5}
+.card,.stat,.f,.formcard,.perks div,.acc,.kit,.vs .us,.trust,.zero div,.ms,.lkbox .lk,.gold{background:var(--card);box-shadow:none}
+.lad .f.st2{box-shadow:0 0 0 2px rgba(246,204,213,.22)}
+.grp{box-shadow:0 0 0 2px #1FAF55}
+.goal,.join,.lv{box-shadow:0 0 0 2px #F5C76A}
+.big,.stat b,.perks b,.fx b,.zero b,.chans b,.vs .us h4,.trust h4,.acc i,.demo-l,.gold h3,.vs .us li:before{color:#fff}
+.simo b,.pa b{color:#F5C76A}
+.btn-main{background:#fff;color:#2A030C;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.btn-main:hover{background:#F3E6E8}
+input.i{background:#24151A;border-color:var(--line);color:#fff}
+input.i::placeholder{color:#8C7479}
+input.i:focus{border-color:#C2214D;background:#2A1A20}
+.ch{background:var(--card);border-color:var(--line);color:#fff}
+.ch.on{background:#2A0F16;border-color:#C2214D}
+.ch i{border-color:#6B5558}
+.ch.on i{border-color:#fff}
+.seg button.on{background:#fff;color:#2A030C}
+.f.win{background:linear-gradient(135deg,#8A0B27,#5A0618);color:#fff}
+.f.win b{background:#fff;color:#67061B}
+.f.win p{color:#F6CCD5}
+.vs .me{background:linear-gradient(135deg,#8A0B27,#5A0618);color:#fff}
+.money,.pa{background:linear-gradient(160deg,#2B1A0E,#1B0F12)}
+.money b{background:linear-gradient(180deg,#FFE9A8,#F5B83D);-webkit-background-clip:text;background-clip:text;color:transparent}
+.money em{color:#fff}
+.pa em{color:#fff}
+.pa.big{background:linear-gradient(160deg,#7A0A24,#4A0414)}
+.ms>div>b{background:#fff;color:#67061B}
+.dots i.on{background:#fff}
+.bar i{background:linear-gradient(90deg,#C2214D,#F5C76A)}
+.modal .x{color:#2A030C}
+.demo{background:#fff;color:#2A030C}
+.demo u{background:#8A0B27;color:#fff;text-decoration:none;border-radius:6px;padding:0 4px}
 </style>
 </head>
 <body>
