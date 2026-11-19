@@ -717,7 +717,7 @@ if(eN>=1&&eN<=8){if(!S.nm)S.nm='Thomas';if(!S.code)S.code='THOMAS7';if(!S.link)S
   names();$$('.cd').forEach(function(c){c.textContent=S.code});$$('.lad').forEach(function(l){l.hidden=l.dataset.e!==S.eleve});if(window.lvUpdate)lvUpdate();
   if(eN===8)kit();else show(eN);return}
 /* déjà inscrit sur ce téléphone : on ouvre directement le kit (?nouveau pour refaire une inscription) */
-try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv&&sv.code&&!/[?&]nouveau/.test(location.search)){S.nm=sv.nm;S.code=sv.code;S.link=sv.link;kit()}}catch(x){}
+try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv&&sv.code&&!/[?&](nouveau|m)=?/.test(location.search)&&!/[?&]etape=/.test(location.search)){location.replace('partenaire.html?code='+encodeURIComponent(sv.code));return}}catch(x){}
 })();
 </script>
 </body>
