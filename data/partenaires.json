@@ -1,5 +1,36 @@
 {
- "maj": "2026-11-19T04:37+01:00",
+ "maj": "2026-11-19T04:42+01:00",
  "mois": "2026-11",
- "partenaires": []
+ "partenaires": [
+  {
+   "code": "CLEMENT",
+   "prenom": "Clément Z.",
+   "resa": 2,
+   "resa_mois": 2,
+   "ventes": 2,
+   "ventes_mois": 2,
+   "activite": [],
+   "gagne": 1000
+  },
+  {
+   "code": "QUENTIN",
+   "prenom": "Quentin",
+   "resa": 2,
+   "resa_mois": 2,
+   "ventes": 2,
+   "ventes_mois": 2,
+   "activite": [],
+   "gagne": 1000
+  },
+  {
+   "code": "CHRISTI",
+   "prenom": "Christi",
+   "resa": 1,
+   "resa_mois": 1,
+   "ventes": 1,
+   "ventes_mois": 1,
+   "activite": [],
+   "gagne": 500
+  }
+ ]
 }

@@ -1,0 +1,8 @@
+{
+ "_info": "Ventes faites avant le suivi automatique (ajoutées à la main sur demande de Mickaël, 19 nov. 2026). Le script les ajoute au classement.",
+ "partenaires": [
+  {"code": "CLEMENT", "prenom": "Clément Z.", "ventes": 2, "mois": "2026-11"},
+  {"code": "QUENTIN", "prenom": "Quentin", "ventes": 2, "mois": "2026-11"},
+  {"code": "CHRISTI", "prenom": "Christi", "ventes": 1, "mois": "2026-11"}
+ ]
+}

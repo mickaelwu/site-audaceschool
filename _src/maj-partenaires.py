@@ -31,20 +31,38 @@ for l in leads:
         continue
     if (l.get("utmSource") or "").lower() != "ambassadeur":
         continue
-    p = P.setdefault(code, {"code": code, "prenom": prenom(code), "resa": 0, "resa_mois": 0, "ventes": 0, "ventes_mois": 0})
+    p = P.setdefault(code, {"code": code, "prenom": prenom(code), "resa": 0, "resa_mois": 0, "ventes": 0, "ventes_mois": 0, "activite": []})
     st = l.get("effectiveStatus") or l.get("status")
     booked = (l.get("callCount") or 0) > 0 or st not in ("POTENTIAL", "QUALIFIED", "DISQUALIFIED")
     if booked:
         p["resa"] += 1
         if (l.get("createdAt") or "")[:7] == mois:
             p["resa_mois"] += 1
+        p["activite"].append({"d": (l.get("createdAt") or "")[:16], "t": "resa"})
     if st in VENTE or (l.get("dealCount") or 0) > 0:
         p["ventes"] += 1
         d = l.get("closeDate") or l.get("iclosedUpdatedAt") or ""
         if d[:7] == mois:
             p["ventes_mois"] += 1
+        p["activite"].append({"d": d[:16], "t": "vente"})
+# ventes faites avant le suivi automatique (data/ventes-manuelles.json)
+try:
+    man = json.load(open("data/ventes-manuelles.json", encoding="utf8")).get("partenaires", [])
+except FileNotFoundError:
+    man = []
+for m in man:
+    code = m["code"].upper()
+    p = P.setdefault(code, {"code": code, "prenom": m.get("prenom") or prenom(code), "resa": 0, "resa_mois": 0, "ventes": 0, "ventes_mois": 0, "activite": []})
+    if m.get("prenom"):
+        p["prenom"] = m["prenom"]
+    p["ventes"] += m.get("ventes", 0)
+    p["resa"] += m.get("ventes", 0)
+    if m.get("mois") == mois:
+        p["ventes_mois"] += m.get("ventes", 0)
+        p["resa_mois"] += m.get("ventes", 0)
 for p in P.values():
     p["gagne"] = gain(p["ventes"])
+    p["activite"] = sorted(p["activite"], key=lambda e: e["d"], reverse=True)[:30]
 out = {"maj": now.isoformat(timespec="minutes"), "mois": mois,
        "partenaires": sorted(P.values(), key=lambda p: (-p["ventes"], -p["resa"], p["code"]))}
 json.dump(out, open("data/partenaires.json", "w", encoding="utf8"), ensure_ascii=False, indent=1)
