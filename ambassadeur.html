@@ -248,6 +248,20 @@ input.i.bad{border-color:#C0392B}
 .money b.m2{font-size:44px;line-height:1.05}
 .z2 a{display:block;margin-top:4px;font-size:12.5px;font-weight:800;color:var(--ink)}
 .crew{margin-bottom:14px}
+.manif{border-radius:26px;padding:24px 18px 20px;margin:0 0 18px;background:radial-gradient(120% 90% at 100% 0%,#C2214D,rgba(194,33,77,0) 55%),linear-gradient(160deg,#4A0414,#1B070C);color:#fff;box-shadow:0 18px 44px rgba(74,4,20,.35)}
+.manif .k{background:rgba(255,255,255,.14);color:#F6CCD5}
+.manif h2{font-size:clamp(30px,7.5vw,40px);line-height:1.05;margin:4px 0 12px;color:#fff}
+.manif>p{color:#F3E6E8;font-size:16px;line-height:1.5}
+.manif>p+p{margin-top:10px}
+.vsx{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0 6px}
+.vsx div{border-radius:18px;padding:14px 12px}
+.vsx .old{background:rgba(255,255,255,.07)}
+.vsx .new{background:#fff;color:#2A030C}
+.vsx h4{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.vsx ul{margin:0;padding:0;list-style:none;font-size:14px;font-weight:700;line-height:1.35}
+.vsx li+li{margin-top:7px}
+.vsx .old li{color:#D9C5CA}
+.manif .end{margin-top:14px;font-family:'Inter',sans-serif;font-weight:800;font-size:20px;line-height:1.2;color:#fff}
 .paths{display:grid;gap:10px;margin:4px 0 14px}
 .pa{text-align:center;border-radius:22px;padding:20px 16px;background:linear-gradient(160deg,#fff,#FFF6E3);box-shadow:0 0 0 2px #F5C76A,0 14px 34px rgba(245,184,61,.22)}
 .pa span{display:block;font-size:14px;font-weight:800;color:var(--mut)}
@@ -309,6 +323,17 @@ input.i.bad{border-color:#C0392B}
 
   <!-- 1. Pourquoi toi -->
   <section class="scr">
+    <div class="manif">
+      <span class="k">Le mouvement AUDACE</span>
+      <h2>Créateur, c’est un vrai métier.</h2>
+      <p>YouTubeur, créateur, entrepreneur en ligne : pour beaucoup de parents et de profs, ce n’est « pas un vrai travail ». On est là pour prouver le contraire.</p>
+      <p>Pas avec des discours. Avec des élèves qui en vivent, des clients, des virements.</p>
+      <div class="vsx">
+        <div class="old"><h4>École de commerce</h4><ul><li>3 à 5 ans d’études</li><li>Des dizaines de milliers d’euros</li><li>Un diplôme, et après on verra</li></ul></div>
+        <div class="new"><h4>École AUDACE</h4><ul><li>3 mois</li><li>5 000 € en 3 mois ou remboursé</li><li>Ton 1er client, pas un business plan</li></ul></div>
+      </div>
+      <p class="end">En recommandant l’école, tu ne vends pas une formation. Tu fais partie de ceux qui changent les choses.</p>
+    </div>
     <span class="k">Pourquoi toi</span>
     <h2 class="t big1">On a construit la machine.<br>Il nous manque ta voix.</h2>
     <p class="lead">Il y a 3 ans, AUDACE n’existait pas. Aujourd’hui :</p>
@@ -400,7 +425,7 @@ input.i.bad{border-color:#C0392B}
     <div class="crew">
       <h3>On scale ensemble.</h3>
       <div class="tiles">
-        <div><b>1×/mois</b><span>Rendez-vous entre créateurs qui s’entraident</span></div>
+        <div><b>1×/mois</b><span>Le meetup des partenaires à Paris, dès ta 1<sup>re</sup> vente</span></div>
         <div><b>En live</b><span>Appels de groupe avec Mickaël Wu et son CEO</span></div>
         <div><b>Ta voix</b><span>Tes idées améliorent le programme</span></div>
       </div>
@@ -414,6 +439,7 @@ input.i.bad{border-color:#C0392B}
       <div class="simo"><span id="lvn">10 personnes</span><b id="lvm">5 000 €</b><em id="lvs">de primes · Statut : Mentor AUDACE · 4 paliers débloqués</em></div>
     </div>
     <div class="flow lad" data-e="non">
+      <div class="f"><b style="background:#FFF1C7;color:#67061B">1<small>vente</small></b><div><h3>Le meetup des partenaires, chaque mois à Paris</h3><p>Entre partenaires stratégiques, avec Mickaël Wu et son CEO. Réservé à ceux qui ont fait au moins une vente.</p></div></div>
       <div class="f"><b style="background:#F9DCE3;color:#67061B">3<small>ventes</small></b><div><h3>Un appel stratégique en personne</h3><p>Avec le CEO de Mickaël Wu et le Head of Delivery d’une boîte à 3 M€ par mois, pour te scaler.</p></div></div>
       <div class="f st2"><b style="background:#F3BCC9;color:#67061B">5<small>ventes</small></b><div><em class="role">Nouveau statut</em><h3>Partenaire confirmé</h3><p>Une vidéo en collab avec Mickaël, sur le sujet de ton choix. Et ta place offerte à l’AUDACE Experience.</p></div></div>
       <div class="f"><b style="background:#EA94A9;color:#4A0414">6<small>ventes</small></b><div><h3>L’accompagnement AUDACE offert, à vie</h3><p>Valeur 3 600 €. Tu vis l’école de l’intérieur, avec ton coach. Pour toujours.</p></div></div>
@@ -423,6 +449,7 @@ input.i.bad{border-color:#C0392B}
       <div class="f win"><b>200<small>ventes</small></b><div><h3>Ta voiture offerte</h3><p>Jusqu’à 30 000 €, ou la somme en cash.</p></div></div>
     </div>
     <div class="flow lad" data-e="oui" hidden>
+      <div class="f"><b style="background:#FFF1C7;color:#67061B">1<small>vente</small></b><div><h3>Le meetup des partenaires, chaque mois à Paris</h3><p>Entre partenaires stratégiques, avec Mickaël Wu et son CEO. Réservé à ceux qui ont fait au moins une vente.</p></div></div>
       <div class="f"><b style="background:#F9DCE3;color:#67061B">3<small>ventes</small></b><div><h3>Un appel stratégique en personne</h3><p>Avec le CEO de Mickaël Wu et le Head of Delivery d’une boîte à 3 M€ par mois, pour te scaler.</p></div></div>
       <div class="f st2"><b style="background:#F3BCC9;color:#67061B">5<small>ventes</small></b><div><em class="role">Nouveau statut</em><h3>Partenaire confirmé</h3><p>Une vidéo en collab avec Mickaël, sur le sujet de ton choix. Et ta place offerte à l’AUDACE Experience.</p></div></div>
       <div class="f"><b style="background:#EA94A9;color:#4A0414">6<small>ventes</small></b><div><h3>Une grosse réduction sur l’accompagnement Scaling</h3><p>Notre accompagnement pour passer à 100 000 € par mois.</p></div></div>
@@ -501,7 +528,7 @@ input.i.bad{border-color:#C0392B}
       <h3>D’abord : rejoins le groupe des partenaires stratégiques</h3>
       <p class="h">Tu n’es pas lâché seul avec un lien. On est là pour te coacher.</p>
       <ul class="r" style="margin:6px 0 14px">
-        <li>Un rendez-vous chaque mois entre créateurs qui s’entraident. Le but : scaler ensemble.</li>
+        <li>Dès ta 1<sup>re</sup> vente : le meetup des partenaires, chaque mois à Paris, avec Mickaël Wu et son CEO.</li>
         <li>Des appels de groupe avec Mickaël Wu et son CEO, pour t’aider à faire plus et répondre à toutes tes questions.</li>
         <li>Une idée pour améliorer le programme ? Tu la proposes, on l’écoute. Tu construis le système avec nous.</li>
       </ul>
@@ -528,8 +555,8 @@ input.i.bad{border-color:#C0392B}
     <div class="kit">
       <h3>3. Poste 3 stories</h3>
       <p class="h">Une par une, dans l’ordre. Mets ton lien en sticker sur la dernière.</p>
-      <div class="sty"><em>1</em><div class="txt">Tu veux vivre d’internet mais tu sais pas par où commencer ?</div></div>
-      <div class="sty"><em>2</em><div class="txt">L’École AUDACE a déjà accompagné plus de 1 400 élèves.</div></div>
+      <div class="sty"><em>1</em><div class="txt">Créateur, entrepreneur en ligne : pour moi, c’est un vrai métier.</div></div>
+      <div class="sty"><em>2</em><div class="txt">L’École AUDACE l’a déjà prouvé avec plus de 1 400 élèves.</div></div>
       <div class="sty"><em>3</em><div class="txt">Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇</div></div>
       <button class="btn btn-soft" type="button" data-copy="stories">Copier les 3 textes</button>
     </div>
@@ -537,7 +564,7 @@ input.i.bad{border-color:#C0392B}
     <div class="kit">
       <h3>4. Dis-le à la fin de tes vidéos</h3>
       <p class="h">Si tu fais du contenu.</p>
-      <div class="txt" id="say">« Réserve ton appel offert de découverte avec l’École AUDACE, le lien est en bio. »</div>
+      <div class="txt" id="say">« Créateur, c’est un vrai métier. Si tu veux le prouver toi aussi, l’École AUDACE t’offre ton appel de découverte. Le lien est en bio. »</div>
       <button class="btn btn-soft" type="button" data-copy="say">Copier la phrase</button>
     </div>
 
@@ -633,7 +660,7 @@ function kit(){
   T.link=S.link;
   T.pote='Frère, tu m’avais dit que tu voulais lancer un truc sur internet. L’École AUDACE propose un appel offert de découverte pour voir si c’est fait pour toi. Réserve avec mon lien : '+S.link;
   T.bio='📲 Appel offert de découverte avec l’École AUDACE 👇';
-  T.stories='1. Tu veux vivre d’internet mais tu sais pas par où commencer ?\n2. L’École AUDACE a déjà accompagné plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+S.link;
+  T.stories='1. Créateur, entrepreneur en ligne : pour moi, c’est un vrai métier.\n2. L’École AUDACE l’a déjà prouvé avec plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+S.link;
   T.say=$('#say').textContent;
   T.mentor='https://audaceschool.com/ambassadeur.html?m='+S.code;$('#lkm').textContent=T.mentor;
   $('#msgPote').textContent=T.pote;

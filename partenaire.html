@@ -133,6 +133,13 @@ button{font:inherit;color:inherit}
 .login input{width:100%;margin:22px 0 10px;font:inherit;font-weight:800;font-size:22px;text-align:center;text-transform:uppercase;letter-spacing:.1em;color:#fff;border:0;border-radius:18px;padding:18px;background:var(--card);outline:none}
 .login .err{color:#FF7A95;font-weight:700;font-size:14px;min-height:20px;margin-bottom:8px}
 .hide{display:none!important}
+.mv{margin:16px 14px 0;border-radius:24px;padding:20px 18px;background:#fff;color:#2A030C}
+.mv .t1{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A0B27}
+.mv h2{font-size:26px;line-height:1.08;margin:8px 0 8px;color:#2A030C}
+.mv p{font-size:14px;line-height:1.45;color:#5A4448}
+.mv .cn{display:flex;align-items:baseline;gap:8px;margin-top:14px;padding-top:2px}
+.mv .cn b{font-family:'Instrument Sans',sans-serif;font-size:40px;letter-spacing:-.03em;line-height:1;color:#2A030C}
+.mv .cn span{font-size:13px;font-weight:800;color:#5A4448;line-height:1.25}
 .tick{margin:14px 14px 0;background:var(--card);border-radius:999px;overflow:hidden;height:40px;display:flex;align-items:center;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .tick .tr{display:flex;gap:34px;white-space:nowrap;padding-left:100%;animation:mq 26s linear infinite;font-size:13px;font-weight:800}
 .tick .tr span{display:inline-flex;align-items:center;gap:6px}
@@ -198,6 +205,13 @@ button{font:inherit;color:inherit}
     <div class="kpi"><b id="kven">0</b><span>Personnes inscrites</span></div>
     <div class="kpi"><b id="krk">—</b><span>Classement du mois</span></div>
   </div>
+
+  <section class="mv">
+    <span class="t1">Le mouvement AUDACE</span>
+    <h2>Créateur, c’est un vrai métier. On est là pour le prouver.</h2>
+    <p>Chaque personne que tu fais entrer à l’école, c’est une preuve de plus. Tu ne vends pas une formation : tu fais partie de ceux qui changent les choses.</p>
+    <div class="cn"><b id="mvc">0</b><span>élèves déjà accompagnés<br>par l’École AUDACE</span></div>
+  </section>
 
   <section class="sec" id="qw">
     <div class="sh"><h2>Défi 7 jours</h2><span>Ta 1<sup>re</sup> réservation</span></div>
@@ -292,7 +306,7 @@ var save=function(){try{localStorage.setItem(QK,JSON.stringify(Q))}catch(x){}};s
 $('#since').textContent='Depuis le '+new Date(Q.t0).toLocaleDateString('fr-FR',{day:'numeric',month:'long'});
 var T={
   pote:'Frère, tu m’avais dit que tu voulais lancer un truc sur internet. L’École AUDACE propose un appel offert de découverte pour voir si c’est fait pour toi. Réserve avec mon lien : '+link,
-  story:'1. Tu veux vivre d’internet mais tu sais pas par où commencer ?\n2. L’École AUDACE a déjà accompagné plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+link,
+  story:'1. Créateur, entrepreneur en ligne : pour moi, c’est un vrai métier.\n2. L’École AUDACE l’a déjà prouvé avec plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+link,
   bio:'📲 Appel offert de découverte avec l’École AUDACE 👇\n'+link
 };
 $('#tpote').textContent=T.pote;$('#tstory').textContent=T.story;$('#tbio').textContent=T.bio;
@@ -316,6 +330,7 @@ $('#share').addEventListener('click',function(){
 $('#codeb').addEventListener('click',function(){copy(link,null,function(){toast('🔗','Ton lien perso est copié',link.replace('https://',''))})});
 
 var PAL=[
+  {n:1,ic:'🥂',t:'Le meetup mensuel des partenaires à Paris, avec Mickaël et son CEO'},
   {n:3,ic:'📞',t:'Un appel stratégique en personne avec le CEO de Mickaël Wu'},
   {n:5,ic:'🎬',t:'Partenaire confirmé : une vidéo en collab avec Mickaël et ta place à l’AUDACE Experience'},
   {n:6,ic:'🎓',t:eleve?'Une grosse réduction sur l’accompagnement Scaling':'L’accompagnement AUDACE offert, à vie'},
@@ -407,6 +422,8 @@ function celebrate(){var m=me(),s={};try{s=JSON.parse(localStorage.getItem(SEEN)
   try{localStorage.setItem(SEEN,JSON.stringify({code:code,resa:m.resa,ventes:m.ventes}))}catch(x){}}
 
 $('#dash').classList.remove('hide');render();
+(function(){var el=$('#mvc'),to=1400,t0=null;function st(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1600);k=1-Math.pow(1-k,3);el.textContent=f(Math.round(to*k))+(k>=1?'+':'');if(k<1)requestAnimationFrame(st)}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){requestAnimationFrame(st);io.disconnect()}});io.observe(el)}else requestAnimationFrame(st)})();
 function load(){fetch('data/partenaires.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
   DATA=d;ME=(d.partenaires||[]).filter(function(p){return p.code===code})[0]||null;render();celebrate();
   if(d.maj){var mn=Math.round((Date.now()-new Date(d.maj).getTime())/6e4);$('#maj').textContent='Synchronisé avec le CRM '+(mn<2?'à l’instant':mn<60?'il y a '+mn+' min':'il y a '+Math.round(mn/60)+' h')+'. Une vente compte dès que la personne a rejoint l’école.'}
