@@ -31,13 +31,6 @@ p{margin:0}
 .money span{display:block;font-size:14px;font-weight:700;color:var(--mut)}
 .money b{display:block;font-family:'Instrument Sans',sans-serif;font-size:76px;letter-spacing:-.04em;line-height:1;margin:8px 0 6px;background:linear-gradient(180deg,#8A0B27,#67061B);-webkit-background-clip:text;background-clip:text;color:transparent}
 .money em{font-style:normal;font-weight:800;font-size:15px}
-.lv{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
-.lv div{border-radius:14px;padding:10px 6px;background:var(--sand);text-align:center;font-weight:800;font-size:13px;color:var(--mut);line-height:1.25}
-.lv div b{display:block;font-family:'Instrument Sans',sans-serif;font-size:22px;color:var(--ink);letter-spacing:-.02em}
-.lv div.done{background:var(--rose);color:var(--b)}
-.lv div.done b{color:var(--b)}
-.lv div.now{background:var(--b);color:#F6CCD5;box-shadow:0 8px 22px rgba(103,6,27,.3)}
-.lv div.now b{color:#fff}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 .stat{background:#fff;border-radius:20px;padding:18px 16px;box-shadow:0 8px 26px rgba(30,16,18,.06)}
 .stat b{display:block;font-family:'Instrument Sans',sans-serif;font-size:40px;letter-spacing:-.03em;line-height:1.05;color:var(--b)}
@@ -140,12 +133,7 @@ p{margin:0}
     <div class="money">
       <span>Tu as gagné</span>
       <b id="gain">0 €</b>
-      <em id="nextv">Ta prochaine vente : 300 €</em>
-      <div class="lv" id="lv">
-        <div data-l="1"><b>300 €</b>Niveau 1<br>1<sup>re</sup> vente</div>
-        <div data-l="2"><b>400 €</b>Niveau 2<br>2<sup>e</sup> vente</div>
-        <div data-l="3"><b>500 €</b>Niveau 3<br>dès la 3<sup>e</sup></div>
-      </div>
+      <em id="nextv">500 € pour chaque personne qui rejoint l’école</em>
     </div>
 
     <div class="row">
@@ -213,7 +201,7 @@ p{margin:0}
 var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
 var KEY='aud-ambassadeur',QK='aud-qw';
 var f=function(n){return n.toLocaleString('fr-FR').replace(/ | | /g,' ')};
-var gain=function(n){return n<=0?0:n===1?300:500*n-300};
+var gain=function(n){return n>0?500*n:0};
 var prenom=function(c){var p=c.replace(/\d+$/,'');return p?p.charAt(0)+p.slice(1).toLowerCase():c};
 var MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 
@@ -284,9 +272,7 @@ function render(){
   $('#hi').textContent='Salut '+nm+' 👋';
   $('#statut').textContent=v>=10?'Mentor AUDACE':v>=5?'Partenaire confirmé':'Partenaire stratégique';
   var g=gain(v);countUp($('#gain'),g,' €');
-  var lvl=v>=2?3:v+1;
-  $('#nextv').textContent=v===0?'Ta 1re vente : 300 €':v===1?'Ta prochaine vente : 400 €':'Niveau 3 atteint : 500 € à chaque vente';
-  $$('#lv div').forEach(function(d){var l=+d.dataset.l;d.classList.toggle('done',l<lvl);d.classList.toggle('now',l===lvl)});
+  $('#nextv').textContent=v===0?'Ta 1re vente = 500 € pour toi':'500 € pour chaque personne qui rejoint l’école';
   $('#sresa').textContent=me.resa;$('#sresam').textContent=me.resa_mois+' ce mois-ci';
   $('#svent').textContent=v;$('#sventm').textContent=me.ventes_mois+' ce mois-ci';
   $('#sub').textContent=me.resa===0?'Ta mission : décrocher ta 1re réservation.':v===0?'Tu as des réservations. La 1re vente arrive.':'Tu es lancé. Continue comme ça.';

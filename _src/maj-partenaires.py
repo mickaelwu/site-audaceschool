@@ -12,8 +12,8 @@ EXCLUS = {"THOMAS7", "ARTHUR63"}          # codes de test
 TEL_TEST = {"+33695739669"}               # numéro de Mickaël (tests)
 VENTE = {"WON", "PLAN_IN_PROGRESS", "PLAN_PAID", "PLAN_DEPOSIT_PAID", "PLAN_OVERDUE"}
 
-def gain(n):  # 300 € la 1re vente, 400 € la 2e, puis 500 €
-    return 0 if n <= 0 else 300 if n == 1 else 500 * n - 300
+def gain(n):  # 500 € par personne qui rejoint l'école
+    return 500 * max(n, 0)
 
 def prenom(code):
     p = re.sub(r"\d+$", "", code).capitalize()
