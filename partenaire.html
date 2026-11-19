@@ -133,6 +133,24 @@ button{font:inherit;color:inherit}
 .login input{width:100%;margin:22px 0 10px;font:inherit;font-weight:800;font-size:22px;text-align:center;text-transform:uppercase;letter-spacing:.1em;color:#fff;border:0;border-radius:18px;padding:18px;background:var(--card);outline:none}
 .login .err{color:#FF7A95;font-weight:700;font-size:14px;min-height:20px;margin-bottom:8px}
 .hide{display:none!important}
+.tick{margin:14px 14px 0;background:var(--card);border-radius:999px;overflow:hidden;height:40px;display:flex;align-items:center;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tick .tr{display:flex;gap:34px;white-space:nowrap;padding-left:100%;animation:mq 26s linear infinite;font-size:13px;font-weight:800}
+.tick .tr span{display:inline-flex;align-items:center;gap:6px}
+@keyframes mq{to{transform:translateX(-100%)}}
+.pot{margin:14px 14px 0;border-radius:24px;padding:16px 18px;background:linear-gradient(135deg,#FFE08A,#F5B83D);color:#2A030C;display:flex;align-items:center;gap:14px;box-shadow:0 14px 34px rgba(245,184,61,.25)}
+.pot .e{font-size:30px}
+.pot b{display:block;font-family:'Instrument Sans',sans-serif;font-size:30px;letter-spacing:-.03em;line-height:1}
+.pot span{font-size:13px;font-weight:800;opacity:.8}
+.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:end;gap:8px;margin:6px 0 14px}
+.pd{text-align:center}
+.pd .ava{width:54px;height:54px;margin:0 auto 6px;border-radius:50%;display:grid;place-items:center;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:22px;background:var(--card2);position:relative}
+.pd.p1 .ava{width:66px;height:66px;font-size:26px;background:linear-gradient(135deg,#FFE08A,#F5B83D);color:#4A0414;box-shadow:0 0 0 4px rgba(245,199,106,.25),0 0 30px rgba(245,199,106,.45)}
+.pd.p1 .ava:before{content:"👑";position:absolute;top:-22px;font-size:22px}
+.pd .n{font-weight:800;font-size:14px;line-height:1.2}
+.pd .g{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:16px;color:var(--gold)}
+.pd .st{margin-top:8px;border-radius:16px 16px 6px 6px;background:linear-gradient(180deg,#5A0618,#2A030C);display:grid;place-items:center;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:26px;color:rgba(255,255,255,.85);height:0;transition:height 1s cubic-bezier(.2,1.2,.3,1)}
+.pd.p1 .st{background:linear-gradient(180deg,#C2214D,#5A0618)}
+.pd.me .ava{box-shadow:0 0 0 3px #fff}
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
 .confetti i{position:absolute;top:-12px;width:9px;height:14px;border-radius:2px;animation:fall 2.6s ease-in forwards}
 @keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.9}}
@@ -172,6 +190,9 @@ button{font:inherit;color:inherit}
     </nav>
   </header>
 
+  <div class="tick" id="tick"><div class="tr" id="tr"></div></div>
+  <div class="pot" id="pot"><div class="e">🔥</div><div><b id="potv">0 €</b><span id="potl">gagnés par les partenaires ce mois-ci</span></div></div>
+
   <div class="sec kpis">
     <div class="kpi"><b id="kres">0</b><span>Réservations</span></div>
     <div class="kpi"><b id="kven">0</b><span>Personnes inscrites</span></div>
@@ -200,6 +221,7 @@ button{font:inherit;color:inherit}
     <div class="sh"><h2>Classement</h2><span>Partenaires stratégiques</span></div>
     <div class="card">
       <div class="tabs"><button type="button" class="on" data-p="mois" id="tmois">Ce mois-ci</button><button type="button" data-p="tout">Depuis le début</button></div>
+      <div class="podium" id="pod"></div>
       <div id="lb"></div>
       <p class="gap" id="gap"></p>
     </div>
@@ -318,7 +340,7 @@ function render(){
     var r=nx.n-v;$('#pcnt').textContent='Plus que '+r+(r>1?' ventes':' vente');
     setTimeout(function(){$('#pbar').style.width=Math.max(3,(v-prev)/(nx.n-prev)*100)+'%'},200)}
   else{$('#pic').textContent='🏁';$('#pn').textContent='';$('#plab').textContent='Tous les paliers';$('#ptit').textContent='Tu as tout débloqué.';$('#pcnt').textContent='';$('#pbar').style.width='100%'}
-  activity(m);board();
+  activity(m);board();hype();
 }
 function activity(m){var box=$('#act'),A=m.activite||[];box.innerHTML='';
   if(!A.length){box.innerHTML='<div class="empty"><div class="e">📭</div><b>Rien pour l’instant</b><p>Chaque réservation et chaque vente faites avec ton lien s’afficheront ici.</p></div>';return}
@@ -330,6 +352,26 @@ function fmtD(d){if(isNaN(d))return '';var t=new Date(),y=new Date(t.getTime()-8
   var h=d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
   if(d.toDateString()===t.toDateString())return "Aujourd'hui, "+h;if(d.toDateString()===y.toDateString())return 'Hier, '+h;
   return d.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})+', '+h}
+function ago(d){var m=Math.round((Date.now()-d)/6e4);return m<60?'il y a '+Math.max(1,m)+' min':m<1440?'il y a '+Math.round(m/60)+' h':'il y a '+Math.round(m/1440)+' j'}
+function hype(){var L=(DATA&&DATA.partenaires)||[],items=[],tot=0,totAll=0;
+  L.forEach(function(p){tot+=gain(p.ventes_mois);totAll+=gain(p.ventes);
+    (p.activite||[]).slice(0,3).forEach(function(e){var d=new Date(e.d.length===16?e.d+':00Z':e.d);items.push({d:+d,t:e.t==='vente'?'💸 '+p.prenom+' vient de faire une vente · +500 € · '+ago(d):'📅 '+p.prenom+' a décroché un appel réservé · '+ago(d)})});
+    if(p.ventes>0&&!(p.activite||[]).length)items.push({d:0,t:'🔥 '+p.prenom+' a déjà gagné '+f(gain(p.ventes))+' €'})});
+  items.sort(function(a,b){return b.d-a.d});
+  if(!items.length)items=[{t:'🏁 Le classement de '+MOIS[now.getMonth()]+' est ouvert. La 1re réservation prend la tête.'}];
+  items.push({t:'💰 500 € pour chaque personne qui rejoint l’école grâce à toi'});
+  var tr=$('#tr');tr.innerHTML='';items.slice(0,10).forEach(function(i){var sp=document.createElement('span');sp.textContent=i.t;tr.appendChild(sp)});
+  tr.style.animationDuration=Math.max(18,items.length*7)+'s';
+  if(tot>0){$('#pot').classList.remove('hide');potUp(tot);$('#potl').textContent='gagnés par les partenaires en '+MOIS[now.getMonth()]}
+  else if(totAll>0){$('#pot').classList.remove('hide');potUp(totAll);$('#potl').textContent='déjà gagnés par les partenaires'}
+  else $('#pot').classList.add('hide')}
+var potShown=0;function potUp(to){if(to===potShown)return;var el=$('#potv'),from=potShown,t0=null;potShown=to;function st(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1300);k=1-Math.pow(1-k,3);el.textContent=f(Math.round(from+(to-from)*k))+' €';if(k<1)requestAnimationFrame(st)}requestAnimationFrame(st)}
+function podium(L,kv){var pd=$('#pod');pd.innerHTML='';var t=L.filter(function(p){return p[kv]>0}).slice(0,3);if(t.length<2){pd.classList.add('hide');return t.length}
+  pd.classList.remove('hide');var order=[t[1],t[0],t[2]],hs=[70,100,48],cls=['p2','p1','p3'],num=[2,1,3];
+  order.forEach(function(p,i){var d=document.createElement('div');if(!p){pd.appendChild(d);return}
+    d.className='pd '+cls[i]+(p.code===code?' me':'');var n=p.code===code?nm:p.prenom;
+    d.innerHTML='<div class="ava">'+esc(n.charAt(0).toUpperCase())+'</div><div class="n">'+esc(n)+'</div><div class="g">'+f(gain(p[kv]))+' €</div><div class="st">'+num[i]+'</div>';
+    pd.appendChild(d);setTimeout(function(){d.querySelector('.st').style.height=hs[i]+'px'},150)});return t.length}
 function board(){
   var L=(DATA&&DATA.partenaires||[]).slice();if(!L.some(function(p){return p.code===code}))L.push(me());
   var kv=P==='mois'?'ventes_mois':'ventes',kr=P==='mois'?'resa_mois':'resa';
@@ -337,8 +379,9 @@ function board(){
   var box=$('#lb');box.innerHTML='';var rank=L.findIndex(function(p){return p.code===code})+1,mm=L[rank-1];
   var any=L.some(function(p){return p[kv]>0||p[kr]>0});
   if(P==='mois')$('#krk').textContent=any?(rank===1?'1er':rank+'e'):'—';
-  if(!any){box.innerHTML='<div class="empty"><div class="e">🏁</div><b>Personne n’a encore marqué</b><p>La 1re réservation te met directement à la 1re place.</p></div>';$('#gap').textContent='';return}
-  L.slice(0,10).forEach(function(p,i){box.appendChild(row(p,i+1,kv,kr))});
+  if(!any){$('#pod').classList.add('hide');box.innerHTML='<div class="empty"><div class="e">🏁</div><b>Personne n’a encore marqué</b><p>La 1re réservation te met directement à la 1re place.</p></div>';$('#gap').textContent='';return}
+  var np=podium(L,kv);var start=np>=2?np:0;
+  L.slice(start,10).forEach(function(p,i){box.appendChild(row(p,start+i+1,kv,kr))});
   if(rank>10)box.appendChild(row(mm,rank,kv,kr));
   var g='';if(rank===1&&(mm[kv]||mm[kr]))g='Tu es 1er. Garde ta place 👑';
   else if(rank>1){var up=L[rank-2],dv=up[kv]-mm[kv],dr=up[kr]-mm[kr];g=dv>0?'Encore '+dv+(dv>1?' ventes':' vente')+' pour passer devant '+up.prenom:'Encore '+(dr+1)+(dr+1>1?' réservations':' réservation')+' pour passer devant '+up.prenom}
