@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mon tableau de bord — Partenaire stratégique AUDACE</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FBF7F2">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:root{--b:#67061B;--bd:#4A0414;--ink:#1E1012;--cream:#FBF7F2;--sand:#F3EBE4;--rose:#F6CCD5;--mut:#6B5558;--ok:#1F7A4D;--gold:#F5C76A}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Instrument Sans','Inter',sans-serif;font-weight:700;letter-spacing:-.025em;line-height:1.08;margin:0}
+p{margin:0}
+.w{max-width:640px;margin:0 auto;padding:0 18px 70px}
+.page-top{display:flex;justify-content:center;padding:18px 0 6px}
+.logo{display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;color:var(--b)}
+.logo b{font-family:'Instrument Sans',sans-serif;font-size:26px;letter-spacing:.03em}
+.logo small{font-size:8px;font-weight:800;letter-spacing:.36em;margin-top:3px}
+.k{display:inline-block;padding:7px 13px;border-radius:999px;background:var(--rose);color:var(--b);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.hello{text-align:center;padding:14px 0 18px}
+.hello h1{font-size:clamp(32px,8vw,46px);margin-top:12px}
+.hello p{color:var(--mut);margin-top:8px}
+.card{background:#fff;border-radius:22px;box-shadow:0 12px 34px rgba(30,16,18,.08);padding:22px 18px;margin-bottom:14px}
+.card h2{font-size:24px;margin-bottom:4px}
+.card .h{color:var(--mut);font-size:15px;margin-bottom:14px}
+.money{position:relative;text-align:center;border-radius:26px;padding:24px 16px 22px;margin-bottom:14px;background:linear-gradient(160deg,#fff,#FFF6E3);box-shadow:0 0 0 2px var(--gold),0 18px 44px rgba(245,184,61,.28)}
+.money span{display:block;font-size:14px;font-weight:700;color:var(--mut)}
+.money b{display:block;font-family:'Instrument Sans',sans-serif;font-size:76px;letter-spacing:-.04em;line-height:1;margin:8px 0 6px;background:linear-gradient(180deg,#8A0B27,#67061B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.money em{font-style:normal;font-weight:800;font-size:15px}
+.lv{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.lv div{border-radius:14px;padding:10px 6px;background:var(--sand);text-align:center;font-weight:800;font-size:13px;color:var(--mut);line-height:1.25}
+.lv div b{display:block;font-family:'Instrument Sans',sans-serif;font-size:22px;color:var(--ink);letter-spacing:-.02em}
+.lv div.done{background:var(--rose);color:var(--b)}
+.lv div.done b{color:var(--b)}
+.lv div.now{background:var(--b);color:#F6CCD5;box-shadow:0 8px 22px rgba(103,6,27,.3)}
+.lv div.now b{color:#fff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.stat{background:#fff;border-radius:20px;padding:18px 16px;box-shadow:0 8px 26px rgba(30,16,18,.06)}
+.stat b{display:block;font-family:'Instrument Sans',sans-serif;font-size:40px;letter-spacing:-.03em;line-height:1.05;color:var(--b)}
+.stat span{display:block;font-size:14px;font-weight:700;margin-top:2px}
+.stat small{display:block;font-size:13px;color:var(--mut);margin-top:2px}
+.bar{height:14px;border-radius:99px;background:var(--sand);overflow:hidden;margin:14px 0 8px}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#B42A51,#67061B);transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.next{display:flex;gap:14px;align-items:center}
+.next .ic{flex:none;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#FFE08A,#F5B83D);display:grid;place-items:center;font-size:26px}
+.next h3{font-size:19px;line-height:1.2}
+.next p{color:var(--mut);font-size:14px;margin-top:2px}
+.cnt{font-weight:800;font-size:14px;color:var(--mut)}
+/* quick win */
+.qw{background:linear-gradient(160deg,#67061B,#4A0414);color:#fff;border-radius:24px;padding:22px 18px;margin-bottom:14px;box-shadow:0 18px 44px rgba(103,6,27,.32)}
+.qw .k{background:rgba(255,255,255,.14);color:#F6CCD5}
+.qw h2{font-size:27px;margin:12px 0 6px;color:#fff}
+.qw .h{color:#F6CCD5;font-size:15px;margin-bottom:14px}
+.clock{display:flex;gap:8px;margin-bottom:16px}
+.clock div{flex:1;background:rgba(255,255,255,.1);border-radius:14px;padding:10px 4px;text-align:center}
+.clock b{display:block;font-family:'Instrument Sans',sans-serif;font-size:28px;line-height:1}
+.clock small{font-size:12px;font-weight:700;color:#F6CCD5}
+.task{background:#fff;color:var(--ink);border-radius:18px;padding:14px;margin-bottom:10px;transition:opacity .3s ease}
+.task .top{display:flex;gap:12px;align-items:center;cursor:pointer}
+.task .ck{flex:none;width:30px;height:30px;border-radius:10px;background:var(--sand);display:grid;place-items:center;font-weight:900;color:transparent;transition:background .2s ease}
+.task.ok .ck{background:var(--ok);color:#fff}
+.task h3{font-size:17px;line-height:1.25}
+.task.ok h3{opacity:.55}
+.task .txt{background:var(--cream);border-radius:12px;padding:12px;font-size:14px;line-height:1.45;margin:10px 0}
+.qbar{height:10px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden;margin:4px 0 6px}
+.qbar i{display:block;height:100%;width:0;background:var(--gold);border-radius:99px;transition:width .5s ease}
+.qw .pct{font-size:14px;font-weight:800;color:#F6CCD5}
+.won{text-align:center}
+.won .big{font-size:56px;line-height:1}
+/* classement */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--sand);border-radius:14px;padding:5px;margin-bottom:14px}
+.tabs button{border:0;border-radius:10px;padding:10px;font:inherit;font-weight:800;font-size:14px;background:transparent;color:var(--mut);cursor:pointer}
+.tabs button.on{background:#fff;color:var(--ink);box-shadow:0 4px 12px rgba(30,16,18,.08)}
+.lb{display:grid;gap:8px}
+.lr{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;background:var(--cream);border-radius:16px;padding:12px 14px}
+.lr .rk{width:40px;height:40px;border-radius:12px;background:var(--sand);display:grid;place-items:center;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:18px}
+.lr:nth-child(1) .rk{background:linear-gradient(135deg,#FFE08A,#F5B83D);color:#4A0414}
+.lr:nth-child(2) .rk{background:#E6E2DE}
+.lr:nth-child(3) .rk{background:#EBC4A0}
+.lr .nm{font-weight:800;line-height:1.2}
+.lr .nm small{display:block;font-weight:600;font-size:13px;color:var(--mut)}
+.lr .sc{text-align:right;font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:20px;color:var(--b);line-height:1.1}
+.lr .sc small{display:block;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--mut)}
+.lr.me{background:var(--b);color:#fff}
+.lr.me .nm small,.lr.me .sc small{color:#F6CCD5}
+.lr.me .sc{color:#fff}
+.lr.me .rk{background:rgba(255,255,255,.16);color:#fff}
+.gap{text-align:center;font-weight:800;font-size:15px;margin-top:14px}
+.empty{text-align:center;padding:10px 4px 4px}
+.empty b{display:block;font-family:'Instrument Sans',sans-serif;font-size:22px;margin-bottom:4px}
+.empty p{color:var(--mut);font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border-radius:16px;font-weight:800;font-size:15px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;width:100%;transition:transform .15s ease}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--b);color:var(--cream);box-shadow:0 10px 30px rgba(103,6,27,.35)}
+.btn-soft{background:var(--sand);color:var(--ink)}
+.btn-gold{background:linear-gradient(135deg,#FFE08A,#F5B83D);color:#4A0414}
+.task .btn{min-height:44px;font-size:14px}
+.copied{background:var(--ok)!important;color:#fff!important}
+.foot{text-align:center;color:var(--mut);font-size:13px;margin-top:18px}
+.login{max-width:440px;margin:30px auto 0;text-align:center}
+.login h1{font-size:34px;margin:12px 0 8px}
+.login p{color:var(--mut);margin-bottom:18px}
+.login input{width:100%;font:inherit;font-weight:800;font-size:20px;text-align:center;text-transform:uppercase;letter-spacing:.06em;border:0;border-radius:16px;padding:16px;background:#fff;box-shadow:0 8px 26px rgba(30,16,18,.08);margin-bottom:12px;outline:none}
+.login .err{color:#B42A51;font-weight:700;font-size:14px;min-height:20px}
+.hide{display:none!important}
+.pop{animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:none;opacity:1}}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.confetti i{position:absolute;top:-12px;width:9px;height:14px;border-radius:2px;animation:fall 2.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.9}}
+</style>
+</head>
+<body>
+<div class="w">
+  <header class="page-top"><a class="logo" href="./"><b>AUDACE</b><small>ÉCOLE D'ENTREPRENEURIAT</small></a></header>
+
+  <!-- connexion -->
+  <section class="login hide" id="login">
+    <span class="k">Tableau de bord</span>
+    <h1>Ton espace partenaire</h1>
+    <p>Entre ton code partenaire. Tu le trouves à la fin de ton lien perso, après <b>?a=</b></p>
+    <input id="ci" placeholder="EX. AMAURY12" autocomplete="off" autocapitalize="characters" spellcheck="false">
+    <p class="err" id="cerr"></p>
+    <button class="btn btn-main" id="cgo" type="button">Voir mon tableau de bord</button>
+    <p style="margin-top:18px;font-size:15px">Pas encore partenaire ? <a href="ambassadeur.html" style="color:var(--b);font-weight:800">Deviens-le ici</a></p>
+  </section>
+
+  <main class="hide" id="dash">
+    <div class="hello">
+      <span class="k" id="statut">Partenaire stratégique</span>
+      <h1 id="hi">Salut 👋</h1>
+      <p id="sub">Voici où tu en es.</p>
+    </div>
+
+    <!-- gains -->
+    <div class="money">
+      <span>Tu as gagné</span>
+      <b id="gain">0 €</b>
+      <em id="nextv">Ta prochaine vente : 300 €</em>
+      <div class="lv" id="lv">
+        <div data-l="1"><b>300 €</b>Niveau 1<br>1<sup>re</sup> vente</div>
+        <div data-l="2"><b>400 €</b>Niveau 2<br>2<sup>e</sup> vente</div>
+        <div data-l="3"><b>500 €</b>Niveau 3<br>dès la 3<sup>e</sup></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="stat"><b id="sresa">0</b><span>Réservations</span><small id="sresam">0 ce mois-ci</small></div>
+      <div class="stat"><b id="svent">0</b><span>Personnes inscrites</span><small id="sventm">0 ce mois-ci</small></div>
+    </div>
+
+    <!-- quick win -->
+    <section class="qw" id="qw">
+      <span class="k">Défi 7 jours</span>
+      <h2>Ta 1<sup>re</sup> réservation en 7 jours</h2>
+      <p class="h">3 actions, 15 minutes. C'est comme ça que les meilleurs partenaires démarrent.</p>
+      <div class="clock" id="clock"><div><b id="cd">7</b><small>jours</small></div><div><b id="ch">0</b><small>heures</small></div><div><b id="cm">0</b><small>minutes</small></div></div>
+      <div class="task" data-t="pote">
+        <div class="top"><span class="ck">✓</span><h3>Envoie ce message à 5 potes</h3></div>
+        <div class="txt" id="tpote"></div>
+        <button class="btn btn-soft" type="button" data-copy="pote">Copier le message</button>
+      </div>
+      <div class="task" data-t="story">
+        <div class="top"><span class="ck">✓</span><h3>Poste 3 stories, ton lien sur la dernière</h3></div>
+        <div class="txt" id="tstory"></div>
+        <button class="btn btn-soft" type="button" data-copy="story">Copier les 3 textes</button>
+      </div>
+      <div class="task" data-t="bio">
+        <div class="top"><span class="ck">✓</span><h3>Mets ton lien en bio</h3></div>
+        <div class="txt" id="tbio"></div>
+        <button class="btn btn-soft" type="button" data-copy="bio">Copier la bio et le lien</button>
+      </div>
+      <div class="qbar"><i id="qbar"></i></div>
+      <p class="pct" id="qpct">0 sur 3 actions faites</p>
+    </section>
+
+    <section class="card won hide" id="qwon">
+      <div class="big">🏆</div>
+      <h2 style="margin-top:10px">Défi 7 jours réussi</h2>
+      <p class="h" style="margin:6px 0 0">Ta 1<sup>re</sup> réservation est tombée. Maintenant, on vise la 1<sup>re</sup> vente.</p>
+    </section>
+
+    <!-- prochain palier -->
+    <section class="card" id="pal">
+      <div class="next"><div class="ic" id="pic">🎁</div><div><p id="plab">Prochain palier</p><h3 id="ptit"></h3></div></div>
+      <div class="bar"><i id="pbar"></i></div>
+      <p class="cnt" id="pcnt"></p>
+    </section>
+
+    <!-- classement -->
+    <section class="card">
+      <h2>Le classement</h2>
+      <p class="h" id="lbh">Les partenaires stratégiques qui font le plus de résultats.</p>
+      <div class="tabs"><button type="button" class="on" data-p="mois" id="tmois">Ce mois-ci</button><button type="button" data-p="tout">Depuis le début</button></div>
+      <div class="lb" id="lb"></div>
+      <p class="gap" id="gap"></p>
+    </section>
+
+    <a class="btn btn-main" id="kitlink" href="ambassadeur.html">Mon kit : lien, textes, stories</a>
+    <div style="height:10px"></div>
+    <a class="btn btn-soft" href="https://chat.whatsapp.com/L1E3fYOi3LLAKFF4Wy12YX" target="_blank" rel="noopener">Le groupe des partenaires</a>
+    <p class="foot" id="maj"></p>
+    <p class="foot"><a href="#" id="out" style="color:var(--mut)">Ce n'est pas moi</a></p>
+  </main>
+</div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var KEY='aud-ambassadeur',QK='aud-qw';
+var f=function(n){return n.toLocaleString('fr-FR').replace(/ | | /g,' ')};
+var gain=function(n){return n<=0?0:n===1?300:500*n-300};
+var prenom=function(c){var p=c.replace(/\d+$/,'');return p?p.charAt(0)+p.slice(1).toLowerCase():c};
+var MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+
+/* qui est-ce ? */
+var qp=new URLSearchParams(location.search),sv=null;
+try{sv=JSON.parse(localStorage.getItem(KEY)||'null')}catch(x){}
+var code=(qp.get('code')||qp.get('a')||(sv&&sv.code)||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+
+function login(){
+  $('#login').classList.remove('hide');$('#dash').classList.add('hide');
+  var go=function(){var c=$('#ci').value.toUpperCase().replace(/[^A-Z0-9]/g,'');
+    if(!/^[A-Z]+\d{2}$/.test(c)){$('#cerr').textContent='Ton code ressemble à AMAURY12 : ton prénom suivi de 2 chiffres.';return}
+    try{var o=JSON.parse(localStorage.getItem(KEY)||'null')||{};if(o.code!==c){o={nm:prenom(c),code:c,link:'https://audaceschool.com/cours-gratuit.html?a='+c}}localStorage.setItem(KEY,JSON.stringify(o))}catch(x){}
+    location.href='partenaire.html?code='+c};
+  $('#cgo').addEventListener('click',go);$('#ci').addEventListener('keydown',function(e){if(e.key==='Enter')go()});
+}
+if(!code){login();return}
+
+var nm=(sv&&sv.code===code&&sv.nm)||prenom(code);
+var link='https://audaceschool.com/cours-gratuit.html?a='+code;
+var eleve=sv&&sv.code===code&&sv.eleve==='oui';
+try{if(!sv||sv.code!==code)localStorage.setItem(KEY,JSON.stringify({nm:nm,code:code,link:link}))}catch(x){}
+
+/* quick win : début du défi = 1re visite */
+var Q={};try{Q=JSON.parse(localStorage.getItem(QK)||'{}')||{}}catch(x){}
+if(Q.code!==code)Q={code:code,t0:Date.now(),done:{}};
+var save=function(){try{localStorage.setItem(QK,JSON.stringify(Q))}catch(x){}};save();
+
+var T={
+  pote:'Frère, tu m’avais dit que tu voulais lancer un truc sur internet. L’École AUDACE propose un appel offert de découverte pour voir si c’est fait pour toi. Réserve avec mon lien : '+link,
+  story:'1. Tu veux vivre d’internet mais tu sais pas par où commencer ?\n2. L’École AUDACE a déjà accompagné plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+link,
+  bio:'📲 Appel offert de découverte avec l’École AUDACE 👇\n'+link
+};
+$('#tpote').textContent=T.pote;$('#tstory').textContent=T.story.replace(/\n/g,'\n');$('#tstory').style.whiteSpace='pre-line';$('#tbio').textContent=T.bio;$('#tbio').style.whiteSpace='pre-line';
+
+function boom(){try{var c=document.createElement('div');c.className='confetti';var col=['#F5C76A','#67061B','#F6CCD5','#DC6683','#FFE08A'];
+  for(var i=0;i<70;i++){var e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.background=col[i%col.length];e.style.animationDelay=(Math.random()*.6)+'s';e.style.transform='rotate('+Math.random()*360+'deg)';c.appendChild(e)}
+  document.body.appendChild(c);setTimeout(function(){c.remove()},3600)}catch(x){}}
+
+function qwUpd(){var n=0;$$('.task').forEach(function(t){var ok=!!Q.done[t.dataset.t];t.classList.toggle('ok',ok);if(ok)n++});
+  $('#qbar').style.width=(n/3*100)+'%';$('#qpct').textContent=n===3?'Les 3 actions sont faites. Ta 1re réservation arrive.':n+' sur 3 actions faites'}
+$$('.task .top').forEach(function(t){t.addEventListener('click',function(){var k=t.parentNode.dataset.t;Q.done[k]=!Q.done[k];save();qwUpd();
+  if(Q.done[k]&&Object.keys(Q.done).filter(function(x){return Q.done[x]}).length===3)boom()})});
+$$('[data-copy]').forEach(function(b){var o=b.textContent;b.addEventListener('click',function(){var k=b.dataset.copy,t=T[k];
+  var okc=function(){b.textContent='Copié ✓';b.classList.add('copied');setTimeout(function(){b.textContent=o;b.classList.remove('copied')},1800);
+    if(!Q.done[k]){Q.done[k]=true;save();qwUpd();if(Object.keys(Q.done).filter(function(x){return Q.done[x]}).length===3)boom()}};
+  if(navigator.clipboard)navigator.clipboard.writeText(t).then(okc).catch(function(){prompt('Copie ce texte :',t)});else prompt('Copie ce texte :',t)})});
+qwUpd();
+function tick(){var left=Q.t0+7*864e5-Date.now();if(left<0)left=0;
+  $('#cd').textContent=Math.floor(left/864e5);$('#ch').textContent=Math.floor(left%864e5/36e5);$('#cm').textContent=Math.floor(left%36e5/6e4)}
+tick();setInterval(tick,30000);
+
+/* paliers */
+var PAL=[
+  {n:3,ic:'📞',t:'Un appel stratégique en personne avec le CEO de Mickaël Wu'},
+  {n:5,ic:'🎬',t:'Partenaire confirmé : une vidéo en collab avec Mickaël + ta place à l’AUDACE Experience'},
+  {n:6,ic:'🎓',t:eleve?'Une grosse réduction sur l’accompagnement Scaling':'L’accompagnement AUDACE offert, à vie'},
+  {n:10,ic:'👑',t:'Mentor AUDACE : tu touches 50 € sur chaque vente de tes recrues'},
+  {n:50,ic:'✈️',t:'Le séminaire de l’équipe à l’étranger, tout payé'},
+  {n:100,ic:'💰',t:'5 000 € de prime en cash'},
+  {n:200,ic:'🚗',t:'Ta voiture offerte, jusqu’à 30 000 €'}
+];
+
+var DATA=null,ME=null,P='mois';
+function render(){
+  var me=ME||{code:code,prenom:nm,resa:0,resa_mois:0,ventes:0,ventes_mois:0};
+  var v=me.ventes;
+  $('#hi').textContent='Salut '+nm+' 👋';
+  $('#statut').textContent=v>=10?'Mentor AUDACE':v>=5?'Partenaire confirmé':'Partenaire stratégique';
+  var g=gain(v);countUp($('#gain'),g,' €');
+  var lvl=v>=2?3:v+1;
+  $('#nextv').textContent=v===0?'Ta 1re vente : 300 €':v===1?'Ta prochaine vente : 400 €':'Niveau 3 atteint : 500 € à chaque vente';
+  $$('#lv div').forEach(function(d){var l=+d.dataset.l;d.classList.toggle('done',l<lvl);d.classList.toggle('now',l===lvl)});
+  $('#sresa').textContent=me.resa;$('#sresam').textContent=me.resa_mois+' ce mois-ci';
+  $('#svent').textContent=v;$('#sventm').textContent=me.ventes_mois+' ce mois-ci';
+  $('#sub').textContent=me.resa===0?'Ta mission : décrocher ta 1re réservation.':v===0?'Tu as des réservations. La 1re vente arrive.':'Tu es lancé. Continue comme ça.';
+  /* quick win */
+  var won=me.resa>0;$('#qw').classList.toggle('hide',won);$('#qwon').classList.toggle('hide',!won||v>0);
+  if(won&&!Q.won){Q.won=1;save();boom()}
+  /* prochain palier */
+  var nx=null,prev=0;for(var i=0;i<PAL.length;i++){if(v<PAL[i].n){nx=PAL[i];break}prev=PAL[i].n}
+  if(nx){$('#pic').textContent=nx.ic;$('#plab').textContent='Prochain palier, à '+nx.n+' ventes';$('#ptit').textContent=nx.t;
+    var reste=nx.n-v;$('#pcnt').textContent='Plus que '+reste+(reste>1?' ventes':' vente')+' · '+v+' sur '+nx.n;
+    setTimeout(function(){$('#pbar').style.width=Math.max(4,(v-prev)/(nx.n-prev)*100)+'%'},250)}
+  else{$('#pic').textContent='🏁';$('#plab').textContent='Tous les paliers';$('#ptit').textContent='Tu as tout débloqué. Légende.';$('#pcnt').textContent='';$('#pbar').style.width='100%'}
+  board();
+}
+function board(){
+  var L=(DATA&&DATA.partenaires||[]).slice();
+  if(!L.some(function(p){return p.code===code}))L.push(ME||{code:code,prenom:nm,resa:0,resa_mois:0,ventes:0,ventes_mois:0,_moi:1});
+  var kv=P==='mois'?'ventes_mois':'ventes',kr=P==='mois'?'resa_mois':'resa';
+  L.sort(function(a,b){return (b[kv]-a[kv])||(b[kr]-a[kr])||(a.code===code?-1:b.code===code?1:0)});
+  var act=L.filter(function(p){return p[kv]>0||p[kr]>0});
+  var box=$('#lb');box.innerHTML='';
+  var myRank=L.findIndex(function(p){return p.code===code})+1;
+  if(!act.length){box.innerHTML='<div class="empty"><b>Personne n’a encore marqué '+(P==='mois'?'ce mois-ci':'')+'</b><p>La 1re réservation te met directement à la 1re place.</p></div>';$('#gap').textContent='';return}
+  var top=L.slice(0,10);
+  top.forEach(function(p,i){box.appendChild(rowEl(p,i+1,kv,kr))});
+  if(myRank>10){var me=L[myRank-1];var sep=document.createElement('div');sep.style.cssText='text-align:center;color:var(--mut);font-weight:800';sep.textContent='•••';box.appendChild(sep);box.appendChild(rowEl(me,myRank,kv,kr))}
+  var me2=L[myRank-1],gapT='';
+  if(myRank===1&&(me2[kv]>0||me2[kr]>0))gapT='🥇 Tu es 1er. Garde ta place.';
+  else if(myRank>1){var up=L[myRank-2];var dv=up[kv]-me2[kv],dr=up[kr]-me2[kr];
+    gapT=dv>0?'Encore '+(dv)+(dv>1?' ventes':' vente')+' pour passer devant '+up.prenom+'.':'Encore '+(dr+1)+(dr+1>1?' réservations':' réservation')+' pour passer devant '+up.prenom+'.'}
+  $('#gap').textContent=gapT;
+}
+function rowEl(p,r,kv,kr){var d=document.createElement('div');d.className='lr'+(p.code===code?' me':'');
+  var medal=r===1?'🥇':r===2?'🥈':r===3?'🥉':r;
+  d.innerHTML='<span class="rk">'+medal+'</span><span class="nm"></span><span class="sc"></span>';
+  d.querySelector('.nm').innerHTML=esc(p.code===code?p.prenom+' (toi)':p.prenom)+'<small>'+p[kr]+(p[kr]>1?' réservations':' réservation')+'</small>';
+  d.querySelector('.sc').innerHTML=p[kv]+'<small>'+(p[kv]>1?'ventes':'vente')+'</small>';return d}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function countUp(el,to,suf){var t0=null,d=900;function st(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/d);k=1-Math.pow(1-k,3);el.textContent=f(Math.round(to*k))+suf;if(k<1)requestAnimationFrame(st)}requestAnimationFrame(st)}
+$$('.tabs button').forEach(function(b){b.addEventListener('click',function(){$$('.tabs button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');P=b.dataset.p;board()})});
+$('#out').addEventListener('click',function(e){e.preventDefault();try{localStorage.removeItem(KEY)}catch(x){}location.href='partenaire.html'});
+
+var now=new Date();$('#tmois').textContent=MOIS[now.getMonth()].charAt(0).toUpperCase()+MOIS[now.getMonth()].slice(1);
+$('#dash').classList.remove('hide');render();
+fetch('data/partenaires.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+  DATA=d;ME=(d.partenaires||[]).filter(function(p){return p.code===code})[0]||null;render();
+  if(d.maj){var m=Math.round((Date.now()-new Date(d.maj).getTime())/6e4);$('#maj').textContent='Mis à jour '+(m<2?'à l’instant':m<60?'il y a '+m+' min':'il y a '+Math.round(m/60)+' h')+'. Une vente compte dès que la personne a rejoint l’école.'}
+}).catch(function(){$('#maj').textContent='Les chiffres arrivent, reviens dans quelques minutes.'});
+})();
+</script>
+</body>
+</html>

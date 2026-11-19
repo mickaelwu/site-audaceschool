@@ -507,6 +507,7 @@ input.i.bad{border-color:#C0392B}
       </ul>
       <a class="btn btn-wa" href="https://chat.whatsapp.com/L1E3fYOi3LLAKFF4Wy12YX" target="_blank" rel="noopener">Rejoindre le groupe WhatsApp</a>
     </div>
+    <a class="btn btn-main" id="dashl" href="partenaire.html" style="margin-bottom:18px">📊 Mon tableau de bord : gains, classement, défi 7 jours</a>
     <div class="money lkbox"><span>Ton lien perso</span><div class="lk" id="lk"></div><button class="btn btn-main" type="button" data-copy="link">Copier mon lien</button></div>
     <div style="height:18px"></div>
 
@@ -621,7 +622,7 @@ $('#fin').addEventListener('click',function(){
   var d=new URLSearchParams();
   d.append('entry.1608116188','AMBASSADEUR — '+S.nm+' — code '+S.code+' — statut : '+(S.statut==='oui'?'SIRET '+S.siret:'pas encore')+' — élève : '+S.eleve+(S.m?' — mentor : '+S.m:'')+(S.st?' — setter : '+S.st:'')+' — règles acceptées');
   d.append('entry.1696167199',S.e);d.append('entry.128016296',S.w);
-  var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link}))}catch(x){}kit();if(window.boom)boom()};
+  var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link,eleve:S.eleve}))}catch(x){}kit();if(window.boom)boom()};
   fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(done).catch(done);
 });
 
@@ -636,6 +637,7 @@ function kit(){
   T.say=$('#say').textContent;
   T.mentor='https://audaceschool.com/ambassadeur.html?m='+S.code;$('#lkm').textContent=T.mentor;
   $('#msgPote').textContent=T.pote;
+  var dl=$('#dashl');if(dl)dl.href='partenaire.html?code='+S.code;
   show(8);
 }
 $$('[data-copy]').forEach(function(b){var o=b.textContent;b.addEventListener('click',function(){var t=T[b.dataset.copy];
