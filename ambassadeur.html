@@ -689,7 +689,7 @@ $('#fin').addEventListener('click',function(){
   var d=new URLSearchParams();
   d.append('entry.1608116188','AMBASSADEUR — '+S.nm+' — code '+S.code+' — statut : '+(S.statut==='oui'?'SIRET '+S.siret:'pas encore')+' — élève : '+S.eleve+(S.m?' — mentor : '+S.m:'')+(S.st?' — setter : '+S.st:'')+' — règles acceptées');
   d.append('entry.1696167199',S.e);d.append('entry.128016296',S.w);
-  var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link,eleve:S.eleve}))}catch(x){}kit();if(window.boom)boom()};
+  var done=function(){try{localStorage.setItem(KEY,JSON.stringify({nm:S.nm,code:S.code,link:S.link,eleve:S.eleve}))}catch(x){}location.replace('partenaire.html?code='+encodeURIComponent(S.code)+'&bienvenue=1')};
   fetch(FORM,{method:'POST',mode:'no-cors',body:d}).then(done).catch(done);
 });
 
