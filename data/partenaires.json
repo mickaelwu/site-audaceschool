@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-20T16:39+01:00",
+ "maj": "2026-11-20T20:39+01:00",
  "mois": "2026-11",
  "partenaires": [
   {
@@ -50,6 +50,16 @@
   {
    "code": "AMAURY26",
    "prenom": "Amaury",
+   "resa": 0,
+   "resa_mois": 0,
+   "ventes": 0,
+   "ventes_mois": 0,
+   "activite": [],
+   "gagne": 0
+  },
+  {
+   "code": "FANNY45",
+   "prenom": "Fanny",
    "resa": 0,
    "resa_mois": 0,
    "ventes": 0,
