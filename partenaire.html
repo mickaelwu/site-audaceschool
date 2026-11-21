@@ -145,7 +145,32 @@ button{font:inherit;color:inherit}
 .kt .lkk{font-weight:800;font-size:16px;text-align:center}
 .kt .num{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#fff;color:#2A030C;font-size:13px;font-weight:900;margin-right:8px;vertical-align:-2px}
 .btn-wa{background:#25D366;color:#06210F}
-.kgo{margin:12px 14px 0}
+.kgo{margin:16px 14px 0}
+.fh{margin:16px 18px 6px}
+.fh h2{font-size:26px}
+.fh p{color:var(--mut);font-size:14px;margin-top:4px}
+.fpb{height:8px;border-radius:99px;background:var(--card2);overflow:hidden;margin:14px 0 6px}
+.fpb i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--b2),var(--gold));transition:width .6s ease}
+.fh .fpt{font-weight:800;font-size:13px;color:var(--rose)}
+.md{background:var(--card);border-radius:22px;margin:10px 14px 0;overflow:hidden}
+.mh{display:flex;align-items:center;gap:12px;width:100%;border:0;background:none;padding:16px;text-align:left;cursor:pointer;color:#fff}
+.mn{flex:none;width:34px;height:34px;border-radius:50%;background:var(--card2);display:grid;place-items:center;font-weight:900;font-size:15px}
+.md.ok .mn{background:var(--ok);color:#0F0608;font-size:0}
+.md.ok .mn:before{content:"✓";font-size:16px}
+.mt{flex:1;line-height:1.25}
+.mt b{display:block;font-size:16px}
+.mt small{display:block;font-size:12.5px;color:var(--mut);font-weight:600;margin-top:2px}
+.md .tog{font-size:22px;color:var(--mut);transition:transform .2s}
+.md.open .tog{transform:rotate(90deg)}
+.mb{display:none;padding:0 12px 14px}
+.md.open .mb{display:block}
+.mb .kt{margin:10px 0 0;background:var(--card2)}
+.mb .kt .txt{background:rgba(0,0,0,.3)}
+.btn-ok{margin-top:12px;background:var(--ok);color:#0F0608}
+.rl{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rl li{display:flex;gap:10px;font-size:14.5px;line-height:1.4}
+.rl li b{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;background:rgba(61,220,132,.18);color:var(--ok)}
+.rl li:nth-child(3) b,.rl li:nth-child(4) b{background:rgba(255,122,149,.18);color:#FF7A95}
 .ksec{margin:26px 18px 0;font-family:'Instrument Sans','Inter',sans-serif;font-size:21px;font-weight:700;letter-spacing:-.02em}
 .ksec small{display:block;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;color:var(--mut);letter-spacing:0;margin-top:2px}
 .kt .q{font-size:12.5px;font-weight:800;color:var(--rose);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
@@ -217,7 +242,7 @@ button{font:inherit;color:inherit}
     </div>
     <nav class="acts">
       <button class="act main" type="button" id="share"><i><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></i>Partager</button>
-      <a class="act" href="#kit" id="tokit"><i><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></i>Mon kit</a>
+      <a class="act" href="#kit" id="tokit"><i><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></i>Ma formation</a>
       <a class="act" href="https://chat.whatsapp.com/L1E3fYOi3LLAKFF4Wy12YX" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg></i>Le groupe</a>
       <a class="act" href="#rank"><i><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg></i>Classement</a>
     </nav>
@@ -294,12 +319,39 @@ button{font:inherit;color:inherit}
   </div>
 
   <div id="vKit" class="hide">
+    <div class="fh">
+      <h2>Ma formation</h2>
+      <p>7 étapes courtes pour faire ta 1re vente. Une à la fois.</p>
+      <div class="fpb"><i id="fpb"></i></div>
+      <p class="fpt" id="fpt">0 sur 7 étapes terminées</p>
+    </div>
+    <div class="md" data-m="1">
+      <button class="mh" type="button"><span class="mn">1</span><span class="mt"><b>Ton rôle</b><small>1 min · Ce que tu fais, ce que tu ne fais pas</small></span><span class="tog">›</span></button>
+      <div class="mb">
+    <div class="kt"><ul class="rl">
+      <li><b>✓</b>Tu fais connaître l’école et tu partages ton lien.</li>
+      <li><b>✓</b>L’appel et la vente, c’est l’équipe AUDACE qui s’en occupe.</li>
+      <li><b>✕</b>Tu ne donnes jamais le prix. On te le demande ? « Ça dépend de ta situation, c’est pour ça que l’appel est offert. »</li>
+      <li><b>✕</b>Pas de promesse de gains, pas de pression sur les gens.</li>
+      <li><b>✓</b>Sur tes vidéos, écris « Collaboration commerciale ».</li>
+    </ul></div>
+        <button class="btn btn-ok" type="button" data-done="1">J’ai compris</button>
+      </div>
+    </div>
+    <div class="md" data-m="2">
+      <button class="mh" type="button"><span class="mn">2</span><span class="mt"><b>Ton lien perso</b><small>1 min · Le lien qui compte pour toi</small></span><span class="tog">›</span></button>
+      <div class="mb">
     <div class="kt">
-      <h3>Ton lien perso</h3>
       <p class="h">Chaque personne qui réserve avec ce lien compte pour toi.</p>
       <div class="txt lkk" id="klk"></div>
       <button class="btn btn-w" type="button" data-kc="link">Copier mon lien</button>
     </div>
+        <button class="btn btn-ok" type="button" data-done="2">C’est bon</button>
+      </div>
+    </div>
+    <div class="md" data-m="3">
+      <button class="mh" type="button"><span class="mn">3</span><span class="mt"><b>Tes 3 premiers partages</b><small>5 min · Le plus rapide pour ta 1re réservation</small></span><span class="tog">›</span></button>
+      <div class="mb">
     <div class="kt">
       <h3><span class="num">1</span>Envoie-le à un pote</h3>
       <p class="h">Le plus rapide. Copie ce message et envoie-le où tu veux.</p>
@@ -318,19 +370,30 @@ button{font:inherit;color:inherit}
       <div class="txt" id="kst"></div>
       <button class="btn btn-w" type="button" data-kc="story">Copier les 3 textes</button>
     </div>
+        <button class="btn btn-ok" type="button" data-done="3">C’est fait</button>
+      </div>
+    </div>
+    <div class="md" data-m="4">
+      <button class="mh" type="button"><span class="mn">4</span><span class="mt"><b>Faire des vidéos</b><small>10 min · Les idées qui ramènent le plus de réservations</small></span><span class="tog">›</span></button>
+      <div class="mb">
+    <a class="kt kex" href="https://youtu.be/VpjLBamHqfk" target="_blank" rel="noopener"><p class="q">À regarder avant ta 1re vidéo</p><p class="big">Raphiki a fait environ 3 000 € avec cette seule vidéo YouTube, en recommandant un programme. C’est exactement ce format que tu peux faire pour l’École AUDACE →</p></a>
+    <div class="kt"><p class="q">Pourquoi YouTube</p><p class="h" style="margin:0">Une vidéo YouTube ramène des gens pendant des mois. Une story ou un short, c’est 48 h.</p></div>
+    <div class="kt"><h3>La vidéo « à zéro »</h3><p class="hook">« Si je devais faire 5 000 € par mois en partant de zéro, voilà exactement ce que je ferais. »</p><p class="vis">Visuel : face caméra, une feuille où tu écris 0 € → 5 000 €.</p></div>
+    <div class="kt"><h3>Les métiers d’internet</h3><p class="hook">« 3 métiers d’internet qui payent mieux qu’un CDI à 20 ans. »</p><p class="vis">Visuel : tu comptes sur tes doigts, un exemple d’élève à l’écran pour chaque métier.</p></div>
+    <div class="kt"><h3>Ton avis honnête</h3><p class="hook">« J’ai regardé de près l’École AUDACE. Voilà ce que j’en pense, sans filtre. »</p><p class="vis">Visuel : toi devant ton ordi, sur la page des témoignages.</p></div>
+    <div class="kt"><h3>La story pour ton entourage</h3><p class="hook">« Tu veux vivre d’internet mais tu sais pas par où commencer ? Réponds ÉCOLE, je t’envoie un truc. »</p><p class="vis">Fond noir, texte simple. Parfait si ton compte ne parle pas de business.</p></div>
     <div class="kt">
-      <h3><span class="num">4</span>Dis-le à la fin de tes vidéos</h3>
+      <h3>La phrase de fin de vidéo</h3>
       <p class="h">Si tu fais du contenu.</p>
       <div class="txt" id="ksay"></div>
       <button class="btn btn-w" type="button" data-kc="say">Copier la phrase</button>
     </div>
-    <div class="kt">
-      <h3><span class="num">5</span>Fais entrer d’autres partenaires</h3>
-      <p class="h">Un pote créateur ? Envoie-lui ce lien. Dès que tu es Mentor (10 ventes), tu touches 50 € sur chaque vente qu’il fait.</p>
-      <div class="txt lkk" id="kmen"></div>
-      <button class="btn btn-w" type="button" data-kc="mentor">Copier le lien partenaire</button>
+        <button class="btn btn-ok" type="button" data-done="4">J’ai mes idées</button>
+      </div>
     </div>
-    <h2 class="ksec">Répondre aux messages<small>Les réponses toutes prêtes, avec ton lien dedans</small></h2>
+    <div class="md" data-m="5">
+      <button class="mh" type="button"><span class="mn">5</span><span class="mt"><b>Répondre aux messages</b><small>3 min · Les réponses toutes prêtes</small></span><span class="tog">›</span></button>
+      <div class="mb">
     <div class="kt">
       <p class="big">Ton but en message : faire réserver l’appel offert de découverte. Pas convaincre de rejoindre l’école.</p>
       <ul class="y"><li><b>✓</b>T’intéresser à son parcours : « Trop bien ! Et pourquoi le business en ligne t’intéresse ? »</li><li><b>✓</b>Des messages courts, envoyés un par un</li></ul>
@@ -342,20 +405,28 @@ button{font:inherit;color:inherit}
     <div class="kt"><p class="q">Il a peur que ce soit une arnaque</p><div class="txt" id="ko3"></div><button class="btn btn-w" type="button" data-kc="o3">Copier la réponse</button></div>
     <div class="kt"><p class="q">Il habite hors de France (ex. Belgique)</p><div class="txt" id="ko4"></div><button class="btn btn-w" type="button" data-kc="o4">Copier la réponse</button></div>
     <div class="kt"><p class="q">Il insiste pour avoir le prix</p><div class="txt" id="ko5"></div><button class="btn btn-w" type="button" data-kc="o5">Copier la réponse</button></div>
-    <h2 class="ksec">Idées de vidéos<small>Ce qui ramène le plus de réservations</small></h2>
-    <a class="kt kex" href="https://youtu.be/VpjLBamHqfk" target="_blank" rel="noopener"><p class="q">À regarder avant ta 1re vidéo</p><p class="big">Raphiki a fait environ 3 000 € avec cette seule vidéo YouTube, en recommandant un programme. C’est exactement ce format que tu peux faire pour l’École AUDACE →</p></a>
-    <div class="kt"><p class="q">Pourquoi YouTube</p><p class="h" style="margin:0">Une vidéo YouTube ramène des gens pendant des mois. Une story ou un short, c’est 48 h.</p></div>
-    <div class="kt"><h3>La vidéo « à zéro »</h3><p class="hook">« Si je devais faire 5 000 € par mois en partant de zéro, voilà exactement ce que je ferais. »</p><p class="vis">Visuel : face caméra, une feuille où tu écris 0 € → 5 000 €.</p></div>
-    <div class="kt"><h3>Les métiers d’internet</h3><p class="hook">« 3 métiers d’internet qui payent mieux qu’un CDI à 20 ans. »</p><p class="vis">Visuel : tu comptes sur tes doigts, un exemple d’élève à l’écran pour chaque métier.</p></div>
-    <div class="kt"><h3>Ton avis honnête</h3><p class="hook">« J’ai regardé de près l’École AUDACE. Voilà ce que j’en pense, sans filtre. »</p><p class="vis">Visuel : toi devant ton ordi, sur la page des témoignages.</p></div>
-    <div class="kt"><h3>La story pour ton entourage</h3><p class="hook">« Tu veux vivre d’internet mais tu sais pas par où commencer ? Réponds ÉCOLE, je t’envoie un truc. »</p><p class="vis">Fond noir, texte simple. Parfait si ton compte ne parle pas de business.</p></div>
-    <h2 class="ksec">Tes questions<small>Argent, suivi, cas particuliers</small></h2>
+        <button class="btn btn-ok" type="button" data-done="5">J’ai compris</button>
+      </div>
+    </div>
+    <div class="md" data-m="6">
+      <button class="mh" type="button"><span class="mn">6</span><span class="mt"><b>Recruter des partenaires</b><small>1 min · Ton lien pour faire entrer tes potes</small></span><span class="tog">›</span></button>
+      <div class="mb">
+    <div class="kt">
+      <p class="h">Un pote créateur ? Envoie-lui ce lien. Dès que tu es Mentor (10 ventes), tu touches 50 € sur chaque vente qu’il fait.</p>
+      <div class="txt lkk" id="kmen"></div>
+      <button class="btn btn-w" type="button" data-kc="mentor">Copier le lien partenaire</button>
+    </div>
+        <button class="btn btn-ok" type="button" data-done="6">C’est bon</button>
+      </div>
+    </div>
+    <div class="md" data-m="7">
+      <button class="mh" type="button"><span class="mn">7</span><span class="mt"><b>Tes questions</b><small>2 min · Argent, suivi, cas particuliers</small></span><span class="tog">›</span></button>
+      <div class="mb">
     <div class="kt"><p class="q">Mon contact me dit qu’il n’y a plus de date libre</p><p class="h" style="margin:0">C’est normal. Quand la personne indique qu’elle n’a aucun budget, l’agenda lui affiche qu’il n’y a plus de date libre. Ce n’est pas un bug, et ce n’est pas contre toi.</p></div>
     <div class="kt"><p class="q">Comment je suis payé ?</p><p class="h" style="margin:0">500 € par personne qui rejoint l’école, au rythme où elle paie (en 3 fois : environ 167 € à chaque paiement), sur facture. Il te faut une micro-entreprise : elle se crée en ligne, gratuitement. Sans, ton argent t’attend jusqu’à ce que tu en aies une.</p></div>
     <div class="kt"><p class="q">Et si le client est remboursé ?</p><p class="h" style="margin:0">La prime est retirée. Pareil s’il arrête de payer en cours de route.</p></div>
-    <div class="kt">
-      <h3>Les règles</h3>
-      <p class="h" style="margin:0">Tu fais connaître, tu ne vends jamais : l’appel et la vente, c’est l’équipe AUDACE. On te demande le prix ? « Ça dépend de ta situation, c’est pour ça que l’appel est offert. » Écris « Collaboration commerciale » sur tes vidéos. Pas de prix, pas de promesse de gains, pas de pression.</p>
+        <button class="btn btn-ok" type="button" data-done="7">Formation terminée 🎓</button>
+      </div>
     </div>
     <div class="kgo"><a class="btn btn-wa" href="https://chat.whatsapp.com/L1E3fYOi3LLAKFF4Wy12YX" target="_blank" rel="noopener">Le groupe des partenaires</a></div>
   </div>
@@ -366,7 +437,7 @@ button{font:inherit;color:inherit}
 
 <nav class="tabbar hide" id="tabbar">
   <button type="button" class="on" data-v="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Accueil</button>
-  <button type="button" data-v="kit"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Mon kit</button>
+  <button type="button" data-v="kit"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>Ma formation</button>
 </nav>
 
 <div class="toast" id="toast"><i id="toi">💸</i><div><span id="tot"></span><small id="tos"></small></div></div>
@@ -528,6 +599,13 @@ $('#klk').textContent=link.replace('https://','');$('#kpote').textContent=T.pote
 var OB=['Aucun souci ! Le fondateur de l’École AUDACE a lui-même commencé mineur, et pas mal d’élèves de l’école le sont aussi 💪','Tkt, t’as besoin d’aucune compétence au départ ! À l’École AUDACE, un coach t’accompagne de A à Z : ta niche, ton offre, ton contenu, tout le reste.','Je t’explique : l’École AUDACE t’apprend à développer une audience sur les réseaux (comme @bobby_sanytb ou @mayacademy06), à créer du contenu viral, et ensuite à vendre tes propres accompagnements ou produits !\n\nSi ça t’intéresse, le mieux c’est d’en parler en appel avec l’équipe, c’est offert 💪 Tu réserves ici : {L}','Je comprends totalement la question, y’a plein de trucs chelous sur les réseaux. Regarde les témoignages des élèves et les vidéos YouTube de l’école, tu pourras te faire ton propre avis 👇\n\nhttps://youtu.be/-KJYFFTFya0','Aucun souci, l’École AUDACE a plusieurs élèves en Belgique et ça marche très bien pour eux ! Tout se passe en ligne.','L’objectif de l’école, c’est de te faire atteindre 5 000 € en moins de 3 mois. Mais comme chaque projet est différent, l’approche dépend de ta situation et de tes objectifs à long terme.\n\nC’est pour ça que le mieux, c’est d’en parler directement en appel plutôt que de te donner un chiffre qui ne serait pas forcément pertinent.\n\nÇa te dirait de prendre un petit appel de découverte avec l’équipe ? C’est offert et ça n’engage à rien. C’est juste pour te présenter l’école en détail et voir si elle te correspond !\n\nT’es dispo cette semaine ? Tu réserves ici : {L}'];
 OB.forEach(function(t,i){T['o'+i]=t.replace('{L}',link);$('#ko'+i).textContent=T['o'+i]});
 $$('[data-kc]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.kc;copy(T[k],b,function(){if(k==='pote'||k==='bio')mark(k)})})});
+var FK='aud-form',F={};try{F=JSON.parse(localStorage.getItem(FK)||'{}')||{}}catch(e){}if(F.code!==code)F={code:code,done:{}};
+function fUpd(){var n=0;$$('.md').forEach(function(m){var ok=!!F.done[m.dataset.m];m.classList.toggle('ok',ok);if(ok)n++});$('#fpb').style.width=(n/7*100)+'%';$('#fpt').textContent=n===7?'Formation terminée 🎓 Tu as tout pour faire ta 1re vente.':n+' sur 7 étapes terminées'}
+function fOpen(m){$$('.md').forEach(function(x){x.classList.toggle('open',x===m&&!m.classList.contains('open'))});if(m&&m.classList.contains('open'))setTimeout(function(){m.scrollIntoView({behavior:'smooth',block:'start'})},60)}
+$$('.mh').forEach(function(h){h.addEventListener('click',function(){fOpen(h.parentNode)})});
+$$('[data-done]').forEach(function(b){b.addEventListener('click',function(){var n=b.dataset.done;F.done[n]=true;try{localStorage.setItem(FK,JSON.stringify(F))}catch(e){}fUpd();
+  var nx=document.querySelector('.md[data-m="'+(+n+1)+'"]');if(nx){fOpen(nx)}else{$$('.md').forEach(function(x){x.classList.remove('open')});boom();toast('🎓','Formation terminée','Tu as tout pour faire ta 1re vente.')}})});
+fUpd();(function(){var first=$$('.md').filter(function(m){return !F.done[m.dataset.m]})[0];if(first)first.classList.add('open')})();
 function view(v){$('#vHome').classList.toggle('hide',v!=='home');$('#vKit').classList.toggle('hide',v!=='kit');$$('#tabbar button').forEach(function(x){x.classList.toggle('on',x.dataset.v===v)});
   try{history.replaceState(null,'',v==='kit'?'#kit':location.pathname+location.search)}catch(e){}
   var h=document.querySelector('.hero');if(h&&window.scrollY>h.offsetHeight-40)window.scrollTo({top:h.offsetHeight-20,behavior:'smooth'})}
