@@ -287,8 +287,6 @@ var AMBW=18144e5;try{var _a=new URLSearchParams(location.search).get('a'),_o=nul
 var am='';try{am=((function(){try{var o=JSON.parse(localStorage.getItem('amb30')||'null');if(o&&o.c&&Date.now()-o.t<AMBW)return o.c}catch(e){}return ''})()||new URLSearchParams(location.search).get('a')||(function(){try{return sessionStorage.getItem('amb')}catch(e){}return ''})()||'').toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30)}catch(x){}
 var ICAMB={AMAURY:'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeur-amaury'};
 var url=am?(ICAMB[am]||'https://app.iclosed.io/e/mickaelwu/cours-d-essai-audace-ambassadeurs')+'?utm_source=ambassadeur&utm_campaign='+encodeURIComponent(am):'https://app.iclosed.io/e/mickaelwu/appel-de-d-couverte-audace';
-var src='';try{src=(new URLSearchParams(location.search).get('s')||localStorage.getItem('aud-src')||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,30);if(src)localStorage.setItem('aud-src',src)}catch(x){}
-if(!am&&src)url+='?utm_source='+encodeURIComponent(src);
 url+=(url.indexOf('?')>-1?'&':'?')+'utm_content=lp-vsl';
 var w=document.getElementById('icw');w.className='iclosed-widget';w.setAttribute('data-url',url);document.getElementById('fbl').href=url;
 var sc=document.createElement('script');sc.src='https://app.iclosed.io/assets/widget.js';sc.async=true;document.body.appendChild(sc);
