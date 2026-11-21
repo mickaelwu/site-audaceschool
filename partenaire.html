@@ -342,7 +342,7 @@ button{font:inherit;color:inherit}
       <button class="mh" type="button"><span class="mn">2</span><span class="mt"><b>Ton lien perso</b><small>1 min · Le lien qui compte pour toi</small></span><span class="tog">›</span></button>
       <div class="mb">
     <div class="kt">
-      <p class="h">Chaque personne qui réserve avec ce lien compte pour toi.</p>
+      <p class="h">Ce lien envoie les gens dans la communauté WhatsApp gratuite de l’École AUDACE.</p>
       <div class="txt lkk" id="klk"></div>
       <button class="btn btn-w" type="button" data-kc="link">Copier mon lien</button>
     </div>
@@ -402,7 +402,7 @@ button{font:inherit;color:inherit}
       <button class="mh" type="button"><span class="mn">5</span><span class="mt"><b>Répondre aux messages</b><small>3 min · Les réponses toutes prêtes</small></span><span class="tog">›</span></button>
       <div class="mb">
     <div class="kt">
-      <p class="big">Ton but en message : faire réserver l’appel offert de découverte. Pas convaincre de rejoindre l’école.</p>
+      <p class="big">Ton but en message : faire rejoindre la communauté gratuite. Pas convaincre de rejoindre l’école.</p>
       <ul class="y"><li><b>✓</b>T’intéresser à son parcours : « Trop bien ! Et pourquoi le business en ligne t’intéresse ? »</li><li><b>✓</b>Des messages courts, envoyés un par un</li></ul>
       <ul class="x"><li><b>✕</b>Donner le prix : en appel, c’est l’équipe qui rassure</li><li><b>✕</b>Envoyer des gros pavés</li></ul>
     </div>
@@ -474,7 +474,7 @@ if(!code){
   return;
 }
 var nm=(sv&&sv.code===code&&sv.nm)||prenom(code);
-var link='https://audaceschool.com/cours-gratuit.html?a='+code;
+var link='https://audaceschool.com/rejoindre.html?a='+code;
 var eleve=sv&&sv.code===code&&sv.eleve==='oui';
 try{if(!sv||sv.code!==code)localStorage.setItem(KEY,JSON.stringify({nm:nm,code:code,link:link}))}catch(x){}
 
@@ -487,8 +487,8 @@ if(Q.code!==code)Q={code:code,t0:Date.now(),done:{}};
 var save=function(){try{localStorage.setItem(QK,JSON.stringify(Q))}catch(x){}};save();
 $('#since').textContent='Depuis le '+new Date(Q.t0).toLocaleDateString('fr-FR',{day:'numeric',month:'long'});
 var T={
-  pote:'Frère, tu m’avais dit que tu voulais lancer un truc sur internet. L’École AUDACE propose un appel offert de découverte pour voir si c’est fait pour toi. Réserve avec mon lien : '+link,
-  story:'1. Créateur, entrepreneur en ligne : pour moi, c’est un vrai métier.\n2. L’École AUDACE l’a déjà prouvé avec plus de 1 400 élèves.\n3. Ils proposent un appel offert de découverte. Réserve le tien avec mon lien 👇 '+link,
+  pote:'Frère, tu m’avais dit que tu voulais lancer un truc sur internet. L’École AUDACE a une communauté WhatsApp gratuite avec plein de résultats d’élèves et de conseils. Rejoins-la avec mon lien : '+link,
+  story:'1. Créateur, entrepreneur en ligne : pour moi, c’est un vrai métier.\n2. L’École AUDACE l’a déjà prouvé avec plus de 1 400 élèves.\n3. Ils ont une communauté WhatsApp gratuite. Rejoins-la avec mon lien 👇 '+link,
   bio:'📲 Appel offert de découverte avec l’École AUDACE 👇\n'+link
 };
 $('#tpote').textContent=T.pote;$('#tbio').textContent=T.bio;
@@ -508,7 +508,7 @@ function tick(){var l=Math.max(0,Q.t0+7*864e5-Date.now());$('#td').textContent=M
 tick();setInterval(tick,30000);
 
 $('#share').addEventListener('click',function(){
-  if(navigator.share){navigator.share({text:'Réserve ton appel offert de découverte avec l’École AUDACE 👇',url:link}).catch(function(){})}
+  if(navigator.share){navigator.share({text:'Rejoins la communauté gratuite de l’École AUDACE 👇',url:link}).catch(function(){})}
   else copy(link,null,function(){toast('🔗','Lien copié','Colle-le où tu veux.')})});
 $('#codeb').addEventListener('click',function(){copy(link,null,function(){toast('🔗','Ton lien perso est copié',link.replace('https://',''))})});
 
@@ -604,7 +604,7 @@ function celebrate(){var m=me(),s={};try{s=JSON.parse(localStorage.getItem(SEEN)
     else if(dr>0){boom();toast('📅',dr>1?dr+' nouveaux appels réservés':'Nouvel appel réservé',m.resa===1?'Défi 7 jours réussi 🏆':'Avec ton lien. Le closer s’occupe du reste.')}}
   try{localStorage.setItem(SEEN,JSON.stringify({code:code,resa:m.resa,ventes:m.ventes}))}catch(x){}}
 
-T.link=link;T.bio2=T.bio;T.say='« Créateur, c’est un vrai métier. Si tu veux le prouver toi aussi, l’École AUDACE t’offre ton appel de découverte. Le lien est en bio. »';T.mentor='https://audaceschool.com/ambassadeur.html?m='+code;T.mid='« D’ailleurs, si je vis aujourd’hui des réseaux sociaux, c’est en partie grâce à l’École AUDACE. Cette semaine, ils ouvrent leurs portes en physique à Paris, et en visio dans le reste du monde. Si t’es intéressé, rejoins leur communauté gratuite sur WhatsApp. »';
+T.link=link;T.bio2=T.bio;T.say='« Créateur, c’est un vrai métier. Si tu veux le prouver toi aussi, rejoins la communauté gratuite de l’École AUDACE. Le lien est en bio. »';T.mentor='https://audaceschool.com/ambassadeur.html?m='+code;T.mid='« D’ailleurs, si je vis aujourd’hui des réseaux sociaux, c’est en partie grâce à l’École AUDACE. Cette semaine, ils ouvrent leurs portes en physique à Paris, et en visio dans le reste du monde. Si t’es intéressé, rejoins leur communauté gratuite sur WhatsApp. »';
 $('#klk').textContent=link.replace('https://','');$('#kpote').textContent=T.pote;$('#kbio').textContent=T.bio;$('#kst').textContent=T.story;$('#ksay').textContent=T.say;$('#kmid').textContent=T.mid;$('#kmen').textContent=T.mentor.replace('https://','');
 var OB=['Aucun souci ! Le fondateur de l’École AUDACE a lui-même commencé mineur, et pas mal d’élèves de l’école le sont aussi 💪','Tkt, t’as besoin d’aucune compétence au départ ! À l’École AUDACE, un coach t’accompagne de A à Z : ta niche, ton offre, ton contenu, tout le reste.','Je t’explique : l’École AUDACE t’apprend à développer une audience sur les réseaux (comme @bobby_sanytb ou @mayacademy06), à créer du contenu viral, et ensuite à vendre tes propres accompagnements ou produits !\n\nSi ça t’intéresse, le mieux c’est d’en parler en appel avec l’équipe, c’est offert 💪 Tu réserves ici : {L}','Je comprends totalement la question, y’a plein de trucs chelous sur les réseaux. Regarde les témoignages des élèves et les vidéos YouTube de l’école, tu pourras te faire ton propre avis 👇\n\nhttps://youtu.be/-KJYFFTFya0','Aucun souci, l’École AUDACE a plusieurs élèves en Belgique et ça marche très bien pour eux ! Tout se passe en ligne.','L’objectif de l’école, c’est de te faire atteindre 5 000 € en moins de 3 mois. Mais comme chaque projet est différent, l’approche dépend de ta situation et de tes objectifs à long terme.\n\nC’est pour ça que le mieux, c’est d’en parler directement en appel plutôt que de te donner un chiffre qui ne serait pas forcément pertinent.\n\nÇa te dirait de prendre un petit appel de découverte avec l’équipe ? C’est offert et ça n’engage à rien. C’est juste pour te présenter l’école en détail et voir si elle te correspond !\n\nT’es dispo cette semaine ? Tu réserves ici : {L}'];
 OB.forEach(function(t,i){T['o'+i]=t.replace('{L}',link);$('#ko'+i).textContent=T['o'+i]});
