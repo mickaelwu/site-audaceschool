@@ -383,6 +383,13 @@ button{font:inherit;color:inherit}
     <div class="kt"><h3>Ton avis honnête</h3><p class="hook">« J’ai regardé de près l’École AUDACE. Voilà ce que j’en pense, sans filtre. »</p><p class="vis">Visuel : toi devant ton ordi, sur la page des témoignages.</p></div>
     <div class="kt"><h3>La story pour ton entourage</h3><p class="hook">« Tu veux vivre d’internet mais tu sais pas par où commencer ? Réponds ÉCOLE, je t’envoie un truc. »</p><p class="vis">Fond noir, texte simple. Parfait si ton compte ne parle pas de business.</p></div>
     <div class="kt">
+      <h3>La phrase en milieu de vidéo</h3>
+      <p class="h">À glisser au milieu de ta vidéo, juste après un bon moment.</p>
+      <div class="txt" id="kmid"></div>
+      <button class="btn btn-w" type="button" data-kc="mid">Copier la phrase</button>
+      <p class="h" style="margin:12px 0 0">⚠️ Dis la 1re phrase seulement si c’est vrai pour toi. Et affiche « Collaboration commerciale » à l’écran pendant ce passage : c’est obligatoire par la loi dès que tu touches une prime.</p>
+    </div>
+    <div class="kt">
       <h3>La phrase de fin de vidéo</h3>
       <p class="h">Si tu fais du contenu.</p>
       <div class="txt" id="ksay"></div>
@@ -424,6 +431,8 @@ button{font:inherit;color:inherit}
       <div class="mb">
     <div class="kt"><p class="q">Mon contact me dit qu’il n’y a plus de date libre</p><p class="h" style="margin:0">C’est normal. Quand la personne indique qu’elle n’a aucun budget, l’agenda lui affiche qu’il n’y a plus de date libre. Ce n’est pas un bug, et ce n’est pas contre toi.</p></div>
     <div class="kt"><p class="q">Comment je suis payé ?</p><p class="h" style="margin:0">500 € par personne qui rejoint l’école, au rythme où elle paie (en 3 fois : environ 167 € à chaque paiement), sur facture. Il te faut une micro-entreprise : elle se crée en ligne, gratuitement. Sans, ton argent t’attend jusqu’à ce que tu en aies une.</p></div>
+    <div class="kt"><p class="q">Parler d’AUDACE dans ma vidéo, ça va diluer mon message ?</p><p class="h" style="margin:0">Non. Ça attire juste en plus les gens intéressés par la création de contenu. Ceux qui viennent pour ton sujet de base restent là pour ton sujet. Et ta réputation ne bouge pas : l’école accompagne très bien ses élèves et a une très bonne image sur les réseaux.</p></div>
+    <div class="kt"><p class="q">Mon entreprise est à l’étranger, je n’ai pas de SIRET</p><p class="h" style="margin:0">Pas de souci. Dans le formulaire, coche « pas encore », puis envoie les infos de ton entreprise à Mickaël en privé.</p></div>
     <div class="kt"><p class="q">Et si le client est remboursé ?</p><p class="h" style="margin:0">La prime est retirée. Pareil s’il arrête de payer en cours de route.</p></div>
         <button class="btn btn-ok" type="button" data-done="7">Formation terminée 🎓</button>
       </div>
@@ -594,8 +603,8 @@ function celebrate(){var m=me(),s={};try{s=JSON.parse(localStorage.getItem(SEEN)
     else if(dr>0){boom();toast('📅',dr>1?dr+' nouveaux appels réservés':'Nouvel appel réservé',m.resa===1?'Défi 7 jours réussi 🏆':'Avec ton lien. Le closer s’occupe du reste.')}}
   try{localStorage.setItem(SEEN,JSON.stringify({code:code,resa:m.resa,ventes:m.ventes}))}catch(x){}}
 
-T.link=link;T.bio2=T.bio;T.say='« Créateur, c’est un vrai métier. Si tu veux le prouver toi aussi, l’École AUDACE t’offre ton appel de découverte. Le lien est en bio. »';T.mentor='https://audaceschool.com/ambassadeur.html?m='+code;
-$('#klk').textContent=link.replace('https://','');$('#kpote').textContent=T.pote;$('#kbio').textContent=T.bio;$('#kst').textContent=T.story;$('#ksay').textContent=T.say;$('#kmen').textContent=T.mentor.replace('https://','');
+T.link=link;T.bio2=T.bio;T.say='« Créateur, c’est un vrai métier. Si tu veux le prouver toi aussi, l’École AUDACE t’offre ton appel de découverte. Le lien est en bio. »';T.mentor='https://audaceschool.com/ambassadeur.html?m='+code;T.mid='« D’ailleurs, si je vis aujourd’hui des réseaux sociaux, c’est en partie grâce à l’École AUDACE. Cette semaine, ils ouvrent leurs portes en physique à Paris, et en visio dans le reste du monde. Si t’es intéressé, rejoins leur communauté gratuite sur WhatsApp. »';
+$('#klk').textContent=link.replace('https://','');$('#kpote').textContent=T.pote;$('#kbio').textContent=T.bio;$('#kst').textContent=T.story;$('#ksay').textContent=T.say;$('#kmid').textContent=T.mid;$('#kmen').textContent=T.mentor.replace('https://','');
 var OB=['Aucun souci ! Le fondateur de l’École AUDACE a lui-même commencé mineur, et pas mal d’élèves de l’école le sont aussi 💪','Tkt, t’as besoin d’aucune compétence au départ ! À l’École AUDACE, un coach t’accompagne de A à Z : ta niche, ton offre, ton contenu, tout le reste.','Je t’explique : l’École AUDACE t’apprend à développer une audience sur les réseaux (comme @bobby_sanytb ou @mayacademy06), à créer du contenu viral, et ensuite à vendre tes propres accompagnements ou produits !\n\nSi ça t’intéresse, le mieux c’est d’en parler en appel avec l’équipe, c’est offert 💪 Tu réserves ici : {L}','Je comprends totalement la question, y’a plein de trucs chelous sur les réseaux. Regarde les témoignages des élèves et les vidéos YouTube de l’école, tu pourras te faire ton propre avis 👇\n\nhttps://youtu.be/-KJYFFTFya0','Aucun souci, l’École AUDACE a plusieurs élèves en Belgique et ça marche très bien pour eux ! Tout se passe en ligne.','L’objectif de l’école, c’est de te faire atteindre 5 000 € en moins de 3 mois. Mais comme chaque projet est différent, l’approche dépend de ta situation et de tes objectifs à long terme.\n\nC’est pour ça que le mieux, c’est d’en parler directement en appel plutôt que de te donner un chiffre qui ne serait pas forcément pertinent.\n\nÇa te dirait de prendre un petit appel de découverte avec l’équipe ? C’est offert et ça n’engage à rien. C’est juste pour te présenter l’école en détail et voir si elle te correspond !\n\nT’es dispo cette semaine ? Tu réserves ici : {L}'];
 OB.forEach(function(t,i){T['o'+i]=t.replace('{L}',link);$('#ko'+i).textContent=T['o'+i]});
 $$('[data-kc]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.kc;copy(T[k],b,function(){if(k==='pote'||k==='bio')mark(k)})})});
