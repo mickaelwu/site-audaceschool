@@ -4,10 +4,6 @@
 
 <meta charset="utf-8">
 <script>
-/* Lien partenaire (?a=CODE) : on envoie dans la Communauté WhatsApp. */
-(function(){try{if(new URLSearchParams(location.search).get('a'))location.replace('rejoindre.html'+location.search)}catch(e){}})();
-</script>
-<script>
 /* test A/B : la moitié des visiteurs va sur le diagnostic (B). Chacun garde toujours la même version. ?v=A ou ?v=B pour forcer. */
 (function(){try{var q=new URLSearchParams(location.search),v=q.get('v');if(v==='A'||v==='B')localStorage.setItem('aud-ab2',v);
 var g=localStorage.getItem('aud-ab2');if(!g){g=Math.random()<.5?'A':'B';localStorage.setItem('aud-ab2',g)}
