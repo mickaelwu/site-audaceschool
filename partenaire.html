@@ -255,7 +255,7 @@ button{font:inherit;color:inherit}
 
   <div class="sec kpis">
     <div class="kpi"><b id="kclic">—</b><span>Clics sur ton lien</span><small id="kclicm"></small></div>
-    <div class="kpi"><b id="kres">0</b><span>Réservations</span></div>
+    <div class="kpi"><b id="kres">0</b><span>Réservations</span><small id="kconv"></small></div>
     <div class="kpi"><b id="kven">0</b><span>Personnes inscrites</span></div>
     <div class="kpi"><b id="krk">—</b><span>Classement du mois</span></div>
   </div>
@@ -541,11 +541,16 @@ function render(){
     var r=nx.n-v;$('#pcnt').textContent='Plus que '+r+(r>1?' ventes':' vente');
     setTimeout(function(){$('#pbar').style.width=Math.max(3,(v-prev)/(nx.n-prev)*100)+'%'},200)}
   else{$('#pic').textContent='🏁';$('#pn').textContent='';$('#plab').textContent='Tous les paliers';$('#ptit').textContent='Tu as tout débloqué.';$('#pcnt').textContent='';$('#pbar').style.width='100%'}
-  activity(m);board();hype();
+  activity(m);board();hype();conv();
 }
+/* taux de conversion = réservations faites depuis le début du suivi des clics / clics */
+var CLICS=null,DEBUT_CLICS='2026-11-24T12:35';
+function conv(){var el=$('#kconv');if(!el)return;if(CLICS===null){el.textContent='';return}
+  var r=(me().activite||[]).filter(function(a){return a.t==='resa'&&a.d>=DEBUT_CLICS}).length;
+  el.textContent=CLICS>0?'Conversion : '+(Math.round(r/CLICS*1000)/10).toLocaleString('fr-FR')+' %':'Conversion : —'}
 function clics(){var u='https://abacus.jasoncameron.dev/get/audaceschool/clic-'+code,n=new Date(),mo=n.getFullYear()+'-'+('0'+(n.getMonth()+1)).slice(-2);
   var get=function(k){return fetch(u+k,{cache:'no-store'}).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){return +j.value||0})};
-  Promise.all([get(''),get('-'+mo)]).then(function(v){$('#kclic').textContent=v[0].toLocaleString('fr-FR');$('#kclicm').textContent=v[1]+' ce mois-ci'})
+  Promise.all([get(''),get('-'+mo)]).then(function(v){$('#kclic').textContent=v[0].toLocaleString('fr-FR');$('#kclicm').textContent=v[1]+' ce mois-ci';CLICS=v[0];conv()})
   .catch(function(){$('#kclic').textContent='—'})}
 clics();setInterval(clics,60000);
 function activity(m){var box=$('#act'),A=m.activite||[];box.innerHTML='';
