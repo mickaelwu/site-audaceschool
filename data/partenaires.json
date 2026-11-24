@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-24T16:39+01:00",
+ "maj": "2026-11-24T17:39+01:00",
  "mois": "2026-11",
  "partenaires": [
   {
@@ -42,6 +42,21 @@
    "activite": [
     {
      "d": "2026-11-19T08:40",
+     "t": "resa"
+    }
+   ],
+   "gagne": 0
+  },
+  {
+   "code": "MATTEO34",
+   "prenom": "Matteo",
+   "resa": 1,
+   "resa_mois": 1,
+   "ventes": 0,
+   "ventes_mois": 0,
+   "activite": [
+    {
+     "d": "2026-11-24T14:44",
      "t": "resa"
     }
    ],
