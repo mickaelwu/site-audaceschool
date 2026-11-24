@@ -46,7 +46,8 @@ button{font:inherit;color:inherit}
 .sh{display:flex;justify-content:space-between;align-items:baseline;margin:0 4px 10px}
 .sh h2{font-size:19px}
 .sh span{font-size:13px;font-weight:700;color:var(--mut)}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.kpi small{display:block;font-size:11px;font-weight:700;color:var(--rose);margin-top:3px}
 .kpi{background:var(--card);border-radius:20px;padding:14px 12px}
 .kpi b{display:block;font-family:'Instrument Sans',sans-serif;font-size:28px;line-height:1.05;letter-spacing:-.02em}
 .kpi span{display:block;font-size:12px;font-weight:700;color:var(--mut);margin-top:4px;line-height:1.25}
@@ -253,6 +254,7 @@ button{font:inherit;color:inherit}
   <div class="pot" id="pot"><div class="e">🔥</div><div><b id="potv">0 €</b><span id="potl">gagnés par les partenaires ce mois-ci</span></div></div>
 
   <div class="sec kpis">
+    <div class="kpi"><b id="kclic">—</b><span>Clics sur ton lien</span><small id="kclicm"></small></div>
     <div class="kpi"><b id="kres">0</b><span>Réservations</span></div>
     <div class="kpi"><b id="kven">0</b><span>Personnes inscrites</span></div>
     <div class="kpi"><b id="krk">—</b><span>Classement du mois</span></div>
@@ -541,6 +543,11 @@ function render(){
   else{$('#pic').textContent='🏁';$('#pn').textContent='';$('#plab').textContent='Tous les paliers';$('#ptit').textContent='Tu as tout débloqué.';$('#pcnt').textContent='';$('#pbar').style.width='100%'}
   activity(m);board();hype();
 }
+function clics(){var u='https://abacus.jasoncameron.dev/get/audaceschool/clic-'+code,n=new Date(),mo=n.getFullYear()+'-'+('0'+(n.getMonth()+1)).slice(-2);
+  var get=function(k){return fetch(u+k,{cache:'no-store'}).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){return +j.value||0})};
+  Promise.all([get(''),get('-'+mo)]).then(function(v){$('#kclic').textContent=v[0].toLocaleString('fr-FR');$('#kclicm').textContent=v[1]+' ce mois-ci'})
+  .catch(function(){$('#kclic').textContent='—'})}
+clics();setInterval(clics,60000);
 function activity(m){var box=$('#act'),A=m.activite||[];box.innerHTML='';
   if(!A.length){box.innerHTML='<div class="empty"><div class="e">📭</div><b>Rien pour l’instant</b><p>Chaque réservation et chaque vente faites avec ton lien s’afficheront ici.</p></div>';return}
   A.slice(0,12).forEach(function(e){var d=new Date(e.d.length===16?e.d+':00Z':e.d);var v=e.t==='vente';
