@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réserve ton appel — École AUDACE</title>
+<meta name="description" content="Regarde la vidéo et réserve ton appel avec l’équipe de Mickaël Wu.">
+<meta property="og:title" content="École AUDACE — Si ça marche pas, c’est gratuit">
+<meta property="og:image" content="https://audaceschool.com/img/og.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&amp;family=Montserrat:wght@500;600;700;800;900&amp;display=swap">
+<style>
+/* VOICE: page de réservation façon Badis, directe, preuves d'abord.
+   IDEA: une page blanche qui ne fait qu'une chose — regarder la vidéo et réserver.
+   PICTURE: la VSL, puis l'agenda, puis les vidéos des élèves.
+   COLOUR and TYPE: blanc, encre noire, rouge AUDACE #C21A47 ; Montserrat 800/500.
+   LAYOUT: une colonne centrée de 760px, bloc résultats en lignes texte + vidéo. */
+:root{--ink:#111;--mut:#5b5b5b;--red:#C21A47;--line:#e7e7e7;--soft:#f7f7f8}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font:16px/1.5 'Montserrat',Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.bar{background:#0b0b0c;color:#fff;text-align:center;padding:12px 16px 10px}
+.logo{display:inline-flex;flex-direction:column;align-items:center;line-height:1}
+.logo b{font-family:'Instrument Sans',sans-serif;font-size:26px;letter-spacing:.04em}
+.logo small{font-size:7px;font-weight:800;letter-spacing:.36em;margin-top:4px;opacity:.75}
+.bar em{display:block;margin-top:8px;font-size:12px;font-weight:600;color:#fff}
+.w{max-width:780px;margin:0 auto;padding:0 18px}
+.warn{margin:22px 0 0;text-align:center;font-weight:700;font-size:15px}
+h1{margin:14px auto 0;max-width:720px;text-align:center;font-weight:800;font-size:clamp(23px,4.4vw,34px);line-height:1.28;text-wrap:balance}
+h1 u{text-underline-offset:5px;text-decoration-thickness:3px}
+.big{margin:14px 0 0;text-align:center;font-weight:900;font-size:clamp(30px,6.2vw,50px);line-height:1.08}
+.big u{text-underline-offset:7px;text-decoration-thickness:4px}
+.sub{margin:16px auto 0;max-width:560px;text-align:center;font-weight:700;font-size:clamp(14px,2.3vw,17px);line-height:1.45}
+.sub u{text-decoration-thickness:2px}
+.vsl{position:relative;margin:22px 0 0;aspect-ratio:16/9;background:#000;border-radius:6px;overflow:hidden}
+.vsl video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+.ask{margin:26px 0 0;text-align:center;color:var(--red);font-weight:800;font-size:clamp(15px,2.4vw,18px);line-height:1.4}
+.ask span{display:block;font-weight:700;font-size:.85em}
+.agenda{margin:14px 0 0;border:1px solid var(--line);border-radius:10px;padding:6px;box-shadow:0 6px 30px rgba(0,0,0,.06)}
+.iclosed-widget{width:100%;height:720px;border-radius:8px;overflow:hidden}
+.iclosed-widget iframe{display:block;border:0!important}
+.fb{display:none;padding:40px 16px;text-align:center}
+.note{margin:12px 0 0;text-align:center;font-size:13px;color:var(--mut)}
+.note b{color:var(--red)}
+.res{margin:56px auto 0;max-width:880px;border:1px solid var(--line);border-radius:10px;background:#fbfbfc;padding:28px clamp(14px,3vw,34px) 8px}
+.res h2{margin:0 0 18px;text-align:center;font-weight:800;font-size:clamp(24px,4vw,34px)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:center;padding:16px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.who{text-align:center}
+.who .n{font-weight:700;font-size:14px;color:#0f3d46}
+.who .t{font-size:12px;color:var(--mut);margin-top:2px}
+.who .q{margin-top:8px;font-weight:800;font-size:clamp(17px,2.6vw,22px);line-height:1.25;text-transform:uppercase}
+.row video{display:block;width:100%;max-height:340px;border-radius:6px;background:#111;object-fit:contain}
+.cta{display:block;margin:26px auto 0;max-width:560px;text-align:center;text-decoration:none;color:#fff;background:linear-gradient(180deg,#d42454,#a8143c);border-radius:10px;padding:15px 18px 13px;box-shadow:0 8px 24px rgba(194,26,71,.28)}
+.cta b{display:block;font-weight:900;font-size:clamp(17px,2.8vw,22px);letter-spacing:.01em}
+.cta span{display:block;font-size:13px;font-weight:600;opacity:.9;margin-top:2px}
+.cta:focus-visible{outline:3px solid #111;outline-offset:3px}
+footer{margin:56px 0 0;padding:26px 18px 40px;text-align:center;font-size:12px;color:var(--mut);border-top:1px solid var(--line)}
+footer p{max-width:640px;margin:6px auto 0}
+@media(max-width:600px){.row{grid-template-columns:minmax(0,1fr)}.row video{max-height:420px}.iclosed-widget{height:760px}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <span class="logo"><b>AUDACE</b><small>ÉCOLE D’ENTREPRENEURIAT</small></span>
+  <em>[ Appel offert avec l’équipe de Mickaël Wu ]</em>
+</header>
+
+<main class="w">
+  <p class="warn">⚠️ UNIQUEMENT pour les étudiants, alternants et salariés ⚠️</p>
+  <h1>Est-il possible de générer 5 000 €/mois grâce aux réseaux, en vendant ce que tu sais déjà faire, avec la “<u>Méthode AUDACE</u>” ?</h1>
+  <p class="big">Si ça marche pas, c’est <u>GRATUIT</u></p>
+  <p class="sub">+Si tu n’atteins pas 5 000 €/mois en 90 jours… tu ne paies rien, et je te verse <u>500 €</u> pour le temps perdu (sur contrat)</p>
+
+  <div class="vsl">
+    <video id="vsl" controls playsinline preload="metadata" poster="img/vsl-ecole-audace.jpg">
+      <source src="media/vsl-ecole-audace.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <p class="ask" id="agenda">Entre tes infos pour voir s’il reste des créneaux :<span>(appel offert et sans engagement)</span></p>
+  <div class="agenda">
+    <div id="icw" title="Appel de découverte AUDACE"></div>
+    <div class="fb" id="fb"><a class="cta" id="fbl" href="https://app.iclosed.io/e/mickaelwu/appel-de-d-couverte-audace" target="_blank" rel="noopener"><b>OUVRIR L’AGENDA</b><span>Choisis ton créneau</span></a></div>
+  </div>
+  <p class="note"><b>Important :</b> tu repars avec un plan clair pour aller à 5 000 €/mois, que tu nous rejoignes ou non.</p>
+</main>
+
+<section class="w" style="max-width:920px">
+  <div class="res">
+    <h2>RÉSULTATS DES ÉLÈVES 👇</h2>
+    <div id="rows"></div>
+  </div>
+  <a class="cta" href="#agenda"><b>VOIR S’IL RESTE DES CRÉNEAUX</b><span>Réserver mon appel ICI</span></a>
+</section>
+
+<footer>
+  <p>© 2026 École AUDACE — Mickaël Wu Business. Tous droits réservés.</p>
+  <p>Ce site ne fait pas partie du site Web de Facebook™ ou de Facebook™ Inc. De plus, ce site n’est en aucun cas approuvé par Facebook™. FACEBOOK™ est une marque commerciale de FACEBOOK™, Inc.</p>
+</footer>
+
+<script>
+{
+const E=[
+ ['Kayss','Achat-revente','20 000 € en 5 mois','tv-kayss.jpg','t-kayss.mp4'],
+ ['Husler','Revente Vinted, 17 ans','14 200 € en 2 mois','tv-husler.jpg','t-husler.mp4'],
+ ['Dezuur','Vente de formations','Plus de 8 000 € par mois','tv-dezuur.jpg','t-dezuur.mp4'],
+ ['Lucas Arniac','Cours de DJ','5 000 € par mois','tv-lucasarniac.jpg','t-lucasarniac.mp4'],
+ ['Paul et Math','Coachs street workout','5 000 € par mois','tv-paulmath.jpg','4d82ff03ed77c7b7b257784e893103ae.mp4'],
+ ['Mayline','Étudiante en médecine, coach TCA','2 500 € en 1 semaine','tv-mayline.jpg','52f14fbc53e140d4c3f1e8cedef5fbe0.mp4'],
+ ['Lucas','Coaching sportif','Plus de 5 000 € par mois','tv-lucas.jpg','t-lucas.mp4'],
+ ['Jayden','Coach de vie','Plus de 5 000 € par mois','tv-jayden.jpg','t-jayden.mp4'],
+ ['Fan','Cours de chinois','4 000 € par mois','tv-fan.jpg','7814e5b2c5f88d7403104668fb856c18.mp4'],
+ ['Anès','Business en ligne','Plus de 5 000 € par mois','tv-anes.jpg','t-anes.mp4'],
+ ['Iliès','TikTok, sans montrer son visage','6 000 € en 3 mois','tv-noface.jpg','t-noface.mp4'],
+ ['Wail','Etsy','3 000 € par mois','tv-wail.jpg','t-wail.mp4'],
+ ['Jules','Business en ligne, 16 ans','2 000 € par mois','tv-jules.jpg','t-jules.mp4'],
+ ['Julien','Contenu et closing, 17 ans','1 500 € en 3 semaines','tv-julien.jpg','t-julien.mp4'],
+ ['Adrien','Photographe, lycéen','Premières ventes à 400 €','tv-adrien.jpg','348eed8c10aae3b9a0050bedbe2b3487.mp4'],
+ ['Alban','Micro-trottoirs','2 000 € par mois','tv-alban.jpg','t-alban.mp4']
+];
+document.getElementById('rows').innerHTML=E.map(e=>`<div class="row"><div class="who"><div class="n">@${e[0]}</div><div class="t">${e[1]}</div><div class="q">“${e[2]}”</div></div><video controls playsinline preload="none" poster="img/${e[3]}"><source src="media/${e[4]}" type="video/mp4"></video></div>`).join('');
+
+// une seule vidéo à la fois
+document.addEventListener('play',ev=>{document.querySelectorAll('video').forEach(v=>{if(v!==ev.target)v.pause()})},true);
+
+// agenda iClosed (sinon bouton de secours)
+const url='https://app.iclosed.io/e/mickaelwu/appel-de-d-couverte-audace?utm_content=lp-vsl-badis';
+const w=document.getElementById('icw');w.className='iclosed-widget';w.setAttribute('data-url',url);document.getElementById('fbl').href=url;
+const sc=document.createElement('script');sc.src='https://app.iclosed.io/assets/widget.js';sc.async=true;document.body.appendChild(sc);
+setTimeout(()=>{if(!w.querySelector('iframe')){w.style.display='none';document.getElementById('fb').style.display='block'}},8000);
+}
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d0d583caaa75407789e852c1c6aaa9c5"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="clics.js" defer></script>
+</body>
+</html>
