@@ -1,5 +1,5 @@
 {
- "maj": "2026-11-25T22:39+01:00",
+ "maj": "2026-11-26T00:40+01:00",
  "mois": "2026-11",
  "partenaires": [
   {
@@ -48,6 +48,21 @@
    "gagne": 0
   },
   {
+   "code": "AMAURY26",
+   "prenom": "Amaury",
+   "resa": 1,
+   "resa_mois": 1,
+   "ventes": 0,
+   "ventes_mois": 0,
+   "activite": [
+    {
+     "d": "2026-11-25T22:44",
+     "t": "resa"
+    }
+   ],
+   "gagne": 0
+  },
+  {
    "code": "MATTEO34",
    "prenom": "Matteo",
    "resa": 1,
@@ -60,16 +75,6 @@
      "t": "resa"
     }
    ],
-   "gagne": 0
-  },
-  {
-   "code": "AMAURY26",
-   "prenom": "Amaury",
-   "resa": 0,
-   "resa_mois": 0,
-   "ventes": 0,
-   "ventes_mois": 0,
-   "activite": [],
    "gagne": 0
   },
   {
