@@ -133,6 +133,22 @@ button{font:inherit;color:inherit}
 .login p{color:var(--mut)}
 .login input{width:100%;margin:22px 0 10px;font:inherit;font-weight:800;font-size:22px;text-align:center;text-transform:uppercase;letter-spacing:.1em;color:#fff;border:0;border-radius:18px;padding:18px;background:var(--card);outline:none}
 .login .err{color:#FF7A95;font-weight:700;font-size:14px;min-height:20px;margin-bottom:8px}
+.sty{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.sty .big{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:44px;line-height:1;letter-spacing:-.03em}
+.sty .big small{font-family:'Inter';font-size:14px;font-weight:700;color:var(--mut);margin-left:6px;letter-spacing:0}
+.sty .nxt{font-size:13px;font-weight:700;color:var(--rose);text-align:right;line-height:1.3}
+.gifts{display:grid;gap:8px;margin:6px 0 14px}
+.gift{display:flex;align-items:center;gap:12px;background:var(--card2);border-radius:18px;padding:11px 12px}
+.gift .gi{flex:none;width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.07);display:grid;place-items:center;font-size:21px}
+.gift .gt{flex:1;line-height:1.25}
+.gift .gt b{display:block;font-size:15px}
+.gift .gt small{font-size:12px;font-weight:700;color:var(--mut)}
+.gift .gs{flex:none;font-size:12px;font-weight:800;color:var(--mut)}
+.gift.ok .gi{background:linear-gradient(135deg,#FFE08A,#F5B83D)}
+.gift.ok .gs{color:var(--ok)}
+.gift.ok a.gs{color:#0F0608;background:var(--ok);border-radius:999px;padding:7px 11px;text-decoration:none}
+.btn[disabled]{opacity:.55;cursor:default}
+.srule{font-size:13px;color:var(--mut);margin-top:10px;line-height:1.4}
 .hide{display:none!important}
 .app{padding-bottom:110px}
 .tabbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom));z-index:40;display:grid;grid-template-columns:1fr 1fr;gap:4px;width:min(92vw,360px);padding:6px;border-radius:999px;background:rgba(36,21,26,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 34px rgba(0,0,0,.5)}
@@ -304,6 +320,17 @@ button{font:inherit;color:inherit}
     </div>
   </section>
 
+  <section class="sec" id="stories">
+    <div class="sh"><h2>Défi stories</h2><span>Des cadeaux à gagner</span></div>
+    <div class="card">
+      <div class="sty"><div class="big" id="sn">0<small>stories</small></div><p class="nxt" id="snx"></p></div>
+      <div class="bar"><i id="sbar"></i></div>
+      <div class="gifts" id="gifts"></div>
+      <button class="btn btn-w" type="button" id="sgo">J’ai posté ma story aujourd’hui</button>
+      <p class="srule">Pour qu’elle compte : tague @ecoleaudace et mets ton lien perso en sticker. 1 story par jour maximum. L’équipe vérifie les stories avant d’envoyer chaque cadeau.</p>
+    </div>
+  </section>
+
   <section class="sec">
     <div class="sh"><h2>Activité</h2><span>Depuis ton lien</span></div>
     <div class="card" id="act"></div>
@@ -368,7 +395,7 @@ button{font:inherit;color:inherit}
     </div>
     <div class="kt">
       <h3><span class="num">3</span>Poste 3 stories</h3>
-      <p class="h">Une par une, dans l’ordre. Ton lien en sticker sur la dernière.</p>
+      <p class="h">Une par une, dans l’ordre. Ton lien en sticker sur la dernière, et tague @ecoleaudace : chaque story compte pour le défi stories (cadeaux à 5, 15 et 30 stories).</p>
       <div class="txt" id="kst"></div>
       <button class="btn btn-w" type="button" data-kc="story">Copier les 3 textes</button>
     </div>
@@ -629,6 +656,29 @@ $$('.mh').forEach(function(h){h.addEventListener('click',function(){fOpen(h.pare
 $$('[data-done]').forEach(function(b){b.addEventListener('click',function(){var n=b.dataset.done;F.done[n]=true;try{localStorage.setItem(FK,JSON.stringify(F))}catch(e){}fUpd();
   var nx=document.querySelector('.md[data-m="'+(+n+1)+'"]');if(nx){fOpen(nx)}else{$$('.md').forEach(function(x){x.classList.remove('open')});boom();toast('🎓','Formation terminée','Tu as tout pour faire ta 1re vente.')}})});
 fUpd();(function(){var first=$$('.md').filter(function(m){return !F.done[m.dataset.m]})[0];if(first)first.classList.add('open')})();
+/* Défi stories : le partenaire déclare sa story du jour (1 par jour), compteur cumulé depuis l'inscription */
+var SG=[{n:5,ic:'📣',t:'Ta story repostée sur @ecoleaudace'},{n:15,ic:'🎯',t:'Un retour perso sur ton contenu par l’équipe AUDACE'},{n:30,ic:'🧥',t:'Le sweat AUDACE, livré chez toi'}];
+var SU='https://abacus.jasoncameron.dev/',SK='story-'+code,SDK='aud-story',SN=null;
+function today(){var d=new Date(),z=function(n){return ('0'+n).slice(-2)};return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())}
+function sDone(){try{var o=JSON.parse(localStorage.getItem(SDK)||'{}');return o.code===code&&o.d===today()}catch(e){return false}}
+function claim(g){return 'https://wa.me/33695739669?text='+encodeURIComponent('Salut ! Partenaire AUDACE, code '+code+'. J’ai posté '+g.n+' stories avec le tag @ecoleaudace, je récupère mon cadeau : '+g.t)}
+function sRender(){var n=SN||0;$('#sn').innerHTML=n+'<small>'+(n>1?'stories':'story')+'</small>';
+  var nx=null,prev=0;for(var i=0;i<SG.length;i++){if(n<SG[i].n){nx=SG[i];break}prev=SG[i].n}
+  if(nx){var r=nx.n-n;$('#snx').textContent='Plus que '+r+(r>1?' stories':' story')+'\npour ton prochain cadeau';$('#snx').style.whiteSpace='pre-line';
+    setTimeout(function(){$('#sbar').style.width=Math.max(3,(n-prev)/(nx.n-prev)*100)+'%'},200)}
+  else{$('#snx').textContent='Tous les cadeaux débloqués 🏁';$('#sbar').style.width='100%'}
+  var box=$('#gifts');box.innerHTML='';SG.forEach(function(g){var ok=n>=g.n,d=document.createElement('div');d.className='gift'+(ok?' ok':'');
+    d.innerHTML='<div class="gi">'+g.ic+'</div><div class="gt"><b></b><small>'+g.n+' stories</small></div>'+(ok?'<a class="gs" target="_blank" rel="noopener">Récupérer</a>':'<span class="gs">🔒</span>');
+    d.querySelector('b').textContent=g.t;if(ok)d.querySelector('a').href=claim(g);box.appendChild(d)});
+  var b=$('#sgo');if(sDone()){b.disabled=true;b.textContent='Story du jour comptée ✓ Reviens demain'}else{b.disabled=false;b.textContent='J’ai posté ma story aujourd’hui'}}
+function sLoad(){fetch(SU+'get/audaceschool/'+SK,{cache:'no-store'}).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){SN=+j.value||0;sRender()}).catch(function(){sRender()})}
+$('#sgo').addEventListener('click',function(){if(sDone())return;var b=$('#sgo');b.disabled=true;
+  fetch(SU+'hit/audaceschool/'+SK,{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){var before=SN||0;SN=+j.value||before+1;
+    try{localStorage.setItem(SDK,JSON.stringify({code:code,d:today()}))}catch(e){}
+    var g=SG.filter(function(x){return before<x.n&&SN>=x.n})[0];sRender();boom();
+    if(g)toast(g.ic,'Cadeau débloqué !',g.t+'. Appuie sur « Récupérer ».');else toast('🔥','Story comptée','Tu en es à '+SN+'. Continue demain.')})
+  .catch(function(){b.disabled=false;toast('⚠️','Pas de connexion','Réessaie dans un instant.')})});
+sRender();sLoad();
 function view(v){$('#vHome').classList.toggle('hide',v!=='home');$('#vKit').classList.toggle('hide',v!=='kit');$$('#tabbar button').forEach(function(x){x.classList.toggle('on',x.dataset.v===v)});
   try{history.replaceState(null,'',v==='kit'?'#kit':location.pathname+location.search)}catch(e){}
   var h=document.querySelector('.hero');if(h&&window.scrollY>h.offsetHeight-40)window.scrollTo({top:h.offsetHeight-20,behavior:'smooth'})}
